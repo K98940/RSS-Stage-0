@@ -14,6 +14,7 @@
   --color-sand: #BB945F;
   --color-white: #FFFFFF;
   --color-grey: #8E8E8E;
+  --color-icon-social: #f5efdb;
 
   --font-common: Inter;
   --font-title: Forum;
@@ -23,7 +24,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  transition-duration: 200ms;
+  transition-duration: 150ms;
   scroll-behavior: smooth;
 }
 
@@ -57,11 +58,6 @@ section {
 .container {
   width: 1440px;
   margin: 0 auto;
-
-  /* это для удобства отладки, не забыть удалить */
-  padding-bottom: 2000px;
-
-  background-color: #fbfbea;
 }
 
 .header-title {
@@ -104,7 +100,7 @@ section {
       font-family: var(--font-common);
       color: var(--color-white);
       font-size: 20px;
-      letter-spacing: 0.9px;
+      letter-spacing: 1px;
       text-decoration: none;
     }
 
@@ -137,13 +133,16 @@ section {
 }
 
 .welcome-wrapper {
+  position: relative;
   width: 600px;
   height: 440px;
-  padding-top: 220px;
+  padding-top: 200px;
 }
 
 .welcome-title {
-  padding: 35px 40px;
+  position: relative;
+  left: -20px;
+  padding: 35px 0;
   background-color: var(--color-black);
 
   & p {
@@ -156,6 +155,15 @@ section {
     line-height: 50px;
     letter-spacing: 3px;
     text-transform: uppercase;
+  }
+
+  & p:first-child {
+    letter-spacing: 3px;
+    padding-right: 10px;
+  }
+
+  & p:last-child {
+    padding-left: 4px;
   }
 }
 
@@ -468,7 +476,7 @@ section {
     padding-bottom: 20px;
 
     & .menu {
-      width: 438px;
+      width: 461px;
 
       & .menu-title {
         padding-bottom: 20px;
@@ -483,17 +491,13 @@ section {
         text-transform: capitalize;
       }
 
-      & .align__right {
-        text-align: right;
-      }
-
       & .menu-row {
         display: flex;
-        position: relative;
         justify-content: space-between;
+        padding-right: 23px;
 
         color: var(--color-black);
-        font-family: var(--font-common);
+        font-family: var(--font-title);
         font-size: 20px;
         font-style: normal;
         font-weight: 400;
@@ -502,19 +506,45 @@ section {
         text-transform: capitalize;
 
         & .menu-row-name {
-          width: 275px;
-          padding-right: 60px;
+          position: relative;
+          width: 257px;
+          padding-right: 5px;
+
+          font-family: var(--font-common);
+
+          & div {
+            overflow: hidden;
+            white-space: nowrap;
+          }
 
           &::after {
             position: absolute;
             content: "";
             width: 100px;
             height: 1px;
-            top: 50%;
-            right: 81px;
+            top: calc(50% - 1px);
+            right: -100px;
 
             background-color: var(--color-sand);
+
           }
+        }
+
+        & .menu-row-price {
+          letter-spacing: 1.5px;
+        }
+      }
+
+      & .align__right {
+        text-align: right;
+      }
+
+      & .__padding_right {
+        padding-right: 0;
+
+        & .menu-row-name {
+          width: 270px;
+          padding-right: 57px;
         }
       }
     }
@@ -566,6 +596,7 @@ section {
 .cards-wrapper {
   display: flex;
   justify-content: space-between;
+  padding-bottom: 42px;
 
   & .cards-find-wrapper {
     display: flex;
@@ -658,6 +689,7 @@ section {
     background-color: var(--color-white);
 
     &:hover {
+      cursor: pointer;
       background-color: var(--color-sand);
       border: 1px solid var(--color-sand);
     }
@@ -718,9 +750,93 @@ section {
       background-color: var(--color-white);
 
       &:hover {
+        cursor: pointer;
         background-color: var(--color-sand);
         border: 1px solid var(--color-sand);
       }
+    }
+  }
+}
+
+.font-common-1 {
+  color: var(--color-white);
+  font-family: var(--font-common);
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.75px;
+  line-height: 20px;
+  text-decoration: none;
+}
+
+.font-size-2 {
+  font-size: 20px;
+  letter-spacing: 3px;
+}
+
+footer {
+  padding: 19px 20px 44px 20px;
+
+  background-color: var(--color-dark);
+
+  & .footer-top {
+    display: flex;
+    justify-content: space-between;
+
+    border-bottom: 1px solid var(--color-white);
+  }
+
+  & .footer-adresss {
+    padding-bottom: 15px;
+
+    & a:hover {
+      color: var(--color-sand);
+    }
+  }
+
+  & .footer-agenda {
+    text-align: right;
+
+    & div:first-child {
+      padding-bottom: 10px;
+    }
+  }
+
+  & .footer-social {
+    display: flex;
+    margin-left: -3px;
+    padding-bottom: 34px;
+    gap: 9px;
+
+    & a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 30px;
+      height: 30px;
+    }
+
+    & a:hover svg {
+      fill: var(--color-sand);
+    }
+
+    & svg {
+      fill: var(--color-icon-social);
+    }
+  }
+
+  & .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 46px;
+
+    & a:nth-child(2) {
+      padding-left: 67px;
+    }
+
+    & a:hover {
+      color: var(--color-sand);
     }
   }
 }
