@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brooklyn Public Library</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div class="header-wrapper">
+        <h1 class="header-title">
+          Brooklyn Public Library
+        </h1>
+        <div class="wrapper-nav-profile">
+          <nav>
+            <ul class="header-nav-ul">
+              <li><a href="#about">About</a></li>
+              <li><a href="#favorites">Favorites</a></li>
+              <li><a href="#shop">Coffee shop</a></li>
+              <li><a href="#contacts">Contacts</a></li>
+              <li><a href="#cards">Library Card</a></li>
+            </ul>
+          </nav>
+          <div class="profile">
+            <a href="">
+              <svg width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14ZM18.6667 7.77778C18.6667 10.3551 16.5774 12.4444 14.0001 12.4444C11.4227 12.4444 9.33339 10.3551 9.33339 7.77778C9.33339 5.20045 11.4227 3.11111 14.0001 3.11111C16.5774 3.11111 18.6667 5.20045 18.6667 7.77778ZM19.4998 16.2781C20.9584 17.7367 21.7778 19.715 21.7778 21.7778H14L6.22225 21.7778C6.22225 19.715 7.0417 17.7367 8.50031 16.2781C9.95893 14.8194 11.9372 14 14 14C16.0628 14 18.0411 14.8194 19.4998 16.2781Z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <section class="welcome">
+    <div class="container">
+      <div class="welcome-wrapper">
+        <div class="welcome-title">
+          <h3>Welcome</h3>
+          <h3>to the Brooklyn</h3>
+          <h3>Library</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+  <main>
+    <div class="container">
+      <section class="about" id="about">
+        <div class="title">
+          <h2>About</h2>
+        </div>
+        <div class="subtitle">
+          <h3>The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside</h3>
+        </div>
+        <div class="images-items">
+          <div class="item-1">
+            <img src="assets/jpg/About/image_1.jpg" alt="image about">
+          </div>
+          <div class="item-2">
+            <img src="assets/jpg/About/image_2.jpg" alt="image about">
+          </div>
+          <div class="item-3">
+            <img src="assets/jpg/About/image_3.jpg" alt="image about">
+          </div>
+        </div>
+        <div class="pagination-wrapper">
+          <div class="pagination-btn-wrapper">
+            <div class="pagination-btn pagination-btn__active"></div>
+          </div>
+          <div class="pagination-btn-wrapper">
+            <div class="pagination-btn"></div>
+          </div>
+          <div class="pagination-btn-wrapper">
+            <div class="pagination-btn"></div>
+          </div>
+        </div>
+      </section>
+      <section class="favorites" id="favorites">
+        <div class="title">
+          <h2>Favorites</h2>
+        </div>
+        <div class="favorites-subtitle">
+          <h3>Pick favorites of season</h3>
+        </div>
+        <div class="seasons-wrapper">
+          <div class="seasons-radio-wrapper">
+            <input type="radio" name="seasons" id="winter" value="winter" checked>
+            <label class="radio_active" for="winter">Winter</label>
+          </div>
+          <div class="seasons-radio-wrapper">
+            <input type="radio" name="seasons" id="spring" value="spring">
+            <label for="spring">Spring</label>
+          </div>
+          <div class="seasons-radio-wrapper">
+            <input type="radio" name="seasons" id="summer" value="summer">
+            <label for="summer">Summer</label>
+          </div>
+          <div class="seasons-radio-wrapper">
+            <input type="radio" name="seasons" id="autumn" value="autumn">
+            <label for="autumn">Autumn</label>
+          </div>
+        </div>
+        <div class="favorites-items-wrapper">
+          <div class="favorites-item" season="winter">
+            <div class="favorites-item-title">Staff Picks</div>
+            <div class="favorites-item-subtitle favorites-item-book-name">The Book Eaters</div>
+            <div class="favorites-item-subtitle favorites-item-book-author">By Sunyi Dean</div>
+            <div class="favorites-description-poster-wrapper">
+              <div class="favorites-item-description">
+                <p>
+                  An unusual sci-fi story about a book eater woman who tries desperately to save her dangerous
+                  mind-eater
+                  son from
+                  tradition and certain death. Complete with dysfunctional family values, light Sapphic romance, and a
+                  strong, complex
+                  protagonist. Not for the faint of heart.
+                </p>
+                <button class="favorites-item-button">Buy</button>
+              </div>
+            </div>
+            <div class="favoritesitem-poster">
+              <img src="assets/jpg/Favorites/book_1.jpg" alt="poster">
+            </div>
+          </div>
+          <div class="favorites-item" season="winter">
+            <div class="favorites-item-title">Staff Picks</div>
+            <div class="favorites-item-subtitle favorites-item-book-name">Cackle</div>
+            <div class="favorites-item-subtitle favorites-item-book-author">By Rachel Harrison</div>
+            <div class="favorites-description-poster-wrapper">
+              <div class="favorites-item-description">
+                <p>
+                  Are your Halloween movies of choice The Witches of Eastwick and Practical Magic? Look no further than
+                  here - where a
+                  woman recovering from a breakup moves to a quaint town in upstate New York and befriends a beautiful
+                  witch.
+                </p>
+                <button class="favorites-item-button">Buy</button>
+              </div>
+            </div>
+            <div class="favoritesitem-poster">
+              <img src="assets/jpg/Favorites/book_2.jpg" alt="poster">
+            </div>
+          </div>
+          <div class="favorites-item" season="winter">
+            <div class="favorites-item-title">Staff Picks</div>
+            <div class="favorites-item-subtitle favorites-item-book-name">Dante: Poet of the Secular World</div>
+            <div class="favorites-item-subtitle favorites-item-book-author">By Erich Auerbach</div>
+            <div class="favorites-description-poster-wrapper">
+              <div class="favorites-item-description">
+                <p>
+                  Auerbach's engaging book places the 'Comedy' within the tradition of epic, tragedy, and philosophy in
+                  general, arguing
+                  for Dante's uniqueness as one who raised the individual and his drama of soul into something of divine
+                  significance—an
+                  inspired introduction to Dante's main themes.
+                </p>
+                <button class="favorites-item-button">Buy</button>
+              </div>
+            </div>
+            <div class="favoritesitem-poster">
+              <img src="assets/jpg/Favorites/book_3.jpg" alt="poster">
+            </div>
+          </div>
+          <div class="favorites-item" season="winter">
+            <div class="favorites-item-title">Staff Picks</div>
+            <div class="favorites-item-subtitle favorites-item-book-name">The Last Queen</div>
+            <div class="favorites-item-subtitle favorites-item-book-author">By Clive Irving</div>
+            <div class="favorites-description-poster-wrapper">
+              <div class="favorites-item-description">
+                <p>
+                  A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors
+                  have evolved and
+                  thrived as the modern world has changed around them.
+                </p>
+                <button class="favorites-item-button  favorites-item-button__own" disabled>Own</button>
+              </div>
+            </div>
+            <div class="favoritesitem-poster">
+              <img src="assets/jpg/Favorites/book_4.jpg" alt="poster">
+            </div>
+          </div>
+          <div class="favorites-item" season="spring">
+            <div class="favorites-item-title">Staff Picks</div>
+            <div class="favorites-item-subtitle favorites-item-book-name">The Nightingale</div>
+            <div class="favorites-item-subtitle favorites-item-book-author">By Hans Andersen</div>
+            <div class="favorites-description-poster-wrapper">
+              <div class="favorites-item-description">
+                <p>
+                  A king lived in a big and beautiful palace. His palace had a lovely garden with lots of flowers.
+                  People walked into this
+                  garden to look at the flowers. Then they went through a wood to see the sea. A nightingale lived in a
+                  tree in this wood.
+                  It sang beautifully. Every night one old man listened to its songs. Many visitors from other countries
+                  came to see the
+                  king. Even they heard this nightingale. One day the king wanted the nightingale to sing to him. The
+                  servant did not know
+                  about the bird. But he tried to find it. He went through the garden and the wood. But he found
+                  nothing. He asked other
+                  servants for help. They ran through the palace and found a little girl in the kitchen. She knew where
+                  the nightingale
+                  lived.
+                </p>
+                <button class="favorites-item-button">Buy</button>
+              </div>
+            </div>
+            <div class="favoritesitem-poster">
+              <img src="assets/jpg/Favorites/book_5.jpg" alt="poster">
+            </div>
+          </div>
+          <div class="favorites-item" season="spring">
+            <div class="favorites-item-title">Staff Picks</div>
+            <div class="favorites-item-subtitle favorites-item-book-name">The Emperor's New Clothes</div>
+            <div class="favorites-item-subtitle favorites-item-book-author">By Hans Andersen</div>
+            <div class="favorites-description-poster-wrapper">
+              <div class="favorites-item-description">
+                <p>
+                  This is a story about an emperor. This man loved new and nice clothes. He changed clothes every few
+                  hours. He always had
+                  a separate suit for the morning, afternoon and evening. One day two men came to the emperor. These
+                  people loved money,
+                  but they did not like to work. Still they often made a lot of money. The men offered to make a
+                  beautiful cloth for the
+                  emperor. But only clever people would see this cloth. The ruler believed them. He paid a lot of money.
+                  The men came once
+                  more and got even more money. The emperor waited and waited. After all, he really wanted to get a
+                  beautiful suit made of
+                  this magic cloth. But the ruler was a little bit afraid. What if he was not clever enough? That is why
+                  he did not visit
+                  the two men. </p>
+                <button class="favorites-item-button">Buy</button>
+              </div>
+            </div>
+            <div class="favoritesitem-poster">
+              <img src="assets/jpg/Favorites/book_6.jpg" alt="poster">
+            </div>
+          </div>
+          <div class="favorites-item" season="spring">
+            <div class="favorites-item-title">Staff Picks</div>
+            <div class="favorites-item-subtitle favorites-item-book-name">The Little Mermaid</div>
+            <div class="favorites-item-subtitle favorites-item-book-author">By Hans Andersen</div>
+            <div class="favorites-description-poster-wrapper">
+              <div class="favorites-item-description">
+                <p>
+                  In the middle of the sea the water is very blue. One can see through it. It seems that it is not
+                  water, but air. There
+                  is a real world under the water. There are many beautiful trees and plants. Fish swim in and out of
+                  them. There is also
+                  a big palace. The Sea King lives there. His wife died and left six daughters. The king loved his
+                  children. His old
+                  mother helped him to raise them. The children loved their father and grandmother. They were beautiful
+                  mermaid
+                  princesses. The youngest princess was the most beautiful: her eyes were as blue as the sea. Her face
+                  was as white as
+                  snow. But mermaids did not have legs. They had big fish tails. Sometimes the grandmother told stories
+                  to the princesses.
+                  Her stories were about the world, where people lived. At fifteen, the youngest mermaid finally saw
+                  this world.
+                </p>
+                <button class="favorites-item-button">Buy</button>
+              </div>
+            </div>
+            <div class="favoritesitem-poster">
+              <img src="assets/jpg/Favorites/book_7.jpg" alt="poster">
+            </div>
+          </div>
+          <div class="favorites-item" season="spring">
+            <div class="favorites-item-title">Staff Picks</div>
+            <div class="favorites-item-subtitle favorites-item-book-name">The Ugly Duckling</div>
+            <div class="favorites-item-subtitle favorites-item-book-author">By Hans Andersen</div>
+            <div class="favorites-description-poster-wrapper">
+              <div class="favorites-item-description">
+                <p>
+                  A duck sat on her eggs in the wood. She sat there for a long time. Finally the eggs opened and some
+                  ducklings appeared.
+                  But one egg remained. The mother duck sat down on it again. Soon this egg opened. A duckling appeared.
+                  But he was very
+                  big and ugly. This duckling was very strange. But he was her child. Once the mother duck went to the
+                  river with her
+                  children. The ducklings jumped into the water. The ugly duckling was with them. It swam well. The
+                  mother duck was
+                  surprised. She thought he was clever. Later the family went into the garden. There were many other
+                  ducks. They saw the
+                  ugly duckling. They did not like him. He was too big and strange. He was different. So there was no
+                  place for the ugly
+                  duckling in this garden.
+                </p>
+                <button class="favorites-item-button">Buy</button>
+              </div>
+            </div>
+            <div class="favoritesitem-poster">
+              <img src="assets/jpg/Favorites/book_8.jpg" alt="poster">
+            </div>
+          </div>
+          <div class="favorites-item" season="summer">
+            <div class="favorites-item-title">Staff Picks</div>
+            <div class="favorites-item-subtitle favorites-item-book-name">The Lottery Winner</div>
+            <div class="favorites-item-subtitle favorites-item-book-author">By Rosemary Border</div>
+            <div class="favorites-description-poster-wrapper">
+              <div class="favorites-item-description">
+                <p>
+                  One day an old lady buys a new pair of shoes. It is Emma Carter. The shoes are cheap, but Emma is very
+                  pleased. She is
+                  walking home. Suddenly a young man hits her on the head and snatches her bag. He runs away. It is
+                  Jason Williams. He is
+                  twenty-two and lives with his parents. His only occupation in life is stealing things. But this time
+                  he doesn't get
+                  much. There are only a little money and a lottery ticket in the woman's bag. Emma buys a lottery
+                  ticket every Sunday.
+                  She always has the same numbers. Each number is special for her. This week the old woman is lying on a
+                  hospital bed. She
+                  is too tired to watch the lottery. So she doesn't even know that her ticket has won. And there is only
+                  one question. Who
+                  will get the money?
+                </p>
+                <button class="favorites-item-button">Buy</button>
+              </div>
+            </div>
+            <div class="favoritesitem-poster">
+              <img src="assets/jpg/Favorites/book_9.jpg" alt="poster">
+            </div>
+          </div>
+          <div class="favorites-item" season="summer">
+            <div class="favorites-item-title">Staff Picks</div>
+            <div class="favorites-item-subtitle favorites-item-book-name">The Lost Crowns of Anglia</div>
+            <div class="favorites-item-subtitle favorites-item-book-author">By M. R. James</div>
+            <div class="favorites-description-poster-wrapper">
+              <div class="favorites-item-description">
+                <p>
+                  Seaburgh is a small town by the sea on the east coast of England. The main character of this story
+                  went to this town for
+                  the weekend. He went with his old friend named Henry. There were only few visitors in Seaburgh that
+                  year. The two
+                  travellers stayed in one hotel. There was only one more guest. That guest was a tall young man. His
+                  name was Paxton.
+                  Paxton always looked unhappy. One evening he joined the two travellers. Paxton was very worried. He
+                  only asked them to
+                  listen to him. The man really wanted to tell something important. Once Paxton was in a town nearby.
+                  There, in an old
+                  church, he met a priest. The priest told Paxton a story. That story bothered the man very much. Paxton
+                  realised he
+                  needed advice.
+                </p>
+                <button class="favorites-item-button">Buy</button>
+              </div>
+            </div>
+            <div class="favoritesitem-poster">
+              <img src="assets/jpg/Favorites/book_10.jpg" alt="poster">
+            </div>
+          </div>
+          <div class="favorites-item" season="summer">
+            <div class="favorites-item-title">Staff Picks</div>
+            <div class="favorites-item-subtitle favorites-item-book-name">Marry Me, Darling!</div>
+            <div class="favorites-item-subtitle favorites-item-book-author">By Bill Bowler</div>
+            <div class="favorites-description-poster-wrapper">
+              <div class="favorites-item-description">
+                <p>
+                  Gwen and Roger are a very nice couple. They met each other ten years ago. They go out together three
+                  times a week. Gwen
+                  loves her boyfriend with all her heart. She wants to marry him, but Roger is a very shy man. He never
+                  speaks about
+                  marriage. Now Gwen is about thirty. She does not lose hope. This evening will be special. They are
+                  having dinner
+                  together. Gwen is sure that Roger is going to propose her. So she invites him to her sister's
+                  expensive house. She is
+                  wearing a beautiful dress and a gold watch. A married life is waiting for her. Only one thing upsets
+                  the woman. Roger
+                  has two bad habits. He smokes and drinks much coffee. But any man in love can change. Gwen is sure her
+                  future husband
+                  will change for her.
+                </p>
+                <button class="favorites-item-button">Buy</button>
+              </div>
+            </div>
+            <div class="favoritesitem-poster">
+              <img src="assets/jpg/Favorites/book_11.jpg" alt="poster">
+            </div>
+          </div>
+          <div class="favorites-item" season="summer">
+            <div class="favorites-item-title">Staff Picks</div>
+            <div class="favorites-item-subtitle favorites-item-book-name">Sing to Win</div>
+            <div class="favorites-item-subtitle favorites-item-book-author">By Andrea Sarto</div>
+            <div class="favorites-description-poster-wrapper">
+              <div class="favorites-item-description">
+                <p>
+                  Laura was having breakfast with her younger sister Sophia. It was a familiar ritual for the sisters -
+                  to have breakfast
+                  together. That day was unusual. The elder sister noticed that tomorrow would be a grand day for
+                  Sophia. But the girl
+                  herself knew it. After all, she was to have an audition for a famous vocal show. Laura was sure that
+                  the judges would
+                  immediately appreciate her sister's talent and love her. She would speak on television, and millions
+                  of people would be
+                  able to see her on their screens. This was really a great opportunity for such a young girl. The
+                  following day, Sofia
+                  was waiting for her turn to the audition. She met a friendly girl who praised her hair. The girl was
+                  named Emma. Sophia
+                  thought that they could become good friends. Soon Sofia came on the scene.
+                </p>
+                <button class="favorites-item-button">Buy</button>
+              </div>
+            </div>
+            <div class="favoritesitem-poster">
+              <img src="assets/jpg/Favorites/book_12.jpg" alt="poster">
+            </div>
+          </div>
+          <div class="favorites-item" season="autumn">
+            <div class="favorites-item-title">Staff Picks</div>
+            <div class="favorites-item-subtitle favorites-item-book-name">Island for Sale</div>
+            <div class="favorites-item-subtitle favorites-item-book-author">By Anne Collins</div>
+            <div class="favorites-description-poster-wrapper">
+              <div class="favorites-item-description">
+                <p>
+                  You can find lots of small islands in the cold sea not far from Scotland. This book is just about one
+                  of them. This
+                  island is called Lana. Lana isn't big, but it is very picturesque. This is a very quiet place. There
+                  are no large
+                  shopping centers, roads or cars. There is only one ancient castle. A young Scotsman named Duncan lives
+                  in the castle.
+                  There are many rooms with antique furniture and ancient paintings in his castle. Duncan has no wife or
+                  children. But he
+                  has a faithful dog named Jock. He often walks with Jock. Duncan also likes fishing in his small boat
+                  in the sea. One day
+                  he receives a letter. There is a five thousand pound electricity bill. Duncan doesn't have this money.
+                  What should he
+                  do? Is it better to sell this island?
+                </p>
+                <button class="favorites-item-button">Buy</button>
+              </div>
+            </div>
+            <div class="favoritesitem-poster">
+              <img src="assets/jpg/Favorites/book_13.jpg" alt="poster">
+            </div>
+          </div>
+          <div class="favorites-item" season="autumn">
+            <div class="favorites-item-title">Staff Picks</div>
+            <div class="favorites-item-subtitle favorites-item-book-name">Monster House</div>
+            <div class="favorites-item-subtitle favorites-item-book-author">By Dan Harmon</div>
+            <div class="favorites-description-poster-wrapper">
+              <div class="favorites-item-description">
+                <p>
+                  It was the afternoon before Halloween. The little girl was riding her bike through a narrow street.
+                  She quickly went
+                  between the trees and beautiful gardens. Suddenly the bike went onto a front lawn and stopped. The
+                  girl heard a strange
+                  sound and looked around. There was an old scary house in front of her. The two windows looked like
+                  eyes that were
+                  looking at her angrily. Suddenly and old man ran out of the house. He shouted at the girl and told her
+                  to get out of his
+                  lawn. The frightened girl ran away. A few minutes later she was already far from this place. The old
+                  man watched her and
+                  grumbled that children never listened to him. A strange sound repeated. The old man entered his house
+                  and closed the
+                  door.
+                </p>
+                <button class="favorites-item-button">Buy</button>
+              </div>
+            </div>
+            <div class="favoritesitem-poster">
+              <img src="assets/jpg/Favorites/book_14.jpg" alt="poster">
+            </div>
+          </div>
+          <div class="favorites-item" season="autumn">
+            <div class="favorites-item-title">Staff Picks</div>
+            <div class="favorites-item-subtitle favorites-item-book-name">Heidi</div>
+            <div class="favorites-item-subtitle favorites-item-book-author">By Johanna Spyri</div>
+            <div class="favorites-description-poster-wrapper">
+              <div class="favorites-item-description">
+                <p>
+                  Heidi is a little girl. She lives in the Alps with her old grandfather. They are very different. Heidi
+                  is kind, sweet
+                  and open. She can light up life around with her presence. Her grandfather is very strict. Heidi's
+                  mother died long ago.
+                  In early childhood the girl lived with her aunt Dete. Once Dete found a new job in the city. So she
+                  left the girl with
+                  her grandfather when Heidi was only six. And this meeting changes the lives of both of them.
+                  Everything is different
+                  now. The old man takes care of his small granddaughter. The grandfather loves Heidi but he doesn't
+                  show it. The local
+                  people are very surprised to see this. They always saw him as a grumpy annoying man. But the old man
+                  turns out to be
+                  very kind.
+                </p>
+                <button class="favorites-item-button">Buy</button>
+              </div>
+            </div>
+            <div class="favoritesitem-poster">
+              <img src="assets/jpg/Favorites/book_15.jpg" alt="poster">
+            </div>
+          </div>
+          <div class="favorites-item" season="autumn">
+            <div class="favorites-item-title">Staff Picks</div>
+            <div class="favorites-item-subtitle favorites-item-book-name">How the Camel Got His Hump</div>
+            <div class="favorites-item-subtitle favorites-item-book-author">By Rudyard Kipling</div>
+            <div class="favorites-description-poster-wrapper">
+              <div class="favorites-item-description">
+                <p>
+                  Do you want to know where the camel's hump came from? This story happened long ago when the world was
+                  very new. Back
+                  then the animals only began to work for humans. There was also a camel without a hump. He lived in the
+                  middle of a big
+                  desert. The camel was very lazy. He only ate thorns and loved to roar. Various animals came to him: a
+                  horse, a dog and
+                  an ox. They asked the camel to go and work with them. But the camel always replied: 'Humph'. He
+                  refused to go. That is
+                  why the animals had more work. The world was young and there was a lot to do. The animals were tired
+                  and very angry. But
+                  once there came the Djinn of All Deserts. He carefully listened to everyone. And the Djinn decided to
+                  teach a lazy camel
+                  a lesson.
+                </p>
+                <button class="favorites-item-button">Buy</button>
+              </div>
+            </div>
+            <div class="favoritesitem-poster">
+              <img src="assets/jpg/Favorites/book_16.jpg" alt="poster">
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="shop" id="shop">
+        <div class="title">
+          <h2>Coffee shop</h2>
+        </div>
+        <div class="shop-subtitle">
+          <h3>In our library, we have of cozy coffee shop, welcoming in customers with frothy cappuccinos and friendly
+            conversation.
+            you can get a favorite book and read in coffee shop. Our barista to cook you best coffee, and also you can
+            try
+            desserts
+            from bakery.</h3>
+        </div>
+        <div class="menu-wrapper">
+          <div class="menu">
+            <div class="menu-title">Coffee &amp; Tea</div>
+            <div class="menu-row">
+              <div class="menu-row-name">
+                <div>Cold Brew Coffee</div>
+              </div>
+              <div class="menu-row-price">$3</div>
+            </div>
+            <div class="menu-row">
+              <div class="menu-row-name">
+                <div>French Press Pot</div>
+              </div>
+              <div class="menu-row-price">$5</div>
+            </div>
+            <div class="menu-row">
+              <div class="menu-row-name">
+                <div>Espresso</div>
+              </div>
+              <div class="menu-row-price">$2</div>
+            </div>
+            <div class="menu-row">
+              <div class="menu-row-name">
+                <div>Cappuccino</div>
+              </div>
+              <div class="menu-row-price">$4</div>
+            </div>
+            <div class="menu-row">
+              <div class="menu-row-name">
+                <div>Hot tea</div>
+              </div>
+              <div class="menu-row-price">$2</div>
+            </div>
+            <div class="menu-row">
+              <div class="menu-row-name">
+                <div>Cold tea</div>
+              </div>
+              <div class="menu-row-price">$2</div>
+            </div>
+          </div>
+          <div class="menu">
+            <div class="menu-title align__right">Desserts &amp; Cakes</div>
+            <div class="menu-row align__right __padding_right">
+              <div class="menu-row-name">
+                <div>Forest Gateau</div>
+              </div>
+              <div class="menu-row-price">$16</div>
+            </div>
+            <div class="menu-row align__right __padding_right">
+              <div class="menu-row-name">
+                <div>Blue Moon</div>
+              </div>
+              <div class="menu-row-price">$16</div>
+            </div>
+            <div class="menu-row align__right __padding_right">
+              <div class="menu-row-name">
+                <div>Truffle Cake</div>
+              </div>
+              <div class="menu-row-price">$15</div>
+            </div>
+            <div class="menu-row align__right __padding_right">
+              <div class="menu-row-name">
+                <div>Chocolate Cake</div>
+              </div>
+              <div class="menu-row-price">$18</div>
+            </div>
+            <div class="menu-row align__right __padding_right">
+              <div class="menu-row-name">
+                <div>Poet’s Dream Cake</div>
+              </div>
+              <div class="menu-row-price">$16</div>
+            </div>
+            <div class="menu-row align__right __padding_right">
+              <div class="menu-row-name">
+                <div>Pineapple Cake</div>
+              </div>
+              <div class="menu-row-price">$14</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="contacts" id="contacts">
+        <div class="title">
+          <h2>Our Contacts</h2>
+        </div>
+        <div class="contacts-wrapper">
+          <div class="contacts-contacts">
+            <p class="contacts-subtitle-1 contacts-font-bold">For all Library inquiries:</p>
+            <p>Please call <a href="tel:+6177302370" target="_blank">(617) 730-2370</a></p>
+            <p>For TTY service, please call <a href="tel:+6177302370">(617) 730-2370</a></p>
+            <p>Putterham Library: <a href="tel:+6177302385">(617) 730-2385</a></p>
+            <p class="contacts-subtitle-2 contacts-font-bold">Senior Staff</p>
+            <p>Library Director: <a class="contacts-font-bold" target="_blank"
+                href="mailto:AmandaHirst@gmail.com">Amanda
+                Hirst</a></p>
+          </div>
+          <div class="contacts-map">
+            <img src="assets/jpg/Contacts/Contacts.jpg" width="696" height="414" alt="map">
+          </div>
+        </div>
+      </section>
+      <section class="cards" id="cards">
+        <div class="title">
+          <h2>Digital Library Cards</h2>
+        </div>
+        <div class="cards-wrapper">
+          <div class="cards-find-wrapper">
+            <div class="cards-title">Find your Library card</div>
+            <div class="cards-main">
+              <form action="/" method="post">
+                <div class="cards-form-wrapper">
+                  <div class="cards-main-subtitle">Brooklyn Public Library</div>
+                  <input type="text" name="name" placeholder="Reader's name ">
+                  <input type="number" name="number" placeholder="Card number">
+                </div>
+                <button class="button">Check the card</button>
+              </form>
+            </div>
+          </div>
+          <div class="get-card-wrapper">
+            <div class="get-card-title">Get a reader card</div>
+            <div class="get-card-content">
+              <p>
+                You will be able to see a reader card after logging into account or you can register a new account
+              </p>
+            </div>
+            <div class="get-card-buttons-wrapper">
+              <button class="get-card-btn">Sign Up</button>
+              <button class="get-card-btn">Log in</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer>
+    <div class="container">
+      <div class="footer-top font-common-1">
+        <div class="footer-contacts">
+          <div class="footer-adresss">
+            <a class="font-common-1" href="https://goo.gl/maps/wqo6SQQr8o4hrFH79" target="_blank">
+              <p>286 Cadman Plaza, New York,</p>
+              <p>NY 11238, United States</p>
+            </a>
+          </div>
+          <div class="footer-social">
+            <ul>
+              <li>
+                <a href="http://twitter.com/bklynlibrary" target="_blank">
+                  <svg width="23" height="20" viewBox="0 0 23 20" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M22.9912 1.95021C22.9913 1.77357 22.9447 1.60007 22.8559 1.44735C22.7671 1.29464 22.6395 1.16817 22.486 1.08084C22.3324 0.993502 22.1585 0.948416 21.9819 0.95017C21.8053 0.951925 21.6323 1.00046 21.4805 1.09083C20.8952 1.43921 20.265 1.70601 19.6075 1.88383C18.6685 1.07806 17.4708 0.637129 16.2335 0.641636C14.8761 0.643198 13.5724 1.17223 12.5977 2.11702C11.623 3.06181 11.0537 4.3484 11.0099 5.70512C8.33384 5.27838 5.90849 3.88164 4.19631 1.78126C4.09315 1.65609 3.9614 1.55757 3.81217 1.494C3.66295 1.43043 3.50062 1.40368 3.33889 1.41601C3.17725 1.42932 3.02128 1.4818 2.88448 1.56892C2.74768 1.65603 2.63416 1.77516 2.55373 1.91601C2.14126 2.63582 1.90436 3.44276 1.86228 4.27131C1.8202 5.09986 1.97412 5.92666 2.31154 6.68456L2.30959 6.68651C2.15794 6.77991 2.03278 6.91066 1.94609 7.06625C1.85941 7.22185 1.81409 7.39708 1.81447 7.57519C1.81263 7.72211 1.82145 7.86898 1.84084 8.01464C1.94298 9.2729 2.50062 10.4507 3.4092 11.3271C3.34756 11.4446 3.30994 11.5731 3.29854 11.7052C3.28714 11.8373 3.30218 11.9704 3.34279 12.0967C3.7389 13.3308 4.58129 14.3727 5.7051 15.0185C4.56334 15.46 3.33052 15.614 2.11525 15.4668C1.89032 15.4386 1.66248 15.4876 1.4691 15.6059C1.27572 15.7242 1.12828 15.9047 1.05097 16.1178C0.973654 16.3309 0.97106 16.5639 1.04361 16.7787C1.11616 16.9935 1.25955 17.1772 1.45025 17.2998C3.54034 18.646 5.97393 19.3617 8.46002 19.3613C11.2793 19.393 14.03 18.4921 16.2843 16.7988C18.5385 15.1054 20.17 12.7145 20.9248 9.99801C21.2779 8.81464 21.4582 7.58648 21.46 6.35157C21.46 6.28614 21.46 6.21876 21.459 6.15138C21.9811 5.58831 22.3856 4.92668 22.6487 4.20527C22.9118 3.48387 23.0283 2.7172 22.9912 1.95021ZM19.6846 5.16212C19.5194 5.35746 19.4358 5.60891 19.4512 5.86427C19.461 6.02927 19.46 6.19527 19.46 6.35157C19.4579 7.39511 19.305 8.43287 19.0059 9.43263C18.3894 11.744 17.015 13.7817 15.103 15.2192C13.1909 16.6568 10.8517 17.4111 8.46002 17.3613C7.6009 17.3616 6.74474 17.2606 5.90924 17.0606C6.97465 16.7172 7.97083 16.1879 8.85162 15.4971C9.01385 15.3693 9.13257 15.1945 9.19151 14.9967C9.25044 14.7988 9.2467 14.5875 9.18079 14.3918C9.11489 14.1961 8.99005 14.0257 8.8234 13.9038C8.65675 13.7819 8.45647 13.7145 8.25002 13.7109C7.41885 13.698 6.62515 13.363 6.03615 12.7764C6.18557 12.7481 6.33401 12.7129 6.48147 12.6709C6.69748 12.6094 6.88651 12.477 7.01813 12.295C7.14975 12.1131 7.21629 11.8921 7.20704 11.6677C7.1978 11.4433 7.1133 11.2285 6.96715 11.058C6.82101 10.8874 6.62173 10.7711 6.40139 10.7275C5.91893 10.6323 5.46494 10.427 5.0747 10.1277C4.68447 9.82845 4.36852 9.44321 4.15139 9.00196C4.33212 9.02662 4.514 9.04194 4.69631 9.04786C4.91289 9.05113 5.1249 8.98543 5.30169 8.86026C5.47847 8.73509 5.61086 8.55694 5.67971 8.35157C5.74569 8.14433 5.74229 7.92123 5.67004 7.7161C5.59778 7.51096 5.46061 7.33499 5.27932 7.21485C4.83947 6.92182 4.47916 6.52427 4.23068 6.0578C3.98219 5.59134 3.85328 5.07052 3.85549 4.54201C3.85549 4.47561 3.85744 4.4092 3.86135 4.34377C6.10261 6.43402 9.00967 7.66621 12.0703 7.82326C12.2248 7.82934 12.3787 7.80024 12.5203 7.73816C12.6619 7.67607 12.7875 7.58262 12.8877 7.46486C12.9869 7.34596 13.0571 7.20566 13.0929 7.05501C13.1286 6.90437 13.1289 6.74748 13.0937 6.5967C13.0366 6.35806 13.0074 6.11357 13.0068 5.86818C13.0077 5.01271 13.348 4.19254 13.9529 3.58764C14.5578 2.98274 15.378 2.64251 16.2334 2.64161C16.6736 2.64043 17.1092 2.7305 17.5127 2.90615C17.9163 3.0818 18.2791 3.3392 18.5781 3.66212C18.6935 3.7862 18.8386 3.87871 18.9998 3.93085C19.161 3.98299 19.3329 3.99303 19.499 3.96001C19.9098 3.88006 20.3147 3.7724 20.7109 3.63775C20.4407 4.19072 20.0953 4.70369 19.6846 5.16212Z" />
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a href="http://instagram.com/bklynlibrary" target="_blank">
+                  <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M15.34 3.46C15.1027 3.46 14.8707 3.53038 14.6733 3.66224C14.476 3.79409 14.3222 3.98151 14.2313 4.20078C14.1405 4.42005 14.1168 4.66133 14.1631 4.89411C14.2094 5.12689 14.3236 5.34071 14.4915 5.50853C14.6593 5.67635 14.8731 5.79064 15.1059 5.83694C15.3387 5.88324 15.5799 5.85948 15.7992 5.76866C16.0185 5.67783 16.2059 5.52402 16.3378 5.32668C16.4696 5.12935 16.54 4.89734 16.54 4.66C16.54 4.34174 16.4136 4.03652 16.1885 3.81147C15.9635 3.58643 15.6583 3.46 15.34 3.46ZM19.94 5.88C19.9206 5.0503 19.7652 4.2294 19.48 3.45C19.2257 2.78313 18.83 2.17928 18.32 1.68C17.8248 1.16743 17.2196 0.774176 16.55 0.53C15.7727 0.236161 14.9508 0.07721 14.12 0.0599999C13.06 -5.58794e-08 12.72 0 10 0C7.28 0 6.94 -5.58794e-08 5.88 0.0599999C5.04915 0.07721 4.22734 0.236161 3.45 0.53C2.78168 0.776649 2.17693 1.16956 1.68 1.68C1.16743 2.17518 0.774176 2.78044 0.53 3.45C0.236161 4.22734 0.07721 5.04915 0.0599999 5.88C-5.58794e-08 6.94 0 7.28 0 10C0 12.72 -5.58794e-08 13.06 0.0599999 14.12C0.07721 14.9508 0.236161 15.7727 0.53 16.55C0.774176 17.2196 1.16743 17.8248 1.68 18.32C2.17693 18.8304 2.78168 19.2234 3.45 19.47C4.22734 19.7638 5.04915 19.9228 5.88 19.94C6.94 20 7.28 20 10 20C12.72 20 13.06 20 14.12 19.94C14.9508 19.9228 15.7727 19.7638 16.55 19.47C17.2196 19.2258 17.8248 18.8326 18.32 18.32C18.8322 17.8226 19.2283 17.2182 19.48 16.55C19.7652 15.7706 19.9206 14.9497 19.94 14.12C19.94 13.06 20 12.72 20 10C20 7.28 20 6.94 19.94 5.88ZM18.14 14C18.1327 14.6348 18.0178 15.2637 17.8 15.86C17.6403 16.2952 17.3839 16.6884 17.05 17.01C16.7256 17.3405 16.3332 17.5964 15.9 17.76C15.3037 17.9778 14.6748 18.0927 14.04 18.1C13.04 18.15 12.67 18.16 10.04 18.16C7.41 18.16 7.04 18.16 6.04 18.1C5.38089 18.1123 4.72459 18.0109 4.1 17.8C3.68578 17.6281 3.31136 17.3728 3 17.05C2.66809 16.7287 2.41484 16.3352 2.26 15.9C2.01586 15.2952 1.88044 14.6519 1.86 14C1.86 13 1.8 12.63 1.8 10C1.8 7.37 1.8 7 1.86 6C1.86448 5.35106 1.98295 4.70795 2.21 4.1C2.38605 3.67791 2.65627 3.30166 3 3C3.30381 2.65617 3.67929 2.3831 4.1 2.2C4.70955 1.98004 5.352 1.86508 6 1.86C7 1.86 7.37 1.8 10 1.8C12.63 1.8 13 1.8 14 1.86C14.6348 1.86728 15.2637 1.98225 15.86 2.2C16.3144 2.36865 16.7223 2.64285 17.05 3C17.3777 3.30718 17.6338 3.68273 17.8 4.1C18.0223 4.70893 18.1373 5.35178 18.14 6C18.19 7 18.2 7.37 18.2 10C18.2 12.63 18.19 13 18.14 14ZM10 4.87C8.98581 4.87198 7.99496 5.17453 7.15265 5.73942C6.31035 6.30431 5.65438 7.1062 5.26763 8.04375C4.88089 8.98131 4.78072 10.0125 4.97979 11.0069C5.17886 12.0014 5.66824 12.9145 6.38608 13.631C7.10392 14.3474 8.01801 14.835 9.01286 15.0321C10.0077 15.2293 11.0387 15.1271 11.9755 14.7385C12.9123 14.35 13.7129 13.6924 14.2761 12.849C14.8394 12.0056 15.14 11.0142 15.14 10C15.1413 9.3251 15.0092 8.65661 14.7512 8.03296C14.4933 7.40931 14.1146 6.84281 13.6369 6.36605C13.1592 5.88929 12.5919 5.51168 11.9678 5.25493C11.3436 4.99818 10.6749 4.86736 10 4.87ZM10 13.33C9.34139 13.33 8.69757 13.1347 8.14995 12.7688C7.60234 12.4029 7.17552 11.8828 6.92348 11.2743C6.67144 10.6659 6.6055 9.99631 6.73398 9.35035C6.86247 8.70439 7.17963 8.11104 7.64533 7.64533C8.11104 7.17963 8.70439 6.86247 9.35035 6.73398C9.99631 6.6055 10.6659 6.67144 11.2743 6.92348C11.8828 7.17552 12.4029 7.60234 12.7688 8.14995C13.1347 8.69757 13.33 9.34139 13.33 10C13.33 10.4373 13.2439 10.8703 13.0765 11.2743C12.9092 11.6784 12.6639 12.0454 12.3547 12.3547C12.0454 12.6639 11.6784 12.9092 11.2743 13.0765C10.8703 13.2439 10.4373 13.33 10 13.33Z" />
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/BrooklynPublicLibrary" target="_blank">
+                  <svg width="11" height="20" viewBox="0 0 11 20" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M9.11999 3.32003H11V0.14003C10.0897 0.045377 9.17514 -0.00135428 8.25999 2.98641e-05C5.53999 2.98641e-05 3.67999 1.66003 3.67999 4.70003V7.32003H0.609985V10.88H3.67999V20H7.35998V10.88H10.42L10.88 7.32003H7.35998V5.05003C7.35998 4.00003 7.63999 3.32003 9.11999 3.32003Z" />
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-agenda">
+          <div>
+            <p>Mon - Fri</p>
+            <p>08:00 am - 07:00 pm</p>
+
+          </div>
+          <div>
+            <p>Sat - Sun</p>
+            <p>10:00 am - 06:00 pm</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom font-common-1 font-size-2">
+        <span>2023</span>
+        <a class="font-common-1 font-size-2" href="https://rs.school/js-stage0/" target="_blank">The Rolling Scopes
+          School</a>
+        <a class="font-common-1 font-size-2" href="https://github.com/K98940" target="_blank">Konstantin</a>
+      </div>
+    </div>
+  </footer>
+  <script src="js/index.js"></script>
+</body>
+
+</html>
