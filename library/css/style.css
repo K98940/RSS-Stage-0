@@ -34,16 +34,27 @@ html {
 }
 
 body {
-  width: 100%;
+  width: 100vw;
   height: 100%;
+  overflow-x: hidden;
 }
 
 header {
+  background-color: var(--color-dark);
+}
+
+.container {
+  width: 1440px;
+  margin: 0 auto;
+}
+
+.header-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   padding: 20px;
+
   font-style: normal;
   font-weight: 400;
   line-height: 50px;
@@ -53,11 +64,6 @@ header {
 
 section {
   padding: 20px 20px 0;
-}
-
-.container {
-  width: 1440px;
-  margin: 0 auto;
 }
 
 .header-title {
@@ -115,7 +121,6 @@ section {
     & svg {
       fill: var(--color-white);
       vertical-align: middle;
-
     }
   }
 }
@@ -126,26 +131,27 @@ section {
 
 .welcome {
   height: 600px;
+  width: 100%;
+  padding: 0;
 
   background-image: url("../assets/jpg/Welcome.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  background-color: var(--color-dark);
 }
 
 .welcome-wrapper {
-  position: relative;
   width: 600px;
-  height: 440px;
-  padding-top: 200px;
+  height: 220px;
+  padding-top: 220px;
 }
 
 .welcome-title {
-  position: relative;
-  left: -20px;
   padding: 35px 0;
+
   background-color: var(--color-black);
 
-  & p {
+  & h3 {
     color: var(--color-white);
     font-family: var(--font-title);
     text-align: center;
@@ -157,12 +163,12 @@ section {
     text-transform: uppercase;
   }
 
-  & p:first-child {
+  & h3:first-child {
     letter-spacing: 3px;
     padding-right: 10px;
   }
 
-  & p:last-child {
+  & h3:last-child {
     padding-left: 4px;
   }
 }
@@ -262,20 +268,24 @@ section {
   line-height: normal;
   letter-spacing: 1.26px;
 
-  padding-bottom: 40px;
+  padding-bottom: 36px;
 }
 
 .seasons-wrapper {
   display: flex;
-  gap: 90px;
+  gap: 82px;
+  margin-bottom: 35px;
 }
 
 .seasons-radio-wrapper {
   display: flex;
-  margin-bottom: 40px;
 
   & input {
     display: none;
+
+    &:checked+label {
+      text-shadow: 1px 0 var(--color-black);
+    }
 
     &:checked+label::before {
       background: url("../assets/icon/radio_selected.svg");
@@ -284,16 +294,20 @@ section {
 
   & label {
     position: relative;
-    padding-left: 36px;
+    padding-left: 38px;
+
+    padding-bottom: 5px;
+    padding-top: 5px;
+    padding-right: 5px;
 
     cursor: pointer;
     color: var(--color-black);
     font-family: var(--font-common);
     font-size: 20px;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 400;
     line-height: normal;
-    letter-spacing: 0.5px;
+    letter-spacing: 1.3px;
 
     &::before {
       content: "";
@@ -301,13 +315,17 @@ section {
       height: 17px;
       position: absolute;
       left: 0;
-      bottom: 1px;
+      bottom: 7px;
 
       background: url("../assets/icon/radio_not_selected.svg");
     }
 
   }
 
+}
+
+.seasons-radio-wrapper:nth-child(2) {
+  margin-left: 5px;
 }
 
 .favorites-items-wrapper {
@@ -322,7 +340,7 @@ section {
     position: relative;
     width: 550px;
     height: 555px;
-    padding: 15px 20px 13px 20px;
+    padding: 14px 20px 14px 19px;
 
     border: 1px solid var(--color-black);
 
@@ -344,6 +362,7 @@ section {
         display: block;
         width: 60px;
         height: 1px;
+        bottom: 0;
         content: "";
         background-color: var(--color-sand);
       }
@@ -387,12 +406,13 @@ section {
         line-height: 40px;
         letter-spacing: 2.7px;
         text-transform: capitalize;
-        padding-right: 145px;
+        padding-right: 150px;
 
         & p {
           flex-grow: 1;
           flex-basis: 100px;
           overflow: hidden;
+          margin-bottom: 5px;
         }
 
         & .favorites-item-button {
@@ -438,7 +458,7 @@ section {
     & .favoritesitem-poster {
       position: absolute;
       height: 300px;
-      right: -40px;
+      right: -41px;
       bottom: 0;
 
       & img {
@@ -446,6 +466,7 @@ section {
         width: 100%;
         height: 100%;
         bottom: -1px;
+        border: 1px solid var(--color-black);
       }
     }
   }
@@ -596,7 +617,7 @@ section {
 .cards-wrapper {
   display: flex;
   justify-content: space-between;
-  padding-bottom: 42px;
+  padding-bottom: 40px;
 
   & .cards-find-wrapper {
     display: flex;
@@ -648,13 +669,17 @@ section {
       border: 1px solid var(--color-white);
       border-radius: 10px;
 
-      color: var(--color-grey);
+      color: var(--color-black);
       font-family: var(--font-title);
       font-size: 30px;
       font-style: normal;
       font-weight: 400;
       line-height: 50px;
       letter-spacing: 0.6px;
+    }
+
+    & input::placeholder {
+      color: var(--color-grey);
     }
   }
 
@@ -775,9 +800,11 @@ section {
 }
 
 footer {
-  padding: 19px 20px 44px 20px;
-
   background-color: var(--color-dark);
+
+  & .container {
+    padding: 20px 20px 44px 20px;
+  }
 
   & .footer-top {
     display: flex;
@@ -803,10 +830,14 @@ footer {
   }
 
   & .footer-social {
-    display: flex;
     margin-left: -3px;
     padding-bottom: 34px;
-    gap: 9px;
+
+    & ul {
+      display: flex;
+      list-style: none;
+      gap: 9px;
+    }
 
     & a {
       display: flex;
@@ -839,4 +870,12 @@ footer {
       color: var(--color-sand);
     }
   }
+}
+
+.favorites-item[season] {
+  display: none;
+}
+
+.favorites-item[season=winter] {
+  display: flex;
 }
