@@ -53,7 +53,7 @@ header {
   justify-content: space-between;
   align-items: center;
 
-  padding: 20px;
+  padding: 25px 20px 21px 20px;
 
   font-style: normal;
   font-weight: 400;
@@ -121,6 +121,7 @@ section {
     & svg {
       fill: var(--color-white);
       vertical-align: middle;
+      transition: 50ms;
     }
   }
 }
@@ -257,6 +258,10 @@ section {
 
 .pagination-btn__active {
   background-color: var(--color-sand);
+}
+
+.favorites {
+  padding-top: 21px;
 }
 
 .favorites-subtitle {
@@ -487,8 +492,9 @@ section {
       font-style: normal;
       font-weight: 400;
       line-height: 40px;
-      letter-spacing: 2.93px;
+      letter-spacing: 2.94px;
     }
+
   }
 
   & .menu-wrapper {
@@ -617,13 +623,13 @@ section {
 .cards-wrapper {
   display: flex;
   justify-content: space-between;
-  padding-bottom: 40px;
+  padding-bottom: 41px;
 
   & .cards-find-wrapper {
     display: flex;
     flex-direction: column;
     width: 600px;
-    height: 453px;
+    height: 452px;
   }
 
   & .cards-title {
@@ -644,6 +650,7 @@ section {
     padding: 17px;
 
     border: 3px solid var(--color-sand);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 
     & form {
       display: flex;
@@ -853,6 +860,7 @@ footer {
 
     & svg {
       fill: var(--color-icon-social);
+      transition: 50ms;
     }
   }
 
@@ -872,10 +880,10 @@ footer {
   }
 }
 
-.favorites-item[season] {
+.favorites-item[data-season] {
   display: none;
 }
 
-.favorites-item[season=winter] {
+.favorites-item[data-season=winter] {
   display: flex;
 }
