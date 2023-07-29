@@ -68,3 +68,6 @@ console.log(`оценка:
 
 ИТОГО 100
 `)
+
+console.log('\n\nthanks to Roman (@EternalRival) for the script')
+console.table([['header', 1], ['main', 1], ['footer', 1], ['section', 6], ['h1', 1, 1], ['h2', 5], ['nav', 1], ['ul:has(li>a)', 2], ['button', 7], ['input', 2]].reduce((acc, [selector, min, max = Infinity]) => { const { length } = document.querySelectorAll(selector); acc[selector] = { min, max, 'present': length, 'in range': min <= length && length <= max ? '✅' : '⛔' }; return acc; }, {}));
