@@ -1,3 +1,6 @@
+@import url("header.css");
+@import url("welcome.css");
+
 @font-face {
   font-family: Forum;
   src: url("../fonts/Forum/Forum-Regular.ttf");
@@ -18,160 +21,41 @@
 
   --font-common: Inter;
   --font-title: Forum;
+
+  --z-index-middle: 1;
+  --z-index-top: 2;
+
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  transition-duration: 150ms;
-  scroll-behavior: smooth;
 }
 
 html {
   width: 100%;
   height: 100%;
+  scroll-behavior: smooth;
 }
 
 body {
-  width: 100vw;
+  width: 100%;
   height: 100%;
   overflow-x: hidden;
 }
 
-header {
-  background-color: var(--color-dark);
+.__block-scroll {
+  overflow-y: hidden;
 }
 
 .container {
-  width: 1440px;
+  max-width: 1440px;
   margin: 0 auto;
-}
-
-.header-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  padding: 25px 20px 21px 20px;
-
-  font-style: normal;
-  font-weight: 400;
-  line-height: 50px;
-
-  background: var(--color-dark);
 }
 
 section {
   padding: 20px 20px 0;
-}
-
-.header-title {
-  margin: 0;
-
-  font-family: var(--font-title);
-  color: var(--color-white);
-  font-weight: 400;
-  font-size: 30px;
-  letter-spacing: 0.6px;
-}
-
-.wrapper-nav-profile {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  gap: 40px;
-}
-
-.header-nav-ul {
-  display: flex;
-  justify-content: space-around;
-
-  margin: 0;
-  gap: 30px;
-
-  list-style: none;
-
-  & li {
-    height: 50px;
-
-    & :hover {
-      color: var(--color-sand);
-    }
-
-    & a {
-      display: inline-block;
-      height: 100%;
-      font-family: var(--font-common);
-      color: var(--color-white);
-      font-size: 20px;
-      letter-spacing: 1px;
-      text-decoration: none;
-    }
-
-  }
-}
-
-.profile {
-  & a {
-    display: inline-block;
-    height: 100%;
-
-    & svg {
-      fill: var(--color-white);
-      vertical-align: middle;
-      transition: 50ms;
-    }
-  }
-}
-
-.profile>a:hover svg {
-  fill: var(--color-sand);
-}
-
-.welcome {
-  height: 600px;
-  width: 100%;
-  padding: 0;
-
-  background-image: url("../assets/jpg/Welcome.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-color: var(--color-dark);
-}
-
-.welcome-wrapper {
-  width: 600px;
-  height: 220px;
-  padding-top: 220px;
-}
-
-.welcome-title {
-  padding: 35px 0;
-
-  background-color: var(--color-black);
-
-  & h3 {
-    color: var(--color-white);
-    font-family: var(--font-title);
-    text-align: center;
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 50px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-  }
-
-  & h3:first-child {
-    letter-spacing: 3px;
-    padding-right: 10px;
-  }
-
-  & h3:last-child {
-    padding-left: 4px;
-  }
 }
 
 .title {
@@ -436,6 +320,7 @@ section {
           background-color: var(--color-white);
           border-radius: 2px;
           border: 1px solid var(--color-dark);
+          transition-duration: 150ms;
 
           &:hover {
             background-color: var(--color-sand);
@@ -592,6 +477,7 @@ section {
     letter-spacing: 3px;
     text-transform: capitalize;
     text-decoration: none;
+    transition-duration: 150ms;
 
     padding-bottom: 20px;
   }
@@ -719,6 +605,7 @@ section {
     line-height: normal;
     letter-spacing: 1.7px;
     background-color: var(--color-white);
+    transition-duration: 150ms;
 
     &:hover {
       cursor: pointer;
@@ -780,6 +667,7 @@ section {
       border: 1px solid var(--color-dark);
       border-radius: 2px;
       background-color: var(--color-white);
+      transition-duration: 150ms;
 
       &:hover {
         cursor: pointer;
@@ -822,6 +710,7 @@ footer {
 
   & .footer-adresss {
     padding-bottom: 15px;
+    transition-duration: 150ms;
 
     & a:hover {
       color: var(--color-sand);
@@ -886,4 +775,49 @@ footer {
 
 .favorites-item[data-season=winter] {
   display: flex;
+}
+
+.display_none {
+  display: none;
+}
+
+.test_container {
+  width: 210px;
+  height: 200px;
+  background-color: #8E8E8E;
+  resize: horizontal;
+  overflow: auto;
+
+  container-name: test;
+  container-type: inline-size;
+}
+
+.test {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(91, 91, 255);
+  border: 1px solid black;
+}
+
+@container test (width > 200px) {
+  .test {
+    width: 50%;
+    height: 100%;
+    background-color: blue;
+    border: 1px solid black;
+  }
+}
+
+
+
+
+@media (max-width: 1024px) {
+  .container {
+    max-width: 100%;
+  }
+
+  .images-items {
+    flex-direction: column;
+    align-items: center;
+  }
 }
