@@ -12,7 +12,6 @@
 
 .welcome-wrapper {
   width: 600px;
-  height: 220px;
   padding-top: 220px;
 }
 
@@ -40,5 +39,38 @@
 
   & h3:last-child {
     padding-left: 4px;
+  }
+}
+
+
+
+@media (max-width: 768px) {
+  .welcome {
+    height: 78vw;
+    background-image: url("../assets/jpg/Welcome768.jpg");
+  }
+
+  .welcome-wrapper {
+    width: 78%;
+    padding-top: 28.7vw;
+  }
+
+  .welcome-title {
+    & h3 {
+      font-size: 5.2vw;
+      line-height: 6.5vw;
+      /* line-height: 50px; */
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    & h3:first-child {
+      letter-spacing: 3px;
+      padding-right: 10px;
+    }
+
+    & h3:last-child {
+      padding-left: 4px;
+    }
   }
 }

@@ -1,0 +1,201 @@
+.carret {
+  display: none;
+  width: 24px;
+  height: 24px;
+  fill: transparent;
+}
+
+.container-images {
+  overflow: hidden;
+
+  container-name: about;
+  container-type: inline-size;
+}
+
+.images-items {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 25px;
+  overflow: hidden;
+  margin-bottom: 30px;
+
+  &>div {
+    /* width: 450px; */
+    /* height: 560px; */
+    height: 100%;
+    flex: 0 0 450px;
+  }
+
+  & img {
+    /* width: 100%; */
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.pagination-wrapper {
+  display: flex;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.pagination-btn-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 26px;
+  height: 26px;
+  /* margin-bottom: 35px; */
+}
+
+.pagination-btn-wrapper:hover {
+  cursor: pointer;
+}
+
+.pagination-btn {
+  width: 16px;
+  height: 16px;
+
+  border-radius: 50%;
+  background-color: var(--color-dark);
+}
+
+.btn__mobile {
+  display: none;
+}
+
+.pagination-btn__active {
+  background-color: var(--color-sand);
+
+}
+
+
+
+
+@media (max-width: 2px) {
+  .container-images {
+    width: 450px;
+    height: 560px;
+    margin: 0 auto 20px;
+    /* padding: 0 80px; */
+
+    /* 9 */
+    overflow: visible;
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      top: 50%;
+      transform: translateY(8px);
+      left: -12px;
+
+
+      background-image: url("../assets/icon/Carret_Left.svg");
+      background-color: brown;
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      top: 50%;
+      transform: translateY(8px);
+      right: -82px;
+
+      background-image: url("../assets/icon/Carret_Right.svg");
+    }
+  }
+
+  .images-items {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 80px;
+
+    /* 0 */
+    width: 100%;
+  }
+
+
+  .btn__mobile {
+    display: flex;
+  }
+
+  .carret {
+    display: inline-block;
+  }
+}
+
+
+@container about (max-width: 1399px) {
+  .images-items {
+    width: 925px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: flex-start;
+  }
+
+}
+
+@container about (max-width: 930px) {
+  .images-items {
+    position: relative;
+    width: 610px;
+    padding-left: 80px;
+    gap: 80px;
+    margin-bottom: 17px;
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      top: 50%;
+      transform: translateY(8px);
+      left: -2px;
+
+      background-image: url("../assets/icon/Carret_Left.svg");
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      top: 50%;
+      transform: translateY(8px);
+      right: -2px;
+
+      background-image: url("../assets/icon/Carret_Right.svg");
+    }
+  }
+
+  .btn__mobile {
+    display: flex;
+  }
+}
+
+@container about (max-width: 650px) {
+  .images-items {
+    width: 85.84vw;
+    height: 108.49vw;
+    padding-left: 0;
+
+    &::before {
+      display: none;
+    }
+
+    &::after {
+      display: none;
+    }
+  }
+}

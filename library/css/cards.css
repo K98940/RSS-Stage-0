@@ -1,0 +1,283 @@
+.card-container {
+  container-name: card;
+  container-type: inline-size;
+}
+
+.cards-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-bottom: 41px;
+
+  & .cards-find-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    height: 452px;
+  }
+
+  & .cards-title {
+    color: var(--color-black);
+    font-family: var(--font-common);
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 2px;
+    text-align: center;
+
+    padding-bottom: 30px;
+  }
+
+  & .cards-main {
+    flex-grow: 1;
+    padding: 17px;
+
+    border: 3px solid var(--color-sand);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+    & form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  & .cards-form-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px 20px 0 20px;
+    margin-bottom: 20px;
+
+    background-color: var(--color-sand);
+
+    & input {
+      height: 66px;
+      padding: 8px 20px;
+      margin-bottom: 25px;
+
+      border: 1px solid var(--color-white);
+      border-radius: 10px;
+
+      color: var(--color-black);
+      font-family: var(--font-title);
+      font-size: 30px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 50px;
+      letter-spacing: 0.6px;
+    }
+
+    & input::placeholder {
+      color: var(--color-grey);
+    }
+  }
+
+  & .cards-main-subtitle {
+    padding-bottom: 20px;
+
+    color: var(--color-black);
+    font-family: var(--font-title);
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 50px;
+    letter-spacing: 0.6px;
+  }
+
+  & .button {
+    width: 242px;
+    height: 44px;
+    padding: 7px 20px;
+
+    border: 1px solid var(--color-dark);
+    border-radius: 2px;
+
+    color: var(--color-dark);
+    text-align: center;
+    font-family: var(--font-common);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1.7px;
+    background-color: var(--color-white);
+    transition-duration: 150ms;
+
+    &:hover {
+      cursor: pointer;
+      background-color: var(--color-sand);
+      border: 1px solid var(--color-sand);
+    }
+  }
+}
+
+.get-card-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 460px;
+
+  & .get-card-buttons-wrapper {
+    display: flex;
+    gap: 20px;
+
+
+    & .get-card-btn {
+      width: 75px;
+      height: 30px;
+
+      color: var(--color-dark);
+      text-align: center;
+      font-family: var(--font-common);
+      font-size: 10px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      letter-spacing: 1px;
+
+      border: 1px solid var(--color-dark);
+      border-radius: 2px;
+      background-color: var(--color-white);
+      transition-duration: 150ms;
+
+      &:hover {
+        cursor: pointer;
+        background-color: var(--color-sand);
+        border: 1px solid var(--color-sand);
+      }
+    }
+  }
+}
+
+.get-card-title {
+  padding-bottom: 35px;
+
+  color: var(--color-black);
+  font-family: var(--font-title);
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.6px;
+}
+
+.get-card-content {
+  padding-bottom: 35px;
+
+  color: var(--color-black);
+  text-align: right;
+  font-family: var(--font-common);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 1.35px;
+}
+
+
+
+@container card (max-width: 1080px) {
+  .cards-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px
+  }
+
+  .get-card-wrapper {
+    width: 600px;
+    align-items: center;
+  }
+
+  .get-card-title {
+    padding-bottom: 40px;
+  }
+
+  .get-card-content {
+    padding-bottom: 40px;
+
+    text-align: center;
+  }
+}
+
+@container card (max-width: 727px) {
+  .cards-wrapper {
+    padding-bottom: clamp(20px, 5.35vw, 41px);
+
+    & .cards-find-wrapper {
+      display: flex;
+      flex-direction: column;
+      width: clamp(280px, 78.4vw, 600px);
+      height: auto;
+    }
+
+    & .cards-title {
+      font-size: clamp(14px, 3.95vw, 30px);
+
+      padding-left: 3px;
+      padding-top: 1px;
+      padding-bottom: clamp(15px, 3.9vmin, 30px);
+    }
+
+    & .cards-form-wrapper {
+      padding: clamp(5px, 2.6vmin, 20px) clamp(5px, 2.6vmin, 20px) 0 clamp(5px, 2.6vmin, 20px);
+      margin-bottom: clamp(5px, 2.6vmin, 20px);
+
+      & input {
+        height: clamp(30px, 8.58vw, 66px);
+        padding: clamp(4px, 1.04vw, 8px) clamp(10px, 2.6vw, 20px);
+        margin-bottom: clamp(15px, 3.25vw, 25px);
+
+        border-radius: clamp(2px, 1.3vw, 10px);
+
+        font-size: clamp(12px, 3.9vw, 30px);
+        line-height: clamp(20px, 6.5vw, 50px);
+        letter-spacing: clamp(0.4px, 0.08vw, 0.6px);
+      }
+
+    }
+
+    & .cards-main {
+      padding: clamp(5px, 2.21vmin, 17px) clamp(5px, 2.21vmin, 17px) clamp(5px, 3.64vmin, 28px);
+    }
+
+    & .cards-main-subtitle {
+      padding-bottom: clamp(10px, 2.6vw, 20px);
+
+      font-size: clamp(14px, 3.9vw, 30px);
+      line-height: clamp(20px, 6.5vw, 50px);
+    }
+
+    & .button {
+      width: clamp(150px, 31.46vmin, 242px);
+      height: clamp(34px, 5.72vmin, 44px);
+      padding: 7px clamp(10px, 2.6vmin, 20px);
+
+      font-size: clamp(12px, 2.6vmin, 20px);
+      letter-spacing: clamp(1px, 0.22vmin, 1.7px);
+    }
+  }
+
+  .get-card-wrapper {
+    width: clamp(280px, 78.4vw, 600px);
+  }
+
+  .get-card-title {
+    padding-bottom: clamp(15px, 4.55vmin, 35px);
+
+    font-size: clamp(16px, 3.9vmin, 30px);
+    line-height: clamp(28px, 6.5vw, 50px);
+    letter-spacing: clamp(0.3px, 0.08vmin, 0.6px);
+  }
+
+  .get-card-content {
+    padding-bottom: clamp(17px, 4.55vmin, 35px);
+
+    font-size: clamp(14px, 2.6vmin, 20px);
+    line-height: clamp(26px, 5.2vmin, 40px);
+    letter-spacing: clamp(0.7px, 0.18vmin, 1.35px);
+  }
+}
+
+/* коэффициент 0,13 */
