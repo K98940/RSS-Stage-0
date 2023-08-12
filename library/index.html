@@ -22,6 +22,12 @@
             Brooklyn Public Library
           </h1>
           <div class="wrapper-nav-profile">
+
+            <input id="burger-toggle" type="checkbox">
+            <label class="menu-btn-container" for="burger-toggle">
+              <div class="menu-btn" id="menu-btn"></div>
+            </label>
+
             <nav>
               <ul class="header-nav-ul">
                 <li><a href="#about">About</a></li>
@@ -31,6 +37,7 @@
                 <li><a href="#cards">Library Card</a></li>
               </ul>
             </nav>
+
             <div class="profile">
               <a href="">
                 <svg width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
@@ -39,6 +46,7 @@
                 </svg>
               </a>
             </div>
+
           </div>
         </div>
       </div>
@@ -59,33 +67,41 @@
   </div>
   <main>
     <div class="container">
-      <section class="about" id="about">
+      <section id="about">
         <div class="title">
           <h2>About</h2>
         </div>
         <div class="subtitle">
           <h3>The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside</h3>
         </div>
-        <div class="images-items">
-          <div class="item-1">
-            <img src="assets/jpg/About/image_1.jpg" alt="image about">
+        <div class="container-images">
+          <div class="images-items">
+            <div class="item-1">
+              <img src="assets/jpg/About/image_1.jpg" alt="image about">
+            </div>
+            <div class="item-2">
+              <img src="assets/jpg/About/image_2.jpg" alt="image about">
+            </div>
+            <div class="item-3">
+              <img src="assets/jpg/About/image_3.jpg" alt="image about">
+            </div>
           </div>
-          <div class="item-2">
-            <img src="assets/jpg/About/image_2.jpg" alt="image about">
-          </div>
-          <div class="item-3">
-            <img src="assets/jpg/About/image_3.jpg" alt="image about">
-          </div>
-        </div>
-        <div class="pagination-wrapper">
-          <div class="pagination-btn-wrapper">
-            <div class="pagination-btn pagination-btn__active"></div>
-          </div>
-          <div class="pagination-btn-wrapper">
-            <div class="pagination-btn"></div>
-          </div>
-          <div class="pagination-btn-wrapper">
-            <div class="pagination-btn"></div>
+          <div class="pagination-wrapper">
+            <div class="pagination-btn-wrapper">
+              <div class="pagination-btn pagination-btn__active"></div>
+            </div>
+            <div class="pagination-btn-wrapper">
+              <div class="pagination-btn"></div>
+            </div>
+            <div class="pagination-btn-wrapper">
+              <div class="pagination-btn"></div>
+            </div>
+            <div class="pagination-btn-wrapper btn__mobile">
+              <div class="pagination-btn"></div>
+            </div>
+            <div class="pagination-btn-wrapper btn__mobile">
+              <div class="pagination-btn"></div>
+            </div>
           </div>
         </div>
       </section>
@@ -625,19 +641,21 @@
         <div class="title">
           <h2>Our Contacts</h2>
         </div>
-        <div class="contacts-wrapper">
-          <div class="contacts-contacts">
-            <p class="contacts-subtitle-1 contacts-font-bold">For all Library inquiries:</p>
-            <p>Please call <a href="tel:+6177302370" target="_blank">(617) 730-2370</a></p>
-            <p>For TTY service, please call <a href="tel:+6177302370">(617) 730-2370</a></p>
-            <p>Putterham Library: <a href="tel:+6177302385">(617) 730-2385</a></p>
-            <p class="contacts-subtitle-2 contacts-font-bold">Senior Staff</p>
-            <p>Library Director: <a class="contacts-font-bold" target="_blank"
-                href="mailto:AmandaHirst@gmail.com">Amanda
-                Hirst</a></p>
-          </div>
-          <div class="contacts-map">
-            <img src="assets/jpg/Contacts/Contacts.jpg" width="696" height="414" alt="map">
+        <div class="contacts-container">
+          <div class="contacts-wrapper">
+            <div class="contacts-contacts">
+              <p class="contacts-subtitle-1 contacts-font-bold">For all Library inquiries:</p>
+              <p>Please call <a href="tel:+6177302370" target="_blank">(617) 730-2370</a></p>
+              <p>For TTY service, please call <a href="tel:+6177302370">(617) 730-2370</a></p>
+              <p>Putterham Library: <a href="tel:+6177302385">(617) 730-2385</a></p>
+              <p class="contacts-subtitle-2 contacts-font-bold">Senior Staff</p>
+              <p>Library Director: <a class="contacts-font-bold" target="_blank"
+                  href="mailto:AmandaHirst@gmail.com">Amanda
+                  Hirst</a></p>
+            </div>
+            <div class="contacts-map">
+              <img src="assets/jpg/Contacts/Contacts.jpg" width="696" height="414" alt="map">
+            </div>
           </div>
         </div>
       </section>
@@ -645,30 +663,32 @@
         <div class="title">
           <h2>Digital Library Cards</h2>
         </div>
-        <div class="cards-wrapper">
-          <div class="cards-find-wrapper">
-            <div class="cards-title">Find your Library card</div>
-            <div class="cards-main">
-              <form action="/" method="post">
-                <div class="cards-form-wrapper">
-                  <div class="cards-main-subtitle">Brooklyn Public Library</div>
-                  <input type="text" name="name" placeholder="Reader's name ">
-                  <input type="number" name="number" placeholder="Card number">
-                </div>
-                <button class="button">Check the card</button>
-              </form>
+        <div class="card-container">
+          <div class="cards-wrapper">
+            <div class="cards-find-wrapper">
+              <div class="cards-title">Find your Library card</div>
+              <div class="cards-main">
+                <form action="/" method="post">
+                  <div class="cards-form-wrapper">
+                    <div class="cards-main-subtitle">Brooklyn Public Library</div>
+                    <input type="text" name="name" placeholder="Reader's name ">
+                    <input type="number" name="number" placeholder="Card number">
+                  </div>
+                  <button class="button">Check the card</button>
+                </form>
+              </div>
             </div>
-          </div>
-          <div class="get-card-wrapper">
-            <div class="get-card-title">Get a reader card</div>
-            <div class="get-card-content">
-              <p>
-                You will be able to see a reader card after logging into account or you can register a new account
-              </p>
-            </div>
-            <div class="get-card-buttons-wrapper">
-              <button class="get-card-btn">Sign Up</button>
-              <button class="get-card-btn">Log in</button>
+            <div class="get-card-wrapper">
+              <div class="get-card-title">Get a reader card</div>
+              <div class="get-card-content">
+                <p>
+                  You will be able to see a reader card after logging into account or you can register a new account
+                </p>
+              </div>
+              <div class="get-card-buttons-wrapper">
+                <button class="get-card-btn">Sign Up</button>
+                <button class="get-card-btn">Log in</button>
+              </div>
             </div>
           </div>
         </div>
