@@ -69,5 +69,26 @@ console.log(`оценка:
 ИТОГО 100
 `)
 
-console.log('\n\nthanks to Roman (@EternalRival) for the script')
-console.table([['header', 1], ['main', 1], ['footer', 1], ['section', 6], ['h1', 1, 1], ['h2', 5], ['nav', 1], ['ul:has(li>a)', 2], ['button', 7], ['input', 2]].reduce((acc, [selector, min, max = Infinity]) => { const { length } = document.querySelectorAll(selector); acc[selector] = { min, max, 'present': length, 'in range': min <= length && length <= max ? '✅' : '⛔' }; return acc; }, {}));
+
+const burger = document.getElementById('burger-toggle')
+const menuBtn = document.getElementById('menu-btn')
+const nav = document.getElementsByTagName('nav')[0]
+const body = document.getElementsByTagName('body')[0]
+
+const removeMenu = (e) => {
+  const toggleScrollBlock = () => {
+    if (burger.checked) {
+      body.classList.add('__block-scroll')
+    } else {
+      body.classList.remove('__block-scroll')
+    }
+  }
+
+  if ((e.target != burger && e.target != menuBtn && e.target != nav) || e.code === 'Escape') {
+    burger.checked = false
+  }
+  toggleScrollBlock()
+}
+
+document.addEventListener('click', removeMenu)
+document.addEventListener('keydown', removeMenu)

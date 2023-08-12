@@ -1,0 +1,317 @@
+.favorites {
+  position: relative;
+  padding-top: 55px;
+}
+
+.favorites-subtitle {
+  color: var(--color-black);
+  font-family: var(--font-common);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1.26px;
+
+  padding-bottom: 36px;
+}
+
+.seasons-wrapper {
+  display: flex;
+  gap: 82px;
+  margin-bottom: 35px;
+}
+
+.seasons-radio-wrapper {
+  display: flex;
+
+  & input {
+    display: none;
+
+    &:checked+label {
+      text-shadow: 1px 0 var(--color-black);
+    }
+
+    &:checked+label::before {
+      background: url("../assets/icon/radio_selected.svg");
+      background-size: cover;
+    }
+  }
+
+  & label {
+    position: relative;
+    padding-left: 38px;
+
+    padding-bottom: 5px;
+    padding-top: 5px;
+    padding-right: 5px;
+
+    cursor: pointer;
+    color: var(--color-black);
+    font-family: var(--font-common);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 1.3px;
+
+    &::before {
+      content: "";
+      width: 17px;
+      height: 17px;
+      position: absolute;
+      left: 0;
+      bottom: 7px;
+
+      background: url("../assets/icon/radio_not_selected.svg");
+      background-size: cover;
+    }
+
+  }
+
+}
+
+.seasons-radio-wrapper:nth-child(2) {
+  margin-left: 5px;
+}
+
+.favorites-items-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 260px;
+  row-gap: 40px;
+  margin-left: -40px;
+}
+
+.favorites-item {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 550px;
+  height: 555px;
+  padding: 14px 20px 14px 19px;
+
+  border: 1px solid var(--color-black);
+
+  & .favorites-item-title {
+    position: relative;
+    margin-bottom: 20px;
+
+    color: var(--color-black);
+    font-family: var(--font-title);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+
+    &::after {
+      position: absolute;
+      display: block;
+      width: 60px;
+      height: 1px;
+      bottom: 0;
+      content: "";
+      background-color: var(--color-sand);
+    }
+  }
+
+  & .favorites-item-subtitle {
+    color: var(--color-black);
+    font-family: var(--font-common);
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px;
+    letter-spacing: 2.4px;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  & .favorites-item-book-name {
+    text-transform: uppercase;
+  }
+
+  & .favorites-item-book-author {
+    text-transform: capitalize;
+    padding-bottom: 20px;
+  }
+}
+
+.favoritesitem-poster {
+  position: absolute;
+  height: 300px;
+  right: -41px;
+  bottom: 0;
+
+  & img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    bottom: -1px;
+    border: 1px solid var(--color-black);
+  }
+}
+
+.favorites-description-poster-wrapper {
+  display: flex;
+  flex-grow: 1;
+  position: relative;
+}
+
+.favorites-item-description {
+  display: flex;
+  flex-direction: column;
+
+  color: var(--color-black);
+  font-family: var(--font-common);
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2.7px;
+  text-transform: capitalize;
+  padding-right: 150px;
+
+  & p {
+    flex-grow: 1;
+    flex-basis: 100px;
+    overflow: hidden;
+    margin-bottom: 5px;
+  }
+
+  & .favorites-item-button {
+    width: 75px;
+    height: 30px;
+
+    color: var(--color-dark);
+    text-align: center;
+    font-family: var(--font-common);
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1px;
+
+    background-color: var(--color-white);
+    border-radius: 2px;
+    border: 1px solid var(--color-dark);
+    transition-duration: 150ms;
+
+    &:hover {
+      background-color: var(--color-sand);
+      border: none;
+      cursor: pointer;
+    }
+
+  }
+
+  & .favorites-item-button__own {
+    color: var(--color-sand);
+    border: 1px solid var(--color-sand);
+
+    &:hover {
+      background-color: var(--color-white);
+      border: 1px solid var(--color-sand);
+      cursor: auto;
+    }
+  }
+
+}
+
+@media (max-width: 1439px) {
+  .favorites-items-wrapper {
+    column-gap: calc(5%);
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 1024px) {
+  .favorites-items-wrapper {
+    margin-left: -40px;
+  }
+
+}
+
+@media (max-width: 768px) {
+  .seasons-wrapper {
+    gap: 11.29%;
+  }
+
+  .seasons-radio-wrapper {
+
+    & label {
+      font-size: 2.59vw;
+
+      &::before {
+        width: clamp(10px, 2.21vmin, 17px);
+        height: clamp(10px, 2.21vmin, 17px);
+
+        bottom: 7px;
+      }
+    }
+  }
+
+  .favorites {
+    padding-top: 55px;
+  }
+}
+
+@media (max-width: 680px) {
+  .seasons-wrapper {
+    flex-direction: column;
+    gap: clamp(10px, 2.6vmin, 20px);
+  }
+
+  .seasons-radio-wrapper:nth-child(2) {
+    margin-left: 0;
+  }
+
+  .favorites-subtitle {
+    padding-bottom: clamp(10px, 4.68vmin, 36px);
+
+    font-size: clamp(10px, 2.08vmin, 16px);
+    line-height: clamp(16px, 3.9vmin, 30px);
+  }
+
+  .favorites-item {
+    width: 88vw;
+    height: auto;
+
+    & .favorites-item-book-name {
+      font-size: 3.5vw;
+      line-height: 7vw;
+      white-space: normal;
+    }
+
+    & .favorites-item-book-author {
+      font-size: 3vw;
+      line-height: 6vw;
+    }
+  }
+
+  .favorites-item-description {
+    font-size: 3vw;
+    line-height: 6vw;
+    letter-spacing: 2.3px;
+    padding-right: 0;
+
+    & p {
+      flex-basis: auto;
+      margin-bottom: 10px;
+    }
+  }
+
+  .favoritesitem-poster {
+    display: none;
+  }
+
+  .favorites-items-wrapper {
+    margin-left: 0;
+  }
+
+  .favorites {
+    padding-top: clamp(5px, 7.15vmin, 55px);
+  }
+}
