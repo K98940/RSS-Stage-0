@@ -183,6 +183,16 @@
   }
 }
 
-.x {
-  box-shadow: 0 0 50px green;
+.__left-arrow-disable {
+
+  &::before {
+    display: none;
+  }
+}
+
+.__right-arrow-disable {
+
+  &::after {
+    display: none;
+  }
 }

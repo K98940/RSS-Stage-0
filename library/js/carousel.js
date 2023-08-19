@@ -22,26 +22,40 @@ export const initCarousel = (container) => {
     curItem = btnNum
     items.style.left = `${-(btnNum * sizeStep)}px`
     setActiveClass(btnNum)
+    checkArrow()
   }
 
   const frameHandle = (e) => {
-    console.log(`e.clientX: ${e.clientX}`)
+    // console.log(`e.clientX: ${e.clientX}`)
     if (e.offsetY < 275 || e.offsetY > 325) return
 
     if (e.clientX > itemLeftEdge - 20 && e.clientX < itemLeftEdge + 40) {
       curItem = curItem > 0 ? curItem - 1 : curItem
       items.style.left = `${-(curItem * sizeStep)}px`
       setActiveClass(curItem)
-      console.log(`pressed left arrow`)
+      // console.log(`pressed left arrow`)
     }
     if (e.clientX > itemRightEdge - 40 && e.clientX < itemRightEdge + 20) {
       curItem = curItem >= maxItem ? curItem : +curItem + 1
       items.style.left = `${-(curItem * sizeStep)}px`
       setActiveClass(curItem)
-      console.log(`pressed right arrow`)
+      // console.log(`pressed right arrow`)
     }
-    // console.log(`curItem: ${curItem}`)
-    console.log(`leftEdge: ${itemLeftEdge}`)
+
+    checkArrow()
+  }
+
+  const checkArrow = () => {
+    if (curItem > 0) {
+      toggleLeftArrow(false)
+    } else {
+      toggleLeftArrow(true)
+    }
+    if (curItem >= maxItem) {
+      toggRightArrow(true)
+    } else {
+      toggRightArrow(false)
+    }
   }
 
   const setHandlers = (container) => {
@@ -53,6 +67,22 @@ export const initCarousel = (container) => {
     container.addEventListener('click', frameHandle, true)
   }
 
+  const toggleLeftArrow = (off) => {
+    if (off) {
+      container.querySelector('.frame').classList.add('__left-arrow-disable')
+    } else {
+      container.querySelector('.frame').classList.remove('__left-arrow-disable')
+    }
+  }
+
+  const toggRightArrow = (off) => {
+    if (off) {
+      container.querySelector('.frame').classList.add('__right-arrow-disable')
+    } else {
+      container.querySelector('.frame').classList.remove('__right-arrow-disable')
+    }
+  }
+
   let curItem = 0
   let maxItem = 0
   const itemLeftEdge = (window.screen.width - 610) / 2
@@ -60,6 +90,7 @@ export const initCarousel = (container) => {
   const items = container.querySelector('.images-items')
   const sizeStep = getSizeStep(container)
   setActiveClass(0)
+  toggleLeftArrow(true)
   items.style.left = `0`
   setHandlers(container)
 }
