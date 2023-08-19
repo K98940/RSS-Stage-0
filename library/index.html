@@ -74,32 +74,40 @@
         <div class="subtitle">
           <h3>The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside</h3>
         </div>
-        <div class="container-images">
-          <div class="images-items">
-            <div class="item-1">
-              <img src="assets/jpg/About/image_1.jpg" alt="image about">
-            </div>
-            <div class="item-2">
-              <img src="assets/jpg/About/image_2.jpg" alt="image about">
-            </div>
-            <div class="item-3">
-              <img src="assets/jpg/About/image_3.jpg" alt="image about">
+        <div class="container-carousel">
+          <div class="frame">
+            <div class="images-items">
+              <div class="item-1" data-carousel-item="0">
+                <img src="assets/jpg/About/image_1.jpg" alt="image about">
+              </div>
+              <div class="item-2" data-carousel-item="1">
+                <img src="assets/jpg/About/image_2.jpg" alt="image about">
+              </div>
+              <div class="item-3" data-carousel-item="2">
+                <img src="assets/jpg/About/image_3.jpg" alt="image about">
+              </div>
+              <div class="item-4" data-carousel-item="3">
+                <img src="assets/jpg/About/image_4.jpg" alt="image about">
+              </div>
+              <div class="item-5" data-carousel-item="4">
+                <img src="assets/jpg/About/image_5.jpg" alt="image about">
+              </div>
             </div>
           </div>
           <div class="pagination-wrapper">
-            <div class="pagination-btn-wrapper">
-              <div class="pagination-btn pagination-btn__active"></div>
-            </div>
-            <div class="pagination-btn-wrapper">
+            <div class="pagination-btn-wrapper pagination-btn__active" data-carousel-btn="0">
               <div class="pagination-btn"></div>
             </div>
-            <div class="pagination-btn-wrapper">
+            <div class="pagination-btn-wrapper" data-carousel-btn="1">
               <div class="pagination-btn"></div>
             </div>
-            <div class="pagination-btn-wrapper btn__mobile">
+            <div class="pagination-btn-wrapper" data-carousel-btn="2">
               <div class="pagination-btn"></div>
             </div>
-            <div class="pagination-btn-wrapper btn__mobile">
+            <div class="pagination-btn-wrapper btn__small" data-carousel-btn="3">
+              <div class="pagination-btn"></div>
+            </div>
+            <div class="pagination-btn-wrapper btn__mobile" data-carousel-btn="4">
               <div class="pagination-btn"></div>
             </div>
           </div>
@@ -755,7 +763,7 @@
       </div>
     </footer>
   </div>
-  <script src="js/index.js"></script>
+  <script type="module" src="js/index.js"></script>
 </body>
 
 </html>
