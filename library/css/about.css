@@ -186,13 +186,13 @@
 .__left-arrow-disable {
 
   &::before {
-    display: none;
+    filter: opacity(0.3);
   }
 }
 
 .__right-arrow-disable {
 
   &::after {
-    display: none;
+    filter: opacity(0.3);
   }
 }

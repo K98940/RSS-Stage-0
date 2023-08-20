@@ -17,8 +17,14 @@
 
 .seasons-wrapper {
   display: flex;
+  position: sticky;
+  top: 0;
   gap: 82px;
   margin-bottom: 35px;
+  z-index: var(--z-index-top);
+
+  background-color: var(--color-white);
+  padding-bottom: 35px;
 }
 
 .seasons-radio-wrapper {
@@ -81,6 +87,8 @@
   column-gap: 260px;
   row-gap: 40px;
   margin-left: -40px;
+
+  transition: 300ms;
 }
 
 .favorites-item {

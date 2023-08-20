@@ -13,7 +13,6 @@ export const initCarousel = (container) => {
     btns.forEach(btn => {
       btn.classList.remove('pagination-btn__active')
     });
-    console.log(`setActiveClass(${btnNum})`)
     container.querySelector(`[data-carousel-btn="${btnNum}"]`).classList.add('pagination-btn__active')
   }
 
@@ -26,20 +25,17 @@ export const initCarousel = (container) => {
   }
 
   const frameHandle = (e) => {
-    // console.log(`e.clientX: ${e.clientX}`)
     if (e.offsetY < 275 || e.offsetY > 325) return
 
     if (e.clientX > itemLeftEdge - 20 && e.clientX < itemLeftEdge + 40) {
       curItem = curItem > 0 ? curItem - 1 : curItem
       items.style.left = `${-(curItem * sizeStep)}px`
       setActiveClass(curItem)
-      // console.log(`pressed left arrow`)
     }
     if (e.clientX > itemRightEdge - 40 && e.clientX < itemRightEdge + 20) {
       curItem = curItem >= maxItem ? curItem : +curItem + 1
       items.style.left = `${-(curItem * sizeStep)}px`
       setActiveClass(curItem)
-      // console.log(`pressed right arrow`)
     }
 
     checkArrow()

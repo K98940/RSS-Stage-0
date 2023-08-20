@@ -1,4 +1,6 @@
 import * as carousel from './carousel.js'
+import * as favorites from './favorites.js'
+import * as state from './state.js'
 
 const burger = document.getElementById('burger-toggle')
 const menuBtn = document.getElementById('menu-btn')
@@ -33,3 +35,10 @@ window.addEventListener('resize', () => {
   }, 500)
   isWindowResized = true
 })
+
+favorites.FillCards('winter')
+const radios = document.querySelectorAll('label[data-season]')
+radios.forEach(radio => radio.addEventListener('click', () => {
+  radio.previousElementSibling.checked = true
+  favorites.FillCards(radio.dataset.season)
+}))
