@@ -1,0 +1,50 @@
+body:has(div.modalcontainer) {
+  overflow: hidden !important;
+  /* не забыть подчистить все изменения через инлайн и убрать импотант */
+}
+
+.modalcontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  z-index: var(--z-index-top);
+
+  overflow: hidden;
+  background-color: var(--color-dark-shadow);
+}
+
+.modalwrapper {
+  position: relative;
+  min-width: 100px;
+  min-height: 150px;
+
+  background-color: var(--color-white);
+}
+
+.modal-btnclose {
+  position: absolute;
+  width: 19px;
+  height: 19px;
+  padding: 2px;
+  top: 13px;
+  right: 13px;
+
+  background-image: url("../assets/icon/close_btn.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 15px;
+  background-color: var(--color-white);
+  border: none;
+  transition: var(--transition-duration);
+}
+
+.modal-btnclose:hover {
+  cursor: pointer;
+  background-color: var(--color-sand);
+}

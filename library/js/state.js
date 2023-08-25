@@ -26,7 +26,7 @@ export const seasons = {
       author: 'By Clive Irving',
       description: 'A Timely And Revelatory New Biography Of Queen Elizabeth (And Her Family) Exploring How The Windsors Have Evolved And Thrived As The Modern World Has Changed Around Them.',
       poster: 'assets/jpg/Favorites/book_4.jpg',
-      ownership: true,
+      ownership: false,
     },
   ],
   'summer': [
@@ -178,9 +178,28 @@ export const seasons = {
       poster: 'assets/jpg/Favorites/book_8.jpg',
       ownership: false,
     },
-  ]
+  ],
 }
 
-export const user = {
-  isLogin: false
+// 'isLogin': false,
+//   'first name': '',
+//     'last name': '',
+//       'email': '',
+//         'password': '',
+
+export const users = {
+  loginedUser: null,
+  registered: [],
+}
+
+export const app = {
+  modal: false,
+  forms: { // это для хранения стейта форм, еще не реализовано
+    register: {
+      firstName: '',
+      lastName: '',
+      email: '',
+      password: '',
+    }
+  }
 }

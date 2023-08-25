@@ -6,6 +6,10 @@
 @import url("contacts.css");
 @import url("cards.css");
 @import url("footer.css");
+@import url("drop_menu.css");
+@import url("register.css");
+@import url("login.css");
+@import url("modal.css");
 
 @font-face {
   font-family: Forum;
@@ -33,6 +37,7 @@
   --z-index-middle: 1;
   --z-index-top: 2;
 
+  --transition-duration: 200ms;
 }
 
 * {
@@ -51,10 +56,6 @@ body {
   width: 100%;
   height: 100%;
   overflow-x: hidden;
-}
-
-.__block-scroll {
-  overflow-y: hidden;
 }
 
 .container {
@@ -180,4 +181,30 @@ section {
     letter-spacing: clamp(0.8px, 0.1vmin, 0.75px);
     line-height: clamp(18px, 2.6vmin, 20px);
   }
+}
+
+.modal-container {
+  display: flex;
+
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: var(--z-index-top);
+
+  overflow: hidden;
+
+  font-family: var(--font-common);
+  font-size: 15px;
+  color: var(--color-black);
+  text-align: center;
+  font-style: normal;
+  line-height: 20px;
+  letter-spacing: 1px;
+  background-color: var(--color-dark-shadow);
+}
+
+.__visabil {
+  visibility: visible;
 }
