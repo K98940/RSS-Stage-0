@@ -6,9 +6,11 @@ import * as register from './register.js'
 import * as modal from './modal.js'
 import * as profile from './profile.js'
 import * as login from './login.js'
+import * as info from './info.js'
 
 const burger = document.getElementById('burger-toggle')
 const profileBtn = document.querySelector('.profile')
+const checkCard = document.querySelector('[data-role="checkCard"]')
 let isWindowResized = false
 let menu = null
 
@@ -47,7 +49,7 @@ const handleDocumentClick = (e) => {
 
   switch (role) {
     case 'logIn':
-      modal.createModalContainer()
+      modal.createModalContainer(login.createLoginDialog)
       break;
     case 'Register':
       modal.createModalContainer(register.createRegisterDialog)
@@ -65,6 +67,15 @@ const handleDocumentClick = (e) => {
   toggleScrollBlock()
 }
 
+const disableTabindex = () => {
+  const Elements = []
+  Elements.push(...document.querySelectorAll('input'))
+  Elements.push(...document.querySelectorAll('a'))
+  Elements.push(...document.querySelectorAll('button'))
+  Elements.forEach(el => {
+    el.setAttribute('tabindex', '-1')
+  })
+}
 
 const initApp = () => {
   try {
@@ -76,8 +87,9 @@ const initApp = () => {
       }
     }
   } catch (error) {
-    console.warn('error get localStorage data', error)
+    console.warn('error get localStorage data: ', error)
   }
+  disableTabindex()
 }
 
 
@@ -100,3 +112,28 @@ radios.forEach(radio => radio.addEventListener('click', () => {
   radio.previousElementSibling.checked = true
   favorites.FillCards(radio.dataset.season)
 }))
+
+const handleCheckCard = (e) => {
+  e.preventDefault()
+  const name = document.querySelector('[name="name"]')
+  const number = document.querySelector('[name="number"]')
+  const account = profile.checkLogin({ firstName: name.value, cardNumber: number.value })
+  if (account) {
+    const bnt = document.querySelector('[data-role="checkCard"]')
+    const divInfo = info.createInfoDiv(account)
+    bnt.append(divInfo)
+    setTimeout(() => {
+      divInfo.classList.remove('info-panel-icons__fullsize')
+      setTimeout(() => {
+        name.value = ''
+        number.value = ''
+        divInfo.remove()
+      }, 400)
+    }, 10000)
+
+  } else {
+    alert('no match')
+  }
+  // console.log(account)
+}
+checkCard.addEventListener('click', handleCheckCard)

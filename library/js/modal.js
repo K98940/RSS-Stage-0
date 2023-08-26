@@ -13,6 +13,11 @@ export const createModalContainer = (component, options = {
     })
   }
 
+  const removeExistModal = () => {
+    const modal = document.querySelector('.modalcontainer')
+    if (modal) modal.remove()
+  }
+
   const container = document.createElement('div')
   const wrapper = document.createElement('div')
   const btnClose = document.createElement('button')
@@ -22,11 +27,12 @@ export const createModalContainer = (component, options = {
   wrapper.className = 'modalwrapper'
   btnClose.className = 'modal-btnclose'
 
+  removeExistModal()
   document.body.append(container)
   container.append(wrapper)
   wrapper.append(btnClose)
   component && wrapper.append(component())
-  const focusedElement = document.querySelector('[autofocus]')
+  const focusedElement = document.querySelector('[focus]')
   focusedElement && focusedElement.focus()
 
   container.addEventListener('click', handleModalClick)

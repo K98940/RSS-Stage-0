@@ -36,6 +36,7 @@ export const FillCards = (season) => {
       posterWrapper.append(description)
 
       const button = document.createElement('button')
+      button.setAttribute('tabindex', '-1')
       button.classList.add('favorites-item-button')
       if (book.ownership) {
         button.classList.add('favorites-item-button__own')

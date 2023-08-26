@@ -11,45 +11,92 @@ export const setProfileIcon = () => {
   }
 }
 
-export const setLoginedUser = (inputs) => {
+
+
+export const setLoginedUser = (acc) => {
   state.users.loginedUser = {
-    'firstName': inputs[0].value,
-    'lastName': inputs[1].value,
-    'email': inputs[2].value,
-    'password': inputs[3].value,
+    'firstName': acc.firstName,
+    'lastName': acc.lastName,
+    'email': acc.email,
+    'password': acc.password,
+    'cardNumber': acc.cardNumber,
+    'books': acc.books,
   }
   localStorage.setItem('users', JSON.stringify(state.users))
 }
 
-export const addRegisteredUser = (inputs) => {
-  let error = ''
-  if (state.users.registered.length === 0) {
+
+
+export const checkLogin = (query) => {
+  const keysQuery = Object.keys(query)
+  const filter = state.users.registered.filter(user => {
+    const countMatches = keysQuery.reduce((match, key) => user[key] === query[key] ? match + 1 : match, 0)
+    return countMatches === keysQuery.length
+  }
+  )
+
+  return filter[0]
+}
+
+
+
+export const makeAccount = (inputs) => {
+
+  const generationCardNumber = () => {
+    return [...'123456789'].reduce((res, c) => {
+      return res + (Math.floor(Math.random() * 16).toString(16).toUpperCase())
+    }, '')
+  }
+
+  return {
+    'firstName': inputs[0].value,
+    'lastName': inputs[1].value,
+    'email': inputs[2].value,
+    'password': inputs[3].value,
+    'cardNumber': generationCardNumber(),
+    'books': null,
+    'visits': 1,
+    'bonuses': 0,
+    'books': 0,
+  }
+}
+
+
+
+export const addRegisteredUser = (acc) => {
+
+  const addNewRegistration = (a) => {
     state.users.registered.push({
-      'firstName': inputs[0].value,
-      'lastName': inputs[1].value,
-      'email': inputs[2].value,
-      'password': inputs[3].value,
+      'firstName': a.firstName,
+      'lastName': a.lastName,
+      'email': a.email,
+      'password': a.password,
+      'cardNumber': a.cardNumber,
+      'books': null,
+      'visits': 1,
+      'bonuses': 0,
+      'books': 0,
     })
     localStorage.setItem('users', JSON.stringify(state.users))
+  }
+
+  let error = ''
+
+  if (state.users.registered.length === 0) {
+    addNewRegistration(acc)
     return true
   }
+
   state.users.registered.forEach(user => {
-    if (user.email === inputs[2].value) {
-      error = `такой e-mail (${inputs[2].value}) уже использовался, придумайте новый :)`
+    if (user.email === acc.email) {
+      error = `такой e-mail (${acc.email}) уже использовался, придумайте новый :)`
     }
   })
-
   if (error) {
     alert(error)
     return false
-  } else {
-    state.users.registered.push({
-      'firstName': inputs[0].value,
-      'lastName': inputs[1].value,
-      'email': inputs[2].value,
-      'password': inputs[3].value,
-    })
-    localStorage.setItem('users', JSON.stringify(state.users))
-    return true
   }
+
+  addNewRegistration(acc)
+  return true
 }

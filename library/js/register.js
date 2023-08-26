@@ -1,33 +1,42 @@
-import * as state from './state.js'
+import * as modal from './modal.js'
 import * as profile from './profile.js'
+import * as login from './login.js'
 
 export const createRegisterDialog = () => {
 
-  const hanlerSignUp = (e) => {
-    const { type, key } = e
-    const modalcontainer = document.querySelector('.modalcontainer')
-    const inputs = registerFieldWrapper.querySelectorAll('input')
+  const hanlerBtn = (e) => {
+    e.preventDefault()
 
-    // if (type === 'keypress' & key != 'Enter') return
+    const { type, key } = e
+    if (type === 'keypress' & (key != 'Enter' || key != 'Esc')) return
+    // if (key === 'Esc') modalcontainer.remove()
+
+    const modalcontainer = document.querySelector('.modalcontainer')
+    const inputs = FieldsWrapper.querySelectorAll('input')
 
     let error = 0
     inputs.forEach(input => {
       if (!input.validity.valid) {
-        input.classList.add('register__bad-input')
+        input.classList.add('dialog__bad-input')
         error++
       } else {
-        input.classList.remove('register__bad-input')
+        input.classList.remove('dialog__bad-input')
       }
     })
     if (error) return
 
-
-    if (profile.addRegisteredUser(inputs)) {
-      profile.setLoginedUser(inputs)
+    const account = profile.makeAccount(inputs)
+    if (profile.addRegisteredUser(account)) {
+      profile.setLoginedUser(account)
       profile.setProfileIcon()
       modalcontainer.remove()
     }
   }
+
+  const handleLink = () => {
+    modal.createModalContainer(login.createLoginDialog)
+  }
+
 
 
   const fields = {
@@ -39,36 +48,41 @@ export const createRegisterDialog = () => {
   const wrapper = document.createElement('div')
   const header = document.createElement('div')
   const form = document.createElement('form')
-  const registerFieldWrapper = document.createElement('div')
-  const btnSignUp = document.createElement('button')
+  const FieldsWrapper = document.createElement('div')
+  const dialogBtn = document.createElement('button')
   const footer = document.createElement('div')
+  const link = document.createElement('span')
 
-  wrapper.className = 'register-wrapper'
-  header.className = 'register-header'
-  registerFieldWrapper.className = 'register-field-wrapper'
-  btnSignUp.className = 'register-btn-signup'
-  footer.className = 'register-footer'
+  wrapper.className = 'dialog-wrapper'
+  header.className = 'dialog-header'
+  FieldsWrapper.className = 'dialog-fields-wrapper'
+  dialogBtn.className = 'dialog-btn'
+  footer.className = 'dialog-footer'
+  link.className = 'dialog-footer-link'
   header.innerText = 'Register'
-  btnSignUp.innerText = 'Sign Up'
+  dialogBtn.innerText = 'Sign Up'
+  dialogBtn.setAttribute('tabindex', '5')
+  link.innerText = 'Login'
 
   wrapper.append(header)
   wrapper.append(form)
-  form.append(registerFieldWrapper)
+  form.append(FieldsWrapper)
   Object.entries(fields).forEach((field, index) => {
     const div = document.createElement('div')
-    div.className = 'register-field'
-    div.innerHTML = `<label class="register-label" for="${index}">${field[0]}</label>
-  <input type="${field[1]}" id="input${index}" required autocomplete="off" ${index === 0 ? 'autofocus' : ''}  tabindex="${index + 1}"
+    div.className = 'dialog-field'
+    div.innerHTML = `<label class="dialog-label" for="${index}">${field[0]}</label>
+  <input type="${field[1]}" id="input${index}" required autocomplete="on" ${index === 0 ? 'focus' : ''}  tabindex="${index + 1}"
   ${field[1] === 'password' ? ' pattern=".{8,}" title="minimum of 8 characters"' : ' pattern=".{1,}"'} >`
-    registerFieldWrapper.append(div)
+    FieldsWrapper.append(div)
   })
-  form.append(btnSignUp)
-  footer.innerHTML = `<span class="register-footer-title">Already have an account?</span>
-  <span class="register-footer-link">Login</span>`
+  form.append(dialogBtn)
+  footer.innerHTML = `<span class="dialog-footer-title" data-role="logIn">Already have an account?`
   wrapper.append(footer)
+  footer.append(link)
 
-  btnSignUp.addEventListener('click', hanlerSignUp)
-  // wrapper.addEventListener('keypress', hanlerSignUp)
+  dialogBtn.addEventListener('click', hanlerBtn)
+  link.addEventListener('click', handleLink)
+  // wrapper.addEventListener('keypress', hanlerBtn)
 
   return wrapper
 }
