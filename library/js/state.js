@@ -6,6 +6,7 @@ export const seasons = {
       description: 'An Unusual Sci-Fi Story About A Book Eater Woman Who Tries Desperately To Save Her Dangerous Mind-Eater Son From Tradition And Certain Death. Complete With Dysfunctional Family Values, Light Sapphic Romance, And A Strong, Complex Protagonist. Not For The Faint Of Heart.',
       poster: 'assets/jpg/Favorites/book_1.jpg',
       ownership: false,
+      id: 1,
     },
     {
       title: 'CACKLE',
@@ -13,6 +14,7 @@ export const seasons = {
       description: 'Are Your Halloween Movies Of Choice The Witches Of Eastwick And Practical Magic? Look No Further Than Here - Where A Woman Recovering From A Breakup Moves To A Quaint Town In Upstate New York And Befriends A Beautiful Witch.',
       poster: 'assets/jpg/Favorites/book_2.jpg',
       ownership: false,
+      id: 2,
     },
     {
       title: 'DANTE: POET OF THE SECULAR WORLD',
@@ -20,6 +22,7 @@ export const seasons = {
       description: 'Auerbach&apos;s Engaging Book Places The &apos;Comedy&apos; Within The Tradition Of Epic, Tragedy, And Philosophy In General, Arguing For Dante&apos;s Uniqueness As One Who Raised The Individual And His Drama Of Soul Into Something Of Divine Significance—An Inspired Introduction To Dante&apos;s Main Themes.',
       poster: 'assets/jpg/Favorites/book_3.jpg',
       ownership: false,
+      id: 3,
     },
     {
       title: 'THE LAST QUEEN',
@@ -27,6 +30,7 @@ export const seasons = {
       description: 'A Timely And Revelatory New Biography Of Queen Elizabeth (And Her Family) Exploring How The Windsors Have Evolved And Thrived As The Modern World Has Changed Around Them.',
       poster: 'assets/jpg/Favorites/book_4.jpg',
       ownership: false,
+      id: 4,
     },
   ],
   'summer': [
@@ -36,6 +40,7 @@ export const seasons = {
       description: 'One day an old lady buys a new pair of shoes. It is Emma Carter. The shoes are cheap, but Emma is very pleased.She is walking home.Suddenly a young man hits her on the head and snatches her bag.He runs away.It is Jason Williams.He is twenty- two and lives with his parents.His only occupation in life is stealing things.But this time he doesn&apos;t get much.There are only a little money and a lottery ticket in the woman&apos;s bag. Emma buys a lottery ticket every Sunday. She always has the same numbers. Each number is special for her. This week the old woman is lying on a hospital bed. She is too tired to watch the lottery.So she doesn&apos;t even know that her ticket has won. And there is only one question. Who will get the money?',
       poster: 'assets/jpg/Favorites/book_9.jpg',
       ownership: false,
+      id: 5,
     },
     {
       title: 'The Lost Crowns of Anglia',
@@ -48,6 +53,7 @@ export const seasons = {
                 realised heneeded advice.`,
       poster: 'assets/jpg/Favorites/book_10.jpg',
       ownership: false,
+      id: 6,
     },
     {
       title: 'Marry Me, Darling!',
@@ -61,6 +67,7 @@ export const seasons = {
                 future husband will change for her.`,
       poster: 'assets/jpg/Favorites/book_11.jpg',
       ownership: false,
+      id: 7,
     },
     {
       title: 'Sing to Win',
@@ -74,6 +81,7 @@ export const seasons = {
                 named Emma. Sophia thought that they could become good friends. Soon Sofia came on the scene.`,
       poster: 'assets/jpg/Favorites/book_12.jpg',
       ownership: false,
+      id: 8,
     },
   ],
   'autumn': [
@@ -89,6 +97,7 @@ export const seasons = {
                 What should he do? Is it better to sell this island?`,
       poster: 'assets/jpg/Favorites/book_13.jpg',
       ownership: false,
+      id: 9,
     },
     {
       title: 'Monster House',
@@ -102,6 +111,7 @@ export const seasons = {
                 and closed the door.`,
       poster: 'assets/jpg/Favorites/book_14.jpg',
       ownership: false,
+      id: 10,
     },
     {
       title: 'Heidi',
@@ -115,6 +125,7 @@ export const seasons = {
                 turns out to be very kind.`,
       poster: 'assets/jpg/Favorites/book_15.jpg',
       ownership: false,
+      id: 11,
     },
     {
       title: 'Ringing the Changes',
@@ -122,6 +133,7 @@ export const seasons = {
       description: `This writer is known for many good horror stories. But 'Ringing the Changes' is considered the most popular of them all. Perhaps it is because it was included on the largest number of collections from all the author's stories. This story is fascinating and truly scary. There are ancient frightening creatures, ordeals for heroes, something that is beyond human understanding. It shows how the ancient world collides with the modern. Everything starts as usual. A young married couple is spending their honeymoon in a small cozy town. It is a resort town. Only one thing is strange. Church bells sound here too often. It you want to read the perfect story about evil dead, this is the right book for you.`,
       poster: 'assets/jpg/Favorites/book_16.jpg',
       ownership: false,
+      id: 12,
     },
   ],
   'spring': [
@@ -137,6 +149,7 @@ export const seasons = {
                 the nightingale lived.`,
       poster: 'assets/jpg/Favorites/book_5.jpg',
       ownership: false,
+      id: 13,
     },
     {
       title: `The Emperor's New Clothes`,
@@ -150,6 +163,7 @@ export const seasons = {
                 he did not visit the two men.`,
       poster: 'assets/jpg/Favorites/book_6.jpg',
       ownership: false,
+      id: 14,
     },
     {
       title: 'The Little Mermaid',
@@ -164,6 +178,7 @@ export const seasons = {
                 this world.`,
       poster: 'assets/jpg/Favorites/book_7.jpg',
       ownership: false,
+      id: 15,
     },
     {
       title: 'The Ugly Duckling',
@@ -177,15 +192,10 @@ export const seasons = {
                 place for the ugly duckling in this garden.`,
       poster: 'assets/jpg/Favorites/book_8.jpg',
       ownership: false,
+      id: 16,
     },
   ],
 }
-
-// 'isLogin': false,
-//   'first name': '',
-//     'last name': '',
-//       'email': '',
-//         'password': '',
 
 export const users = {
   loginedUser: null,
@@ -194,12 +204,4 @@ export const users = {
 
 export const app = {
   modal: false,
-  forms: { // это для хранения стейта форм, еще не реализовано
-    register: {
-      firstName: '',
-      lastName: '',
-      email: '',
-      password: '',
-    }
-  }
 }

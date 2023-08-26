@@ -1,6 +1,18 @@
+import * as modal from './modal.js'
+import * as login from './login.js'
 import * as state from './state.js'
 
 export const FillCards = (season) => {
+
+  const handleBookButton = (e) => {
+    const bookID = e.target.dataset.bookid
+    console.log('bookID', bookID)
+
+    if (!state.users.loginedUser) {
+      modal.createModalContainer(login.createLoginDialog)
+    }
+  }
+
   const container = document.querySelector('.favorites-items-wrapper')
   container.style.opacity = '0'
 
@@ -37,11 +49,13 @@ export const FillCards = (season) => {
 
       const button = document.createElement('button')
       button.setAttribute('tabindex', '-1')
+      button.dataset.bookid = book.id
       button.classList.add('favorites-item-button')
       if (book.ownership) {
         button.classList.add('favorites-item-button__own')
       }
       button.innerText = book.ownership ? 'Own' : 'Buy'
+      button.addEventListener('click', handleBookButton)
       description.append(button)
 
       const poster = document.createElement('div')

@@ -1,4 +1,6 @@
-export const createMenu = (isLogin, elem) => {
+import * as state from './state.js'
+
+export const createMenu = (elem) => {
 
   const { right, bottom } = elem.getBoundingClientRect()
   const nav = document.querySelector('.wrapper-nav-profile')
@@ -15,7 +17,7 @@ export const createMenu = (isLogin, elem) => {
   nav.prepend(container)
   wrapper.innerHTML = `
   <div class="dropmenu-title">
-    Profile
+    ${state.users.loginedUser ? state.users.loginedUser.cardNumber : 'Profile'}
   </div>
   `
   container.append(wrapper)
@@ -26,7 +28,7 @@ export const createMenu = (isLogin, elem) => {
   wrapper.style.left = `${right - 80}px`
   wrapper.style.top = `${bottom}px`
 
-  if (isLogin) {
+  if (state.users.loginedUser) {
     menuItem_1.dataset.role = 'MyProfile'
     menuItem_1.innerText = 'My profile'
     menuItem_2.dataset.role = 'LogOut'

@@ -1,28 +1,35 @@
 import * as state from './state.js'
+import * as info from './info.js'
 
 export const setProfileIcon = () => {
-  const { firstName, lastName } = state.users.loginedUser || {}
+  const titleElement = document.querySelector('.profile-title')
   if (state.users.loginedUser) {
-    const title = `${firstName[0] || ''}${lastName[0] || ''}`
-    document.querySelector('.profile-title').innerText = title
-    document.querySelector('.profile-title').classList.add('__visabil')
+    const { firstName, lastName } = state.users.loginedUser
+    const initials = `${firstName[0] || ''}${lastName[0] || ''}`
+    titleElement.innerText = initials
+    titleElement.setAttribute('title', `${firstName || ''} ${lastName || ''}`)
+    titleElement.classList.add('__visabil')
   } else {
-    document.querySelector('.profile-title').classList.remove('__visabil')
+    titleElement.innerText = ''
+    titleElement.classList.remove('__visabil')
   }
 }
 
 
 
 export const setLoginedUser = (acc) => {
-  state.users.loginedUser = {
-    'firstName': acc.firstName,
-    'lastName': acc.lastName,
-    'email': acc.email,
-    'password': acc.password,
-    'cardNumber': acc.cardNumber,
-    'books': acc.books,
-  }
+  acc.visits = acc.visits + 1
+  state.users.loginedUser = acc
+
+  const index = state.users.registered.filter(user => user.id === acc.id)
+  state.users.registered[index] = acc
+
   localStorage.setItem('users', JSON.stringify(state.users))
+
+  const bnt = document.querySelector('[data-role="checkCard"]')
+  const divInfo = info.createInfoDiv(acc)
+  bnt.append(divInfo)
+
 }
 
 
@@ -49,15 +56,15 @@ export const makeAccount = (inputs) => {
   }
 
   return {
+    'id': state.users.registered.length + 1,
     'firstName': inputs[0].value,
     'lastName': inputs[1].value,
     'email': inputs[2].value,
     'password': inputs[3].value,
     'cardNumber': generationCardNumber(),
     'books': null,
-    'visits': 1,
+    'visits': 0,
     'bonuses': 0,
-    'books': 0,
   }
 }
 
@@ -66,17 +73,7 @@ export const makeAccount = (inputs) => {
 export const addRegisteredUser = (acc) => {
 
   const addNewRegistration = (a) => {
-    state.users.registered.push({
-      'firstName': a.firstName,
-      'lastName': a.lastName,
-      'email': a.email,
-      'password': a.password,
-      'cardNumber': a.cardNumber,
-      'books': null,
-      'visits': 1,
-      'bonuses': 0,
-      'books': 0,
-    })
+    state.users.registered.push(acc)
     localStorage.setItem('users', JSON.stringify(state.users))
   }
 

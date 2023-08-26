@@ -11,6 +11,8 @@ import * as info from './info.js'
 const burger = document.getElementById('burger-toggle')
 const profileBtn = document.querySelector('.profile')
 const checkCard = document.querySelector('[data-role="checkCard"]')
+const name = document.querySelector('[name="name"]')
+const number = document.querySelector('[name="number"]')
 let isWindowResized = false
 let menu = null
 
@@ -37,7 +39,7 @@ const handleDocumentClick = (e) => {
     case "profile":
       burger.checked = false
       state.app.modal = true
-      menu = dropMenu.createMenu(state.users.loginedUser, profileBtn)
+      menu = dropMenu.createMenu(profileBtn)
       break;
 
     default:
@@ -58,6 +60,10 @@ const handleDocumentClick = (e) => {
       state.users.loginedUser = null
       profile.setProfileIcon()
       localStorage.setItem('users', JSON.stringify(state.users))
+      const divInfo = document.querySelector('.info-panel')
+      divInfo.remove()
+      name.value = ''
+      number.value = ''
       break;
 
     default:
@@ -85,6 +91,11 @@ const initApp = () => {
       if (state.users.loginedUser) {
         profile.setProfileIcon()
       }
+    }
+    if (state.users.loginedUser) {
+      const bnt = document.querySelector('[data-role="checkCard"]')
+      const divInfo = info.createInfoDiv(state.users.loginedUser)
+      bnt.append(divInfo)
     }
   } catch (error) {
     console.warn('error get localStorage data: ', error)
@@ -115,8 +126,7 @@ radios.forEach(radio => radio.addEventListener('click', () => {
 
 const handleCheckCard = (e) => {
   e.preventDefault()
-  const name = document.querySelector('[name="name"]')
-  const number = document.querySelector('[name="number"]')
+  if (state.users.loginedUser) return
   const account = profile.checkLogin({ firstName: name.value, cardNumber: number.value })
   if (account) {
     const bnt = document.querySelector('[data-role="checkCard"]')
@@ -132,8 +142,7 @@ const handleCheckCard = (e) => {
     }, 10000)
 
   } else {
-    alert('no match')
+    alert('ничего не найдено :(')
   }
-  // console.log(account)
 }
 checkCard.addEventListener('click', handleCheckCard)

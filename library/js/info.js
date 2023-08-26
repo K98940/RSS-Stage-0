@@ -1,4 +1,5 @@
 import * as profile from './profile.js'
+import * as state from './state.js'
 
 const deleteOldInstance = () => {
   const el = document.querySelector('.info-panel')
@@ -10,6 +11,8 @@ export const createInfoDiv = (account) => {
   const visits = document.createElement('div')
   const bonuses = document.createElement('div')
   const books = document.createElement('div')
+  const name = document.querySelector('[name="name"]')
+  const number = document.querySelector('[name="number"]')
 
   deleteOldInstance()
 
@@ -31,7 +34,12 @@ export const createInfoDiv = (account) => {
   books.innerHTML = `
   <div class="info-column-title">Books</div>
   <div class="info-column-icon"><img src="./assets/icon/books.svg" alt="books"></div>
-  <div class="info-column-data">${account?.books || '0'}</div>`
+  <div class="info-column-data">${account?.books?.lenght || '0'}</div>`
+
+  if (state.users.loginedUser) {
+    name.value = state.users.loginedUser.firstName
+    number.value = state.users.loginedUser.cardNumber
+  }
 
   div.append(visits, bonuses, books)
 

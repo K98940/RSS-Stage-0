@@ -111,6 +111,17 @@
       background-color: var(--color-sand);
       border: 1px solid var(--color-sand);
     }
+
+    &:has(div.info-panel) {
+      height: 54px;
+
+      border: none;
+
+      &:hover {
+        cursor: auto;
+        background-color: var(--color-sand);
+      }
+    }
   }
 }
 

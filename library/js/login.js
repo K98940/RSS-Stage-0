@@ -6,11 +6,8 @@ export const createLoginDialog = () => {
 
   const hanlerBtn = (e) => {
     e.preventDefault()
-    const { type, key } = e
     const modalcontainer = document.querySelector('.modalcontainer')
     const inputs = FieldsWrapper.querySelectorAll('input')
-
-    // if (type === 'keypress' & key != 'Enter') return
 
     let error = 0
     inputs.forEach(input => {
@@ -37,7 +34,7 @@ export const createLoginDialog = () => {
       modalcontainer.remove()
       return
     }
-    alert('Bad login data')
+    alert('Пользователь с такими данными не найден :)')
   }
 
   const handleLink = () => {
@@ -86,7 +83,6 @@ export const createLoginDialog = () => {
 
   dialogBtn.addEventListener('click', hanlerBtn)
   link.addEventListener('click', handleLink)
-  // wrapper.addEventListener('keypress', hanlerSignUp)
 
   return wrapper
 }

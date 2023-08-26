@@ -4,9 +4,6 @@
   align-items: center;
   gap: 20px;
 
-  container-name: info-panel;
-  container-type: size;
-
   position: absolute;
   top: 0;
   left: 0;
@@ -34,12 +31,9 @@
   align-items: center;
 
   text-align: center;
-}
-
-.info-column-title {
-  font-size: 20px;
+  font-size: 10px;
   line-height: 20px;
-  letter-spacing: 0.4px;
+  letter-spacing: 0.2px;
   text-transform: capitalize;
 }
 
@@ -50,22 +44,4 @@
     height: 100%;
     object-fit: cover;
   }
-}
-
-.info-column-data {
-  font-size: 10px;
-  line-height: 20px;
-  letter-spacing: 0.2px;
-  text-transform: capitalize;
-}
-
-@container info-panel (height < 100px) {
-  .info-column-title {
-    display: none;
-  }
-
-  .info-column-icon {
-    height: 17px;
-  }
-
 }
