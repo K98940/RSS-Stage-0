@@ -43,7 +43,7 @@ export const FillCards = (season) => {
   setTimeout(() => {
     container.innerHTML = ''
     filteredBooks.forEach(book => {
-      const isRented = state.users.loginedUser.books?.filter(own => own === book.id).length > 0
+      const isRented = state.users.loginedUser?.books?.filter(own => own === book.id).length > 0
       const favoritesItem = document.createElement('div')
       favoritesItem.classList.add('favorites-item')
       container.append(favoritesItem)

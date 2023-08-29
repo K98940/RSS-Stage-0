@@ -1,5 +1,11 @@
 const CLASS_CLOSE = ['modalcontainer', 'modal-btnclose']
 
+export const removeExistModal = () => {
+  const modal = document.querySelector('.modalcontainer')
+  if (modal) modal.remove()
+}
+
+
 export const createModalContainer = (component, options = { shadow: false }) => {
 
   const handleModalClick = (e) => {
@@ -12,10 +18,13 @@ export const createModalContainer = (component, options = { shadow: false }) => 
     })
   }
 
-  const removeExistModal = () => {
-    const modal = document.querySelector('.modalcontainer')
-    if (modal) modal.remove()
-  }
+
+  // const dialog = document.createElement('dialog')
+  // dialog.innerText = 'DIALOG'
+  // document.body.append(dialog)
+  // dialog.showModal()
+
+
 
   const container = document.createElement('div')
   const wrapper = document.createElement('div')
@@ -40,6 +49,8 @@ export const createModalContainer = (component, options = { shadow: false }) => 
 
   container.addEventListener('click', handleModalClick)
 }
+
+
 
 export const showMessage = (msg, seconds, elem, err) => {
   const coord = elem.getClientRects()[0]

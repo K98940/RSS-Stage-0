@@ -65,7 +65,7 @@ export const makeAccount = (inputs) => {
     'email': inputs[2].value,
     'password': inputs[3].value,
     'cardNumber': generationCardNumber(),
-    'books': [2, 4, 8],
+    'books': [],
     'visits': 0,
     'bonuses': 0,
     'hasLibraryCard': false,
