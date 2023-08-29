@@ -1,5 +1,7 @@
 import * as state from './state.js'
 import * as info from './info.js'
+import * as libCards from './cards.js'
+import * as favorites from './favorites.js'
 
 export const setProfileIcon = () => {
   const titleElement = document.querySelector('.profile-title')
@@ -29,7 +31,8 @@ export const setLoginedUser = (acc) => {
   const bnt = document.querySelector('[data-role="checkCard"]')
   const divInfo = info.createInfoDiv(acc)
   bnt.append(divInfo)
-
+  libCards.renderCardContent('.get-card-wrapper')
+  favorites.FillCards('winter')
 }
 
 
@@ -62,9 +65,10 @@ export const makeAccount = (inputs) => {
     'email': inputs[2].value,
     'password': inputs[3].value,
     'cardNumber': generationCardNumber(),
-    'books': null,
+    'books': [2, 4, 8],
     'visits': 0,
     'bonuses': 0,
+    'hasLibraryCard': false,
   }
 }
 
@@ -86,7 +90,7 @@ export const addRegisteredUser = (acc) => {
 
   state.users.registered.forEach(user => {
     if (user.email === acc.email) {
-      error = `такой e-mail (${acc.email}) уже использовался, придумайте новый :)`
+      error = ` пользователь с таким e-mail (${acc.email}) уже зарегистрирован, придумайте новый, извините :)`
     }
   })
   if (error) {

@@ -10,6 +10,8 @@
 @import url("dialog.css");
 @import url("modal.css");
 @import url("info.css");
+@import url("myProfile.css");
+@import url("librarycard.css");
 
 @font-face {
   font-family: Forum;
@@ -30,6 +32,7 @@
   --color-white-shadow: rgba(255, 255, 255, 0.5);
   --color-grey: #8E8E8E;
   --color-icon-social: #f5efdb;
+  --color-bgd-error: #ffbaa5;
 
   --font-common: Inter;
   --font-title: Forum;

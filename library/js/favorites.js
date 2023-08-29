@@ -1,24 +1,49 @@
 import * as modal from './modal.js'
 import * as login from './login.js'
 import * as state from './state.js'
+import * as libCards from './cards.js'
+import * as librarycard from './librarycard.js'
+import * as info from './info.js'
 
 export const FillCards = (season) => {
 
   const handleBookButton = (e) => {
     const bookID = e.target.dataset.bookid
-    console.log('bookID', bookID)
 
     if (!state.users.loginedUser) {
       modal.createModalContainer(login.createLoginDialog)
+      return
     }
+
+    if (!state.users.loginedUser.hasLibraryCard) {
+      modal.createModalContainer(librarycard.createBuyDialog)
+      return
+    }
+
+    if (!state.users.loginedUser.books) state.users.loginedUser.books = []
+    if (state.users.loginedUser.books?.includes(+bookID)) return
+    state.users.loginedUser.books.push(+bookID)
+    const index = state.users.registered.findIndex(user => user.id === state.users.loginedUser.id)
+    state.users.registered[index] = state.users.loginedUser
+    localStorage.setItem('users', JSON.stringify(state.users))
+
+    e.target.classList.add('favorites-item-button__own')
+    e.target.innerText = 'Own'
+
+    const bnt = document.querySelector('[data-role="checkCard"]')
+    const divInfo = info.createInfoDiv(state.users.loginedUser)
+    bnt.append(divInfo)
+
   }
 
   const container = document.querySelector('.favorites-items-wrapper')
+  const filteredBooks = state.catalogBooks.filter(book => book.season === season)
   container.style.opacity = '0'
 
   setTimeout(() => {
     container.innerHTML = ''
-    state.seasons[season].forEach(book => {
+    filteredBooks.forEach(book => {
+      const isRented = state.users.loginedUser.books?.filter(own => own === book.id).length > 0
       const favoritesItem = document.createElement('div')
       favoritesItem.classList.add('favorites-item')
       container.append(favoritesItem)
@@ -51,10 +76,10 @@ export const FillCards = (season) => {
       button.setAttribute('tabindex', '-1')
       button.dataset.bookid = book.id
       button.classList.add('favorites-item-button')
-      if (book.ownership) {
+      if (isRented) {
         button.classList.add('favorites-item-button__own')
       }
-      button.innerText = book.ownership ? 'Own' : 'Buy'
+      button.innerText = isRented ? 'Own' : 'Buy'
       button.addEventListener('click', handleBookButton)
       description.append(button)
 

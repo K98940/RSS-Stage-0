@@ -1,7 +1,7 @@
-import * as profile from './profile.js'
 import * as state from './state.js'
 
 const deleteOldInstance = () => {
+  if (state.users.loginedUser) return
   const el = document.querySelector('.info-panel')
   el && el.remove()
 }
@@ -34,7 +34,7 @@ export const createInfoDiv = (account) => {
   books.innerHTML = `
   <div class="info-column-title">Books</div>
   <div class="info-column-icon"><img src="./assets/icon/books.svg" alt="books"></div>
-  <div class="info-column-data">${account?.books?.lenght || '0'}</div>`
+  <div class="info-column-data">${account?.books?.length || '0'}</div>`
 
   if (state.users.loginedUser) {
     name.value = state.users.loginedUser.firstName
@@ -44,5 +44,30 @@ export const createInfoDiv = (account) => {
   div.append(visits, bonuses, books)
 
   setTimeout(() => { div.classList.add('info-panel-icons__fullsize') }, 0)
+  return div
+}
+
+export const createRentedDiv = (account) => {
+  const div = document.createElement('div')
+  const listOfRentedBook = getListOfRentedBook(account)
+
+  div.className = 'rented-wrapper'
+
+  div.innerHTML = `
+  <div class="rented-title">Rented books</div>
+  `
+  div.append(listOfRentedBook)
+
+  return div
+}
+
+const getListOfRentedBook = (account) => {
+  const div = document.createElement('div')
+  const rentedBooks = account.books?.map(id => [...state.catalogBooks.filter(book => book.id === id)]).
+    map(book => `<li>${book[0]?.title}, ${book[0]?.author.replace('By ', '')}</li>`).join('').toLowerCase()
+
+  div.className = 'list-rented-books'
+  div.innerHTML = `<ul>${rentedBooks || ''}</li>`
+
   return div
 }

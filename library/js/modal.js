@@ -1,7 +1,6 @@
 const CLASS_CLOSE = ['modalcontainer', 'modal-btnclose']
 
-export const createModalContainer = (component, options = {
-}) => {
+export const createModalContainer = (component, options = { shadow: false }) => {
 
   const handleModalClick = (e) => {
     const { classList } = e.target
@@ -25,15 +24,45 @@ export const createModalContainer = (component, options = {
 
   container.className = 'modalcontainer'
   wrapper.className = 'modalwrapper'
+  options.shadow && wrapper.classList.add('__shadow')
   btnClose.className = 'modal-btnclose'
 
   removeExistModal()
   document.body.append(container)
   container.append(wrapper)
   wrapper.append(btnClose)
+
   component && wrapper.append(component())
+
+
   const focusedElement = document.querySelector('[focus]')
   focusedElement && focusedElement.focus()
 
   container.addEventListener('click', handleModalClick)
+}
+
+export const showMessage = (msg, seconds, elem, err) => {
+  const coord = elem.getClientRects()[0]
+
+  const existMessage = document.querySelector('.modal-popup-mesage')
+  existMessage && existMessage.remove()
+
+  const div = document.createElement('div')
+  div.className = 'modal-popup-mesage'
+  err && div.classList.add('popup-mesage__error')
+  div.innerText = msg
+  div.style.left = `${coord.left + 30}px`
+  div.style.top = `${coord.top + 30}px`
+  document.body.append(div)
+  setTimeout(() => {
+    div.classList.add('modal-popup-mesage__show')
+    div.style.height = `${div.getClientRects()[0].height}px`
+    div.style.width = `${div.getClientRects()[0].width}px`
+    setTimeout(() => {
+      div.style.left = `9999px`
+      setTimeout(() => {
+        div && div.remove()
+      }, 500);
+    }, seconds * 1000)
+  }, 0)
 }

@@ -29,7 +29,7 @@ export const createMenu = (elem) => {
   wrapper.style.top = `${bottom}px`
 
   if (state.users.loginedUser) {
-    menuItem_1.dataset.role = 'MyProfile'
+    menuItem_1.dataset.role = 'myProfile'
     menuItem_1.innerText = 'My profile'
     menuItem_2.dataset.role = 'LogOut'
     menuItem_2.innerText = 'Log Out'

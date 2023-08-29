@@ -7,15 +7,31 @@ import * as modal from './modal.js'
 import * as profile from './profile.js'
 import * as login from './login.js'
 import * as info from './info.js'
+import * as libCards from './cards.js'
+import * as myProfile from './myProfile.js'
 
 const burger = document.getElementById('burger-toggle')
 const profileBtn = document.querySelector('.profile')
 const checkCard = document.querySelector('[data-role="checkCard"]')
 const name = document.querySelector('[name="name"]')
 const number = document.querySelector('[name="number"]')
+const computedStyles = window.getComputedStyle(document.body)
+const colorWhiteShadow = computedStyles.getPropertyValue('--color-white-shadow')
 let isWindowResized = false
 let menu = null
 
+const initUser = {
+  'id': 99,
+  'firstName': 'Ащьф',
+  'lastName': 'Лштшфум',
+  'email': 'Лштшфум@mail.ru',
+  'password': 'JASONBOURNEISDEAD',
+  'cardNumber': 'F23082718',
+  'books': [2, 4, 8, 16],
+  'visits': 91,
+  'bonuses': 3,
+  'hasLibraryCard': false,
+}
 
 const toggleScrollBlock = () => {
   if (state.app.modal) {
@@ -50,6 +66,9 @@ const handleDocumentClick = (e) => {
   }
 
   switch (role) {
+    case 'myProfile':
+      modal.createModalContainer(myProfile.createMyProfile, { shadow: true })
+      break
     case 'logIn':
       modal.createModalContainer(login.createLoginDialog)
       break;
@@ -64,6 +83,8 @@ const handleDocumentClick = (e) => {
       divInfo.remove()
       name.value = ''
       number.value = ''
+      libCards.renderCardContent('.get-card-wrapper')
+      favorites.FillCards('winter')
       break;
 
     default:
@@ -92,6 +113,12 @@ const initApp = () => {
         profile.setProfileIcon()
       }
     }
+
+    if (!state.users.registered.filter(user => user.email === 'Лштшфум@mail.ru').length) {
+      state.users.registered.push(initUser)
+      localStorage.setItem('users', JSON.stringify(state.users))
+    }
+
     if (state.users.loginedUser) {
       const bnt = document.querySelector('[data-role="checkCard"]')
       const divInfo = info.createInfoDiv(state.users.loginedUser)
@@ -100,6 +127,7 @@ const initApp = () => {
   } catch (error) {
     console.warn('error get localStorage data: ', error)
   }
+  libCards.renderCardContent('.get-card-wrapper')
   disableTabindex()
 }
 
@@ -120,6 +148,7 @@ window.addEventListener('resize', () => {
 favorites.FillCards('winter')
 const radios = document.querySelectorAll('label[data-season]')
 radios.forEach(radio => radio.addEventListener('click', () => {
+  if (radio.previousElementSibling.checked === true) return
   radio.previousElementSibling.checked = true
   favorites.FillCards(radio.dataset.season)
 }))
