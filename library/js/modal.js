@@ -53,7 +53,7 @@ export const createModalContainer = (component, options = { shadow: false }) => 
 
 
 export const showMessage = (msg, seconds, elem, err) => {
-  const coord = elem.getClientRects()[0]
+  const coord = elem?.getClientRects()[0] || document.querySelector('.modalwrapper').getBoundingClientRect()
   const existMessage = document.querySelector('.modal-popup-mesage')
   existMessage && existMessage.remove()
 

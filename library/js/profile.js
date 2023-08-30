@@ -1,3 +1,4 @@
+import * as modal from './modal.js'
 import * as state from './state.js'
 import * as info from './info.js'
 import * as libCards from './cards.js'
@@ -91,11 +92,11 @@ export const addRegisteredUser = (acc) => {
 
   state.users.registered.forEach(user => {
     if (user.email === acc.email) {
-      error = ` пользователь с таким e-mail (${acc.email}) уже зарегистрирован, придумайте новый, извините :)`
+      error = ` пользователь с таким e-mail (${acc.email}) уже зарегистрирован, придумайте новый, извините 😀`
     }
   })
   if (error) {
-    alert(error)
+    modal.showMessage(error, 5, null, true)
     return false
   }
 

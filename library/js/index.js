@@ -74,7 +74,10 @@ const handleDocumentClick = (e) => {
       const divInfo = document.querySelector('.info-panel')
       divInfo.remove()
       name.value = ''
+      name.removeAttribute('disabled')
       number.value = ''
+      number.removeAttribute('disabled')
+
       libCards.renderCardContent('.get-card-wrapper')
       favorites.FillCards('winter')
       break;
