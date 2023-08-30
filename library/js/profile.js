@@ -32,7 +32,8 @@ export const setLoginedUser = (acc) => {
   const divInfo = info.createInfoDiv(acc)
   bnt.append(divInfo)
   libCards.renderCardContent('.get-card-wrapper')
-  favorites.FillCards('winter')
+
+  favorites.FillCards(document.querySelector('[name="seasons"]:checked').value)
 }
 
 

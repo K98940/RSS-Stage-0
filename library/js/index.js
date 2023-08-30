@@ -20,18 +20,6 @@ const colorWhiteShadow = computedStyles.getPropertyValue('--color-white-shadow')
 let isWindowResized = false
 let menu = null
 
-const initUser = {
-  'id': 99,
-  'firstName': 'Ащьф',
-  'lastName': 'Лштшфум',
-  'email': 'Лштшфум@mail.ru',
-  'password': 'JASONBOURNEISDEAD',
-  'cardNumber': 'F23082718',
-  'books': [2, 4, 8, 16],
-  'visits': 91,
-  'bonuses': 3,
-  'hasLibraryCard': false,
-}
 
 const toggleScrollBlock = () => {
   if (state.app.modal) {
@@ -70,7 +58,11 @@ const handleDocumentClick = (e) => {
       modal.createModalContainer(myProfile.createMyProfile, { shadow: true })
       break
     case 'logIn':
-      modal.createModalContainer(login.createLoginDialog)
+      if (state.users.registered.length === 0) {
+        modal.createModalContainer(register.createRegisterDialog)
+      } else {
+        modal.createModalContainer(login.createLoginDialog)
+      }
       break;
     case 'Register':
       modal.createModalContainer(register.createRegisterDialog)
@@ -112,11 +104,6 @@ const initApp = () => {
       if (state.users.loginedUser) {
         profile.setProfileIcon()
       }
-    }
-
-    if (!state.users.registered.filter(user => user.email === 'Лштшфум@mail.ru').length) {
-      state.users.registered.push(initUser)
-      localStorage.setItem('users', JSON.stringify(state.users))
     }
 
     if (state.users.loginedUser) {
@@ -171,7 +158,7 @@ const handleCheckCard = (e) => {
     }, 10000)
 
   } else {
-    alert('ничего не найдено :(')
+    modal.showMessage('ничего не найдено 🥺', 3, e.target, true)
   }
 }
 checkCard.addEventListener('click', handleCheckCard)

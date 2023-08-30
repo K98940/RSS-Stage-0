@@ -54,7 +54,6 @@ export const createModalContainer = (component, options = { shadow: false }) => 
 
 export const showMessage = (msg, seconds, elem, err) => {
   const coord = elem.getClientRects()[0]
-
   const existMessage = document.querySelector('.modal-popup-mesage')
   existMessage && existMessage.remove()
 
@@ -63,7 +62,7 @@ export const showMessage = (msg, seconds, elem, err) => {
   err && div.classList.add('popup-mesage__error')
   div.innerText = msg
   div.style.left = `${coord.left + 30}px`
-  div.style.top = `${coord.top + 30}px`
+  div.style.top = `${coord.bottom + 30}px`
   document.body.append(div)
   setTimeout(() => {
     div.classList.add('modal-popup-mesage__show')

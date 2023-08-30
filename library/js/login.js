@@ -34,7 +34,7 @@ export const createLoginDialog = () => {
       modalcontainer.remove()
       return
     }
-    alert('Пользователь с такими данными не найден :)')
+    modal.showMessage('Пользователь с такими данными не найден 🥺', 3, e.target, true)
   }
 
   const handleLink = () => {

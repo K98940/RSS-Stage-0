@@ -38,7 +38,9 @@ export const createInfoDiv = (account) => {
 
   if (state.users.loginedUser) {
     name.value = state.users.loginedUser.firstName
+    name.setAttribute('disabled', '')
     number.value = state.users.loginedUser.cardNumber
+    number.setAttribute('disabled', '')
   }
 
   div.append(visits, bonuses, books)
