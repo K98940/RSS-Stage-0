@@ -15,8 +15,6 @@ const profileBtn = document.querySelector('.profile')
 const checkCard = document.querySelector('[data-role="checkCard"]')
 const name = document.querySelector('[name="name"]')
 const number = document.querySelector('[name="number"]')
-const computedStyles = window.getComputedStyle(document.body)
-const colorWhiteShadow = computedStyles.getPropertyValue('--color-white-shadow')
 let isWindowResized = false
 let menu = null
 
@@ -145,7 +143,7 @@ radios.forEach(radio => radio.addEventListener('click', () => {
 
 const handleCheckCard = (e) => {
   e.preventDefault()
-  if (state.users.loginedUser) return
+  if (state.users.loginedUser || state.users.registered.length === 0) return
   const account = profile.checkLogin({ firstName: name.value, cardNumber: number.value })
   if (account) {
     const bnt = document.querySelector('[data-role="checkCard"]')

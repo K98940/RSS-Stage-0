@@ -16,6 +16,7 @@ export const FillCards = (season) => {
 
     if (!state.users.loginedUser.hasLibraryCard) {
       modal.createModalContainer(librarycard.createBuyDialog)
+      document.querySelector('#cardNumber')?.focus()
       return
     }
 

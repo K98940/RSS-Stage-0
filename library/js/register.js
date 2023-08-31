@@ -9,7 +9,6 @@ export const createRegisterDialog = () => {
 
     const { type, key } = e
     if (type === 'keypress' & (key != 'Enter' || key != 'Esc')) return
-    // if (key === 'Esc') modalcontainer.remove()
 
     const modalcontainer = document.querySelector('.modalcontainer')
     const inputs = FieldsWrapper.querySelectorAll('input')
@@ -18,12 +17,15 @@ export const createRegisterDialog = () => {
     inputs.forEach(input => {
       if (!input.validity.valid) {
         input.classList.add('dialog__bad-input')
+        modal.showMessage(input.validationMessage, 3, input, true)
         error++
       } else {
         input.classList.remove('dialog__bad-input')
       }
     })
-    if (error) return
+    if (error) {
+      return
+    }
 
     const account = profile.makeAccount(inputs)
     if (profile.addRegisteredUser(account)) {
@@ -72,7 +74,7 @@ export const createRegisterDialog = () => {
     div.className = 'dialog-field'
     div.innerHTML = `<label class="dialog-label" for="${index}">${field[0]}</label>
   <input type="${field[1]}" id="input${index}" required autocomplete="on" ${index === 0 ? 'focus' : ''}  tabindex="${index + 1}"
-  ${field[1] === 'password' ? ' pattern=".{8,}" title="minimum of 8 characters"' : ' pattern=".{1,}"'} >`
+  ${field[1] === 'password' ? ' pattern=".{8,}" title="minimum of 8 characters"' : ' pattern=".{1,}" title="should not be empty"'} >`
     FieldsWrapper.append(div)
   })
   form.append(dialogBtn)
@@ -82,7 +84,6 @@ export const createRegisterDialog = () => {
 
   dialogBtn.addEventListener('click', hanlerBtn)
   link.addEventListener('click', handleLink)
-  // wrapper.addEventListener('keypress', hanlerBtn)
 
   return wrapper
 }

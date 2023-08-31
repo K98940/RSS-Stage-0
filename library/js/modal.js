@@ -61,8 +61,8 @@ export const showMessage = (msg, seconds, elem, err) => {
   div.className = 'modal-popup-mesage'
   err && div.classList.add('popup-mesage__error')
   div.innerText = msg
-  div.style.left = `${coord.left + 30}px`
-  div.style.top = `${coord.bottom + 30}px`
+  div.style.left = `${coord.left + 20}px`
+  div.style.top = `${coord.bottom + 20}px`
   document.body.append(div)
   setTimeout(() => {
     div.classList.add('modal-popup-mesage__show')

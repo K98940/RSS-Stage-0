@@ -13,6 +13,7 @@ export const createLoginDialog = () => {
     inputs.forEach(input => {
       if (!input.validity.valid) {
         input.classList.add('dialog__bad-input')
+        modal.showMessage(input.validationMessage, 3, input, true)
         error++
       } else {
         input.classList.remove('dialog__bad-input')
@@ -73,7 +74,7 @@ export const createLoginDialog = () => {
     div.className = 'dialog-field'
     div.innerHTML = `<label class="dialog-label" for="${index}">${field[0]}</label>
   <input type="${field[1]}" id="input${index}" required  autocomplete="on" ${index === 0 ? 'focus' : ''}  tabindex="${index + 1}"
-  pattern=".{1,}"'} >`
+  pattern=".{1,}" title="should not be empty"'} >`
     FieldsWrapper.append(div)
   })
   form.append(dialogBtn)

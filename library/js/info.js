@@ -41,6 +41,8 @@ export const createInfoDiv = (account) => {
     name.setAttribute('disabled', '')
     number.value = state.users.loginedUser.cardNumber
     number.setAttribute('disabled', '')
+    const checkCard = document.querySelector('[data-role="checkCard"]')
+    checkCard.removeAttribute('disabled')
   }
 
   div.append(visits, bonuses, books)
