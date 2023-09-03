@@ -53,7 +53,7 @@ export const createModalContainer = (component, options = { shadow: false }) => 
 
 
 export const showMessage = (msg, seconds, elem, err) => {
-  const coord = elem?.getClientRects()[0] || document.querySelector('.modalwrapper').getBoundingClientRect()
+  const coord = elem?.getBoundingClientRect() || document.querySelector('.modalwrapper').getBoundingClientRect()
   const existMessage = document.querySelector('.modal-popup-mesage')
   existMessage && existMessage.remove()
 
@@ -66,8 +66,8 @@ export const showMessage = (msg, seconds, elem, err) => {
   document.body.append(div)
   setTimeout(() => {
     div.classList.add('modal-popup-mesage__show')
-    div.style.height = `${div.getClientRects()[0].height}px`
-    div.style.width = `${div.getClientRects()[0].width}px`
+    div.style.height = `${div.getBoundingClientRect().height}px`
+    div.style.width = `${div.getBoundingClientRect().width}px`
     setTimeout(() => {
       div.style.left = `9999px`
       setTimeout(() => {

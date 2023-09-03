@@ -143,7 +143,11 @@ radios.forEach(radio => radio.addEventListener('click', () => {
 
 const handleCheckCard = (e) => {
   e.preventDefault()
-  if (state.users.loginedUser || state.users.registered.length === 0) return
+  if (state.users.registered.length === 0) {
+    modal.showMessage('нет зарегистрированных пользователей в базе', 2, e.target, true)
+    return
+  }
+
   const account = profile.checkLogin({ firstName: name.value, cardNumber: number.value })
   if (account) {
     const bnt = document.querySelector('[data-role="checkCard"]')

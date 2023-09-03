@@ -18,22 +18,22 @@ export const createBuyDialog = () => {
 
   const ruleCardNumber = () => {
     cardNumber.value = cardNumber.value.match(/\d/g)?.join('') || ''
-    return cardNumber.value.length === 16 ? null : { input: cardNumber, error: 'Bank card number requires 16 digits' }
+    return cardNumber.value.length === 16 ? null : { input: cardNumber, error: 'Bank card number требуется 16 цифр' }
   }
 
   const ruleExpirationCode_1 = () => {
     expirationCode.value = expirationCode.value.match(/\d/g)?.join('') || ''
-    return expirationCode.value.length === 2 ? null : { input: expirationCode, error: 'Expiration code requires 2 digits' }
+    return expirationCode.value.length === 2 ? null : { input: expirationCode, error: 'Expiration code требуется 2 цифр' }
   }
 
   const ruleExpirationCode_2 = () => {
     expirationCode2.value = expirationCode2.value.match(/\d/g)?.join('') || ''
-    return expirationCode2.value.length === 2 ? null : { input: expirationCode2, error: 'Expiration code requires 2 digits' }
+    return expirationCode2.value.length === 2 ? null : { input: expirationCode2, error: 'Expiration code требуется 2 цифр' }
   }
 
   const ruleCVC = () => {
     CVC.value = CVC.value.match(/\d/g)?.join('') || ''
-    return CVC.value.length === 3 ? null : { input: CVC, error: 'CVC requires 3 digits' }
+    return CVC.value.length === 3 ? null : { input: CVC, error: 'CVC требуется 3 цифр' }
   }
 
   const rules = [
@@ -46,7 +46,6 @@ export const createBuyDialog = () => {
     e.preventDefault()
     const errors = rules.map(rule => rule()).filter(e => e)
     errors.forEach(error => error?.input?.classList.add('buydialog__error'))
-    console.log(errors)
     if (errors.length) {
       modal.showMessage(errors[0].error, 2, errors[0].input, true)
       errors[0].input.focus()
@@ -58,7 +57,7 @@ export const createBuyDialog = () => {
     state.users.registered[index] = state.users.loginedUser
     localStorage.setItem('users', JSON.stringify(state.users))
 
-    modal.showMessage('The payment was successful, thank you :)', 5, btnBuy)
+    modal.showMessage(' Спасибо за покупку, приходите еще 😀', 5, btnBuy)
     modal.removeExistModal()
   }
 
@@ -74,18 +73,18 @@ export const createBuyDialog = () => {
   }
 
   const elementsForm = [
-    createElement({ tag: 'label', text: 'Bank card number', for: 'cardNumber' }),
+    createElement({ tag: 'label', text: 'Bank card number', for: 'cardNumber', title: 'это поле обязательно к заполнению' }),
     createElement({ tag: 'input', class: 'common-input', id: 'cardNumber', title: 'must contain 16 digits' }),
-    createElement({ tag: 'label', text: 'Expiration code', for: 'expirationCode' }),
+    createElement({ tag: 'label', text: 'Expiration code', for: 'expirationCode', title: 'это поле обязательно к заполнению' }),
     createElement({ tag: 'input', id: 'expirationCode', class: 'common-input buydialog-expirationCode', title: 'must contain 2 digits' }),
     createElement({ tag: 'input', id: 'expirationCode2', class: 'common-input buydialog-expirationCode', title: 'must contain 2 digits' }),
-    createElement({ tag: 'label', text: 'CVC', for: 'CVC' }),
+    createElement({ tag: 'label', text: 'CVC', for: 'CVC', title: 'это поле обязательно к заполнению' }),
     createElement({ tag: 'input', id: 'CVC', class: 'common-input buydialog-expirationCode __extra-margin', title: 'must contain 3 digits' }),
-    createElement({ tag: 'label', text: 'Cardholder name', for: 'cardholder' }),
+    createElement({ tag: 'label', text: 'Cardholder name', for: 'cardholder', title: 'это поле обязательно к заполнению' }),
     createElement({ tag: 'input', id: 'cardholder', class: 'common-input' }),
-    createElement({ tag: 'label', text: 'Postal code', for: 'postalCode' }),
+    createElement({ tag: 'label', text: 'Postal code', for: 'postalCode', title: 'это поле обязательно к заполнению' }),
     createElement({ tag: 'input', id: 'postalCode', class: 'common-input' }),
-    createElement({ tag: 'label', text: 'City / Town', for: 'city' }),
+    createElement({ tag: 'label', text: 'City / Town', for: 'city', title: 'это поле обязательно к заполнению' }),
     createElement({ tag: 'input', id: 'city', class: 'common-input __extra-margin' }),
   ]
 
