@@ -67,6 +67,10 @@
       font-weight: 400;
       line-height: 50px;
       letter-spacing: 0.6px;
+
+      &:disabled {
+        background-color: var(--color-bg-disabled);
+      }
     }
 
     & input::placeholder {
@@ -87,6 +91,7 @@
   }
 
   & .button {
+    position: relative;
     width: 242px;
     height: 44px;
     padding: 7px 20px;
@@ -109,6 +114,17 @@
       cursor: pointer;
       background-color: var(--color-sand);
       border: 1px solid var(--color-sand);
+    }
+
+    &:has(div.info-panel) {
+      height: 54px;
+
+      border: none;
+
+      &:hover {
+        cursor: auto;
+        background-color: var(--color-sand);
+      }
     }
   }
 }

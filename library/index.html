@@ -24,7 +24,7 @@
           <div class="wrapper-nav-profile">
 
             <input id="burger-toggle" type="checkbox">
-            <label class="menu-btn-container" for="burger-toggle">
+            <label class="menu-btn-container" id="burger-label" for="burger-toggle---">
               <div class="menu-btn" id="menu-btn"></div>
             </label>
 
@@ -34,17 +34,16 @@
                 <li><a href="#favorites">Favorites</a></li>
                 <li><a href="#shop">Coffee shop</a></li>
                 <li><a href="#contacts">Contacts</a></li>
-                <li><a href="#cards">Library Card</a></li>
+                <li><a href="#_cards">Library Card</a></li>
               </ul>
             </nav>
 
-            <div class="profile">
-              <a href="">
-                <svg width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14ZM18.6667 7.77778C18.6667 10.3551 16.5774 12.4444 14.0001 12.4444C11.4227 12.4444 9.33339 10.3551 9.33339 7.77778C9.33339 5.20045 11.4227 3.11111 14.0001 3.11111C16.5774 3.11111 18.6667 5.20045 18.6667 7.77778ZM19.4998 16.2781C20.9584 17.7367 21.7778 19.715 21.7778 21.7778H14L6.22225 21.7778C6.22225 19.715 7.0417 17.7367 8.50031 16.2781C9.95893 14.8194 11.9372 14 14 14C16.0628 14 18.0411 14.8194 19.4998 16.2781Z" />
-                </svg>
-              </a>
+            <div class="profile" id="profile">
+              <div class="profile-title"></div>
+              <svg width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14ZM18.6667 7.77778C18.6667 10.3551 16.5774 12.4444 14.0001 12.4444C11.4227 12.4444 9.33339 10.3551 9.33339 7.77778C9.33339 5.20045 11.4227 3.11111 14.0001 3.11111C16.5774 3.11111 18.6667 5.20045 18.6667 7.77778ZM19.4998 16.2781C20.9584 17.7367 21.7778 19.715 21.7778 21.7778H14L6.22225 21.7778C6.22225 19.715 7.0417 17.7367 8.50031 16.2781C9.95893 14.8194 11.9372 14 14 14C16.0628 14 18.0411 14.8194 19.4998 16.2781Z" />
+              </svg>
             </div>
 
           </div>
@@ -74,32 +73,40 @@
         <div class="subtitle">
           <h3>The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside</h3>
         </div>
-        <div class="container-images">
-          <div class="images-items">
-            <div class="item-1">
-              <img src="assets/jpg/About/image_1.jpg" alt="image about">
-            </div>
-            <div class="item-2">
-              <img src="assets/jpg/About/image_2.jpg" alt="image about">
-            </div>
-            <div class="item-3">
-              <img src="assets/jpg/About/image_3.jpg" alt="image about">
+        <div class="container-carousel">
+          <div class="frame">
+            <div class="images-items">
+              <div class="item-1" data-carousel-item="0">
+                <img src="assets/jpg/About/image_1.jpg" alt="image about">
+              </div>
+              <div class="item-2" data-carousel-item="1">
+                <img src="assets/jpg/About/image_2.jpg" alt="image about">
+              </div>
+              <div class="item-3" data-carousel-item="2">
+                <img src="assets/jpg/About/image_3.jpg" alt="image about">
+              </div>
+              <div class="item-4" data-carousel-item="3">
+                <img src="assets/jpg/About/image_4.jpg" alt="image about">
+              </div>
+              <div class="item-5" data-carousel-item="4">
+                <img src="assets/jpg/About/image_5.jpg" alt="image about">
+              </div>
             </div>
           </div>
           <div class="pagination-wrapper">
-            <div class="pagination-btn-wrapper">
-              <div class="pagination-btn pagination-btn__active"></div>
-            </div>
-            <div class="pagination-btn-wrapper">
+            <div class="pagination-btn-wrapper pagination-btn__active" data-carousel-btn="0">
               <div class="pagination-btn"></div>
             </div>
-            <div class="pagination-btn-wrapper">
+            <div class="pagination-btn-wrapper" data-carousel-btn="1">
               <div class="pagination-btn"></div>
             </div>
-            <div class="pagination-btn-wrapper btn__mobile">
+            <div class="pagination-btn-wrapper" data-carousel-btn="2">
               <div class="pagination-btn"></div>
             </div>
-            <div class="pagination-btn-wrapper btn__mobile">
+            <div class="pagination-btn-wrapper btn__small" data-carousel-btn="3">
+              <div class="pagination-btn"></div>
+            </div>
+            <div class="pagination-btn-wrapper btn__mobile" data-carousel-btn="4">
               <div class="pagination-btn"></div>
             </div>
           </div>
@@ -114,437 +121,23 @@
         </div>
         <div class="seasons-wrapper">
           <div class="seasons-radio-wrapper">
-            <input type="radio" name="seasons" id="winter" value="winter" checked>
-            <label class="radio_active" for="winter">Winter</label>
+            <input type="radio" name="seasons" value="winter" checked>
+            <label class="radio_active" for="winter" data-season="winter">Winter</label>
           </div>
           <div class="seasons-radio-wrapper">
-            <input type="radio" name="seasons" id="spring" value="spring">
-            <label for="spring">Spring</label>
+            <input type="radio" name="seasons" value="spring">
+            <label for="spring" data-season="spring">Spring</label>
           </div>
           <div class="seasons-radio-wrapper">
-            <input type="radio" name="seasons" id="summer" value="summer">
-            <label for="summer">Summer</label>
+            <input type="radio" name="seasons" value="summer">
+            <label for="summer" data-season="summer">Summer</label>
           </div>
           <div class="seasons-radio-wrapper">
-            <input type="radio" name="seasons" id="autumn" value="autumn">
-            <label for="autumn">Autumn</label>
+            <input type="radio" name="seasons" value="autumn">
+            <label for="autumn" data-season="autumn">Autumn</label>
           </div>
         </div>
         <div class="favorites-items-wrapper">
-          <div class="favorites-item" data-data-season="winter">
-            <div class="favorites-item-title">Staff Picks</div>
-            <div class="favorites-item-subtitle favorites-item-book-name">The Book Eaters</div>
-            <div class="favorites-item-subtitle favorites-item-book-author">By Sunyi Dean</div>
-            <div class="favorites-description-poster-wrapper">
-              <div class="favorites-item-description">
-                <p>
-                  An unusual sci-fi story about a book eater woman who tries desperately to save her dangerous
-                  mind-eater
-                  son from
-                  tradition and certain death. Complete with dysfunctional family values, light Sapphic romance, and a
-                  strong, complex
-                  protagonist. Not for the faint of heart.
-                </p>
-                <button class="favorites-item-button">Buy</button>
-              </div>
-            </div>
-            <div class="favoritesitem-poster">
-              <img src="assets/jpg/Favorites/book_1.jpg" alt="poster">
-            </div>
-          </div>
-          <div class="favorites-item" data-season="winter">
-            <div class="favorites-item-title">Staff Picks</div>
-            <div class="favorites-item-subtitle favorites-item-book-name">Cackle</div>
-            <div class="favorites-item-subtitle favorites-item-book-author">By Rachel Harrison</div>
-            <div class="favorites-description-poster-wrapper">
-              <div class="favorites-item-description">
-                <p>
-                  Are your Halloween movies of choice The Witches of Eastwick and Practical Magic? Look no further than
-                  here - where a
-                  woman recovering from a breakup moves to a quaint town in upstate New York and befriends a beautiful
-                  witch.
-                </p>
-                <button class="favorites-item-button">Buy</button>
-              </div>
-            </div>
-            <div class="favoritesitem-poster">
-              <img src="assets/jpg/Favorites/book_2.jpg" alt="poster">
-            </div>
-          </div>
-          <div class="favorites-item" data-season="winter">
-            <div class="favorites-item-title">Staff Picks</div>
-            <div class="favorites-item-subtitle favorites-item-book-name">Dante: Poet of the Secular World</div>
-            <div class="favorites-item-subtitle favorites-item-book-author">By Erich Auerbach</div>
-            <div class="favorites-description-poster-wrapper">
-              <div class="favorites-item-description">
-                <p>
-                  Auerbach's engaging book places the 'Comedy' within the tradition of epic, tragedy, and philosophy in
-                  general, arguing
-                  for Dante's uniqueness as one who raised the individual and his drama of soul into something of divine
-                  significance—an
-                  inspired introduction to Dante's main themes.
-                </p>
-                <button class="favorites-item-button">Buy</button>
-              </div>
-            </div>
-            <div class="favoritesitem-poster">
-              <img src="assets/jpg/Favorites/book_3.jpg" alt="poster">
-            </div>
-          </div>
-          <div class="favorites-item" data-season="winter">
-            <div class="favorites-item-title">Staff Picks</div>
-            <div class="favorites-item-subtitle favorites-item-book-name">The Last Queen</div>
-            <div class="favorites-item-subtitle favorites-item-book-author">By Clive Irving</div>
-            <div class="favorites-description-poster-wrapper">
-              <div class="favorites-item-description">
-                <p>
-                  A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors
-                  have evolved and
-                  thrived as the modern world has changed around them.
-                </p>
-                <button class="favorites-item-button  favorites-item-button__own" disabled>Own</button>
-              </div>
-            </div>
-            <div class="favoritesitem-poster">
-              <img src="assets/jpg/Favorites/book_4.jpg" alt="poster">
-            </div>
-          </div>
-          <div class="favorites-item" data-season="spring">
-            <div class="favorites-item-title">Staff Picks</div>
-            <div class="favorites-item-subtitle favorites-item-book-name">The Nightingale</div>
-            <div class="favorites-item-subtitle favorites-item-book-author">By Hans Andersen</div>
-            <div class="favorites-description-poster-wrapper">
-              <div class="favorites-item-description">
-                <p>
-                  A king lived in a big and beautiful palace. His palace had a lovely garden with lots of flowers.
-                  People walked into this
-                  garden to look at the flowers. Then they went through a wood to see the sea. A nightingale lived in a
-                  tree in this wood.
-                  It sang beautifully. Every night one old man listened to its songs. Many visitors from other countries
-                  came to see the
-                  king. Even they heard this nightingale. One day the king wanted the nightingale to sing to him. The
-                  servant did not know
-                  about the bird. But he tried to find it. He went through the garden and the wood. But he found
-                  nothing. He asked other
-                  servants for help. They ran through the palace and found a little girl in the kitchen. She knew where
-                  the nightingale
-                  lived.
-                </p>
-                <button class="favorites-item-button">Buy</button>
-              </div>
-            </div>
-            <div class="favoritesitem-poster">
-              <img src="assets/jpg/Favorites/book_5.jpg" alt="poster">
-            </div>
-          </div>
-          <div class="favorites-item" data-season="spring">
-            <div class="favorites-item-title">Staff Picks</div>
-            <div class="favorites-item-subtitle favorites-item-book-name">The Emperor's New Clothes</div>
-            <div class="favorites-item-subtitle favorites-item-book-author">By Hans Andersen</div>
-            <div class="favorites-description-poster-wrapper">
-              <div class="favorites-item-description">
-                <p>
-                  This is a story about an emperor. This man loved new and nice clothes. He changed clothes every few
-                  hours. He always had
-                  a separate suit for the morning, afternoon and evening. One day two men came to the emperor. These
-                  people loved money,
-                  but they did not like to work. Still they often made a lot of money. The men offered to make a
-                  beautiful cloth for the
-                  emperor. But only clever people would see this cloth. The ruler believed them. He paid a lot of money.
-                  The men came once
-                  more and got even more money. The emperor waited and waited. After all, he really wanted to get a
-                  beautiful suit made of
-                  this magic cloth. But the ruler was a little bit afraid. What if he was not clever enough? That is why
-                  he did not visit
-                  the two men. </p>
-                <button class="favorites-item-button">Buy</button>
-              </div>
-            </div>
-            <div class="favoritesitem-poster">
-              <img src="assets/jpg/Favorites/book_6.jpg" alt="poster">
-            </div>
-          </div>
-          <div class="favorites-item" data-season="spring">
-            <div class="favorites-item-title">Staff Picks</div>
-            <div class="favorites-item-subtitle favorites-item-book-name">The Little Mermaid</div>
-            <div class="favorites-item-subtitle favorites-item-book-author">By Hans Andersen</div>
-            <div class="favorites-description-poster-wrapper">
-              <div class="favorites-item-description">
-                <p>
-                  In the middle of the sea the water is very blue. One can see through it. It seems that it is not
-                  water, but air. There
-                  is a real world under the water. There are many beautiful trees and plants. Fish swim in and out of
-                  them. There is also
-                  a big palace. The Sea King lives there. His wife died and left six daughters. The king loved his
-                  children. His old
-                  mother helped him to raise them. The children loved their father and grandmother. They were beautiful
-                  mermaid
-                  princesses. The youngest princess was the most beautiful: her eyes were as blue as the sea. Her face
-                  was as white as
-                  snow. But mermaids did not have legs. They had big fish tails. Sometimes the grandmother told stories
-                  to the princesses.
-                  Her stories were about the world, where people lived. At fifteen, the youngest mermaid finally saw
-                  this world.
-                </p>
-                <button class="favorites-item-button">Buy</button>
-              </div>
-            </div>
-            <div class="favoritesitem-poster">
-              <img src="assets/jpg/Favorites/book_7.jpg" alt="poster">
-            </div>
-          </div>
-          <div class="favorites-item" data-season="spring">
-            <div class="favorites-item-title">Staff Picks</div>
-            <div class="favorites-item-subtitle favorites-item-book-name">The Ugly Duckling</div>
-            <div class="favorites-item-subtitle favorites-item-book-author">By Hans Andersen</div>
-            <div class="favorites-description-poster-wrapper">
-              <div class="favorites-item-description">
-                <p>
-                  A duck sat on her eggs in the wood. She sat there for a long time. Finally the eggs opened and some
-                  ducklings appeared.
-                  But one egg remained. The mother duck sat down on it again. Soon this egg opened. A duckling appeared.
-                  But he was very
-                  big and ugly. This duckling was very strange. But he was her child. Once the mother duck went to the
-                  river with her
-                  children. The ducklings jumped into the water. The ugly duckling was with them. It swam well. The
-                  mother duck was
-                  surprised. She thought he was clever. Later the family went into the garden. There were many other
-                  ducks. They saw the
-                  ugly duckling. They did not like him. He was too big and strange. He was different. So there was no
-                  place for the ugly
-                  duckling in this garden.
-                </p>
-                <button class="favorites-item-button">Buy</button>
-              </div>
-            </div>
-            <div class="favoritesitem-poster">
-              <img src="assets/jpg/Favorites/book_8.jpg" alt="poster">
-            </div>
-          </div>
-          <div class="favorites-item" data-season="summer">
-            <div class="favorites-item-title">Staff Picks</div>
-            <div class="favorites-item-subtitle favorites-item-book-name">The Lottery Winner</div>
-            <div class="favorites-item-subtitle favorites-item-book-author">By Rosemary Border</div>
-            <div class="favorites-description-poster-wrapper">
-              <div class="favorites-item-description">
-                <p>
-                  One day an old lady buys a new pair of shoes. It is Emma Carter. The shoes are cheap, but Emma is very
-                  pleased. She is
-                  walking home. Suddenly a young man hits her on the head and snatches her bag. He runs away. It is
-                  Jason Williams. He is
-                  twenty-two and lives with his parents. His only occupation in life is stealing things. But this time
-                  he doesn't get
-                  much. There are only a little money and a lottery ticket in the woman's bag. Emma buys a lottery
-                  ticket every Sunday.
-                  She always has the same numbers. Each number is special for her. This week the old woman is lying on a
-                  hospital bed. She
-                  is too tired to watch the lottery. So she doesn't even know that her ticket has won. And there is only
-                  one question. Who
-                  will get the money?
-                </p>
-                <button class="favorites-item-button">Buy</button>
-              </div>
-            </div>
-            <div class="favoritesitem-poster">
-              <img src="assets/jpg/Favorites/book_9.jpg" alt="poster">
-            </div>
-          </div>
-          <div class="favorites-item" data-season="summer">
-            <div class="favorites-item-title">Staff Picks</div>
-            <div class="favorites-item-subtitle favorites-item-book-name">The Lost Crowns of Anglia</div>
-            <div class="favorites-item-subtitle favorites-item-book-author">By M. R. James</div>
-            <div class="favorites-description-poster-wrapper">
-              <div class="favorites-item-description">
-                <p>
-                  Seaburgh is a small town by the sea on the east coast of England. The main character of this story
-                  went to this town for
-                  the weekend. He went with his old friend named Henry. There were only few visitors in Seaburgh that
-                  year. The two
-                  travellers stayed in one hotel. There was only one more guest. That guest was a tall young man. His
-                  name was Paxton.
-                  Paxton always looked unhappy. One evening he joined the two travellers. Paxton was very worried. He
-                  only asked them to
-                  listen to him. The man really wanted to tell something important. Once Paxton was in a town nearby.
-                  There, in an old
-                  church, he met a priest. The priest told Paxton a story. That story bothered the man very much. Paxton
-                  realised he
-                  needed advice.
-                </p>
-                <button class="favorites-item-button">Buy</button>
-              </div>
-            </div>
-            <div class="favoritesitem-poster">
-              <img src="assets/jpg/Favorites/book_10.jpg" alt="poster">
-            </div>
-          </div>
-          <div class="favorites-item" data-season="summer">
-            <div class="favorites-item-title">Staff Picks</div>
-            <div class="favorites-item-subtitle favorites-item-book-name">Marry Me, Darling!</div>
-            <div class="favorites-item-subtitle favorites-item-book-author">By Bill Bowler</div>
-            <div class="favorites-description-poster-wrapper">
-              <div class="favorites-item-description">
-                <p>
-                  Gwen and Roger are a very nice couple. They met each other ten years ago. They go out together three
-                  times a week. Gwen
-                  loves her boyfriend with all her heart. She wants to marry him, but Roger is a very shy man. He never
-                  speaks about
-                  marriage. Now Gwen is about thirty. She does not lose hope. This evening will be special. They are
-                  having dinner
-                  together. Gwen is sure that Roger is going to propose her. So she invites him to her sister's
-                  expensive house. She is
-                  wearing a beautiful dress and a gold watch. A married life is waiting for her. Only one thing upsets
-                  the woman. Roger
-                  has two bad habits. He smokes and drinks much coffee. But any man in love can change. Gwen is sure her
-                  future husband
-                  will change for her.
-                </p>
-                <button class="favorites-item-button">Buy</button>
-              </div>
-            </div>
-            <div class="favoritesitem-poster">
-              <img src="assets/jpg/Favorites/book_11.jpg" alt="poster">
-            </div>
-          </div>
-          <div class="favorites-item" data-season="summer">
-            <div class="favorites-item-title">Staff Picks</div>
-            <div class="favorites-item-subtitle favorites-item-book-name">Sing to Win</div>
-            <div class="favorites-item-subtitle favorites-item-book-author">By Andrea Sarto</div>
-            <div class="favorites-description-poster-wrapper">
-              <div class="favorites-item-description">
-                <p>
-                  Laura was having breakfast with her younger sister Sophia. It was a familiar ritual for the sisters -
-                  to have breakfast
-                  together. That day was unusual. The elder sister noticed that tomorrow would be a grand day for
-                  Sophia. But the girl
-                  herself knew it. After all, she was to have an audition for a famous vocal show. Laura was sure that
-                  the judges would
-                  immediately appreciate her sister's talent and love her. She would speak on television, and millions
-                  of people would be
-                  able to see her on their screens. This was really a great opportunity for such a young girl. The
-                  following day, Sofia
-                  was waiting for her turn to the audition. She met a friendly girl who praised her hair. The girl was
-                  named Emma. Sophia
-                  thought that they could become good friends. Soon Sofia came on the scene.
-                </p>
-                <button class="favorites-item-button">Buy</button>
-              </div>
-            </div>
-            <div class="favoritesitem-poster">
-              <img src="assets/jpg/Favorites/book_12.jpg" alt="poster">
-            </div>
-          </div>
-          <div class="favorites-item" data-season="autumn">
-            <div class="favorites-item-title">Staff Picks</div>
-            <div class="favorites-item-subtitle favorites-item-book-name">Island for Sale</div>
-            <div class="favorites-item-subtitle favorites-item-book-author">By Anne Collins</div>
-            <div class="favorites-description-poster-wrapper">
-              <div class="favorites-item-description">
-                <p>
-                  You can find lots of small islands in the cold sea not far from Scotland. This book is just about one
-                  of them. This
-                  island is called Lana. Lana isn't big, but it is very picturesque. This is a very quiet place. There
-                  are no large
-                  shopping centers, roads or cars. There is only one ancient castle. A young Scotsman named Duncan lives
-                  in the castle.
-                  There are many rooms with antique furniture and ancient paintings in his castle. Duncan has no wife or
-                  children. But he
-                  has a faithful dog named Jock. He often walks with Jock. Duncan also likes fishing in his small boat
-                  in the sea. One day
-                  he receives a letter. There is a five thousand pound electricity bill. Duncan doesn't have this money.
-                  What should he
-                  do? Is it better to sell this island?
-                </p>
-                <button class="favorites-item-button">Buy</button>
-              </div>
-            </div>
-            <div class="favoritesitem-poster">
-              <img src="assets/jpg/Favorites/book_13.jpg" alt="poster">
-            </div>
-          </div>
-          <div class="favorites-item" data-season="autumn">
-            <div class="favorites-item-title">Staff Picks</div>
-            <div class="favorites-item-subtitle favorites-item-book-name">Monster House</div>
-            <div class="favorites-item-subtitle favorites-item-book-author">By Dan Harmon</div>
-            <div class="favorites-description-poster-wrapper">
-              <div class="favorites-item-description">
-                <p>
-                  It was the afternoon before Halloween. The little girl was riding her bike through a narrow street.
-                  She quickly went
-                  between the trees and beautiful gardens. Suddenly the bike went onto a front lawn and stopped. The
-                  girl heard a strange
-                  sound and looked around. There was an old scary house in front of her. The two windows looked like
-                  eyes that were
-                  looking at her angrily. Suddenly and old man ran out of the house. He shouted at the girl and told her
-                  to get out of his
-                  lawn. The frightened girl ran away. A few minutes later she was already far from this place. The old
-                  man watched her and
-                  grumbled that children never listened to him. A strange sound repeated. The old man entered his house
-                  and closed the
-                  door.
-                </p>
-                <button class="favorites-item-button">Buy</button>
-              </div>
-            </div>
-            <div class="favoritesitem-poster">
-              <img src="assets/jpg/Favorites/book_14.jpg" alt="poster">
-            </div>
-          </div>
-          <div class="favorites-item" data-season="autumn">
-            <div class="favorites-item-title">Staff Picks</div>
-            <div class="favorites-item-subtitle favorites-item-book-name">Heidi</div>
-            <div class="favorites-item-subtitle favorites-item-book-author">By Johanna Spyri</div>
-            <div class="favorites-description-poster-wrapper">
-              <div class="favorites-item-description">
-                <p>
-                  Heidi is a little girl. She lives in the Alps with her old grandfather. They are very different. Heidi
-                  is kind, sweet
-                  and open. She can light up life around with her presence. Her grandfather is very strict. Heidi's
-                  mother died long ago.
-                  In early childhood the girl lived with her aunt Dete. Once Dete found a new job in the city. So she
-                  left the girl with
-                  her grandfather when Heidi was only six. And this meeting changes the lives of both of them.
-                  Everything is different
-                  now. The old man takes care of his small granddaughter. The grandfather loves Heidi but he doesn't
-                  show it. The local
-                  people are very surprised to see this. They always saw him as a grumpy annoying man. But the old man
-                  turns out to be
-                  very kind.
-                </p>
-                <button class="favorites-item-button">Buy</button>
-              </div>
-            </div>
-            <div class="favoritesitem-poster">
-              <img src="assets/jpg/Favorites/book_15.jpg" alt="poster">
-            </div>
-          </div>
-          <div class="favorites-item" data-season="autumn">
-            <div class="favorites-item-title">Staff Picks</div>
-            <div class="favorites-item-subtitle favorites-item-book-name">How the Camel Got His Hump</div>
-            <div class="favorites-item-subtitle favorites-item-book-author">By Rudyard Kipling</div>
-            <div class="favorites-description-poster-wrapper">
-              <div class="favorites-item-description">
-                <p>
-                  Do you want to know where the camel's hump came from? This story happened long ago when the world was
-                  very new. Back
-                  then the animals only began to work for humans. There was also a camel without a hump. He lived in the
-                  middle of a big
-                  desert. The camel was very lazy. He only ate thorns and loved to roar. Various animals came to him: a
-                  horse, a dog and
-                  an ox. They asked the camel to go and work with them. But the camel always replied: 'Humph'. He
-                  refused to go. That is
-                  why the animals had more work. The world was young and there was a lot to do. The animals were tired
-                  and very angry. But
-                  once there came the Djinn of All Deserts. He carefully listened to everyone. And the Djinn decided to
-                  teach a lazy camel
-                  a lesson.
-                </p>
-                <button class="favorites-item-button">Buy</button>
-              </div>
-            </div>
-            <div class="favoritesitem-poster">
-              <img src="assets/jpg/Favorites/book_16.jpg" alt="poster">
-            </div>
-          </div>
         </div>
       </section>
       <section class="shop" id="shop">
@@ -659,7 +252,7 @@
           </div>
         </div>
       </section>
-      <section class="cards" id="cards">
+      <section class="cards" id="_cards">
         <div class="title">
           <h2>Digital Library Cards</h2>
         </div>
@@ -668,27 +261,17 @@
             <div class="cards-find-wrapper">
               <div class="cards-title">Find your Library card</div>
               <div class="cards-main">
-                <form action="/" method="post">
+                <form action="" method="">
                   <div class="cards-form-wrapper">
                     <div class="cards-main-subtitle">Brooklyn Public Library</div>
                     <input type="text" name="name" placeholder="Reader's name ">
-                    <input type="number" name="number" placeholder="Card number">
+                    <input type="text" name="number" placeholder="Card number">
                   </div>
-                  <button class="button">Check the card</button>
+                  <button class="button" data-role="checkCard">Check the card</button>
                 </form>
               </div>
             </div>
             <div class="get-card-wrapper">
-              <div class="get-card-title">Get a reader card</div>
-              <div class="get-card-content">
-                <p>
-                  You will be able to see a reader card after logging into account or you can register a new account
-                </p>
-              </div>
-              <div class="get-card-buttons-wrapper">
-                <button class="get-card-btn">Sign Up</button>
-                <button class="get-card-btn">Log in</button>
-              </div>
             </div>
           </div>
         </div>
@@ -755,7 +338,10 @@
       </div>
     </footer>
   </div>
-  <script src="js/index.js"></script>
+  <script type="module" src="js/index.js"></script>
+
+
+
 </body>
 
 </html>

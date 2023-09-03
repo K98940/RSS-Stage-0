@@ -17,8 +17,17 @@
 
 .seasons-wrapper {
   display: flex;
+  position: sticky;
+  top: 0;
   gap: 82px;
   margin-bottom: 35px;
+  z-index: var(--z-index-top);
+
+  background-color: var(--color-white);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0.9) 50%,
+      rgba(255, 255, 255, 0) 100%);
+  padding-bottom: 35px;
 }
 
 .seasons-radio-wrapper {
@@ -81,6 +90,8 @@
   column-gap: 260px;
   row-gap: 40px;
   margin-left: -40px;
+
+  transition: 300ms;
 }
 
 .favorites-item {
@@ -228,6 +239,10 @@
 }
 
 @media (max-width: 1024px) {
+  .seasons-wrapper {
+    justify-content: center;
+  }
+
   .favorites-items-wrapper {
     margin-left: -40px;
   }
