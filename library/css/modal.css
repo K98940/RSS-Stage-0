@@ -1,0 +1,98 @@
+body:has(div.modalcontainer) {
+  overflow: hidden !important;
+}
+
+.modalcontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  z-index: var(--z-index-top);
+
+  overflow: hidden;
+  background-color: var(--color-dark-shadow);
+}
+
+
+.modalwrapper {
+  position: relative;
+  min-width: 100px;
+  min-height: 150px;
+
+  background-color: var(--color-white);
+}
+
+.modal-btnclose {
+  position: absolute;
+  width: 19px;
+  height: 19px;
+  padding: 2px;
+  top: 13px;
+  right: 13px;
+
+  background-image: url("../assets/icon/close_btn.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 15px;
+  background-color: var(--color-white);
+  border: none;
+  transition: var(--transition-duration);
+}
+
+.modalcontainer:has(.myprofile-container) {
+  & .modal-btnclose {
+    top: 23px;
+    right: 23px;
+  }
+}
+
+.modalcontainer:has(.buydialog-wrapper) {
+  & .modal-btnclose {
+    top: 23px;
+    right: 23px;
+
+    filter: invert(1);
+  }
+}
+
+.modal-btnclose:hover {
+  cursor: pointer;
+  background-color: var(--color-sand);
+}
+
+.__shadow {
+  box-shadow: 0 0 30px var(--color-white), 0 0 10px var(--color-sand);
+}
+
+.modal-popup-mesage {
+  position: fixed;
+  height: 0;
+
+  z-index: var(--z-index-top);
+
+  padding: 10px 15px;
+
+  background-color: var(--color-sand);
+  border: 2px solid var(--color-black);
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px var(--color-dark-shadow);
+  transition-duration: 2500ms;
+  overflow: hidden;
+
+  color: var(--color-white);
+  font-size: 1.2rem;
+}
+
+.modal-popup-mesage__show {
+  height: auto;
+}
+
+.popup-mesage__error {
+  background-color: var(--color-bgd-error);
+  color: var(--color-black);
+}

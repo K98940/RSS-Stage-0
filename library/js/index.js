@@ -1,94 +1,169 @@
-console.log(`оценка:
-1. Вёрстка валидная +10
-2. Вёрстка семантическая +16
-  В коде страницы присутствуют следующие элементы:
-  - <header>, <main>, <footer> +2
-  - шесть элементов <section> +2
-  - только один заголовок <h1> +2
-  - пять заголовков <h2> + 2
-  - один элемент <nav> (панель навигации в хедере) +2
-  - два списка ul > li > a (панель навигации, ссылки на соцсети в футере) +2
-  - семь кнопок <button> +2
-  - два инпута <input> +2
-3. Вёрстка соответствует макету +54
-  - блок <header> +8:
-    * Стараемся, чтобы текст совпадал с макетом. Если есть небольшие отклонения, то главное для нас,
-      чтобы расстояние между элементами меню было одинаковое, 30px.
-    * Элементы меню работают как якоря. При нажатии на один из них нас перебросит наверх соответствующего раздела.
-    * Сами элементы меню при наведении (эффект hover) должны быть интерактивными
-      (решайте сами, должны ли они становиться жирными или подчеркнутыми.
-      Но обязательно курсор должен поменяться на cursor: pointer)
-    * Расстояние от самого меню до иконки пользователя - 40px. Иконка является отдльным элементом, и не входит в <nav>
-    * Текст "Brooklyn Public Library" находится в <h1>
-  - секция Welcome +4
-  - секция About +6:
-    * Добавьте все картинки, которые будут использованы в папку с картинками.
-      Даже если отображается всего 3, в папке должны быть все 5
-    * Расстояния между кнопками пагинации 10px
-    * Интерактивная область должна быть размером +5px в каждую сторону. Т.е. это будут прозрачные элементы
-      размерами 26x26, внутри которых будут располагаться непосредственно кнопки 16x16
-  - секция Favorites +8:
-    * Интерактивные кнопки дожны иметь структуру input type="radio" + label
-    * Добавьте небольшую область вокруг кнопки и надписи (например, 5px как в примере секции about) для того,
-      чтобы была возможность легче наводить мышку.
-    * Картинок и описаний - много, для 4х секций. Их стоит добавить в проект. А лучше сразу на страницу, и скрыть с
-      помощью CSS свойств, например display: none;
-    * Кнопки "buy" должны быть интерактивными, плавно менять свой цвет при наведении, как указано в макете styleguides.
-    * Кнопка "own" не должна быть интерактивной, не должна нажиматься. И на ней должен присутствовать атрибут disabled.
-  - секция CoffeShop +6
-  - секция Contacts +6:
-    * Карту можно вставить просто картинкой. Добавлять ее отдельным сервисом не обязательно.
-    * Везде, где в тексте встречаются цифры в виде телефонного номера, это должны быть ссылки с типом "tel" и номером.
-    * Там, где в тексте встречается текст с именем контактного лица, это должна быть ссылка с типом "mailto" и
-      адресом почты (например, AmandaHirst@gmail.com).
-  - секция LibraryCard +8:
-    * "Find your Library card" - это должа быть форма с полями input.
-    * Желательно сделать ограничения в полях input на использование только букв и цифр, а также дефиса.
-      Но это правило проверять не нужно.
-    * Все 3 кнопки должны быть интерактивными, плавно менять свой цвет, как указано в макете styleguides.
-    * Хоть иконки из модального окна (Visits, Bonuses, Books) сейчас не нужны будут, можно их добавить в соответствующую папку проекта.
-  - блок <footer> +8:
-    * Адрес библиотеки должен быть ссылкой (место на карте, например).
-    * Иконки соцсетей также должны быть ссылками (можете вставить свои соцсети или любые другие аккаунты этих сервисов).
-    * Вместо Username должно быть ваше имя, как оно пишется на английском языке и ссылка на GitHub.
-4. Общие требования к верстке +20
-  - Для построения сетки используются флексы или гриды (display: flex... или display: grid...) +2.
-  - при уменьшении масштаба страницы браузера вся вёрстка (контент и фоны) размещается по центру, а не сдвигается в
-    сторону +2. Фон за рамками страницы может быть черным, белым или любого оттенка серого.
-    Изображение библиотеки в секции Welcome - тянется на всю ширину экрана.
-  - иконки добавлены в формате .svg. SVG может быть добавлен любым способом +2.
-  - изображения добавлены в формате .jpg (.jpeg) или .png +2.
-  - есть favicon +2.
-  - плавная прокрутка по якорям +2.
-  - в футере название ссылки Username заменено и ведет на GitHub студента +2.
-  - в футере ссылка The Rolling Scopes School ведет на страницу курса https://rs.school/js-stage0/ +2.
-  - интерактивность элементов согласно макету +2
-  - обязательное требование к интерактивности: плавное изменение внешнего вида элемента при наведении и клике не
-    влияет на соседние элементы +2.
-
-ИТОГО 100
-`)
-
+import * as carousel from './carousel.js'
+import * as favorites from './favorites.js'
+import * as state from './state.js'
+import * as dropMenu from './drop_menu.js'
+import * as register from './register.js'
+import * as modal from './modal.js'
+import * as profile from './profile.js'
+import * as login from './login.js'
+import * as info from './info.js'
+import * as libCards from './cards.js'
+import * as myProfile from './myProfile.js'
 
 const burger = document.getElementById('burger-toggle')
-const menuBtn = document.getElementById('menu-btn')
-const nav = document.getElementsByTagName('nav')[0]
-const body = document.getElementsByTagName('body')[0]
+const profileBtn = document.querySelector('.profile')
+const checkCard = document.querySelector('[data-role="checkCard"]')
+const name = document.querySelector('[name="name"]')
+const number = document.querySelector('[name="number"]')
+let isWindowResized = false
+let menu = null
 
-const removeMenu = (e) => {
-  const toggleScrollBlock = () => {
-    if (burger.checked) {
-      body.classList.add('__block-scroll')
-    } else {
-      body.classList.remove('__block-scroll')
-    }
+
+const toggleScrollBlock = () => {
+  if (state.app.modal) {
+    document.body.style.overflow = 'hidden'
+  } else {
+    document.body.style.overflow = 'auto'
+  }
+}
+
+
+const handleDocumentClick = (e) => {
+  const { id } = e.target.closest('.profile') || e.target.closest('#burger-label') || {}
+  const { role } = e.target.dataset || null
+
+  switch (id) {
+    case 'burger-label':
+      burger.checked = !burger.checked
+      state.app.modal = burger.checked
+      menu && menu.remove()
+      break;
+    case "profile":
+      burger.checked = false
+      state.app.modal = true
+      menu = dropMenu.createMenu(profileBtn)
+      break;
+
+    default:
+      burger.checked = false
+      state.app.modal = burger.checked
+      menu && menu.remove()
+      break;
   }
 
-  if ((e.target != burger && e.target != menuBtn && e.target != nav) || e.code === 'Escape') {
-    burger.checked = false
+  switch (role) {
+    case 'myProfile':
+      modal.createModalContainer(myProfile.createMyProfile, { shadow: true })
+      break
+    case 'logIn':
+      if (state.users.registered.length === 0) {
+        modal.createModalContainer(register.createRegisterDialog)
+      } else {
+        modal.createModalContainer(login.createLoginDialog)
+      }
+      break;
+    case 'Register':
+      modal.createModalContainer(register.createRegisterDialog)
+      break;
+    case 'LogOut':
+      state.users.loginedUser = null
+      profile.setProfileIcon()
+      localStorage.setItem('users', JSON.stringify(state.users))
+      const divInfo = document.querySelector('.info-panel')
+      divInfo.remove()
+      name.value = ''
+      name.removeAttribute('disabled')
+      number.value = ''
+      number.removeAttribute('disabled')
+
+      libCards.renderCardContent('.get-card-wrapper')
+      favorites.FillCards('winter')
+      break;
+
+    default:
+      break;
   }
+
   toggleScrollBlock()
 }
 
-document.addEventListener('click', removeMenu)
-document.addEventListener('keydown', removeMenu)
+const disableTabindex = () => {
+  const Elements = []
+  Elements.push(...document.querySelectorAll('input'))
+  Elements.push(...document.querySelectorAll('a'))
+  Elements.push(...document.querySelectorAll('button'))
+  Elements.forEach(el => {
+    el.setAttribute('tabindex', '-1')
+  })
+}
+
+const initApp = () => {
+  try {
+    const users = JSON.parse(localStorage.getItem('users'))
+    if (users) {
+      Object.assign(state.users, users)
+      if (state.users.loginedUser) {
+        profile.setProfileIcon()
+      }
+    }
+
+    if (state.users.loginedUser) {
+      const bnt = document.querySelector('[data-role="checkCard"]')
+      const divInfo = info.createInfoDiv(state.users.loginedUser)
+      bnt.append(divInfo)
+    }
+  } catch (error) {
+    console.warn('error get localStorage data: ', error)
+  }
+  libCards.renderCardContent('.get-card-wrapper')
+  disableTabindex()
+}
+
+
+const containerCarousel = document.querySelector('.container-carousel')
+carousel.initCarousel(containerCarousel)
+
+document.addEventListener('DOMContentLoaded', initApp)
+document.addEventListener('click', handleDocumentClick)
+window.addEventListener('resize', () => {
+  if (!isWindowResized) setTimeout(() => {
+    carousel.initCarousel(containerCarousel)
+    isWindowResized = false
+  }, 500)
+  isWindowResized = true
+})
+
+favorites.FillCards('winter')
+const radios = document.querySelectorAll('label[data-season]')
+radios.forEach(radio => radio.addEventListener('click', () => {
+  if (radio.previousElementSibling.checked === true) return
+  radio.previousElementSibling.checked = true
+  favorites.FillCards(radio.dataset.season)
+}))
+
+const handleCheckCard = (e) => {
+  e.preventDefault()
+  if (state.users.registered.length === 0) {
+    modal.showMessage('нет зарегистрированных пользователей в базе', 2, e.target, true)
+    return
+  }
+
+  const account = profile.checkLogin({ firstName: name.value, cardNumber: number.value })
+  if (account) {
+    const bnt = document.querySelector('[data-role="checkCard"]')
+    const divInfo = info.createInfoDiv(account)
+    bnt.append(divInfo)
+    setTimeout(() => {
+      divInfo.classList.remove('info-panel-icons__fullsize')
+      setTimeout(() => {
+        name.value = ''
+        number.value = ''
+        divInfo.remove()
+      }, 400)
+    }, 10000)
+
+  } else {
+    modal.showMessage('ничего не найдено 🥺', 3, e.target, true)
+  }
+}
+checkCard.addEventListener('click', handleCheckCard)

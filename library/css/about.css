@@ -5,32 +5,40 @@
   fill: transparent;
 }
 
-.container-images {
-  overflow: hidden;
+.container-carousel {
+  /* overflow: hidden; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   container-name: about;
   container-type: inline-size;
 }
 
+.frame {
+  position: relative;
+  overflow: hidden;
+  width: 1400px;
+}
+
 .images-items {
   display: flex;
+  position: relative;
   height: 100%;
   width: 100%;
   flex-wrap: nowrap;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 25px;
-  overflow: hidden;
   margin-bottom: 30px;
 
+  transition: 500ms cubic-bezier(0.165, 0.84, 0.44, 1);
+
   &>div {
-    /* width: 450px; */
-    /* height: 560px; */
     height: 100%;
     flex: 0 0 450px;
   }
 
   & img {
-    /* width: 100%; */
     height: 100%;
     object-fit: cover;
   }
@@ -48,11 +56,15 @@
   align-items: center;
   width: 26px;
   height: 26px;
-  /* margin-bottom: 35px; */
 }
 
 .pagination-btn-wrapper:hover {
   cursor: pointer;
+
+  & .pagination-btn {
+    position: relative;
+    box-shadow: 2px 2px 5px var(--color-dark-shadow);
+  }
 }
 
 .pagination-btn {
@@ -67,90 +79,43 @@
   display: none;
 }
 
+.btn__small {
+  display: none;
+}
+
+
 .pagination-btn__active {
-  background-color: var(--color-sand);
 
-}
-
-
-
-
-@media (max-width: 2px) {
-  .container-images {
-    width: 450px;
-    height: 560px;
-    margin: 0 auto 20px;
-    /* padding: 0 80px; */
-
-    /* 9 */
-    overflow: visible;
-
-    &::before {
-      content: '';
-      display: block;
-      position: absolute;
-      width: 24px;
-      height: 24px;
-      top: 50%;
-      transform: translateY(8px);
-      left: -12px;
-
-
-      background-image: url("../assets/icon/Carret_Left.svg");
-      background-color: brown;
-    }
-
-    &::after {
-      content: '';
-      display: block;
-      position: absolute;
-      width: 24px;
-      height: 24px;
-      top: 50%;
-      transform: translateY(8px);
-      right: -82px;
-
-      background-image: url("../assets/icon/Carret_Right.svg");
-    }
+  &:hover {
+    cursor: default;
   }
 
-  .images-items {
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    gap: 80px;
-
-    /* 0 */
-    width: 100%;
-  }
-
-
-  .btn__mobile {
-    display: flex;
-  }
-
-  .carret {
-    display: inline-block;
+  & .pagination-btn {
+    background-color: var(--color-sand);
+    box-shadow: none !important;
   }
 }
 
 
-@container about (max-width: 1399px) {
-  .images-items {
+@container about (max-width: 1382px) {
+  .frame {
     width: 925px;
+  }
+
+  .images-items {
     margin-left: auto;
     margin-right: auto;
-    justify-content: flex-start;
   }
 
+  .btn__small {
+    display: flex;
+  }
 }
 
+
 @container about (max-width: 930px) {
-  .images-items {
-    position: relative;
+  .frame {
     width: 610px;
-    padding-left: 80px;
-    gap: 80px;
-    margin-bottom: 17px;
 
     &::before {
       content: '';
@@ -159,7 +124,7 @@
       width: 24px;
       height: 24px;
       top: 50%;
-      transform: translateY(8px);
+      transform: translateY(-2px);
       left: -2px;
 
       background-image: url("../assets/icon/Carret_Left.svg");
@@ -172,11 +137,26 @@
       width: 24px;
       height: 24px;
       top: 50%;
-      transform: translateY(8px);
+      transform: translateY(-2px);
       right: -2px;
 
       background-image: url("../assets/icon/Carret_Right.svg");
     }
+  }
+
+  .pagination-btn-wrapper:hover {
+    cursor: default;
+
+    & .pagination-btn {
+      box-shadow: none;
+    }
+  }
+
+  .images-items {
+    position: relative;
+    padding-left: 80px;
+    gap: 80px;
+    margin-bottom: 17px;
   }
 
   .btn__mobile {
@@ -185,10 +165,8 @@
 }
 
 @container about (max-width: 650px) {
-  .images-items {
+  .frame {
     width: 85.84vw;
-    height: 108.49vw;
-    padding-left: 0;
 
     &::before {
       display: none;
@@ -197,5 +175,24 @@
     &::after {
       display: none;
     }
+  }
+
+  .images-items {
+    height: 108.49vw;
+    padding-left: 0;
+  }
+}
+
+.__left-arrow-disable {
+
+  &::before {
+    filter: opacity(0.3);
+  }
+}
+
+.__right-arrow-disable {
+
+  &::after {
+    filter: opacity(0.3);
   }
 }
