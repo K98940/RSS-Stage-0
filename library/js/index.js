@@ -78,6 +78,8 @@ const handleDocumentClick = (e) => {
 
       libCards.renderCardContent('.get-card-wrapper')
       favorites.FillCards('winter')
+
+      document.getElementById('card-title').innerText = "Find your Library card"
       break;
 
     default:
@@ -111,6 +113,7 @@ const initApp = () => {
       const bnt = document.querySelector('[data-role="checkCard"]')
       const divInfo = info.createInfoDiv(state.users.loginedUser)
       bnt.append(divInfo)
+      document.getElementById('card-title').innerText = "Your Library card"
     }
   } catch (error) {
     console.warn('error get localStorage data: ', error)

@@ -35,6 +35,7 @@ export const setLoginedUser = (acc) => {
   libCards.renderCardContent('.get-card-wrapper')
 
   favorites.FillCards(document.querySelector('[name="seasons"]:checked').value)
+  document.getElementById('card-title').innerText = "Your Library card"
 }
 
 
