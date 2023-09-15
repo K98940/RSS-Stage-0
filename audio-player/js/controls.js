@@ -3,6 +3,7 @@ import { state } from './state.js'
 export const controlsInit = () => {
   const btnPlay = document.getElementById('btn-play')
   const seeker = document.getElementById('currentTime')
+  const volume = document.getElementById('volume')
   const audio = document.getElementById('audio')
   audio.src = state.audio.currentTrack
 
@@ -15,6 +16,7 @@ export const controlsInit = () => {
   audio.addEventListener('loadedmetadata', () => {
     seeker.max = Math.floor(audio.duration)
     audio.currentTime = 0
+    audio.volume = state.audio.volume
     seeker.value = 0
     if (state.audio.isPlay) audio.play()
   })
@@ -30,9 +32,15 @@ export const controlsInit = () => {
     state.audio.currentTime = audio.currentTime
   })
 
+  volume.addEventListener('input', () => {
+    audio.volume = volume.value / 100
+    state.audio.volume = audio.volume
+  })
+
+
   btnPlay.addEventListener('click', () => {
     state.audio.isPlay = !state.audio.isPlay
   })
 
-  return [seeker, audio]
+  return [audio]
 }

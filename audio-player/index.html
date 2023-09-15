@@ -48,7 +48,11 @@
     <div class="container-controls">
       <audio id="audio" src=""></audio>
       <input class="current-time" type="range" name="currentTime" id="currentTime" min="0" max="100" value="0" step="1">
-      <button class="btn-play" id="btn-play"></button>
+      <div class="controls-group-1">
+        <button class="btn-play" id="btn-play"></button>
+        <input class="volume" type="range" name="volume" id="volume" min="0" max="100" value="50" step="1">
+      </div>
+
     </div>
   </div>
   <script type="module" src="./js/index.js"></script>

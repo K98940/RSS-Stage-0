@@ -4,6 +4,7 @@ const stateObj = {
   audio: {
     isPlay: false,
     currentTime: 0,
+    volume: 0.5,
     currentTrack: './assets/audio/0.mp3',
   },
 }
