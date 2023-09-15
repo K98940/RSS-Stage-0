@@ -5,7 +5,7 @@ export const controlsInit = () => {
   const seeker = document.getElementById('currentTime')
   const volume = document.getElementById('volume')
   const audio = document.getElementById('audio')
-  audio.src = state.audio.currentTrack
+  audio.src = state.audio.currentTrack.url
 
   const timeupdateHandler = () => {
     seeker.value = audio.currentTime

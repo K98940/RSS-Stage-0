@@ -1,6 +1,5 @@
 const audio = document.getElementById('audio')
 const btnPlay = document.getElementById('btn-play')
-const progress = document.getElementById('currentTime')
 
 export const stateHandler = {
   get: (target, key) => {
