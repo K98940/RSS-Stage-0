@@ -1,0 +1,41 @@
+.container-tracks {
+  width: 100%;
+  min-height: 2rem;
+  flex: 1 1 33%;
+
+  border: 3px solid black;
+}
+
+.track {
+  & input {
+    display: none;
+
+    &:checked+label {
+      background-color: darkseagreen;
+
+      &:hover {
+        background-color: rgb(98, 165, 98);
+      }
+    }
+  }
+
+  & label {
+    display: block;
+    padding: 0.5rem;
+
+    font-size: 1.3rem;
+
+    &:hover {
+      cursor: pointer;
+      background-color: rgb(98, 165, 98);
+    }
+  }
+}
+
+
+@media (min-width: 1024px) {
+  .container-tracks {
+    flex: 1 1 30%;
+    height: calc(100% - 6rem);
+  }
+}

@@ -9,7 +9,25 @@
 </head>
 
 <body>
-
+  <div class="player-wrapper">
+    <div class="container-cover"></div>
+    <div class="container-tracks">
+      <div class="track">
+        <input id="track-0" type="radio" checked name="track">
+        <label for="track-0">track 0</label>
+      </div>
+      <div class="track">
+        <input id="track-1" type="radio" name="track">
+        <label for="track-1">track 1</label>
+      </div>
+    </div>
+    <div class="container-controls">
+      <audio id="audio" src=""></audio>
+      <input class="current-time" type="range" name="currentTime" id="currentTime" min="0" max="100" value="0" step="1">
+      <button class="btn-play" id="btn-play"></button>
+    </div>
+  </div>
+  <script type="module" src="./js/index.js"></script>
 </body>
 
 </html>

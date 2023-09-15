@@ -1,0 +1,41 @@
+@import url("./cover.css");
+@import url("./tracks.css");
+@import url("./controls.css");
+
+:root {}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  width: 100dvw;
+  height: 100dvh;
+}
+
+body {
+  width: 100dvw;
+  height: 100dvh;
+}
+
+.player-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .player-wrapper {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}

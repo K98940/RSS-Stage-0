@@ -1,0 +1,48 @@
+.container-controls {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex: 0 0 6rem;
+
+  padding: 0.5rem;
+
+  border: 3px solid black;
+}
+
+.current-time {
+  width: 100%;
+  height: 1rem;
+
+  margin-bottom: 0.5rem;
+}
+
+.btn-play {
+  width: 3rem;
+  height: 3rem;
+
+  border-radius: 50%;
+  border: none;
+  background-image: url("../assets/icons/play.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition-duration: 300ms;
+
+  &:hover {
+    cursor: pointer;
+    background-color: darkkhaki;
+  }
+}
+
+.btn-play__played {
+  background-image: url("../assets/icons/pause.png");
+}
+
+@media (min-width: 1024px) {
+  .container-controls {
+    flex: 0 0 100%;
+    height: 5rem;
+  }
+}
