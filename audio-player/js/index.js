@@ -13,7 +13,6 @@ const renderPlayList = (container, playList) => {
         const duration = convertSecondsToTime(a.duration)
         document.getElementById(`track-duration-${track.id}`).innerText = duration
       })
-      // console.log(a)
     });
   }
   const html = playList.map((track, i) => `

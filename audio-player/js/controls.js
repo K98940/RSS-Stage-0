@@ -10,15 +10,23 @@ export const convertSecondsToTime = (sec) => {
 }
 
 const setNextTrack = () => {
+  audio.pause()
   const tracksContainer = document.getElementById('tracks')
-  let nextTrackID = state.audio.currentTrack.id + 1
-  if (nextTrackID > playList.length) {
-    nextTrackID = 0
-  }
-  state.audio.currentTrack = playList[nextTrackID]
-  audio.src = state.audio.currentTrack.url
+  let trackID = state.audio.currentTrack.id
 
-  tracksContainer.querySelector(`input[id="track-${nextTrackID}"]`).setAttribute('checked', '')
+  let row = tracksContainer.querySelector(`input[id="track-${trackID}"]`)
+  row.checked = false
+
+  trackID += 1
+  if (trackID >= playList.length) {
+    trackID = 0
+  }
+
+  row = tracksContainer.querySelector(`input[id="track-${trackID}"]`)
+  row.checked = true
+  state.audio.currentTrack = playList[trackID]
+  audio.src = state.audio.currentTrack.url
+  audio.play()
 }
 
 export const controlsInit = () => {
@@ -34,7 +42,7 @@ export const controlsInit = () => {
     seeker.value = audio.currentTime
     state.audio.currentTime = audio.currentTime
     timeCurrent.innerText = convertSecondsToTime(audio.currentTime)
-    if (audio.currentTime >= audio.duration) {
+    if (audio.currentTime >= audio.duration - 1) {
       setNextTrack()
     }
   }
