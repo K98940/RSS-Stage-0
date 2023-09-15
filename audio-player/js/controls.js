@@ -1,6 +1,6 @@
 import { state, playList } from './state.js'
 
-const convertSecondsToTime = (sec) => {
+export const convertSecondsToTime = (sec) => {
   const min = Math.floor(sec / 60)
   const s = Math.floor(sec - (min * 60))
   const minTxt = min.toString(10).padStart(2, '0')
