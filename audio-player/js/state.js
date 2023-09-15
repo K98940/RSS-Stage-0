@@ -1,18 +1,22 @@
 import { stateHandler } from './stateHandler.js'
 
+const URL_PREFFIX = './assets/audio/'
 export const playList =
   [
     {
-      url: './assets/audio/01 - Fortress.mp3',
-      name: 'Diablo 2 LOD - Fortress',
+      id: 0,
+      url: `${URL_PREFFIX}town.mp3`,
+      name: 'town',
     },
     {
-      url: './assets/audio/02 - Halls.mp3',
-      name: 'Diablo 2 LOD - Halls',
+      id: 1,
+      url: `${URL_PREFFIX}caves.mp3`,
+      name: 'caves',
     },
     {
-      url: './assets/audio/03 - Ancients.mp3',
-      name: 'Diablo 2 LOD - Ancients',
+      id: 2,
+      url: `${URL_PREFFIX}Overture.mp3`,
+      name: 'Overture',
     },
   ]
 

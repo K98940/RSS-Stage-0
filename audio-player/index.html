@@ -15,8 +15,13 @@
     </div>
     <div class="container-controls">
       <audio id="audio" src=""></audio>
-      <input class="current-time" type="range" name="currentTime" id="currentTime" min="0" max="100" value="0" step="1">
       <div class="controls-group-1">
+        <input class="current-time" type="range" name="currentTime" id="currentTime" min="0" max="100" value="0"
+          step="1">
+        <span id="timeCurrent">0:00</span>
+        <span id="timeDuration"></span>
+      </div>
+      <div class="controls-group-2">
         <button class="btn-play" id="btn-play"></button>
         <input class="volume" type="range" name="volume" id="volume" min="0" max="100" value="50" step="1">
       </div>

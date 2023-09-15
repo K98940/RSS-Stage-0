@@ -20,7 +20,7 @@
 @media (min-width: 1024px) {
   .container-cover {
     flex: 0 0 calc(70% - 1rem);
-    height: calc(100% - 6rem);
+    height: calc(100% - 7rem);
     background-image: url("../assets/img/covers/big/0.jpg");
   }
 }
