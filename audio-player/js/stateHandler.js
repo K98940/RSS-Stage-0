@@ -17,16 +17,12 @@ export const stateHandler = {
         if (value) {
           audio.play()
           btnPlay.classList.add('btn-play__played')
-
         }
         else {
           audio.pause()
           btnPlay.classList.remove('btn-play__played')
         }
         break;
-
-      case 'currentTime':
-        break
 
       default:
         break;

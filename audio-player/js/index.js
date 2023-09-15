@@ -1,35 +1,17 @@
 import { state } from './state.js'
+import { controlsInit } from './controls.js'
 
-const audio = document.getElementById('audio')
-const btnPlay = document.getElementById('btn-play')
-const progress = document.getElementById('currentTime')
-audio.src = state.audio.currentTrack
+const tracks = document.getElementById('tracks')
+const [seeker, audio] = controlsInit()
 
-const timeupdateHandler = () => {
-  progress.value = audio.currentTime
-}
-
-audio.addEventListener('timeupdate', timeupdateHandler)
-
-progress.addEventListener('input', () => {
-  audio.pause()
-  audio.currentTime = progress.value
-})
-
-progress.addEventListener('change', () => {
-  if (state.audio.isPlay) audio.play()
-  audio.currentTime = progress.value
-})
-
-audio.addEventListener('loadedmetadata', () => {
-  progress.max = Math.floor(audio.duration)
-})
-
-btnPlay.addEventListener('click', () => {
-  state.audio.isPlay = !state.audio.isPlay
+tracks.addEventListener('click', (e) => {
+  if (e.target.name !== 'track') return
+  const track = e.target.value
+  state.audio.currentTrack = `./assets/audio/${track}.mp3`
+  audio.src = state.audio.currentTrack
 })
 
 window.onload = () => {
   audio.currentTime = 0
-  progress.value = 0
+  seeker.value = 0
 }
