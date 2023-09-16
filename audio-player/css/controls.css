@@ -9,7 +9,7 @@
   padding: 0.5rem;
   gap: 0.5rem;
 
-  border: 3px solid black;
+  color: var(--color-text-controls);
 }
 
 .current-time {

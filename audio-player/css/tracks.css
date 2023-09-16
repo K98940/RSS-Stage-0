@@ -1,21 +1,20 @@
 .container-tracks {
   width: 100%;
   min-height: 2rem;
-  flex: 1 1 33%;
+  flex: 1 1 30%;
 
-  border: 3px solid black;
+  color: var(--color-playlist-text);
 }
 
 .track {
-
   & input {
     display: none;
 
     &:checked+label {
-      background-color: darkseagreen;
+      background-color: var(--color-bg-playlist-active);
 
       &:hover {
-        background-color: rgb(98, 165, 98);
+        background-color: var(--color-bg-playlist-hover);
       }
     }
   }
@@ -24,12 +23,21 @@
     display: flex;
     justify-content: space-between;
     padding: 0.5rem;
+    gap: 1rem;
 
+    border-radius: 0.25rem;
     font-size: 1.3rem;
+    background-color: var(--color-bg-playlist);
+
+    & span:first-child {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
 
     &:hover {
       cursor: pointer;
-      background-color: rgb(98, 165, 98);
+      background-color: var(--color-bg-playlist-hover);
     }
   }
 }
@@ -37,7 +45,7 @@
 
 @media (min-width: 1024px) {
   .container-tracks {
-    flex: 1 1 30%;
-    height: calc(100% - 7rem);
+    max-width: 30%;
+    height: calc(100% - 8rem);
   }
 }

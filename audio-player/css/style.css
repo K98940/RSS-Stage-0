@@ -2,7 +2,19 @@
 @import url("./tracks.css");
 @import url("./controls.css");
 
-:root {}
+:root {
+  --cover-bg: url("../assets/img/covers/medium/0.jpg");
+  --cover-big: url("../assets/img/covers/big/0.jpg");
+  --cover-medium: url("../assets/img/covers/medium/0.jpg");
+  --cover-small: url("../assets/img/covers/small/0.jpg");
+
+  --color-text-controls: rgb(255, 255, 255);
+
+  --color-playlist-text: rgb(0, 0, 0);
+  --color-bg-playlist: rgba(240, 248, 255, 0.8);
+  --color-bg-playlist-active: rgb(143, 188, 143);
+  --color-bg-playlist-hover: rgb(98, 165, 98);
+}
 
 * {
   box-sizing: border-box;
@@ -18,6 +30,11 @@ html {
 body {
   width: 100dvw;
   height: 100dvh;
+
+  background-image: var(--cover-bg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .player-wrapper {
@@ -31,6 +48,8 @@ body {
   height: 100%;
 
   padding: 1rem;
+
+  backdrop-filter: blur(0.25rem) grayscale(70%);
 }
 
 @media (min-width: 1024px) {

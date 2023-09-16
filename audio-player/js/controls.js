@@ -26,6 +26,7 @@ const setNextTrack = () => {
   row.checked = true
   state.audio.currentTrack = playList[trackID]
   audio.src = state.audio.currentTrack.url
+  setStyles(playList[trackID])
   audio.play()
 }
 
@@ -79,4 +80,24 @@ export const controlsInit = () => {
   })
 
   return [audio]
+}
+
+export const setStyles = (track) => {
+  const root = document.querySelector(':root')
+  const urlBg = `url("${track.cover}/bg/${track.id}.jpg")`
+  const urlCoverBig = `url("${track.cover}/big/${track.id}.jpg")`
+  const urlCoverMedium = `url("${track.cover}/medium/${track.id}.jpg")`
+  const urlCoverSmall = `url("${track.cover}/small/${track.id}.jpg")`
+
+  root.style.setProperty('--cover-bg', urlBg)
+  root.style.setProperty('--cover-big', urlCoverBig)
+  root.style.setProperty('--cover-medium', urlCoverMedium)
+  root.style.setProperty('--cover-small', urlCoverSmall)
+
+  root.style.setProperty('--color-text-controls', track.colorTextControls)
+
+  root.style.setProperty('--color-playlist-text', track.colorPlaylistText)
+  root.style.setProperty('--color-bg-playlist', track.colorBgPlaylist)
+  root.style.setProperty('--color-bg-playlist-active', track.colorBgPlaylistActive)
+  root.style.setProperty('--color-bg-playlist-hover', track.colorBgPlaylistHover)
 }

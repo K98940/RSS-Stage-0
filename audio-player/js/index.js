@@ -1,5 +1,5 @@
 import { state, playList } from './state.js'
-import { controlsInit, convertSecondsToTime } from './controls.js'
+import { controlsInit, convertSecondsToTime, setStyles } from './controls.js'
 
 const tracksContainer = document.getElementById('tracks')
 const [audio] = controlsInit()
@@ -18,8 +18,8 @@ const renderPlayList = (container, playList) => {
   const html = playList.map((track, i) => `
       <div class="track">
         <input id="track-${i}" type="radio" ${i === 0 ? 'checked' : ''} name="track" value="${i}">
-        <label for="track-${i}">
-          <span>${track.name}</span><span id="track-duration-${i}"></span>
+        <label for="track-${i}" title="${track.name}">
+          <span title="${track.name}">${track.name}</span><span id="track-duration-${i}"></span>
         </label>
 
       </div>`)
@@ -31,6 +31,7 @@ const setCurrentTrack = (e) => {
   const track = e.target.value
   state.audio.currentTrack = playList[track]
   audio.src = state.audio.currentTrack.url
+  setStyles(playList[track])
 }
 
 tracksContainer.addEventListener('click', (e) => {
@@ -39,5 +40,6 @@ tracksContainer.addEventListener('click', (e) => {
 })
 
 window.onload = () => {
+  setStyles(playList[0])
   renderPlayList(tracksContainer, playList)
 }
