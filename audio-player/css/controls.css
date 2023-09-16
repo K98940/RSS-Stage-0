@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  flex: 0 0 7rem;
+  flex: 0 0 8rem;
 
   padding: 0.5rem;
   gap: 0.5rem;
@@ -39,25 +39,26 @@
 }
 
 .btn-play {
-  width: 3rem;
-  height: 3rem;
+  width: 4rem;
+  height: 4rem;
 
   border-radius: 50%;
   border: none;
-  background-image: url("../assets/icons/play.png");
+  background-image: var(--btn-url);
+  background-color: transparent;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  transition-duration: 300ms;
+  transition-duration: 100ms;
 
   &:hover {
     cursor: pointer;
-    background-color: darkkhaki;
+    transform: scale3d(1.05, 1.05, 1.05);
   }
 }
 
 .btn-play__played {
-  background-image: url("../assets/icons/pause.png");
+  filter: hue-rotate(var(--btn-hue));
 }
 
 @media (min-width: 426px) {
@@ -73,6 +74,6 @@
 @media (min-width: 1024px) {
   .container-controls {
     flex: 0 0 100%;
-    height: 7rem;
+    height: 8rem;
   }
 }

@@ -21,7 +21,7 @@
 @media (min-width: 1024px) {
   .container-cover {
     flex: 0 0 calc(70% - 1rem);
-    height: calc(100% - 8rem);
+    height: calc(100% - 9rem);
     background-image: var(--cover-big);
   }
 }

@@ -8,6 +8,9 @@
   --cover-medium: url("../assets/img/covers/medium/0.jpg");
   --cover-small: url("../assets/img/covers/small/0.jpg");
 
+  --btn-url: '';
+  --btn-hue: '';
+
   --color-text-controls: rgb(255, 255, 255);
 
   --color-playlist-text: rgb(0, 0, 0);

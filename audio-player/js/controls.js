@@ -88,11 +88,15 @@ export const setStyles = (track) => {
   const urlCoverBig = `url("${track.cover}/big/${track.id}.jpg")`
   const urlCoverMedium = `url("${track.cover}/medium/${track.id}.jpg")`
   const urlCoverSmall = `url("${track.cover}/small/${track.id}.jpg")`
+  const urlBtn = `url(${track.button.url})`
 
   root.style.setProperty('--cover-bg', urlBg)
   root.style.setProperty('--cover-big', urlCoverBig)
   root.style.setProperty('--cover-medium', urlCoverMedium)
   root.style.setProperty('--cover-small', urlCoverSmall)
+
+  root.style.setProperty('--btn-url', urlBtn)
+  root.style.setProperty('--btn-hue', track.button.hue)
 
   root.style.setProperty('--color-text-controls', track.colorTextControls)
 

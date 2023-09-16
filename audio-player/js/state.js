@@ -15,6 +15,10 @@ export const playList =
       colorBgPlaylist: 'rgba(140, 120, 120, 0.7)',
       colorBgPlaylistActive: 'rgba(100, 80, 80, 0.7)',
       colorBgPlaylistHover: 'rgba(40, 20, 20, 0.7)',
+      button: {
+        url: '../assets/icons/btn-play-diablo.png',
+        hue: '240deg',
+      },
     },
     {
       id: 1,
@@ -26,6 +30,10 @@ export const playList =
       colorBgPlaylist: 'rgba(110, 170, 170, 0.7)',
       colorBgPlaylistActive: 'rgba(70, 130, 130, 0.7)',
       colorBgPlaylistHover: 'rgba(10, 70, 70, 0.7)',
+      button: {
+        url: '../assets/icons/btn-play-ghost.png',
+        hue: '170deg',
+      },
     },
     {
       id: 2,
@@ -37,6 +45,10 @@ export const playList =
       colorBgPlaylist: 'rgba(80, 100, 150, 0.7)',
       colorBgPlaylistActive: 'rgba(40, 60, 110, 0.7)',
       colorBgPlaylistHover: 'rgba(0, 0, 50, 0.7)',
+      button: {
+        url: '../assets/icons/btn-play-dimash.png',
+        hue: '0deg',
+      },
     },
     {
       id: 3,
@@ -48,6 +60,10 @@ export const playList =
       colorBgPlaylist: 'rgba(120, 120, 140, 0.7)',
       colorBgPlaylistActive: 'rgba(80, 80, 100, 0.7)',
       colorBgPlaylistHover: 'rgba(20, 20, 40, 0.7)',
+      button: {
+        url: '../assets/icons/btn-play-vangelis.png',
+        hue: '280deg',
+      },
     },
     {
       id: 4,
@@ -59,6 +75,10 @@ export const playList =
       colorBgPlaylist: 'rgba(150, 150, 150, 0.7)',
       colorBgPlaylistActive: 'rgba(110, 110, 110, 0.7)',
       colorBgPlaylistHover: 'rgba(50, 50, 50, 0.7)',
+      button: {
+        url: '../assets/icons/btn-play-silenthill.png',
+        hue: '45deg',
+      },
     },
     {
       id: 5,
@@ -70,6 +90,10 @@ export const playList =
       colorBgPlaylist: 'rgba(160, 210, 110, 0.7)',
       colorBgPlaylistActive: 'rgba(120, 170, 70, 0.7)',
       colorBgPlaylistHover: 'rgba(80, 130, 30, 0.7)',
+      button: {
+        url: '../assets/icons/btn-play-spirited-away.png',
+        hue: '260deg',
+      },
     },
   ]
 
