@@ -17,6 +17,7 @@
   height: 1rem;
 
   margin-bottom: 0.5rem;
+  accent-color: var(--color-base-color);
 }
 
 .controls-group-1 {
@@ -36,6 +37,7 @@
 
 .volume {
   display: none;
+  accent-color: var(--color-base-color);
 }
 
 .btn-play {

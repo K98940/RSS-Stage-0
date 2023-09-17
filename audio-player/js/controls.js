@@ -98,10 +98,11 @@ export const setStyles = (track) => {
   root.style.setProperty('--btn-url', urlBtn)
   root.style.setProperty('--btn-hue', track.button.hue)
 
-  root.style.setProperty('--color-text-controls', track.colorTextControls)
+  let baseLight = track.colorBaseColor.split(',')[2]
+  baseLight = baseLight.replace('%', '')
+  baseLight = parseInt(baseLight, 10)
+  const colorTextControls = baseLight > 60 ? 'black' : 'white'
 
-  root.style.setProperty('--color-playlist-text', track.colorPlaylistText)
-  root.style.setProperty('--color-bg-playlist', track.colorBgPlaylist)
-  root.style.setProperty('--color-bg-playlist-active', track.colorBgPlaylistActive)
-  root.style.setProperty('--color-bg-playlist-hover', track.colorBgPlaylistHover)
+  root.style.setProperty('--color-text-controls', colorTextControls)
+  root.style.setProperty('--color-base-color', track.colorBaseColor)
 }

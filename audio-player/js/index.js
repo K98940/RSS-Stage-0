@@ -17,7 +17,7 @@ const renderPlayList = (container, playList) => {
   }
   const html = playList.map((track, i) => `
       <div class="track">
-        <input id="track-${i}" type="radio" ${i === 0 ? 'checked' : ''} name="track" value="${i}">
+        <input id="track-${i}" type="radio" ${i === state.audio.currentTrack.id ? 'checked' : ''} name="track" value="${i}">
         <label for="track-${i}" title="${track.name}">
           <span title="${track.name}">${track.name}</span><span id="track-duration-${i}"></span>
         </label>
@@ -27,19 +27,20 @@ const renderPlayList = (container, playList) => {
   renderTracksDuration()
 }
 
-const setCurrentTrack = (e) => {
-  const track = e.target.value
-  state.audio.currentTrack = playList[track]
+const setCurrentTrack = () => {
   audio.src = state.audio.currentTrack.url
-  setStyles(playList[track])
+  setStyles(playList[state.audio.currentTrack.id])
 }
 
 tracksContainer.addEventListener('click', (e) => {
   if (e.target.name !== 'track') return
-  setCurrentTrack(e)
+  const track = e.target.value
+  state.audio.currentTrack = playList[track]
+  setCurrentTrack()
 })
 
 window.onload = () => {
-  setStyles(playList[0])
+  setStyles(state.audio.currentTrack)
+  setCurrentTrack(state.audio.currentTrack)
   renderPlayList(tracksContainer, playList)
 }

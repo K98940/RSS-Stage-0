@@ -11,12 +11,14 @@
   --btn-url: '';
   --btn-hue: '';
 
-  --color-text-controls: rgb(255, 255, 255);
+  -x: hsla(90, 53%, 63%, 0.4);
+  --color-text-controls: #f0faff;
+  --color-playlist-text: #ffffff;
 
-  --color-playlist-text: rgb(0, 0, 0);
-  --color-bg-playlist: rgba(240, 248, 255, 0.8);
-  --color-bg-playlist-active: rgb(143, 188, 143);
-  --color-bg-playlist-hover: rgb(98, 165, 98);
+  --color-base-color: hsla(0, 51%, 24%, 0.635);
+  --color-bg-playlist: var(--color-base-color);
+  --color-bg-playlist-hover: color-mix(in hsl shorter hue, var(--color-bg-playlist) 50%, hsla(0, 100%, 0%, 0.8));
+  --color-bg-playlist-active: color-mix(in hsl shorter hue, var(--color-bg-playlist) 80%, hsla(0, 100%, 0%, 0.8));
 }
 
 * {
