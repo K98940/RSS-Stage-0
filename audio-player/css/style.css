@@ -11,14 +11,18 @@
   --btn-url: '';
   --btn-hue: '';
 
-  -x: hsla(90, 53%, 63%, 0.4);
   --color-text-controls: #f0faff;
   --color-playlist-text: #ffffff;
 
-  --color-base-color: hsla(0, 51%, 24%, 0.635);
-  --color-bg-playlist: var(--color-base-color);
-  --color-bg-playlist-hover: color-mix(in hsl shorter hue, var(--color-bg-playlist) 50%, hsla(0, 100%, 0%, 0.8));
-  --color-bg-playlist-active: color-mix(in hsl shorter hue, var(--color-bg-playlist) 80%, hsla(0, 100%, 0%, 0.8));
+  --color-base-color: 0, 51%, 24%;
+  --color-bg-playlist: hsla(var(--color-base-color), 0.4);
+  --color-bg-playlist-hover: color-mix(in hsl shorter hue, var(--color-bg-playlist) 70%, hsla(0, 100%, 0%, 0.8));
+  --color-bg-playlist-active: color-mix(in hsl shorter hue, var(--color-bg-playlist) 90%, hsla(0, 100%, 0%, 0.8));
+  --color-bg-ranger-r: color-mix(in hsl shorter hue, hsl(var(--color-base-color)) 80%, hsl(0, 100%, 100%));
+
+
+  --slider-height: 2rem;
+  --slider-width: 2rem;
 }
 
 * {

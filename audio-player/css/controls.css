@@ -1,4 +1,5 @@
 .container-controls {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,11 +14,64 @@
 }
 
 .current-time {
+  position: relative;
+  appearance: none;
   width: 100%;
-  height: 1rem;
+  height: var(--slider-height);
 
   margin-bottom: 0.5rem;
   accent-color: var(--color-base-color);
+  background: transparent;
+  border-radius: 0.5rem;
+  border: 1px solid white;
+  outline: 1px solid black;
+  box-shadow: 0 0 0.5rem var(--color-bg-playlist-active);
+  overflow: hidden;
+  z-index: 3;
+
+  &::-webkit-slider-thumb {
+    position: relative;
+    appearance: none;
+    height: var(--slider-height);
+    width: var(--slider-width);
+    background: var(--color-bg-playlist-active);
+
+    background-image: var(--btn-url);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    border-radius: 0.5rem;
+    border-left: 1px solid white;
+    border-right: 1px solid black;
+    cursor: pointer;
+    box-shadow: 100vw 0 0 99vw var(--color-bg-ranger-r);
+    z-index: 2;
+  }
+
+  &+.fill {
+    position: absolute;
+    width: calc(100% - 1rem);
+    height: var(--slider-height);
+    border-radius: 0.5rem;
+    background: linear-gradient(to right, var(--color-bg-playlist-hover), var(--color-bg-playlist-active));
+    animation: anime 6s linear infinite;
+    z-index: 1;
+  }
+}
+
+@keyframes anime {
+  0% {
+    filter: brightness(1.2) hue-rotate(0deg);
+  }
+
+  50% {
+    filter: brightness(0.5) hue-rotate(90deg);
+  }
+
+  100% {
+    filter: brightness(1.2) hue-rotate(0deg);
+  }
 }
 
 .controls-group-1 {
