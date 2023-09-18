@@ -2,6 +2,7 @@
   width: 100%;
   min-height: 2rem;
   flex: 1 1 30%;
+  overflow-y: auto;
 
   color: var(--color-playlist-text);
 }

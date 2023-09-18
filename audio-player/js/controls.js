@@ -9,17 +9,24 @@ export const convertSecondsToTime = (sec) => {
   return `${minTxt}:${sTxt}`
 }
 
-const setNextTrack = () => {
-  audio.pause()
+const setTrack = (toward) => {
+  if (state.audio.isPlay) audio.pause()
   const tracksContainer = document.getElementById('tracks')
   let trackID = state.audio.currentTrack.id
 
   let row = tracksContainer.querySelector(`input[id="track-${trackID}"]`)
   row.checked = false
 
-  trackID += 1
-  if (trackID >= playList.length) {
-    trackID = 0
+  if (toward) {
+    trackID += 1
+    if (trackID >= playList.length) {
+      trackID = 0
+    }
+  } else {
+    trackID -= 1
+    if (trackID < 0) {
+      trackID = playList.length - 1
+    }
   }
 
   row = tracksContainer.querySelector(`input[id="track-${trackID}"]`)
@@ -27,13 +34,15 @@ const setNextTrack = () => {
   state.audio.currentTrack = playList[trackID]
   audio.src = state.audio.currentTrack.url
   setStyles(playList[trackID])
-  audio.play()
+  if (state.audio.isPlay) audio.play()
 }
 
 export const controlsInit = () => {
   const btnPlay = document.getElementById('btn-play')
   const seeker = document.getElementById('currentTime')
   const volume = document.getElementById('volume')
+  const btnForward = document.getElementById('btn-forward')
+  const btnBackward = document.getElementById('btn-backward')
   const audio = document.getElementById('audio')
   const timeDuration = document.getElementById('timeDuration')
   const timeCurrent = document.getElementById('timeCurrent')
@@ -44,7 +53,7 @@ export const controlsInit = () => {
     state.audio.currentTime = audio.currentTime
     timeCurrent.innerText = convertSecondsToTime(audio.currentTime)
     if (audio.currentTime >= audio.duration - 1) {
-      setNextTrack()
+      setTrack(true)
     }
   }
   audio.addEventListener('timeupdate', timeupdateHandler)
@@ -77,6 +86,14 @@ export const controlsInit = () => {
 
   btnPlay.addEventListener('click', () => {
     state.audio.isPlay = !state.audio.isPlay
+  })
+
+  btnForward.addEventListener('click', () => {
+    setTrack(true)
+  })
+
+  btnBackward.addEventListener('click', () => {
+    setTrack(false)
   })
 
   return [audio]

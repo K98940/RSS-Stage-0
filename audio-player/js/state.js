@@ -24,7 +24,7 @@ export const playList =
       colorBaseColor: '180, 26%, 55%',
       button: {
         url: '../assets/icons/btn-play-ghost.png',
-        hue: '170deg',
+        hue: '120deg',
       },
     },
     {
