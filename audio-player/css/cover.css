@@ -11,6 +11,53 @@
   transition-duration: 1s;
 }
 
+#state {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 50%;
+  opacity: 0;
+}
+
+.animation__play {
+  background-image: url("../assets/icons/play.png");
+  animation: play 500ms linear 1;
+}
+
+.animation__pause {
+  background-image: url("../assets/icons/pause.png");
+  animation: pause 500ms linear 1;
+}
+
+@keyframes play {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes pause {
+  0% {
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
 @media (min-width: 426px) {
   .container-cover {
     flex: 0 0 25rem;

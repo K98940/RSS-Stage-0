@@ -35,6 +35,7 @@
     height: var(--slider-height);
     width: var(--slider-width);
     background: var(--color-bg-playlist-active);
+    background: transparent;
 
     background-image: var(--btn-url);
     background-position: center;
