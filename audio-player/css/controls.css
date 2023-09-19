@@ -20,6 +20,7 @@
   height: var(--slider-height);
 
   margin-bottom: 0.5rem;
+
   accent-color: var(--color-base-color);
   background: transparent;
   border-radius: 0.5rem;
@@ -28,6 +29,11 @@
   box-shadow: 0 0 0.5rem var(--color-bg-playlist-active);
   overflow: hidden;
   z-index: 3;
+  transition-duration: 100ms;
+
+  &:hover {
+    filter: drop-shadow(0 0.2rem 0.3rem white);
+  }
 
   &::-webkit-slider-thumb {
     position: relative;
