@@ -1,6 +1,7 @@
 @import url("./cover.css");
 @import url("./tracks.css");
 @import url("./controls.css");
+@import url("./footer.css");
 
 :root {
   --cover-bg: url("../assets/img/covers/medium/0.jpg");
