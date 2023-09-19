@@ -1,5 +1,6 @@
 .footer {
   width: 100%;
+  height: 2.5rem;
 
   display: flex;
   justify-content: space-between;
@@ -13,14 +14,10 @@
 
 .footer-element {
   flex: 1 1 33.33%;
-  width: fit-content;
-
-  &:hover {
-    filter: drop-shadow(1px 0 3px var(--color-playlist-text)) brightness(1.1);
-  }
 
   & a {
     display: flex;
+    max-width: fit-content;
     height: 100%;
     flex-wrap: nowrap;
     justify-content: flex-start;
@@ -30,6 +27,10 @@
     text-decoration: none;
     transition-duration: 200ms;
     color: var(--color-text-controls);
+
+    &:hover {
+      filter: drop-shadow(1px 0 3px var(--color-playlist-text)) brightness(1.1);
+    }
   }
 
   & img {
@@ -48,8 +49,16 @@
   }
 }
 
-.footer-rss-logo {
+.footer-year {
   flex: 1 1 33.33%;
+  text-align: center;
+  align-self: flex-end;
+}
+
+.footer-rss-logo {
+  display: flex;
+  flex: 1 1 33.33%;
+  justify-content: flex-end;
 
   & a {
     justify-content: flex-end;
