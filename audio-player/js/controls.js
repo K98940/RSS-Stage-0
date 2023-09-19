@@ -39,6 +39,7 @@ const setTrack = (toward) => {
 
 export const controlsInit = () => {
   const btnPlay = document.getElementById('btn-play')
+  const cover = document.querySelector('.container-cover')
   const seeker = document.getElementById('currentTime')
   const volume = document.getElementById('volume')
   const btnForward = document.getElementById('btn-forward')
@@ -85,6 +86,10 @@ export const controlsInit = () => {
 
 
   btnPlay.addEventListener('click', () => {
+    state.audio.isPlay = !state.audio.isPlay
+  })
+
+  cover.addEventListener('click', () => {
     state.audio.isPlay = !state.audio.isPlay
   })
 

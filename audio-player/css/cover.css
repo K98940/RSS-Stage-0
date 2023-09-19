@@ -9,6 +9,11 @@
   border-radius: 0.25rem;
 
   transition-duration: 1s;
+
+  &:hover .state {
+    opacity: 0.3;
+    cursor: pointer;
+  }
 }
 
 .state {
@@ -22,7 +27,7 @@
 
 .animation__play {
   background-image: url("../assets/icons/play.png");
-  animation: play 500ms linear 1;
+  animation: play 3000ms linear 1;
 }
 
 .animation__pause {
@@ -36,8 +41,8 @@
     opacity: 0;
   }
 
-  50% {
-    opacity: 0.5;
+  30% {
+    opacity: 0.3;
   }
 
   100% {
@@ -51,7 +56,7 @@
   }
 
   30% {
-    opacity: 0.15;
+    opacity: 0.1;
   }
 
   100% {
