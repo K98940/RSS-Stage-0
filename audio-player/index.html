@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/style.css">
+  <title>audio-player</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="player-wrapper">
+      <div class="container-cover">
+        <div class="state" id="state"></div>
+      </div>
+      <div class="container-tracks" id="tracks">
+      </div>
+      <div class="container-controls">
+        <audio id="audio" src=""></audio>
+        <div class="controls-group-1">
+          <input class="current-time" type="range" name="currentTime" id="currentTime" min="0" max="100" value="0"
+            step="1">
+          <div class="fill"></div>
+          <span id="timeCurrent">0:00</span>
+          <span id="timeDuration"></span>
+        </div>
+        <div class="controls-group-2">
+          <div class="group-btns">
+            <button class="btn btn-backward" id="btn-backward"></button>
+            <button class="btn btn-play" id="btn-play"></button>
+            <button class="btn btn-forward" id="btn-forward"></button>
+          </div>
+          <input class="volume" type="range" name="volume" id="volume" min="0" max="100" value="50" step="1">
+        </div>
+      </div>
+      <div class="footer">
+        <div class="footer-element">
+          <div>
+            <a href="https://github.com/K98940" target="_blank">
+              <img src="./assets/icons/github.png" alt="git">
+              <span>K98940</span>
+            </a>
+          </div>
+        </div>
+        <span class="footer-year">2023</span>
+        <div class="footer-element footer-rss-logo">
+          <a href="https://rs.school/js-stage0/" target="_blank">
+            <img src="./assets/icons/RS.png" alt="RSSchool">
+            <span>The Rolling Scopes</span>
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="./js/index.js"></script>
+</body>
+
+</html>

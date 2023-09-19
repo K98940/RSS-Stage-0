@@ -1,0 +1,79 @@
+@import url("./cover.css");
+@import url("./tracks.css");
+@import url("./controls.css");
+@import url("./footer.css");
+
+:root {
+  --cover-bg: url("../assets/img/covers/medium/0.jpg");
+  --cover-big: url("../assets/img/covers/big/0.jpg");
+  --cover-medium: url("../assets/img/covers/medium/0.jpg");
+  --cover-small: url("../assets/img/covers/small/0.jpg");
+
+  --btn-url: '';
+  --btn-hue: '';
+
+  --color-text-controls: #f0faff;
+  --color-playlist-text: #ffffff;
+
+  --color-base-color: 0, 51%, 24%;
+  --color-bg-playlist: hsla(var(--color-base-color), 0.4);
+  --color-bg-playlist-hover: color-mix(in hsl shorter hue, var(--color-bg-playlist) 70%, hsla(0, 100%, 0%, 0.8));
+  --color-bg-playlist-active: color-mix(in hsl shorter hue, var(--color-bg-playlist) 90%, hsla(0, 100%, 0%, 0.8));
+  --color-bg-ranger-r: color-mix(in hsl shorter hue, hsl(var(--color-base-color)) 80%, hsl(0, 100%, 100%));
+
+
+  --slider-height: 2rem;
+  --slider-width: 2rem;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  width: 100dvw;
+  height: 100dvh;
+}
+
+body {
+  width: 100dvw;
+  height: 100dvh;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  max-width: 1440px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+
+  background-image: var(--cover-bg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.player-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 1rem;
+  backdrop-filter: blur(0.25rem) grayscale(70%);
+}
+
+@media (min-width: 1024px) {
+  .player-wrapper {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}

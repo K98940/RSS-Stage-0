@@ -1,0 +1,80 @@
+.container-cover {
+  width: 100%;
+  flex: 0 0 20rem;
+
+  background-image: var(--cover-small);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 0.25rem;
+
+  transition-duration: 1s;
+
+  &:hover .state {
+    opacity: 0.3;
+    cursor: pointer;
+  }
+}
+
+.state {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 50%;
+  opacity: 0;
+}
+
+.animation__play {
+  background-image: url("../assets/icons/play.png");
+  animation: play 3000ms linear 1;
+}
+
+.animation__pause {
+  background-image: url("../assets/icons/pause.png");
+  animation: pause 500ms linear 1;
+  opacity: 0.3;
+}
+
+@keyframes play {
+  0% {
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 0.3;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes pause {
+  0% {
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 0.1;
+  }
+
+  100% {
+    opacity: 0.3;
+  }
+}
+
+@media (min-width: 426px) {
+  .container-cover {
+    flex: 0 0 25rem;
+    background-image: var(--cover-medium);
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-cover {
+    flex: 0 0 calc(70% - 1rem);
+    height: calc(100% - 14rem);
+    background-image: var(--cover-big);
+  }
+}
