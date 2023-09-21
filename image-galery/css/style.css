@@ -1,0 +1,124 @@
+:root {
+  --color-bg: rgb(0, 0, 0);
+  --color-line: rgb(238, 89, 34);
+  --color-text: rgb(255, 255, 255);
+
+  --padding: 1rem;
+  --card-size: 15rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  width: 100vw;
+  height: 100dvh;
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+
+  background-color: var(--color-bg);
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  width: 100%;
+  height: 100%;
+
+  margin: 0 auto;
+  padding: var(--padding);
+
+  overflow: hidden;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+
+  padding-bottom: 1rem;
+
+  color: var(--color-text);
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+
+    bottom: 0;
+    width: 100vw;
+    height: 0.2rem;
+    left: calc(-1*var(--padding));
+
+    background-color: var(--color-line);
+  }
+}
+
+.header-logo {
+  gap: 1rem;
+  display: flex;
+  align-items: center;
+
+  & img {
+    width: 2rem;
+    height: 2rem;
+
+    object-fit: cover;
+  }
+}
+
+main {
+  gap: 2rem;
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-rows: auto;
+  justify-content: stretch;
+  grid-template-columns: repeat(3, 1fr);
+
+  width: 100%;
+  flex: 1 1 auto;
+
+  overflow-y: auto;
+  padding-top: 1rem;
+}
+
+footer {
+  width: 100%;
+  height: 100px;
+
+  box-shadow: 0 -0.5rem 1rem var(--color-bg);
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: var(--card-size);
+  height: var(--card-size);
+
+  overflow: hidden;
+  border-radius: 0.25rem;
+  border-top: 2px solid color-mix(in srgb, var(--color-text) 80%, var(--color-bg) 20%);
+  border-left: 2px solid color-mix(in srgb, var(--color-text) 80%, var(--color-bg) 20%);
+  border-right: 2px solid color-mix(in srgb, var(--color-text) 50%, var(--color-bg) 50%);
+  border-bottom: 2px solid color-mix(in srgb, var(--color-text) 50%, var(--color-bg) 50%);
+
+  & img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+  }
+}
