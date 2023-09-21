@@ -4,7 +4,10 @@
   --color-text: rgb(255, 255, 255);
 
   --padding: 1rem;
-  --card-size: 15rem;
+  --card-size: 90vw;
+
+  --count-columns: 1;
+  --gap: 2rem;
 }
 
 * {
@@ -79,18 +82,30 @@ header {
 }
 
 main {
-  gap: 2rem;
-  display: grid;
-  grid-auto-flow: row;
-  grid-template-rows: auto;
-  justify-content: stretch;
-  grid-template-columns: repeat(3, 1fr);
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  padding-top: var(--gap);
 
   width: 100%;
   flex: 1 1 auto;
 
-  overflow-y: auto;
-  padding-top: 1rem;
+  &::-webkit-scrollbar {
+    width: 0.2rem;
+  }
+
+  &::-webkit-scrollbar-button {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--color-line);
+  }
+
+  &::-webkit-scrollbar-track-piece {
+    background-color: color-mix(in srgb, var(--color-line) 50%, var(--color-bg) 50%);
+  }
 }
 
 footer {
@@ -100,25 +115,65 @@ footer {
   box-shadow: 0 -0.5rem 1rem var(--color-bg);
 }
 
+.card-container {
+  gap: var(--gap);
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-rows: auto;
+  justify-content: stretch;
+  justify-items: center;
+  grid-template-columns: repeat(var(--count-columns), 1fr);
+
+  width: 100%;
+  margin-right: 1rem;
+  overflow: hidden;
+}
+
 .card {
   display: flex;
   align-items: center;
   justify-content: center;
 
+  /* width: auto; */
   width: var(--card-size);
-  height: var(--card-size);
+  height: auto;
+  /* height: var(--card-size); */
 
   overflow: hidden;
   border-radius: 0.25rem;
-  border-top: 2px solid color-mix(in srgb, var(--color-text) 80%, var(--color-bg) 20%);
-  border-left: 2px solid color-mix(in srgb, var(--color-text) 80%, var(--color-bg) 20%);
-  border-right: 2px solid color-mix(in srgb, var(--color-text) 50%, var(--color-bg) 50%);
-  border-bottom: 2px solid color-mix(in srgb, var(--color-text) 50%, var(--color-bg) 50%);
+  border-top: 2px solid color-mix(in srgb, var(--color-text) 70%, var(--color-bg) 30%);
+  border-left: 2px solid color-mix(in srgb, var(--color-text) 70%, var(--color-bg) 30%);
+  border-right: 2px solid color-mix(in srgb, var(--color-text) 30%, var(--color-bg) 70%);
+  border-bottom: 2px solid color-mix(in srgb, var(--color-text) 30%, var(--color-bg) 70%);
 
   & img {
     width: 100%;
     height: 100%;
 
     object-fit: contain;
+  }
+}
+
+@media (min-width: 426px) {
+  :root {
+    --card-size: 40vw;
+    --count-columns: 2;
+    --gap: 1rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  :root {
+    --card-size: 28vw;
+    --count-columns: 3;
+    --gap: 2rem;
+  }
+}
+
+@media (min-width: 1441px) {
+  :root {
+    --card-size: 17vw;
+    --count-columns: 5;
+    --gap: 2rem;
   }
 }
