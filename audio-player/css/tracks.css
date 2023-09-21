@@ -5,6 +5,22 @@
   overflow-y: auto;
 
   color: var(--color-playlist-text);
+
+  &::-webkit-scrollbar {
+    width: 0.2rem;
+  }
+
+  &::-webkit-scrollbar-button {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--color-playlist-text);
+  }
+
+  &::-webkit-scrollbar-track-piece {
+    background-color: var(--color-bg-playlist-hover);
+  }
 }
 
 .track {
