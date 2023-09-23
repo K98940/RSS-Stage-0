@@ -108,20 +108,28 @@ window.onload = async () => {
   countPhotos.value = state.countPhotos
   if (state.query) {
     handleSearch()
+  } else {
+    handleSearch()
   }
   renderRatelimit()
 }
 
 const handleSearch = async () => {
-  state.query = searchInput.value
-  const query = `${state.query}&per_page=${state.countPhotos}`
-  const data = await getData(query)
+  let uri = ''
+  if (searchInput.value) {
+    uri = `search/photos?query=${searchInput.value}&per_page=${state.countPhotos}`
+  } else {
+    uri = `photos/random?query=&count=${state.countPhotos}`
+  }
+  const data = await getData(uri)
   if (data.status === 200) {
+    state.query = searchInput.value
     state.ratelimitRemaining = data.ratelimitRemaining
+    const imgs = data.data.results ? data.data.results : data.data
     saveLocalStorage()
-    renderImages(data.data.results)
+    renderImages(imgs)
     renderRatelimit()
-    fillSlider(data.data.results)
+    fillSlider(imgs)
   } else {
     showMessage(data.statusText)
   }
@@ -155,6 +163,12 @@ countPhotos.addEventListener('change', () => {
   const count = parseInt(countPhotos.value)
   state.countPhotos = count
   saveLocalStorage()
+
+  if (count > 29) {
+    countPhotos.classList.add('__red-text')
+  } else {
+    countPhotos.classList.remove('__red-text')
+  }
 })
 
 cardContainer.addEventListener('click', handleCardContainer)

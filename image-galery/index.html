@@ -16,15 +16,17 @@
         <div class="header-title"></div>
       </div>
       <div class="container-count-search">
-        <div class="count-photos">
-          <label for="count-photos"></label>
+        <div class="count-photos" title="количество фотографий в запросе (максимум 30)">
+          <label for="count-photos">
+            <img src="./assets/icon/count.png" alt="count">
+          </label>
           <input type="number" name="" id="count-photos" min="1" max="30" step="1" value="10">
         </div>
         <div class="header-search">
           <input class="search-input" id="search-input" type="text" autofocus autocomplete="off" tabindex="1"
-            placeholder="search">
+            placeholder="random search">
           <button class="search-btn" id="search-btn" tabindex="2">
-            <span id="ratelimit"></span>
+            <span id="ratelimit" title="оставшееся количество доступных запросов (лимит 50 запросов в час)"></span>
           </button>
         </div>
       </div>
