@@ -14,6 +14,8 @@
 
   --count-columns: 1;
   --gap: 2rem;
+
+  --input-height: 2rem;
 }
 
 * {
@@ -34,6 +36,13 @@ body {
 
   scrollbar-gutter: stable;
   background-color: var(--color-bg);
+}
+
+input {
+  padding: 0 0.5rem 0 0.5rem;
+  height: var(--input-height);
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
 }
 
 .wrapper {
@@ -62,6 +71,14 @@ body {
   .header-title {
     display: block;
     font-size: 1.2rem;
+  }
+
+  .header-logo {
+    flex: 0 0 41%;
+  }
+
+  .container-count-search {
+    flex: 1 1 59%;
   }
 
   .card {

@@ -12,6 +12,7 @@ const slides = document.getElementById('slides')
 const cardContainer = document.getElementById('card-container')
 const searchBtn = document.getElementById('search-btn')
 const searchInput = document.getElementById('search-input')
+const countPhotos = document.getElementById('count-photos')
 const light = document.querySelector('.end-line')
 const ratelimit = document.getElementById('ratelimit')
 
@@ -31,6 +32,7 @@ const state = {
   currentVendor: VENDORS_NAMES[0],
   query: '',
   ratelimitRemaining: '',
+  countPhotos: 10,
 }
 
 const renderRatelimit = () => {
@@ -103,6 +105,7 @@ window.onload = async () => {
   headerLogo.src = vendors.get(state.currentVendor).logo
   headerTitle.innerText = vendors.get(state.currentVendor).title
   searchInput.value = state.query
+  countPhotos.value = state.countPhotos
   if (state.query) {
     handleSearch()
   }
@@ -111,7 +114,8 @@ window.onload = async () => {
 
 const handleSearch = async () => {
   state.query = searchInput.value
-  const data = await getData(state.query)
+  const query = `${state.query}&per_page=${state.countPhotos}`
+  const data = await getData(query)
   if (data.status === 200) {
     state.ratelimitRemaining = data.ratelimitRemaining
     saveLocalStorage()
@@ -147,6 +151,10 @@ sliderClose.addEventListener('click', () => {
   sliderContainer.classList.remove('slider-container__open')
 })
 
-
+countPhotos.addEventListener('change', () => {
+  const count = parseInt(countPhotos.value)
+  state.countPhotos = count
+  saveLocalStorage()
+})
 
 cardContainer.addEventListener('click', handleCardContainer)
