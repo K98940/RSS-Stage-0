@@ -36,6 +36,10 @@ header {
   }
 }
 
+.header-title {
+  display: none;
+}
+
 .header-search {
   display: flex;
   align-items: center;

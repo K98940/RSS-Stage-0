@@ -16,35 +16,24 @@
         <div class="header-title"></div>
       </div>
       <div class="header-search">
-        <input class="search-input" type="text" autofocus autocomplete="off" tabindex="1" placeholder="search">
-        <button class="search-btn" tabindex="2"></button>
+        <input class="search-input" id="search-input" type="text" autofocus autocomplete="off" tabindex="1"
+          placeholder="search">
+        <button class="search-btn" id="search-btn" tabindex="2"></button>
       </div>
     </header>
 
     <main id="main">
-      <div class="card-container">
-        <div class="card">
-          <img src="./test/img/alain-bonnardeaux-aUdoa_00dgY-unsplash.jpg" alt="img">
-        </div>
-        <div class="card">
-          <img src="./test/img/barcs-tamas-1UyKu8KMipE-unsplash.jpg" alt="img">
-        </div>
-        <div class="card">
-          <img src="./test/img/christoph-nolte-XkFj1DHPx1o-unsplash.jpg" alt="img">
-        </div>
-        <div class="card">
-          <img src="./test/img/erik-karits-Fx61zgqQbok-unsplash.jpg" alt="img">
-        </div>
-        <div class="card">
-          <img src="./test/img/felix-fuchs-801ggA_yXk0-unsplash.jpg" alt="img">
-        </div>
-        <div class="card">
-          <img src="./test/img/jayson-hinrichsen-4PJdwAllcEg-unsplash.jpg" alt="img">
-        </div>
-        <div class="card">
-          <img src="./test/img/josh-hild-JF3jRw_DEXg-unsplash.jpg" alt="img">
+      <div class="card-container" id="card-container">
+      </div>
+
+      <div class="slider-container" id="slider-container">
+        <button class="slider-close" id="slider-close"></button>
+        <div class="slider">
+          <div class="slides" id="slides">
+          </div>
         </div>
       </div>
+
       <div class="end-line">
         <div class="end-line-left"></div>
         <div class="end-line-right"></div>
@@ -68,6 +57,14 @@
 
       </div>
     </footer>
+    <dialog class="dialog" id="dialog">
+      <div class="dialog-conteiner">
+        <p id="dialog-content"></p>
+        <form method="dialog">
+          <button>OK</button>
+        </form>
+      </div>
+    </dialog>
   </div>
   <script type="module" src="./js/index.js"></script>
 </body>

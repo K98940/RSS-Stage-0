@@ -1,5 +1,8 @@
 @import url("./footer.css");
 @import url("./header.css");
+@import url("./main.css");
+@import url("./slider.css");
+@import url("./modal.css");
 
 :root {
   --color-bg: rgb(0, 0, 0);
@@ -29,6 +32,7 @@ body {
   width: 100%;
   height: 100%;
 
+  scrollbar-gutter: stable;
   background-color: var(--color-bg);
 }
 
@@ -47,105 +51,25 @@ body {
   overflow: hidden;
 }
 
-main {
-  overflow-y: auto;
-  overflow-x: hidden;
-  scrollbar-gutter: stable;
-  scrollbar-width: thin;
-  padding-top: var(--gap);
-
-  width: 100%;
-  flex: 1 1 auto;
-
-  &::-webkit-scrollbar {
-    width: 0.2rem;
-  }
-
-  &::-webkit-scrollbar-button {
-    background-color: transparent;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: var(--color-line);
-  }
-
-  &::-webkit-scrollbar-track-piece {
-    background-color: color-mix(in srgb, var(--color-line) 50%, var(--color-bg) 50%);
-  }
-}
-
-.card-container {
-  gap: var(--gap);
-  display: grid;
-  grid-auto-flow: row;
-  grid-template-rows: auto;
-  justify-content: stretch;
-  justify-items: center;
-  grid-template-columns: repeat(var(--count-columns), 1fr);
-
-  width: 100%;
-  margin-right: 1rem;
-  overflow: hidden;
-}
-
-.card {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: var(--card-size);
-  height: auto;
-
-  overflow: hidden;
-  border-radius: 0.25rem;
-  border-top: 2px solid color-mix(in srgb, var(--color-text) 70%, var(--color-bg) 30%);
-  border-left: 2px solid color-mix(in srgb, var(--color-text) 70%, var(--color-bg) 30%);
-  border-right: 2px solid color-mix(in srgb, var(--color-text) 30%, var(--color-bg) 70%);
-  border-bottom: 2px solid color-mix(in srgb, var(--color-text) 30%, var(--color-bg) 70%);
-
-  & img {
-    width: 100%;
-    height: 100%;
-
-    object-fit: contain;
-  }
-
-  &:last-child {
-    margin-bottom: 1rem;
-  }
-}
-
-.end-line {
-  display: flex;
-  flex-wrap: nowrap;
-  width: 100%;
-  height: 1rem;
-}
-
-.end-line-left {
-  display: inline-block;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(270deg,
-      color-mix(in srgb, var(--color-text) 80%, var(--color-bg) 20%),
-      var(--color-bg));
-}
-
-.end-line-right {
-  display: inline-block;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(90deg,
-      color-mix(in srgb, var(--color-text) 80%, var(--color-bg) 20%),
-      var(--color-bg));
-}
-
 
 @media (min-width: 426px) {
   :root {
     --card-size: 40vw;
     --count-columns: 2;
     --gap: 1rem;
+  }
+
+  .header-title {
+    display: block;
+    font-size: 1.2rem;
+  }
+
+  .card {
+    font-size: 0.9rem;
+  }
+
+  .likes {
+    height: 1.7rem;
   }
 
   .footer {
@@ -181,6 +105,10 @@ main {
     --count-columns: 3;
     --gap: 2rem;
   }
+
+  .card {
+    font-size: 1rem;
+  }
 }
 
 @media (min-width: 1441px) {
@@ -188,5 +116,9 @@ main {
     --card-size: 17vw;
     --count-columns: 5;
     --gap: 2rem;
+  }
+
+  .card {
+    font-size: 1.2rem;
   }
 }
