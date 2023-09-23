@@ -18,12 +18,19 @@
       <div class="header-search">
         <input class="search-input" id="search-input" type="text" autofocus autocomplete="off" tabindex="1"
           placeholder="search">
-        <button class="search-btn" id="search-btn" tabindex="2"></button>
+        <button class="search-btn" id="search-btn" tabindex="2">
+          <span id="ratelimit"></span>
+        </button>
       </div>
     </header>
 
     <main id="main">
       <div class="card-container" id="card-container">
+      </div>
+
+      <div class="end-line">
+        <div class="end-line-left"></div>
+        <div class="end-line-right"></div>
       </div>
 
       <div class="slider-container" id="slider-container">
@@ -32,11 +39,6 @@
           <div class="slides" id="slides">
           </div>
         </div>
-      </div>
-
-      <div class="end-line">
-        <div class="end-line-left"></div>
-        <div class="end-line-right"></div>
       </div>
     </main>
     <footer class="footer">

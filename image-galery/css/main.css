@@ -107,10 +107,14 @@ main {
 }
 
 .end-line {
-  display: flex;
+  display: none;
   flex-wrap: nowrap;
   width: 100%;
   height: 1rem;
+}
+
+.end-line__on {
+  display: flex;
 }
 
 .end-line-left {

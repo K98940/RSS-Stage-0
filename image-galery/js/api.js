@@ -17,13 +17,22 @@ const RESPONSE_ERR_MSGS = {
 }
 
 export const getData = async (query) => {
+  let ratelimitRemaining = 0
   const url = `${BASE_URL_UNSPLASH}${query}${UNSPLASH_KEY}`
   const response = await fetch(url)
   console.log(`response =`, response)
+
+  for (var header of response.headers.entries()) {
+    if (header[0] === 'x-ratelimit-remaining') {
+      ratelimitRemaining = parseInt(header[1])
+    }
+  }
+
   const data = await response.json()
   console.log(`data =`, data)
 
   return {
+    ratelimitRemaining: ratelimitRemaining,
     status: response.status,
     statusText: RESPONSE_ERR_MSGS[response.status],
     data: data
