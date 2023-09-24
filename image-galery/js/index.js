@@ -43,13 +43,19 @@ const renderRatelimit = () => {
   if (limit !== '') {
     if (limit < 11) {
       searchBtn.classList.add('__red-text')
+      searchBtn.classList.remove('__orange-text')
+      searchBtn.classList.remove('__green-text')
       return
     }
     if (limit < 26) {
       searchBtn.classList.add('__orange-text')
+      searchBtn.classList.remove('__red-text')
+      searchBtn.classList.remove('__green-text')
       return
     }
     searchBtn.classList.add('__green-text')
+    searchBtn.classList.remove('__red-text')
+    searchBtn.classList.remove('__orange-text')
   }
 }
 
