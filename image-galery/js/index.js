@@ -120,6 +120,7 @@ window.onload = async () => {
     handleSearch()
   }
   renderRatelimit()
+  showResetBtn()
 }
 
 const handleSearch = async () => {
@@ -150,14 +151,9 @@ const handleCardContainer = (e) => {
   }
 }
 
-const handleSearchInput = (e) => {
-  if (e.code === 'Enter' || e.key === 'Enter') {
-    handleSearch()
-  }
-
+const showResetBtn = () => {
   setTimeout(() => {
     const isNonEmpty = searchInput.value.length
-    console.log('value', searchInput.value, 'isNonEmpty', isNonEmpty)
     if (isNonEmpty) {
       resetBtn.classList.add('reset-btn__show')
       console.log('class add')
@@ -166,6 +162,13 @@ const handleSearchInput = (e) => {
       console.log('class remove')
     }
   }, 0)
+}
+
+const handleSearchInput = (e) => {
+  if (e.code === 'Enter' || e.key === 'Enter') {
+    handleSearch()
+  }
+  showResetBtn()
 }
 
 searchBtn.addEventListener('click', handleSearch)
@@ -191,6 +194,13 @@ countPhotos.addEventListener('change', () => {
   } else {
     countPhotos.classList.remove('__red-text')
   }
+})
+
+resetBtn.addEventListener('click', () => {
+  searchInput.value = ''
+  state.query = ''
+  showResetBtn()
+  saveLocalStorage()
 })
 
 cardContainer.addEventListener('click', handleCardContainer)
