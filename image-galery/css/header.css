@@ -48,14 +48,14 @@ header {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
 }
 
 .count-photos {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 9rem;
+  width: 6rem;
   height: 100%;
 
   & input {
@@ -63,7 +63,7 @@ header {
   }
 
   & label {
-    display: flex;
+    display: none;
     justify-content: flex-end;
     align-items: center;
     padding-right: 0.25rem;
@@ -86,7 +86,7 @@ header {
   width: 100%;
   height: var(--input-height);
 
-  padding: 0 2.5rem 0 0.5rem;
+  padding: 0 5rem 0 0.5rem;
 
   &::placeholder {
     opacity: 0.5;
@@ -100,12 +100,13 @@ header {
 
   text-align: right;
 
-  background-image: url("../assets/icon/search.jpg");
+  background-image: url("../assets/icon/search.png");
   background-position: left center;
   background-size: contain;
   background-color: transparent;
   background-repeat: no-repeat;
   border: none;
+  border-radius: 0.3rem;
   filter: opacity(0.6);
 
   &:hover {
@@ -127,8 +128,38 @@ header {
 
 .__orange-text {
   color: var(--color-line);
+  background-color: rgba(255, 0, 0, 0.1);
 }
 
 .__red-text {
   color: red;
+  font-weight: 700;
+  background-color: rgba(255, 0, 0, 0.4);
+}
+
+.reset-btn {
+  position: absolute;
+  height: 0;
+  width: 0;
+  right: 3.5rem;
+
+  background-image: url("../assets/icon/close.png");
+  background-position: left center;
+  background-size: contain;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  filter: opacity(0.4);
+  transition-property: height, width;
+  transition-duration: 300ms;
+
+  &:hover {
+    cursor: pointer;
+    filter: opacity(0.8);
+  }
+}
+
+.reset-btn__show {
+  height: 1.4rem;
+  width: 1.4rem;
 }

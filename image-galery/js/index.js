@@ -11,6 +11,7 @@ const sliderClose = document.getElementById('slider-close')
 const slides = document.getElementById('slides')
 const cardContainer = document.getElementById('card-container')
 const searchBtn = document.getElementById('search-btn')
+const resetBtn = document.getElementById('reset-btn')
 const searchInput = document.getElementById('search-input')
 const countPhotos = document.getElementById('count-photos')
 const light = document.querySelector('.end-line')
@@ -41,14 +42,14 @@ const renderRatelimit = () => {
 
   if (limit !== '') {
     if (limit < 11) {
-      ratelimit.classList.add('__red-text')
+      searchBtn.classList.add('__red-text')
       return
     }
     if (limit < 26) {
-      ratelimit.classList.add('__orange-text')
+      searchBtn.classList.add('__orange-text')
       return
     }
-    ratelimit.classList.add('__green-text')
+    searchBtn.classList.add('__green-text')
   }
 }
 
@@ -101,6 +102,7 @@ const loadLocalStorage = () => {
 }
 
 window.onload = async () => {
+  // ИСПРАВИТЬ ЦВЕТ ИНПУТА КОЛИЧЕСТВА ФОТО ПРИ ЗАГРУЗКЕ
   loadLocalStorage()
   headerLogo.src = vendors.get(state.currentVendor).logo
   headerTitle.innerText = vendors.get(state.currentVendor).title
@@ -142,12 +144,26 @@ const handleCardContainer = (e) => {
   }
 }
 
-searchBtn.addEventListener('click', handleSearch)
-searchInput.addEventListener('keydown', (e) => {
+const handleSearchInput = (e) => {
   if (e.code === 'Enter' || e.key === 'Enter') {
     handleSearch()
   }
-})
+
+  setTimeout(() => {
+    const isNonEmpty = searchInput.value.length
+    console.log('value', searchInput.value, 'isNonEmpty', isNonEmpty)
+    if (isNonEmpty) {
+      resetBtn.classList.add('reset-btn__show')
+      console.log('class add')
+    } else {
+      resetBtn.classList.remove('reset-btn__show')
+      console.log('class remove')
+    }
+  }, 0)
+}
+
+searchBtn.addEventListener('click', handleSearch)
+searchInput.addEventListener('keydown', handleSearchInput)
 
 window.addEventListener('keydown', (e) => {
   if (e.code === 'Escape' || e.key === 'Escape') {
