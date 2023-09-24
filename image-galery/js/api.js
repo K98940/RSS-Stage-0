@@ -1,6 +1,5 @@
-// https://api.unsplash.com/search/photos?query=spring&client_id=SouHY7Uul-OxoMl3LL3c0NkxUtjIrKwf3tsGk1JaiVo
 const BASE_URL_UNSPLASH = 'https://api.unsplash.com/'
-const UNSPLASH_KEY = '&client_id=1gKAQjrMkle4Nt4xbUNc3qN2DXQOuco-ahVw37LuICk'
+const UNSPLASH_KEY = '1gKAQjrMkle4Nt4xbUNc3qN2DXQOuco-ahVw37LuICk'
 const RESPONSE_ERR_MSGS = {
   400: `Bad Request. The request was unacceptable, often due to missing a required parameter.\n
   Запрос был неприемлем, часто из- за отсутствия требуемого параметра`,
@@ -18,9 +17,13 @@ const RESPONSE_ERR_MSGS = {
 
 export const getData = async (query) => {
   let ratelimitRemaining = 0
-  const url = `${BASE_URL_UNSPLASH}${query}${UNSPLASH_KEY}`
-  const response = await fetch(url)
-  console.log(`response =`, response)
+  const url = `${BASE_URL_UNSPLASH}${query}&orientation=landscape`
+  const response = await fetch(url, {
+    method: 'GET',
+    headers: {
+      Authorization: `Client-ID ${UNSPLASH_KEY}`,
+    },
+  })
 
   for (var header of response.headers.entries()) {
     if (header[0] === 'x-ratelimit-remaining') {
@@ -29,8 +32,6 @@ export const getData = async (query) => {
   }
 
   const data = await response.json()
-  console.log(`data =`, data)
-
   return {
     ratelimitRemaining: ratelimitRemaining,
     status: response.status,

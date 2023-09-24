@@ -125,6 +125,10 @@ input {
       display: flex;
     }
   }
+
+  .header-title {
+    font-size: 2rem;
+  }
 }
 
 @media (min-width: 1025px) {

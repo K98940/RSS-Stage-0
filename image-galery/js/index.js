@@ -42,19 +42,19 @@ const renderRatelimit = () => {
 
   if (limit !== '') {
     if (limit < 11) {
-      searchBtn.classList.add('__red-text')
+      searchBtn.classList.add('__red-text-bg')
       searchBtn.classList.remove('__orange-text')
       searchBtn.classList.remove('__green-text')
       return
     }
     if (limit < 26) {
       searchBtn.classList.add('__orange-text')
-      searchBtn.classList.remove('__red-text')
+      searchBtn.classList.remove('__red-text-bg')
       searchBtn.classList.remove('__green-text')
       return
     }
     searchBtn.classList.add('__green-text')
-    searchBtn.classList.remove('__red-text')
+    searchBtn.classList.remove('__red-text-bg')
     searchBtn.classList.remove('__orange-text')
   }
 }
@@ -70,11 +70,11 @@ const renderImages = (imgs) => {
 
   const htmlImgs = imgs.map((img, i) => `
     <div class="card">
-      <img src="${img.urls.thumb}" alt="slides_${i}">
-      <div class="description" title="${img.alt_description}">${img.alt_description}</div>
-      <div class="likes">
-        <span>${img.likes}</span>
-        <img src="./assets/icon/heart.png" alt="like">
+      <img src="${img.urls.thumb}" data-img="slides_${i}" alt="slides_${i}">
+      <div class="description" data-img="slides_${i}" title="${img.alt_description}">${img.alt_description}</div>
+      <div class="likes" data-id="${img.id}">
+        <span data-id="${img.id}">${img.likes}</span>
+        <img src="./assets/icon/heart.png" data-id="${img.id}" alt="like">
       </div>
     </div>
   `).join('')
@@ -108,22 +108,22 @@ const loadLocalStorage = () => {
 }
 
 window.onload = async () => {
-  // ИСПРАВИТЬ ЦВЕТ ИНПУТА КОЛИЧЕСТВА ФОТО ПРИ ЗАГРУЗКЕ
   loadLocalStorage()
   headerLogo.src = vendors.get(state.currentVendor).logo
   headerTitle.innerText = vendors.get(state.currentVendor).title
   searchInput.value = state.query
   countPhotos.value = state.countPhotos
   if (state.query) {
-    handleSearch()
+    handleRequest()
   } else {
-    handleSearch()
+    handleRequest()
   }
   renderRatelimit()
   showResetBtn()
+  setClassCountPhotos()
 }
 
-const handleSearch = async () => {
+const handleRequest = async () => {
   let uri = ''
   if (searchInput.value) {
     uri = `search/photos?query=${searchInput.value}&per_page=${state.countPhotos}`
@@ -145,9 +145,9 @@ const handleSearch = async () => {
 }
 
 const handleCardContainer = (e) => {
-  if (e.target.tagName === 'IMG') {
+  if (e.target.dataset.img) {
     sliderContainer.classList.toggle('slider-container__open')
-    location = `#${e.target.alt}`
+    location = `#${e.target.dataset.img}`
   }
 }
 
@@ -156,22 +156,20 @@ const showResetBtn = () => {
     const isNonEmpty = searchInput.value.length
     if (isNonEmpty) {
       resetBtn.classList.add('reset-btn__show')
-      console.log('class add')
     } else {
       resetBtn.classList.remove('reset-btn__show')
-      console.log('class remove')
     }
   }, 0)
 }
 
 const handleSearchInput = (e) => {
   if (e.code === 'Enter' || e.key === 'Enter') {
-    handleSearch()
+    handleRequest()
   }
   showResetBtn()
 }
 
-searchBtn.addEventListener('click', handleSearch)
+searchBtn.addEventListener('click', handleRequest)
 searchInput.addEventListener('keydown', handleSearchInput)
 
 window.addEventListener('keydown', (e) => {
@@ -184,16 +182,22 @@ sliderClose.addEventListener('click', () => {
   sliderContainer.classList.remove('slider-container__open')
 })
 
-countPhotos.addEventListener('change', () => {
+const setClassCountPhotos = () => {
   const count = parseInt(countPhotos.value)
   state.countPhotos = count
-  saveLocalStorage()
 
   if (count > 29) {
     countPhotos.classList.add('__red-text')
   } else {
     countPhotos.classList.remove('__red-text')
   }
+}
+
+countPhotos.addEventListener('change', () => {
+  const count = parseInt(countPhotos.value)
+  state.countPhotos = count
+  saveLocalStorage()
+  setClassCountPhotos()
 })
 
 resetBtn.addEventListener('click', () => {
