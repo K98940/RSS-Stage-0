@@ -1,0 +1,50 @@
+.dropmenu-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  width: 80px;
+  height: 0;
+  position: relative;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+
+  transition: height var(--transition-duration);
+  background-color: var(--color-white);
+}
+
+.dropmenu-title {
+  position: relative;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  padding: 5px 16px 15px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 40px;
+    height: 1px;
+    left: 50%;
+    transform: translate(-50%, 5px);
+
+    background-color: var(--color-sand);
+  }
+}
+
+.dropmenu-menu-item {
+  width: 100%;
+  padding: 5px 0px 5px;
+
+  font-weight: 400;
+  transition: var(--transition-duration);
+}
+
+.dropmenu-menu-item:hover {
+  cursor: pointer;
+  background-color: var(--color-sand);
+}

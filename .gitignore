@@ -1,5 +1,6 @@
-test/
-image-galery\proxy\
+
+image-galery/test
+
 
 # Logs
 logs
@@ -40,6 +41,8 @@ bower_components
 # Compiled binary addons (https://nodejs.org/api/addons.html)
 build/Release
 
+#Screenshots for PixelPerfect
+PixelPerfect/
 # Dependency directories
 node_modules/
 jspm_packages/
