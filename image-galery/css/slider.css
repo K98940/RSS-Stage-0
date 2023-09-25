@@ -1,0 +1,171 @@
+.slider-container {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 0;
+  overflow: hidden;
+
+  background-color: color-mix(in srgb,
+      var(--color-text) 10%,
+      var(--color-bg) 90%);
+}
+
+.slider-container__open {
+  height: 100dvh;
+}
+
+.slider {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+
+  &::-webkit-scrollbar {
+    height: 0.5rem;
+  }
+
+  &::-webkit-scrollbar-button {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--color-line);
+  }
+
+  &::-webkit-scrollbar-track-piece {
+    background-color: color-mix(in srgb, var(--color-line) 50%, var(--color-bg) 50%);
+  }
+}
+
+.slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  height: 100%;
+  width: 100%;
+  transform-origin: center center;
+  transform: scale(1);
+  scroll-snap-align: center;
+
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.slide a {
+  background: none;
+  border: none;
+
+  position: absolute;
+  width: 4rem;
+  height: 4rem;
+  top: 48%;
+}
+
+a.slide_prev,
+.slider::before {
+  left: 5%;
+}
+
+.slider::before {
+  background-image: url("../assets/icon/left.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  &:hover {
+    cursor: pointer;
+    filter: brightness(1.1);
+  }
+}
+
+.slider::after {
+  background-image: url("../assets/icon/right.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  &:hover {
+    cursor: pointer;
+    filter: brightness(1.1);
+  }
+}
+
+a.slide_next,
+.slider::after {
+  right: 5%;
+}
+
+.slider::before,
+.slider::after {
+  position: absolute;
+  width: 3rem;
+  height: 3rem;
+  top: 48%;
+}
+
+.slider::before,
+.slider::after {
+  content: '';
+  z-index: 1;
+
+  border: 0.4rem solid rgba(255, 255, 255, 0.131);
+  border-radius: 50%;
+  pointer-events: none;
+  background-color: color-mix(in srgb,
+      var(--color-text) 50%,
+      var(--color-bg) 50%);
+  box-shadow: 0.5rem 0.5rem 1rem color-mix(in srgb,
+      var(--color-text) 50%,
+      var(--color-bg) 50%);
+  ;
+  opacity: 0.6;
+}
+
+.slider-close {
+  position: absolute;
+  top: 2.5%;
+  right: 5%;
+
+  width: 4rem;
+  height: 4rem;
+
+  border-radius: 50%;
+  background-image: url("../assets/icon/close.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: color-mix(in srgb,
+      var(--color-text) 70%,
+      var(--color-bg) 30%);
+  box-shadow: 0.5rem 0.5rem 1rem color-mix(in srgb,
+      var(--color-text) 30%,
+      var(--color-bg) 70%);
+  z-index: 2;
+
+  &:hover {
+    cursor: pointer;
+    filter: brightness(1.1);
+  }
+}

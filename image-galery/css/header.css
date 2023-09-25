@@ -1,0 +1,169 @@
+header {
+  gap: 1rem;
+  width: 100%;
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+
+  padding-bottom: 1rem;
+
+  color: var(--color-text);
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+
+    bottom: 0;
+    width: 100vw;
+    height: 0.2rem;
+    left: calc(-1*var(--padding));
+
+    background-color: var(--color-line);
+  }
+}
+
+.header-logo {
+  gap: 1rem;
+  display: flex;
+  flex: 0 0 13%;
+  align-items: center;
+
+  & img {
+    max-width: 2rem;
+    max-height: 2rem;
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+  }
+}
+
+.header-title {
+  display: none;
+}
+
+.container-count-search {
+  flex: 1 1 87%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.count-photos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 6rem;
+  height: 100%;
+
+  & input {
+    width: 100%;
+  }
+
+  & label {
+    display: none;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 0.25rem;
+
+    & img {
+      height: var(--input-height);
+    }
+  }
+}
+
+.header-search {
+  flex: 1 1 100%;
+  max-width: 30rem;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.search-input {
+  width: 100%;
+  height: var(--input-height);
+
+  padding: 0 5rem 0 0.5rem;
+
+  &::placeholder {
+    opacity: 0.5;
+  }
+}
+
+.search-btn {
+  position: absolute;
+  height: 1.4rem;
+  right: 0.3rem;
+
+  text-align: right;
+
+  background-image: url("../assets/icon/search.png");
+  background-position: left center;
+  background-size: contain;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 0.3rem;
+  filter: opacity(0.6);
+
+  &:hover {
+    cursor: pointer;
+    filter: opacity(1);
+    transform: rotate(-10deg);
+  }
+
+  & span {
+    padding-right: 0.5rem;
+    padding-left: 1.5rem;
+    font-weight: 700;
+  }
+}
+
+.__green-text {
+  color: green;
+}
+
+.__orange-text {
+  color: var(--color-line);
+  background-color: rgba(255, 0, 0, 0.1);
+}
+
+.__red-text-bg {
+  color: red;
+  font-weight: 700;
+  background-color: rgba(255, 0, 0, 0.4);
+}
+
+.__red-text {
+  color: red;
+}
+
+.reset-btn {
+  position: absolute;
+  height: 0;
+  width: 0;
+  right: 3.5rem;
+
+  background-image: url("../assets/icon/close.png");
+  background-position: left center;
+  background-size: contain;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  filter: opacity(0.4);
+  transition-property: height, width;
+  transition-duration: 300ms;
+
+  &:hover {
+    cursor: pointer;
+    filter: opacity(0.8);
+  }
+}
+
+.reset-btn__show {
+  height: 1.4rem;
+  width: 1.4rem;
+}

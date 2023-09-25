@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/style.css">
+  <title>image-galery</title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <div class="header-logo">
+        <img id="logo" src="" alt="logo">
+        <div class="header-title"></div>
+      </div>
+      <div class="container-count-search">
+        <div class="count-photos" title="количество фотографий в запросе (максимум 30)">
+          <label for="count-photos">
+            <img src="./assets/icon/count.png" alt="count">
+          </label>
+          <input type="number" name="" id="count-photos" min="1" max="30" step="1" value="10">
+        </div>
+        <div class="header-search">
+          <input class="search-input" id="search-input" type="text" autofocus autocomplete="off" tabindex="1"
+            placeholder="random search">
+          <button class="search-btn" id="search-btn" tabindex="2">
+            <span id="ratelimit" title="оставшееся количество доступных запросов (лимит 50 запросов в час)"></span>
+          </button>
+          <button class="reset-btn" id="reset-btn"></button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <div class="card-container" id="card-container">
+      </div>
+
+      <div class="end-line">
+        <div class="end-line-left"></div>
+        <div class="end-line-right"></div>
+      </div>
+
+      <div class="slider-container" id="slider-container">
+        <button class="slider-close" id="slider-close"></button>
+        <div class="slider">
+          <div class="slides" id="slides">
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="footer-element">
+        <div>
+          <a href="https://github.com/K98940" target="_blank">
+            <img src="./assets/icon/github.png" alt="git">
+            <span>K98940</span>
+          </a>
+        </div>
+      </div>
+      <span class="footer-year">2023</span>
+      <div class="footer-element footer-rss-logo">
+        <a href="https://rs.school/js-stage0/" target="_blank">
+          <img src="./assets/icon/RS.png" alt="RSSchool">
+          <span>The Rolling Scopes</span>
+        </a>
+
+      </div>
+    </footer>
+    <dialog class="dialog" id="dialog">
+      <div class="dialog-conteiner">
+        <p id="dialog-content"></p>
+        <form method="dialog">
+          <button>OK</button>
+        </form>
+      </div>
+    </dialog>
+  </div>
+  <script type="module" src="./js/index.js"></script>
+</body>
+
+</html>
