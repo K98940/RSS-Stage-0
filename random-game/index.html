@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/main.css">
+  <title>random-game</title>
+</head>
+
+<body class="flex-center-center">
+  <div class="game-container">
+    <div class="range-container">
+
+      <label for="range-level" id="range-level-label">4</label>
+      <input type="range" id="range-level" list="range-markers" min="4" max="6" step="1" value="4">
+      <datalist id="range-markers">
+        <option value="4">
+        <option value="5">
+        <option value="6">
+      </datalist>
+
+    </div>
+  </div>
+  <script type="module" src="./js/index.js"></script>
+</body>
+
+</html>
