@@ -5,6 +5,7 @@
   --cell-size: 3rem;
   --cell-color-border: rgb(0, 0, 0);
   --cell-color-bg: rgba(187, 255, 0, 0.5);
+  --cell-color-text: rgb(255, 255, 255);
 
   --gap: calc(var(--cell-size)/5);
 }
@@ -67,16 +68,16 @@ body {
   width: calc(var(--level) * var(--cell-size));
   height: calc(var(--level) * var(--cell-size));
   margin-bottom: 2rem;
-
-  border: 1px solid grey;
 }
 
 .cell {
   position: absolute;
-  width: var(--cell-size);
-  height: var(--cell-size);
+  width: 0;
+  height: 0;
 
+  transform: rotateY(90deg);
   transition-duration: var(--animation-duration);
+  overflow: hidden;
 
   &[data-xy^="0"] {
     top: 0;
@@ -139,17 +140,33 @@ body {
   width: 90%;
   height: 90%;
 
+  color: var(--cell-color-text);
   border: 1px solid var(--cell-color-border);
   border-radius: 0.25rem;
   background-color: var(--cell-color-bg);
+  background-image: linear-gradient(var(--cell-color-bg), var(--cell-color-border));
 }
 
-.cell_die {
-  width: 0;
-  height: 0;
+.cell_new {
+  animation: revealNewCell;
+  animation-timing-function: cubic-bezier();
+  animation-duration: calc(var(--animation-duration) / 2);
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
 
-  opacity: 0;
-  transition-duration: var(--animation-duration);
+@keyframes revealNewCell {
+  0% {
+    width: 0;
+    height: var(--cell-size);
+  }
+
+  100% {
+    width: var(--cell-size);
+    height: var(--cell-size);
+
+    transform: rotateY(0deg);
+  }
 }
 
 #test {

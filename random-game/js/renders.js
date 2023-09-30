@@ -3,7 +3,7 @@ import { game } from "./state.js"
 export const renderDesk = () => {
   const addCell = (value, x, y) => {
     const htmlCell = `
-    <div class="cell flex-center-center" data-xy="${x}${y}">
+    <div class="cell flex-center-center cell_new" data-xy="${x}${y}">
       <div class="cell-core flex-center-center">
         ${value}
       </div>

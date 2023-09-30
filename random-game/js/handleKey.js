@@ -9,14 +9,10 @@ export const handleKey = ({ code }) => {
           const div = document.querySelector(`[data-xy="${row_i}${col_i}"]`)
           const cellsMustDie = document.querySelector(`[data-xy="${row_i}${col_i + 1}"]`)
 
-          console.log('div :>> ', div);
-          console.log('cellsMustDie :>> ', cellsMustDie);
-
           const isIdenticalCells = row[col_i + 1] === row[col_i]
           if (isIdenticalCells && cellsMustDie) {
             stepScore += row[col_i]
 
-            // cellsMustDie.forEach(c => c.classList.add('cell_die'))
             cellsMustDie.remove()
 
             row[col_i + 1] = row[col_i] * 2
@@ -42,14 +38,10 @@ export const handleKey = ({ code }) => {
           const div = document.querySelector(`[data-xy="${row_i}${col_i}"]`)
           const cellsMustDie = document.querySelector(`[data-xy="${row_i}${col_i - 1}"]`)
 
-          console.log('div :>> ', div);
-          console.log('cellsMustDie :>> ', cellsMustDie);
-
           const isIdenticalCells = row[col_i - 1] === row[col_i]
           if (isIdenticalCells && cellsMustDie) {
             stepScore += row[col_i]
 
-            // cellsMustDie.forEach(c => c.classList.add('cell_die'))
             cellsMustDie.remove()
 
             row[col_i - 1] = row[col_i] * 2
@@ -81,7 +73,6 @@ export const handleKey = ({ code }) => {
           if (isIdenticalCells) {
             stepScore += desk[row][col]
 
-            // cellsMustDie.forEach(c => c.classList.add('cell_die'))
             cellsMustDie.remove()
 
             desk[row + 1][col] = desk[row][col] * 2
@@ -112,7 +103,6 @@ export const handleKey = ({ code }) => {
           if (isIdenticalCells) {
             stepScore += desk[row][col]
 
-            // cellsMustDie.forEach(c => c.classList.add('cell_die'))
             cellsMustDie.remove()
 
             desk[row - 1][col] = desk[row][col] * 2
@@ -128,28 +118,6 @@ export const handleKey = ({ code }) => {
         }
       }
     }
-    // for (let row = 1; row < desk.length; row++) {
-    //   for (let col = 0; col < desk.length; col++) {
-    //     if (desk[row][col] > 0) {
-    //       let div = document.querySelector(`[data-xy="${row}${col}"]`)
-    //       const isIdenticalCells = desk[row - 1][col] === desk[row][col]
-    //       if (isIdenticalCells) {
-    //         stepScore += desk[row][col]
-    //         desk[row - 1][col] = desk[row][col] * 2
-    //         desk[row][col] = 0
-
-    //         div.remove()
-    //         div = document.querySelector(`[data-xy="${row - 1}${col}"]`)
-    //         div.firstElementChild.innerText = desk[row - 1][col]
-    //       } else if (desk[row - 1][col] === 0) {
-    //         desk[row - 1][col] = desk[row][col]
-    //         desk[row][col] = 0
-    //       } else continue
-
-    //       div.dataset.xy = `${row - 1}${col}`
-    //     }
-    //   }
-    // }
   }
 
   window.removeEventListener('keydown', handleKey)
@@ -181,44 +149,14 @@ export const handleKey = ({ code }) => {
 
   state.score += stepScore
 
-  deleteDiedCells()
+  // deleteDiedCells()
   addCell(getRandomIndex())
-  test()
+  // test()
 
   setTimeout(() => {
     window.addEventListener('keydown', handleKey)
   }, state.animationDuration)
 
-}
-
-const test = () => {
-  game.desk.forEach((row, r) => row.forEach((cell, c) => {
-    if (cell > 0) {
-      const div = document.querySelectorAll(`[data-xy="${r}${c}"]`)
-      if (div.length !== 1) {
-        console.warn('div :>> ', div);
-        console.warn(cell);
-      }
-    }
-  }))
-
-  const test = document.getElementById('test')
-  const arr = game.desk.reduce((str, row, r) => {
-    return str + `<p>${row.reduce((spans, el, c) => {
-      const cell = document.querySelector(`[data-xy="${r}${c}"]`)
-      let color = el === parseInt(cell?.innerText)
-        ? `; color: green`
-        : `; color: red; backgroundColor: orange`
-      color = el ? color : `; color: black`
-      const style = `display: inline-block`
-      return `${spans}<span style="${style}${color}">${el}</span>`
-    }, '')}</p>`
-  }, '')
-  test.innerHTML = arr
-}
-
-const handleKeyUp = () => {
-  window.addEventListener('keydown', handleKey)
 }
 
 const getRandomIndex = () => {
@@ -252,12 +190,30 @@ const addCell = (strIndex) => {
         </div>
     `
     deskContainer.insertAdjacentElement('afterbegin', cell)
+    setTimeout(() => {
+      cell.classList.add('cell_new')
+    }, state.animationDuration)
     return
   }
   alert('game over')
 }
 
-const deleteDiedCells = () => {
-  const cellsMustDie = document.querySelectorAll(`.cell_die`)
-  cellsMustDie.forEach(c => c.remove())
-}
+// const test = () => {
+//   const test = document.getElementById('test')
+//   const arr = game.desk.reduce((str, row, r) => {
+//     return str + `<p>${row.reduce((spans, el, c) => {
+//       const cell = document.querySelector(`[data-xy="${r}${c}"]`)
+//       let color = el === parseInt(cell?.innerText)
+//         ? `; color: green`
+//         : `; color: red; backgroundColor: orange`
+//       color = el ? color : `; color: black`
+//       const style = `display: inline-block`
+//       return `${spans}<span style="${style}${color}">${el}</span>`
+//     }, '')}</p>`
+//   }, '')
+//   test.innerHTML = arr
+// }
+
+// const handleKeyUp = () => {
+//   window.addEventListener('keydown', handleKey)
+// }

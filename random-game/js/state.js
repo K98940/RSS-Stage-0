@@ -3,8 +3,8 @@ import { handleState } from './handleState.js'
 const stateObj = {
   gameLevel: 4,
   score: 0,
-  cellSize: '4',
-  animationDuration: '1000',
+  cellSize: '3',
+  animationDuration: '500',
 }
 
 export const game = {

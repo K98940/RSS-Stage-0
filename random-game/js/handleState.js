@@ -30,7 +30,6 @@ export const handleState = {
 
 
         game.desk[0][0] = 2
-
         // game.desk[1][1] = 4
         // game.desk[1][2] = 64
         // game.desk[1][3] = 2
