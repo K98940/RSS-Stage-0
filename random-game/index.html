@@ -9,20 +9,27 @@
 </head>
 
 <body class="flex-center-center">
-  <div class="game-container">
+  <div class="game-container flex-center-center">
+
+    <div class="score">
+      <label for="input-score">0</label>
+      <input type="range" id="input-score" value="0" min="0" max="100" disabled>
+      <span id="score-max"></span>
+    </div>
+
+    <div class="desk-container flex-center-center" id="desk-container">
+    </div>
 
     <div class="range-container">
       <label for="range-level" id="range-level-label">4</label>
       <input type="range" id="range-level" list="range-markers" min="4" max="6" step="1" value="4">
       <datalist id="range-markers">
-        <option value="4">
-        <option value="5">
         <option value="6">
+        <option value="5">
+        <option value="4">
       </datalist>
     </div>
 
-    <div class="desk-container flex-center-center" id="desk-container">
-    </div>
     <div id="test"></div>
 
   </div>

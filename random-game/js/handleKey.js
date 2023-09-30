@@ -18,10 +18,12 @@ export const handleKey = ({ code }) => {
             row[col_i + 1] = row[col_i] * 2
             row[col_i] = 0
             div.firstElementChild.innerText = row[col_i + 1]
+            isTurnComplete = true
 
           } else if (row[col_i + 1] === 0) {
             row[col_i + 1] = row[col_i]
             row[col_i] = 0
+            isTurnComplete = true
           } else continue
 
           div.dataset.xy = `${row_i}${col_i + 1}`
@@ -47,10 +49,12 @@ export const handleKey = ({ code }) => {
             row[col_i - 1] = row[col_i] * 2
             row[col_i] = 0
             div.firstElementChild.innerText = row[col_i - 1]
+            isTurnComplete = true
 
           } else if (row[col_i - 1] === 0) {
             row[col_i - 1] = row[col_i]
             row[col_i] = 0
+            isTurnComplete = true
           } else continue
 
           div.dataset.xy = `${row_i}${col_i - 1}`
@@ -78,10 +82,12 @@ export const handleKey = ({ code }) => {
             desk[row + 1][col] = desk[row][col] * 2
             div.firstElementChild.innerText = desk[row + 1][col]
             desk[row][col] = 0
+            isTurnComplete = true
 
           } else if (desk[row + 1][col] === 0) {
             desk[row + 1][col] = desk[row][col]
             desk[row][col] = 0
+            isTurnComplete = true
           } else continue
 
           div.dataset.xy = `${row + 1}${col}`
@@ -108,10 +114,12 @@ export const handleKey = ({ code }) => {
             desk[row - 1][col] = desk[row][col] * 2
             div.firstElementChild.innerText = desk[row - 1][col]
             desk[row][col] = 0
+            isTurnComplete = true
 
           } else if (desk[row - 1][col] === 0) {
             desk[row - 1][col] = desk[row][col]
             desk[row][col] = 0
+            isTurnComplete = true
           } else continue
 
           div.dataset.xy = `${row - 1}${col}`
@@ -121,8 +129,8 @@ export const handleKey = ({ code }) => {
   }
 
   window.removeEventListener('keydown', handleKey)
-  // window.addEventListener('keyup', handleKeyUp)
   const { desk } = game
+  let isTurnComplete = false
   let stepScore = 0
 
   switch (code) {
@@ -148,9 +156,13 @@ export const handleKey = ({ code }) => {
   }
 
   state.score += stepScore
+  if (state.score >= state.maxScore) {
+    alert('win !!!')
+  }
+
 
   // deleteDiedCells()
-  addCell(getRandomIndex())
+  if (isTurnComplete) addCell(getRandomIndex())
   // test()
 
   setTimeout(() => {

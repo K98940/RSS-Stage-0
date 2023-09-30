@@ -1,4 +1,4 @@
-import { game } from "./state.js"
+import { game, state } from "./state.js"
 
 export const renderDesk = () => {
   const addCell = (value, x, y) => {
@@ -13,7 +13,9 @@ export const renderDesk = () => {
   }
 
   const deskContainer = document.getElementById('desk-container')
+  const scoreMax = document.getElementById('score-max')
   deskContainer.innerHTML = ''
+  scoreMax.innerText = state.maxScore
 
   game.desk.forEach((row, i) => {
     row.forEach((cell, j) => {

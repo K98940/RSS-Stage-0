@@ -17,7 +17,10 @@ export const handleState = {
         document.body.style.setProperty('--level', state.gameLevel)
 
         const label = document.getElementById('range-level-label')
-        const levelTitles = ['просто', 'легко', 'несложно']
+        const maxScore = document.getElementById('score-max')
+        const levelTitles = ['легко', 'просто', 'для тестера']
+        const levelScore = [2048, 1024, 128]
+        state.maxScore = levelScore[value - 4]
         label.innerText = levelTitles[value - 4]
 
         const line = Array(value)
@@ -48,6 +51,10 @@ export const handleState = {
         break;
 
       case 'score':
+        const scoreLabel = document.querySelector('.score>label')
+        const scoreRange = document.querySelector('.score>input')
+        scoreLabel.innerText = value
+        scoreRange.value = value
         break
 
       default:
