@@ -28,22 +28,32 @@ export const handleState = {
         }, [])
         game.desk = matrix
 
-        game.desk[0][0] = 4
-        game.desk[0][3] = 4
-        game.desk[0][4] = 2
-        game.desk[3][2] = 16
+
+        game.desk[0][0] = 2
+
+        // game.desk[1][1] = 4
+        // game.desk[1][2] = 64
+        // game.desk[1][3] = 2
+
+        // game.desk[2][0] = 4
+        // game.desk[2][1] = 8
+        // game.desk[2][2] = 32
+
+        // game.desk[3][0] = 2
+        // game.desk[3][1] = 2
+        // game.desk[3][2] = 4
+        // game.desk[3][3] = 8
 
         renders.renderDesk(game)
+        state.score = 0
         break;
+
+      case 'score':
+        break
 
       default:
         break;
     }
     return true
   },
-}
-
-const getRandomNumber = (n) => {
-  let x = Math.random() * n
-  return Math.floor(x)
 }
