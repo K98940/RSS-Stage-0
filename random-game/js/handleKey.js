@@ -1,5 +1,5 @@
 import { state, game } from './state.js'
-import { win } from './win.js'
+import { win, loose } from './gameover.js'
 
 export const handleKey = ({ code }) => {
 
@@ -183,7 +183,7 @@ const getRandomIndex = () => {
     return cells
   }, [])
 
-  const randomIndex = emptyCells.length === 0 ? false : Math.floor(x * emptyCells.length)
+  const randomIndex = emptyCells.length === 1 ? false : Math.floor(x * emptyCells.length)
   return randomIndex === false ? false : emptyCells[randomIndex]
 }
 
@@ -208,7 +208,7 @@ const addCell = (strIndex) => {
     }, state.animationDuration)
     return
   }
-  alert('game over')
+  loose()
 }
 
 // const test = () => {

@@ -6,7 +6,7 @@ const stateObj = {
   score: 0,
   maxScore: 2048,
   cellSize: '3',
-  animationDuration: '500',
+  animationDuration: '300',
 }
 
 export const game = {

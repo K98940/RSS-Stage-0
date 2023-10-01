@@ -20,11 +20,12 @@ export const handleState = {
         document.body.style.setProperty('--level', state.gameLevel)
 
         const label = document.getElementById('range-level-label')
-        const maxScore = document.getElementById('score-max')
+        const inputScore = document.getElementById('input-score')
         const levelTitles = ['легко', 'просто', 'для тестера']
-        const levelScore = [2048, 1024, 4]
+        const levelScore = [2048, 1024, 128]
         state.maxScore = levelScore[value - 4]
         label.innerText = levelTitles[value - 4]
+        inputScore.max = state.maxScore
 
         const line = Array(value)
         const matrix = line.fill(0).reduce(arr => {
@@ -36,6 +37,7 @@ export const handleState = {
         game.desk[0][0] = 2
         renders.renderDesk(game)
         state.score = 0
+        saveLocalStorage()
         break;
 
       case 'score':
@@ -48,6 +50,7 @@ export const handleState = {
       case 'nickname':
         const nickname = document.getElementById('nickname')
         nickname.innerText = value
+        renderScoreBoard()
         break
 
       default:
@@ -59,7 +62,6 @@ export const handleState = {
 
 export const renderScoreBoard = async () => {
   const scores = await api.getResults()
-  console.log('renderScoreBoard scores :>> ', scores);
   if (scores.error) {
     showMessage(`Server error: ${scores.error}`)
     return
@@ -79,10 +81,13 @@ export const renderScoreBoard = async () => {
   </table>
   `
 
-  const htmlTable = scores.data.reduce((html, row) => {
+  const htmlTable = scores.data.reduce((html, row, i) => {
+    const isMyNick = row.nickname === state.nickname
+    const style = isMyNick ? 'class="score-myscore"' : ''
+
     return `${html}
-    <tr title="${row.date}">
-      <td class="__align_left">${row.nickname}(${row.city})</td>
+    <tr title="${row.date}" ${style}>
+      <td class="__align_left">${i + 1}. ${row.nickname} (${row.city})</td>
       <td class="__align_right">${row.score}</td>
     </tr>
 
@@ -90,4 +95,24 @@ export const renderScoreBoard = async () => {
   }, '')
 
   records.innerHTML = htmlHeader + htmlTable + htmlFooter
+}
+
+export const saveLocalStorage = () => {
+  const ls = JSON.stringify(state)
+  localStorage.setItem('RSS-random-game-202310012127', ls)
+}
+
+export const loadLocalStorage = () => {
+  let ls = localStorage.getItem('RSS-random-game-202310012127')
+  if (ls) {
+    try {
+      ls = JSON.parse(ls)
+      state.nickname = ls.nickname
+      state.gameLevel = ls.gameLevel
+      console.log('ls restored :>> ', ls);
+      return true
+    } catch (error) {
+    }
+    return false
+  }
 }

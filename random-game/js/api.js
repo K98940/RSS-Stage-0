@@ -1,6 +1,7 @@
 import { state } from './state.js'
 
 const URL = 'https://шумелка.рф/random-game/score.php'
+
 export const getResults = async () => {
   try {
     const response = await fetch(URL, {
@@ -13,6 +14,7 @@ export const getResults = async () => {
         score: state.score,
       })
     })
+
     if (!response.ok) {
       return {
         data: null,
@@ -38,5 +40,33 @@ export const getResults = async () => {
       data: null,
       error: err,
     }
+  }
+}
+
+export const saveResult = async () => {
+  try {
+    const response = await fetch(URL, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/x-www-form-urlencoded; charset=utf-8',
+      },
+      body: `nickname=${state.nickname}&score=${state.score}`,
+    })
+
+    if (!response.ok) {
+      return {
+        error: response.status,
+      }
+    }
+
+    return {
+      error: null,
+    }
+
+  } catch (error) {
+    return {
+      error: error,
+    }
+
   }
 }

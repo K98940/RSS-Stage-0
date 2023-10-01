@@ -1,7 +1,7 @@
 import { state } from './state.js'
 import { handleKey } from './handleKey.js'
 import { showMessage } from './message.js'
-import { renderScoreBoard } from './handleState.js'
+import { loadLocalStorage } from './handleState.js'
 
 const rangeLevel = document.getElementById('range-level')
 document.body.style.setProperty('--animation-duration', `${state.animationDuration}ms`)
@@ -13,10 +13,12 @@ rangeLevel.addEventListener('input', () => {
 })
 
 const init = () => {
-  state.gameLevel = rangeLevel.valueAsNumber
-  state.score = 0
-  renderScoreBoard()
-  showMessage('Для проверяющих есть упрощенный режим для тестирования', true)
+  if (!loadLocalStorage()) {
+    state.gameLevel = rangeLevel.valueAsNumber
+    state.score = 0
+    state.maxScore = 2048
+    showMessage('Для проверяющих в правом верхнем углу есть переключатель для упрощения тестирования', true)
+  }
 }
 
 window.onload = init()
