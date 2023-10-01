@@ -8,30 +8,48 @@
   <title>random-game</title>
 </head>
 
-<body class="flex-center-center">
-  <div class="game-container flex-center-center">
-
-    <div class="score">
-      <label for="input-score">0</label>
-      <input type="range" id="input-score" value="0" min="0" max="100" disabled>
-      <span id="score-max"></span>
+<body>
+  <dialog class="dialog" id="dialog">
+    <div class="dialog-conteiner">
+      <p id="dialog-content"></p>
+      <form method="dialog">
+        <input id="input-nickname" type="text" placeholder="enter your nick">
+        <button>OK</button>
+      </form>
     </div>
+  </dialog>
 
-    <div class="desk-container flex-center-center" id="desk-container">
+  <div class="range-container">
+    <label for="range-level" id="range-level-label">4</label>
+    <input type="range" id="range-level" list="range-markers" min="4" max="6" step="1" value="4">
+    <datalist id="range-markers">
+      <option value="6">
+      <option value="5">
+      <option value="4">
+    </datalist>
+  </div>
+
+  <div class="flex-center-center">
+    <div class="game-container flex-center-center">
+
+      <div class="score flex-center-center">
+        <label for="input-score">0</label>
+        <input type="range" id="input-score" value="0" min="0" max="100" disabled>
+        <span id="score-max"></span>
+      </div>
+
+      <p class="nickname" id="nickname"></p>
+
+      <div class="desk-records-container flex-center-center">
+        <div class="desk-container flex-center-center" id="desk-container">
+        </div>
+        <div class="records" id="records">
+        </div>
+      </div>
+
+      <div id="test"></div>
+
     </div>
-
-    <div class="range-container">
-      <label for="range-level" id="range-level-label">4</label>
-      <input type="range" id="range-level" list="range-markers" min="4" max="6" step="1" value="4">
-      <datalist id="range-markers">
-        <option value="6">
-        <option value="5">
-        <option value="4">
-      </datalist>
-    </div>
-
-    <div id="test"></div>
-
   </div>
   <script type="module" src="./js/index.js"></script>
 </body>

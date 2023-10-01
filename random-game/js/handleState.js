@@ -1,5 +1,9 @@
 import { state, game } from "./state.js"
 import * as renders from './renders.js'
+import * as api from './api.js'
+import { showMessage } from './message.js'
+
+
 
 export const handleState = {
   get: (target, key) => {
@@ -13,13 +17,12 @@ export const handleState = {
     target[prop] = value
     switch (prop) {
       case 'gameLevel':
-        document.body.style.setProperty('--cell-size', `${state.cellSize}rem`)
         document.body.style.setProperty('--level', state.gameLevel)
 
         const label = document.getElementById('range-level-label')
         const maxScore = document.getElementById('score-max')
         const levelTitles = ['легко', 'просто', 'для тестера']
-        const levelScore = [2048, 1024, 128]
+        const levelScore = [2048, 1024, 4]
         state.maxScore = levelScore[value - 4]
         label.innerText = levelTitles[value - 4]
 
@@ -30,22 +33,7 @@ export const handleState = {
           return arr
         }, [])
         game.desk = matrix
-
-
         game.desk[0][0] = 2
-        // game.desk[1][1] = 4
-        // game.desk[1][2] = 64
-        // game.desk[1][3] = 2
-
-        // game.desk[2][0] = 4
-        // game.desk[2][1] = 8
-        // game.desk[2][2] = 32
-
-        // game.desk[3][0] = 2
-        // game.desk[3][1] = 2
-        // game.desk[3][2] = 4
-        // game.desk[3][3] = 8
-
         renders.renderDesk(game)
         state.score = 0
         break;
@@ -57,9 +45,49 @@ export const handleState = {
         scoreRange.value = value
         break
 
+      case 'nickname':
+        const nickname = document.getElementById('nickname')
+        nickname.innerText = value
+        break
+
       default:
         break;
     }
     return true
   },
+}
+
+export const renderScoreBoard = async () => {
+  const scores = await api.getResults()
+  console.log('renderScoreBoard scores :>> ', scores);
+  if (scores.error) {
+    showMessage(`Server error: ${scores.error}`)
+    return
+  }
+
+  const records = document.getElementById('records')
+  const htmlHeader = `
+    <table>
+    <thead>
+      <th width="70%" class="__align_left">Nick</th>
+      <th width="30%" class="__align_right">Score</th>
+    </thead>
+    <tbody>
+  `
+  const htmlFooter = `
+      </tbody>
+  </table>
+  `
+
+  const htmlTable = scores.data.reduce((html, row) => {
+    return `${html}
+    <tr title="${row.date}">
+      <td class="__align_left">${row.nickname}(${row.city})</td>
+      <td class="__align_right">${row.score}</td>
+    </tr>
+
+    `
+  }, '')
+
+  records.innerHTML = htmlHeader + htmlTable + htmlFooter
 }

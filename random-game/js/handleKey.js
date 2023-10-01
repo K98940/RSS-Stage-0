@@ -1,4 +1,5 @@
 import { state, game } from './state.js'
+import { win } from './win.js'
 
 export const handleKey = ({ code }) => {
 
@@ -157,7 +158,7 @@ export const handleKey = ({ code }) => {
 
   state.score += stepScore
   if (state.score >= state.maxScore) {
-    alert('win !!!')
+    win()
   }
 
 

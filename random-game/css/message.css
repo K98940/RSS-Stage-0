@@ -1,0 +1,75 @@
+.dialog {
+  max-width: 100vw;
+  max-height: 100vh;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  inset: 0;
+
+  border: none;
+  font-family: Roboto, sans-serif;
+
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(1px);
+
+  &::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(0.2rem);
+  }
+}
+
+.dialog__open {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.dialog-conteiner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  width: clamp(200px, 80%, 400px);
+  padding: 1rem;
+
+  color: var(--cell-color-text);
+  background-color: color-mix(in srgb,
+      var(--cell-color-text) 50%,
+      var(--cell-color-bg) 50%);
+  border: 2px solid var(--cell-color-border);
+
+  overflow: hidden;
+
+  & p {
+    margin-bottom: 1rem;
+  }
+
+  & button {
+    padding: 0.5rem 1rem;
+
+    color: var(--cell-color-text);
+    background: linear-gradient(180deg,
+        color-mix(in srgb, var(--cell-color-text) 80%, var(--cell-color-bg) 20%),
+        var(--score-color-bg));
+
+    &:hover {
+      cursor: pointer;
+      filter: brightness(1.1);
+    }
+
+    &:active {
+      filter: brightness(0.8);
+    }
+  }
+
+  & input {
+    display: none;
+    padding: 0.5rem 1rem;
+
+    &::placeholder {
+      opacity: 0.6;
+    }
+  }
+}

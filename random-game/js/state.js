@@ -1,6 +1,7 @@
 import { handleState } from './handleState.js'
 
 const stateObj = {
+  nickname: '',
   gameLevel: 4,
   score: 0,
   maxScore: 2048,
