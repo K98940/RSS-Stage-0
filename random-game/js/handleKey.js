@@ -1,5 +1,6 @@
 import { state, game } from './state.js'
 import { win, loose } from './gameover.js'
+import { boom } from './badaboom.js'
 
 export const handleKey = ({ code }) => {
 
@@ -14,6 +15,7 @@ export const handleKey = ({ code }) => {
           if (isIdenticalCells && cellsMustDie) {
             stepScore += row[col_i]
 
+            boom(cellsMustDie)
             cellsMustDie.remove()
 
             row[col_i + 1] = row[col_i] * 2
@@ -45,6 +47,7 @@ export const handleKey = ({ code }) => {
           if (isIdenticalCells && cellsMustDie) {
             stepScore += row[col_i]
 
+            boom(cellsMustDie)
             cellsMustDie.remove()
 
             row[col_i - 1] = row[col_i] * 2
@@ -78,6 +81,7 @@ export const handleKey = ({ code }) => {
           if (isIdenticalCells) {
             stepScore += desk[row][col]
 
+            boom(cellsMustDie)
             cellsMustDie.remove()
 
             desk[row + 1][col] = desk[row][col] * 2
@@ -110,6 +114,7 @@ export const handleKey = ({ code }) => {
           if (isIdenticalCells) {
             stepScore += desk[row][col]
 
+            boom(cellsMustDie)
             cellsMustDie.remove()
 
             desk[row - 1][col] = desk[row][col] * 2

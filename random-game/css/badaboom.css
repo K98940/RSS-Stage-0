@@ -1,0 +1,28 @@
+.boom-box {
+  position: fixed;
+
+  width: var(--cell-size);
+  height: var(--cell-size);
+
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.spark {
+  display: inline-block;
+  position: fixed;
+
+  width: calc(var(--cell-size) / 4);
+  height: calc(var(--cell-size) / 4);
+
+  /* background-color: hsl(0, 100%, 50%); */
+
+  transition-duration: calc(var(--animation-duration) * 2);
+  transition-timing-function: cubic-bezier(0.25, 0.5, 0.7, 0.9);
+}
+
+.spark-blow {
+  width: 2px;
+  height: 2px;
+  opacity: 0.1;
+}
