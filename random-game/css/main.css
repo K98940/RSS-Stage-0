@@ -142,6 +142,7 @@ body {
 
   transform: rotateY(90deg);
   transition-duration: var(--animation-duration);
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.2);
   overflow: hidden;
 
   &[data-xy^="0"] {

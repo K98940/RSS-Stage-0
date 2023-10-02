@@ -106,10 +106,11 @@ export const loadLocalStorage = () => {
   let ls = localStorage.getItem('RSS-random-game-202310012127')
   if (ls) {
     try {
+      const rangeLevel = document.getElementById('range-level')
       ls = JSON.parse(ls)
       state.nickname = ls.nickname
       state.gameLevel = ls.gameLevel
-      console.log('ls restored :>> ', ls);
+      rangeLevel.value = state.gameLevel
       return true
     } catch (error) {
     }
