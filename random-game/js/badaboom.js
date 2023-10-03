@@ -1,16 +1,26 @@
 import { state } from "./state.js"
 
 export const boom = (element) => {
+  let countSparks = 0
+  try {
+    countSparks = parseInt(element.querySelector('.cell-core').innerText)
+    countSparks = Math.sqrt(countSparks)
+    countSparks = Math.floor(countSparks * 6)
+  } catch (error) {
+    countSparks = 1
+  }
+
+  console.log('countSparks :>> ', countSparks);
+
   const boom = document.getElementById('boom')
   const coord = element.getBoundingClientRect()
-  console.log('coord :>> ', coord);
 
   const boomBox = document.createElement('div')
   boomBox.className = 'boom-box'
   boomBox.style.left = `${coord.left}px`
   boomBox.style.top = `${coord.top}px`
 
-  for (let i = 0; i < 51; i++) {
+  for (let i = 0; i < countSparks; i++) {
     const spark = document.createElement('div')
     spark.className = 'spark'
     boomBox.append(spark)
