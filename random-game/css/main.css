@@ -5,7 +5,7 @@
   --level: 4;
   --animation-duration: 200ms;
 
-  --cell-size: 3rem;
+  --cell-size: 4rem;
   --cell-color-border: rgb(0, 0, 0);
   --cell-color-bg: rgba(187, 255, 0, 0.5);
   --cell-color-text: rgb(255, 255, 255);
@@ -24,14 +24,17 @@
 html {
   width: 100vw;
   height: 100dvh;
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
 }
 
 body {
+  display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  height: 100%;
+  height: 100dvh;
 
   overflow: hidden;
 }
@@ -44,6 +47,8 @@ body {
 
 .game-container {
   flex-direction: column;
+  justify-content: flex-start;
+  flex-grow: 1;
   width: clamp(300px, 90%, 1400px);
   padding: 1rem;
 }
@@ -96,7 +101,8 @@ body {
   display: flex;
   flex-direction: column;
   width: 100%;
-  justify-content: space-between;
+  height: 100%;
+  justify-content: flex-start;
   gap: 1rem;
 }
 
@@ -116,11 +122,12 @@ body {
 }
 
 .records {
+  flex-grow: 1;
   width: 100%;
-  height: calc(4 * var(--cell-size) + calc(var(--cell-size) * 0.15));
-  max-height: 17rem;
+  /* height: calc(4 * var(--cell-size) + calc(var(--cell-size) * 0.15)); */
+  /* max-height: 17rem; */
   padding: 0.5rem;
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
 
   overflow-y: scroll;
   border: 1px solid black;
@@ -256,13 +263,13 @@ th {
   }
 }
 
-@media (min-width: 321px) {
+/* @media (min-width: 321px) {
   :root {
     --cell-size: 3.2rem;
   }
-}
+} */
 
-@media (min-width: 426px) {
+/* @media (min-width: 426px) {
   :root {
     --cell-size: 4rem;
   }
@@ -270,27 +277,32 @@ th {
   .records {
     max-height: 12rem;
   }
-}
+} */
 
 @media (min-width: 769px) {
   :root {
     --cell-size: 5rem;
   }
 
-  .records {
+  /* .records {
     max-height: 6rem;
-  }
+  } */
 }
 
 @media (min-width: 930px) {
+  :root {
+    --cell-size: 6rem;
+  }
+
   .desk-records-container {
     flex-direction: row;
     align-items: flex-start;
   }
 
   .records {
-    max-height: fit-content;
+    height: calc(4 * var(--cell-size) + calc(var(--cell-size) * 0.15));
+    /* max-height: fit-content;
     width: auto;
-    flex: 1 1 auto;
+    flex: 1 1 auto; */
   }
 }
