@@ -21,18 +21,24 @@ export const handleState = {
 
         const label = document.getElementById('range-level-label')
         const inputScore = document.getElementById('input-score')
-        const levelTitles = ['легко', 'просто', 'для тестера']
-        const levelScore = [2048, 1024, 128]
+        const levelTitles = ['игра', 'тестирование']
+        const levelScore = [2048, 256]
         state.maxScore = levelScore[value - 4]
         label.innerText = levelTitles[value - 4]
         inputScore.max = state.maxScore
 
-        const line = Array(value)
+        const line = Array(4)
         const matrix = line.fill(0).reduce(arr => {
 
-          arr.push(Array(value).fill(0))
+          arr.push(Array(4).fill(0))
           return arr
         }, [])
+        // const line = Array(value)
+        // const matrix = line.fill(0).reduce(arr => {
+
+        //   arr.push(Array(value).fill(0))
+        //   return arr
+        // }, [])
         game.desk = matrix
         game.desk[0][0] = 2
         renders.renderDesk(game)

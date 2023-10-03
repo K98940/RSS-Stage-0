@@ -103,8 +103,10 @@ body {
 .desk-container {
   flex-shrink: 0;
   position: relative;
-  width: calc(var(--level) * var(--cell-size) + calc(var(--cell-size) * 0.15));
-  height: calc(var(--level) * var(--cell-size) + calc(var(--cell-size) * 0.15));
+  width: calc(4 * var(--cell-size) + calc(var(--cell-size) * 0.15));
+  height: calc(4 * var(--cell-size) + calc(var(--cell-size) * 0.15));
+  /* width: calc(var(--level) * var(--cell-size) + calc(var(--cell-size) * 0.15));
+  height: calc(var(--level) * var(--cell-size) + calc(var(--cell-size) * 0.15)); */
   /* margin-bottom: 2rem; */
 
   border-top: 3px solid rgb(200, 200, 200);
@@ -115,7 +117,7 @@ body {
 
 .records {
   width: 100%;
-  height: calc(var(--level) * var(--cell-size) + calc(var(--cell-size) * 0.15));
+  height: calc(4 * var(--cell-size) + calc(var(--cell-size) * 0.15));
   max-height: 17rem;
   padding: 0.5rem;
   margin-bottom: 1rem;
