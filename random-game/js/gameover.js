@@ -14,7 +14,7 @@ export const loose = () => {
   api.saveResult()
   state.score = 0
   alert('you loose :)')
-  state.gameLevel
+  state.gameLevel = state.gameLevel
   renderScoreBoard()
 
 }

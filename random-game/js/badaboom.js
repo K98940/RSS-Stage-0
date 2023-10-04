@@ -1,14 +1,17 @@
 import { state } from "./state.js"
 
 export const boom = (element) => {
+  const windowSize = document.body.scrollWidth
   let countSparks = 0
   let countSuperSpark = 0
+  let value = 0
   let sqrt = 0
   let timeQ = 2
 
   try {
-    sqrt = parseInt(element.querySelector('.cell-core').innerText)
-    sqrt = Math.sqrt(sqrt)
+    value = parseInt(element.dataset.value)
+    // value = parseInt(element.querySelector('.cell-core').innerText)
+    sqrt = Math.sqrt(value)
     countSparks = Math.floor(sqrt * 2)
     countSuperSpark = Math.floor(sqrt)
     timeQ += sqrt / 2
@@ -46,13 +49,22 @@ export const boom = (element) => {
     superSpark.style.transitionDuration = `${state.animationDuration * timeQ}ms`
   }
 
+  const points = document.createElement('div')
+  points.className = 'spark flex-center-center points'
+  boomBox.append(points)
+  points.innerText = value
+  points.style.left = `${coord.left}px`
+  points.style.top = `${coord.top}px`
+  points.style.transitionTimingFunction = `cubic-bezier(${getRandomPositive(0.3)}, ${getRandomPositive(0.5)}, ${getRandomPositive(0.7)}, ${getRandomPositive(1)})`
+  points.style.transitionDuration = `${state.animationDuration * 10}ms`
+
   boom.append(boomBox)
 
   const sparks = boomBox.querySelectorAll('.spark')
   setTimeout(() => {
     sparks.forEach(spark => {
-      spark.style.left = `${coord.left + getRandomNegative(300)}px`
-      spark.style.top = `${coord.top + getRandomNegative(300)}px`
+      spark.style.left = `${coord.left + getRandomNegative(windowSize)}px`
+      spark.style.top = `${coord.top + getRandomNegative(windowSize)}px`
       spark.classList.add('spark-blow')
       setTimeout(() => {
         boomBox.remove()

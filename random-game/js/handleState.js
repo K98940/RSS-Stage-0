@@ -22,7 +22,7 @@ export const handleState = {
         const label = document.getElementById('range-level-label')
         const inputScore = document.getElementById('input-score')
         const levelTitles = ['игра', 'тестирование']
-        const levelScore = [2048, 256]
+        const levelScore = [2048, 12]
         state.maxScore = levelScore[value - 4]
         label.innerText = levelTitles[value - 4]
         inputScore.max = state.maxScore
@@ -40,7 +40,7 @@ export const handleState = {
         //   return arr
         // }, [])
         game.desk = matrix
-        game.desk[0][0] = 2
+        game.desk[2][2] = 2
         renders.renderDesk(game)
         state.score = 0
         saveLocalStorage()
@@ -73,6 +73,9 @@ export const renderScoreBoard = async () => {
     return
   }
 
+
+  const lastResult = scores.data.map(r => r.id).sort((a, b) => b - a)[0]
+
   const records = document.getElementById('records')
   const htmlHeader = `
     <table>
@@ -90,9 +93,10 @@ export const renderScoreBoard = async () => {
   const htmlTable = scores.data.reduce((html, row, i) => {
     const isMyNick = row.nickname === state.nickname
     const style = isMyNick ? 'class="score-myscore"' : ''
+    const attribLastResult = lastResult === row.id ? ' data-lastresult="yes"' : ''
 
     return `${html}
-    <tr title="${row.date}" ${style}>
+    <tr title="${row.date}" ${style} ${attribLastResult}>
       <td class="__align_left">${i + 1}. ${row.nickname} (${row.city})</td>
       <td class="__align_right">${row.score}</td>
     </tr>
@@ -101,6 +105,11 @@ export const renderScoreBoard = async () => {
   }, '')
 
   records.innerHTML = htmlHeader + htmlTable + htmlFooter
+
+  const scrollToMyResult = records.querySelector('[data-lastresult]')
+  scrollToMyResult.scrollIntoView(true, {
+    behavior: 'smooth',
+  })
 }
 
 export const saveLocalStorage = () => {

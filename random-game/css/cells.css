@@ -1,0 +1,132 @@
+.cell {
+  --shadow-size-X: 0.4rem;
+  --shadow-size-Y: 0.3rem;
+  --shadow-size-blur: 0.3rem;
+
+  position: absolute;
+  width: 0;
+  height: 0;
+
+  transform: rotateY(90deg);
+  transition-duration: var(--animation-duration);
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.2);
+  /* overflow: hidden; */
+
+  &[data-xy^="0"] {
+    top: 0;
+  }
+
+  &[data-xy^="1"] {
+    top: var(--cell-size);
+  }
+
+  &[data-xy^="2"] {
+    top: calc(var(--cell-size) * 2);
+  }
+
+  &[data-xy^="3"] {
+    top: calc(var(--cell-size) * 3);
+  }
+
+  &[data-xy^="4"] {
+    top: calc(var(--cell-size) * 4);
+  }
+
+  &[data-xy^="5"] {
+    top: calc(var(--cell-size) * 5);
+  }
+
+  &[data-xy^="6"] {
+    top: calc(var(--cell-size) * 6);
+  }
+
+  &[data-xy$="0"] {
+    left: 0;
+  }
+
+  &[data-xy$="1"] {
+    left: var(--cell-size);
+  }
+
+  &[data-xy$="2"] {
+    left: calc(var(--cell-size) * 2);
+  }
+
+  &[data-xy$="3"] {
+    left: calc(var(--cell-size) * 3);
+  }
+
+  &[data-xy$="4"] {
+    left: calc(var(--cell-size) * 4);
+  }
+
+  &[data-xy$="5"] {
+    left: calc(var(--cell-size) * 5);
+  }
+
+  &[data-xy$="6"] {
+    left: calc(var(--cell-size) * 6);
+  }
+
+  &[data-value="2"] .cell-core {
+    background-image: url("../assets/stones/2.png");
+    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(0, 0, 0, 0.554));
+  }
+
+  &[data-value="4"] .cell-core {
+    background-image: url("../assets/stones/4.png");
+    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(0, 0, 134, 0.514));
+  }
+
+  &[data-value="8"] .cell-core {
+    background-image: url("../assets/stones/8.png");
+    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(0, 0, 153, 0.485));
+  }
+
+  &[data-value="16"] .cell-core {
+    background-image: url("../assets/stones/16.png");
+    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(13, 153, 0, 0.485));
+  }
+
+  &[data-value="32"] .cell-core {
+    background-image: url("../assets/stones/32.png");
+    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(228, 209, 2, 0.485));
+  }
+
+  & .cell-core {
+    width: calc(var(--cell-size) * 0.8);
+    height: calc(var(--cell-size) * 0.8);
+
+    color: var(--cell-color-text);
+
+    border: none;
+    background-color: transparent;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: linear-gradient(var(--cell-color-bg), var(--cell-color-border));
+    filter: drop-shadow(0.5rem 0.5rem 0.2rem black);
+  }
+}
+
+.cell_new {
+  animation: revealNewCell;
+  animation-timing-function: cubic-bezier();
+  animation-duration: calc(var(--animation-duration) / 2);
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes revealNewCell {
+  0% {
+    width: 0;
+    height: var(--cell-size);
+  }
+
+  100% {
+    width: var(--cell-size);
+    height: var(--cell-size);
+
+    transform: rotateY(0deg);
+  }
+}

@@ -20,7 +20,8 @@ export const handleKey = ({ code }) => {
 
             row[col_i + 1] = row[col_i] * 2
             row[col_i] = 0
-            div.firstElementChild.innerText = row[col_i + 1]
+            // div.firstElementChild.innerText = row[col_i + 1]
+            div.setAttribute('data-value', row[col_i + 1])
             isTurnComplete = true
 
           } else if (row[col_i + 1] === 0) {
@@ -52,7 +53,8 @@ export const handleKey = ({ code }) => {
 
             row[col_i - 1] = row[col_i] * 2
             row[col_i] = 0
-            div.firstElementChild.innerText = row[col_i - 1]
+            // div.firstElementChild.innerText = row[col_i - 1]
+            div.setAttribute('data-value', row[col_i - 1])
             isTurnComplete = true
 
           } else if (row[col_i - 1] === 0) {
@@ -85,7 +87,8 @@ export const handleKey = ({ code }) => {
             cellsMustDie.remove()
 
             desk[row + 1][col] = desk[row][col] * 2
-            div.firstElementChild.innerText = desk[row + 1][col]
+            // div.firstElementChild.innerText = desk[row + 1][col]
+            div.setAttribute('data-value', desk[row + 1][col])
             desk[row][col] = 0
             isTurnComplete = true
 
@@ -118,7 +121,8 @@ export const handleKey = ({ code }) => {
             cellsMustDie.remove()
 
             desk[row - 1][col] = desk[row][col] * 2
-            div.firstElementChild.innerText = desk[row - 1][col]
+            // div.firstElementChild.innerText = desk[row - 1][col]
+            div.setAttribute('data-value', desk[row - 1][col])
             desk[row][col] = 0
             isTurnComplete = true
 
@@ -202,9 +206,9 @@ const addCell = (strIndex) => {
     const cell = document.createElement('div')
     cell.className = `cell flex-center-center`
     cell.setAttribute('data-xy', `${row}${col}`)
+    cell.setAttribute('data-value', NEW_VALUE)
     cell.innerHTML = `
         <div class="cell-core flex-center-center">
-          ${NEW_VALUE}
         </div>
     `
     deskContainer.insertAdjacentElement('afterbegin', cell)
