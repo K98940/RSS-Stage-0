@@ -105,13 +105,32 @@ body {
 }
 
 .nickname {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
   font-size: 1.5rem;
   font-weight: 700;
-  text-transform: capitalize;
   color: var(--cell-color-border);
 
   overflow: hidden;
   text-overflow: ellipsis;
+
+  & button {
+    width: 1rem;
+    height: 1rem;
+
+    border: none;
+    background-image: url("../assets/icons/change-name.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: white;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }
 
 .border {

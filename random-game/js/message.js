@@ -8,6 +8,7 @@ export const showMessage = (msg, form = false) => {
   const inputNickname = document.getElementById('input-nickname')
 
   if (form) {
+    inputNickname.value = state.nickname
     inputNickname.style.display = 'inline-block'
     inputNickname.focus()
     dialog.addEventListener('cancel', handleDialog)

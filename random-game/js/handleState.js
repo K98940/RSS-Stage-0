@@ -58,6 +58,7 @@ export const handleState = {
 
       case 'nickname':
         renderScoreBoard()
+        saveLocalStorage()
         break
 
       default:
@@ -81,7 +82,10 @@ export const renderScoreBoard = async () => {
   const htmlHeader = `
     <table>
     <thead class="thead bg-white-blur">
-      <th width="80%" class="__align_left nickname">${state.nickname}</th>
+      <th width="80%" class="__align_left nickname">
+        <button id="btn-change-name"></button>
+        ${state.nickname}
+      </th>
       <th width="20%" class="__align_right">Score</th>
     </thead>
     <tbody>
@@ -106,6 +110,10 @@ export const renderScoreBoard = async () => {
   }, '')
 
   records.innerHTML = htmlHeader + htmlTable + htmlFooter
+  const btnChangeName = document.getElementById('btn-change-name')
+  btnChangeName.addEventListener('click', () => {
+    showMessage('Вы можете изменить своё имя. Выбирайте имя мудро!', true)
+  })
 
   const scrollToMyResult = records.querySelector('[data-lastresult]')
   scrollToMyResult.scrollIntoView(true, {
