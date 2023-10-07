@@ -3,6 +3,7 @@ import { handleState } from './handleState.js'
 const stateObj = {
   nickname: '',
   gameLevel: 4,
+  level: 0,
   score: 0,
   maxScore: 2048,
   cellSize: '3',

@@ -10,7 +10,6 @@ export const boom = (element) => {
 
   try {
     value = parseInt(element.dataset.value)
-    // value = parseInt(element.querySelector('.cell-core').innerText)
     sqrt = Math.sqrt(value)
     countSparks = Math.floor(sqrt * 2)
     countSuperSpark = Math.floor(sqrt)

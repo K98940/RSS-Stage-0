@@ -170,10 +170,7 @@ export const handleKey = ({ code }) => {
     win()
   }
 
-
-  // deleteDiedCells()
   if (isTurnComplete) addCell(getRandomIndex())
-  // test()
 
   setTimeout(() => {
     window.addEventListener('keydown', handleKey)
@@ -207,6 +204,7 @@ const addCell = (strIndex) => {
     cell.className = `cell flex-center-center`
     cell.setAttribute('data-xy', `${row}${col}`)
     cell.setAttribute('data-value', NEW_VALUE)
+    cell.setAttribute('data-level', state.level)
     cell.innerHTML = `
         <div class="cell-core flex-center-center">
         </div>
@@ -219,23 +217,3 @@ const addCell = (strIndex) => {
   }
   loose()
 }
-
-// const test = () => {
-//   const test = document.getElementById('test')
-//   const arr = game.desk.reduce((str, row, r) => {
-//     return str + `<p>${row.reduce((spans, el, c) => {
-//       const cell = document.querySelector(`[data-xy="${r}${c}"]`)
-//       let color = el === parseInt(cell?.innerText)
-//         ? `; color: green`
-//         : `; color: red; backgroundColor: orange`
-//       color = el ? color : `; color: black`
-//       const style = `display: inline-block`
-//       return `${spans}<span style="${style}${color}">${el}</span>`
-//     }, '')}</p>`
-//   }, '')
-//   test.innerHTML = arr
-// }
-
-// const handleKeyUp = () => {
-//   window.addEventListener('keydown', handleKey)
-// }

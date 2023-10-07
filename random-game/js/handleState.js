@@ -21,7 +21,7 @@ export const handleState = {
 
         const label = document.getElementById('range-level-label')
         const inputScore = document.getElementById('input-score')
-        const levelTitles = ['игра', 'тестирование']
+        const levelTitles = ['игра', 'тест']
         const levelScore = [2048, 12]
         state.maxScore = levelScore[value - 4]
         label.innerText = levelTitles[value - 4]
@@ -33,14 +33,17 @@ export const handleState = {
           arr.push(Array(4).fill(0))
           return arr
         }, [])
-        // const line = Array(value)
-        // const matrix = line.fill(0).reduce(arr => {
-
-        //   arr.push(Array(value).fill(0))
-        //   return arr
-        // }, [])
         game.desk = matrix
-        game.desk[2][2] = 2
+        game.desk[0][0] = 2
+        // game.desk[0][1] = 4
+        // game.desk[0][2] = 8
+        // game.desk[0][3] = 16
+        // game.desk[1][0] = 32
+        // game.desk[1][1] = 64
+        // game.desk[1][2] = 128
+        // game.desk[1][3] = 256
+        // game.desk[2][0] = 512
+        // game.desk[2][1] = 1024
         renders.renderDesk(game)
         state.score = 0
         saveLocalStorage()
@@ -54,8 +57,6 @@ export const handleState = {
         break
 
       case 'nickname':
-        const nickname = document.getElementById('nickname')
-        nickname.innerText = value
         renderScoreBoard()
         break
 
@@ -80,8 +81,8 @@ export const renderScoreBoard = async () => {
   const htmlHeader = `
     <table>
     <thead>
-      <th width="70%" class="__align_left">Nick</th>
-      <th width="30%" class="__align_right">Score</th>
+      <th width="80%" class="__align_left nickname">${state.nickname}</th>
+      <th width="20%" class="__align_right">Score</th>
     </thead>
     <tbody>
   `
@@ -128,6 +129,7 @@ export const loadLocalStorage = () => {
       rangeLevel.value = state.gameLevel
       return true
     } catch (error) {
+      console.log('error loadLocalStorage :>> ', error);
     }
     return false
   }

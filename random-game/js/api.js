@@ -9,10 +9,7 @@ export const getResults = async () => {
         'content-type': 'application/x-www-form-urlencoded; charset=utf-8',
       },
       method: 'POST',
-      body: JSON.stringify({
-        nickname: state.nickname,
-        score: state.score,
-      })
+      body: `nickname=${state.nickname}&score=${state.score}`,
     })
 
     if (!response.ok) {

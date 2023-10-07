@@ -1,7 +1,8 @@
 .cell {
-  --shadow-size-X: 0.4rem;
-  --shadow-size-Y: 0.3rem;
+  --shadow-size-X: 0.6rem;
+  --shadow-size-Y: 0.4rem;
   --shadow-size-blur: 0.3rem;
+  --shadow-opacity: 0.7;
 
   position: absolute;
   width: 0;
@@ -10,7 +11,6 @@
   transform: rotateY(90deg);
   transition-duration: var(--animation-duration);
   transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.2);
-  /* overflow: hidden; */
 
   &[data-xy^="0"] {
     top: 0;
@@ -68,30 +68,125 @@
     left: calc(var(--cell-size) * 6);
   }
 
-  &[data-value="2"] .cell-core {
-    background-image: url("../assets/stones/2.png");
-    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(0, 0, 0, 0.554));
+  &[data-value="2"][data-level="0"] .cell-core {
+    background-image: url("../assets/stones/0/2.png");
+    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(0, 0, 0, var(--shadow-opacity)));
   }
 
-  &[data-value="4"] .cell-core {
-    background-image: url("../assets/stones/4.png");
-    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(0, 0, 134, 0.514));
+  &[data-value="2"][data-level="1"] .cell-core {
+    background-image: url("../assets/stones/1/2.png");
+    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(160, 170, 170, var(--shadow-opacity)));
   }
 
-  &[data-value="8"] .cell-core {
-    background-image: url("../assets/stones/8.png");
-    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(0, 0, 153, 0.485));
+
+
+  &[data-value="4"][data-level="0"] .cell-core {
+    background-image: url("../assets/stones/0/4.png");
+    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(200, 140, 220, var(--shadow-opacity)));
   }
 
-  &[data-value="16"] .cell-core {
-    background-image: url("../assets/stones/16.png");
-    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(13, 153, 0, 0.485));
+  &[data-value="4"][data-level="1"] .cell-core {
+    background-image: url("../assets/stones/1/4.png");
+    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(255, 200, 190, var(--shadow-opacity)));
   }
 
-  &[data-value="32"] .cell-core {
-    background-image: url("../assets/stones/32.png");
-    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(228, 209, 2, 0.485));
+
+
+  &[data-value="8"][data-level="0"] .cell-core {
+    background-image: url("../assets/stones/0/8.png");
+    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(190, 110, 20, var(--shadow-opacity)));
   }
+
+  &[data-value="8"][data-level="1"] .cell-core {
+    background-image: url("../assets/stones/1/8.png");
+    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(255, 130, 90, var(--shadow-opacity)));
+  }
+
+
+
+  &[data-value="16"][data-level="0"] .cell-core {
+    background-image: url("../assets/stones/0/16.png");
+    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(100, 30, 0, var(--shadow-opacity)));
+  }
+
+  &[data-value="16"][data-level="1"] .cell-core {
+    background-image: url("../assets/stones/1/16.png");
+    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(250, 210, 170, var(--shadow-opacity)));
+  }
+
+
+
+  &[data-value="32"][data-level="0"] .cell-core {
+    background-image: url("../assets/stones/0/32.png");
+    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(0, 160, 200, var(--shadow-opacity)));
+  }
+
+  &[data-value="32"][data-level="1"] .cell-core {
+    background-image: url("../assets/stones/1/32.png");
+    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(240, 190, 230, var(--shadow-opacity)));
+  }
+
+
+
+  &[data-value="64"][data-level="0"] .cell-core {
+    background-image: url("../assets/stones/0/64.png");
+    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(160, 220, 30, var(--shadow-opacity)));
+  }
+
+  &[data-value="64"][data-level="1"] .cell-core {
+    background-image: url("../assets/stones/1/64.png");
+    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(120, 120, 120, var(--shadow-opacity)));
+  }
+
+
+
+  &[data-value="128"][data-level="0"] .cell-core {
+    background-image: url("../assets/stones/0/128.png");
+    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(240, 140, 210, var(--shadow-opacity)));
+  }
+
+  &[data-value="128"][data-level="1"] .cell-core {
+    background-image: url("../assets/stones/1/128.png");
+    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(209, 100, 40, var(--shadow-opacity)));
+  }
+
+
+
+  &[data-value="256"][data-level="0"] .cell-core {
+    background-image: url("../assets/stones/0/256.png");
+    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(250, 190, 40, var(--shadow-opacity)));
+  }
+
+  &[data-value="256"][data-level="1"] .cell-core {
+    background-image: url("../assets/stones/1/256.png");
+    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(60, 60, 100, var(--shadow-opacity)));
+  }
+
+
+
+  &[data-value="512"][data-level="0"] .cell-core {
+    background-image: url("../assets/stones/0/512.png");
+    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(200, 50, 80, var(--shadow-opacity)));
+  }
+
+  &[data-value="512"][data-level="1"] .cell-core {
+    background-image: url("../assets/stones/1/512.png");
+    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(110, 75, 50, var(--shadow-opacity)));
+  }
+
+
+
+  &[data-value="1024"][data-level="0"] .cell-core {
+    background-image: url("../assets/stones/0/1024.png");
+    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(90, 220, 230, var(--shadow-opacity)));
+  }
+
+  &[data-value="1024"][data-level="1"] .cell-core {
+    background-image: url("../assets/stones/1/1024.png");
+    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(255, 160, 60, var(--shadow-opacity)));
+  }
+
+
 
   & .cell-core {
     width: calc(var(--cell-size) * 0.8);
@@ -105,7 +200,6 @@
     background-repeat: no-repeat;
     background-size: contain;
     background-image: linear-gradient(var(--cell-color-bg), var(--cell-color-border));
-    filter: drop-shadow(0.5rem 0.5rem 0.2rem black);
   }
 }
 

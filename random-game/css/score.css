@@ -1,0 +1,26 @@
+.score {
+  flex: 0 0 3rem;
+  width: 100%;
+  justify-content: space-between;
+
+  color: var(--cell-color-border);
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  gap: 1rem;
+
+  & input {
+    flex: 1 1 auto;
+  }
+}
+
+.score-myscore {
+  background-color: var(--score-color-myscore);
+  color: var(--records-color-text);
+
+  &[data-lastresult] {
+    color: var(--records-color-text);
+    font-weight: 700;
+    background-color: var(--score-color-lastresult);
+  }
+}
