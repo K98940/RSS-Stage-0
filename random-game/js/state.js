@@ -1,7 +1,7 @@
 import { handleState } from './handleState.js'
 
 const stateObj = {
-  nickname: '',
+  nickname: 'anonymous',
   gameLevel: 4,
   level: 0,
   score: 0,

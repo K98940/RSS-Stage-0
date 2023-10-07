@@ -80,7 +80,7 @@ export const renderScoreBoard = async () => {
   const records = document.getElementById('records')
   const htmlHeader = `
     <table>
-    <thead>
+    <thead class="thead bg-white-blur">
       <th width="80%" class="__align_left nickname">${state.nickname}</th>
       <th width="20%" class="__align_right">Score</th>
     </thead>
