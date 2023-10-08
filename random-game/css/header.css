@@ -1,15 +1,24 @@
-.range-container {
+header {
   display: flex;
+  flex: 0 0 3rem;
   width: 100%;
 
-  justify-content: center;
-  align-items: center;
+  font-weight: 700;
+  background-color: rgba(var(--color-bg), 0.9);
+  border-bottom: var(--wide-borders) solid var(--cell-color-border);
+}
+
+.hint-container {
+  flex: 0 0 auto;
+  gap: 0.5rem;
+}
+
+.range-container {
+  flex: 0 0 auto;
   gap: 0.5rem;
   padding: 0.5rem 1rem 0.5rem;
 
   color: var(--color-text);
-  background-color: rgba(var(--color-bg), 0.95);
-  border-bottom: var(--wide-borders) solid var(--cell-color-border);
 
   & input {
     flex: 0 0 5rem;

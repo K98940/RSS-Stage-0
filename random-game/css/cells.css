@@ -189,10 +189,18 @@
 
 
   & .cell-core {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
     width: calc(var(--cell-size) * 0.8);
     height: calc(var(--cell-size) * 0.8);
 
-    color: var(--cell-color-text);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-bg);
+
+    padding-right: 1rem;
+    /* padding-bottom: 1rem; */
 
     border: none;
     background-color: transparent;

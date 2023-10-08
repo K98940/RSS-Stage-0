@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/main.css">
+  <link rel="shortcut icon" href="./assets/icons/favicon.png" type="image/x-icon">
   <title>random-game</title>
 </head>
 
@@ -19,20 +20,28 @@
     </div>
   </dialog>
 
-  <div class="range-container">
-    <div class="range-icon">
-      <img src="./assets/icons/game-controller.png" id="select-mode-game" alt="game-controller-icon">
+  <header>
+    <div class="container">
+      <div class="hint-container flex-center-center">
+        <label for="hint" title="Показывать подсказки с цифровым значением">подсказки</label>
+        <input type="checkbox" name="" id="hint">
+      </div>
+      <div class="range-container flex-center-center">
+        <div class="range-icon">
+          <img src="./assets/icons/game-controller.png" id="select-mode-game" alt="game-controller-icon">
+        </div>
+        <label for="range-level" id="range-level-label">4</label>
+        <input type="range" id="range-level" list="range-markers" min="4" max="5" step="1" value="4">
+        <datalist id="range-markers">
+          <option value="5">
+          <option value="4">
+        </datalist>
+        <div class="range-icon">
+          <img src="./assets/icons/test.png" alt="test-icon">
+        </div>
+      </div>
     </div>
-    <label for="range-level" id="range-level-label">4</label>
-    <input type="range" id="range-level" list="range-markers" min="4" max="5" step="1" value="4">
-    <datalist id="range-markers">
-      <option value="5">
-      <option value="4">
-    </datalist>
-    <div class="range-icon">
-      <img src="./assets/icons/test.png" alt="test-icon">
-    </div>
-  </div>
+  </header>
 
   <div class="game-container flex-center-center">
 
@@ -55,7 +64,7 @@
   </div>
 
   <footer>
-    <div class="footer-container">
+    <div class="container">
       <div class="footer-item flex-center-center">
         <a href="https://github.com/K98940" target="_blank">K98940</a>
       </div>

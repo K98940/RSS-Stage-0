@@ -57,6 +57,27 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 
+  --spark-bg-points-2: rgba(0, 0, 0, 0.6);
+  --spark-color-points-2: rgba(255, 255, 255);
+  --spark-bg-points-4: rgba(255, 200, 190, 0.7);
+  --spark-color-points-4: rgba(0, 0, 0);
+  --spark-bg-points-8: rgba(255, 130, 90, 0.7);
+  --spark-color-points-8: rgba(0, 0, 0);
+  --spark-bg-points-16: rgba(250, 210, 170, 0.7);
+  --spark-color-points-16: rgba(0, 0, 0);
+  --spark-bg-points-32: rgba(240, 190, 230, 0.7);
+  --spark-color-points-32: rgba(0, 0, 0);
+  --spark-bg-points-64: rgba(120, 120, 120, 0.7);
+  --spark-color-points-64: rgb(246, 255, 0);
+  --spark-bg-points-128: rgba(209, 100, 40, 0.7);
+  --spark-color-points-128: rgba(255, 255, 255);
+  --spark-bg-points-256: rgba(60, 60, 100, 0.7);
+  --spark-color-points-256: rgb(231, 255, 126);
+  --spark-bg-points-512: rgba(110, 75, 50, 0.7);
+  --spark-color-points-512: rgb(255, 187, 187);
+  --spark-bg-points-1024: rgba(255, 160, 60, 0.7);
+  --spark-color-points-1024: rgba(0, 0, 0);
+
   --color-dialog-text: rgb(255, 255, 255);
   --color-bg: 194, 162, 123;
   --color-text: rgb(0, 0, 0);
@@ -69,6 +90,27 @@ body {
   --rss-logo-hover: url("../assets/icons/rss-logo-hover-1.png");
 
   &[level="0"] {
+    --spark-bg-points-2: rgba(0, 0, 0, 0.6);
+    --spark-color-points-2: rgba(255, 255, 255);
+    --spark-bg-points-4: rgba(200, 140, 220, 0.7);
+    --spark-color-points-4: rgba(0, 0, 0);
+    --spark-bg-points-8: rgba(190, 110, 20, 0.7);
+    --spark-color-points-8: rgba(0, 0, 0);
+    --spark-bg-points-16: rgba(100, 30, 0, 0.7);
+    --spark-color-points-16: rgba(255, 255, 255);
+    --spark-bg-points-32: rgba(0, 160, 200, 0.7);
+    --spark-color-points-32: rgba(0, 0, 255);
+    --spark-bg-points-64: rgba(160, 220, 30, 0.7);
+    --spark-color-points-64: rgba(0, 0, 0);
+    --spark-bg-points-128: rgba(240, 140, 210, 0.7);
+    --spark-color-points-128: rgba(0, 0, 0);
+    --spark-bg-points-256: rgba(250, 190, 40, 0.7);
+    --spark-color-points-256: rgba(0, 0, 0);
+    --spark-bg-points-512: rgba(200, 50, 80, 0.7);
+    --spark-color-points-512: rgba(255, 255, 255);
+    --spark-bg-points-1024: rgba(90, 220, 230, 0.7);
+    --spark-color-points-1024: rgba(0, 0, 0);
+
     --color-bg: 51, 66, 87;
     --color-text: rgb(255, 255, 255);
     --color-text-hover: rgb(255, 188, 199);
@@ -92,6 +134,18 @@ body {
 .bg-white-blur {
   background-color: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(2px);
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+
+
+  max-width: var(--max-width-container);
+  margin: 0 auto;
+  padding: 0.25rem 1rem 0.25rem;
 }
 
 .game-container {

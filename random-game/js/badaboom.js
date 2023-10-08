@@ -35,7 +35,7 @@ export const boom = (element) => {
     spark.style.left = `${coord.left}px`
     spark.style.top = `${coord.top}px`
     spark.style.backgroundColor = `hsl(${getRandomNegative(300)}, 100%, 50%)`
-    spark.style.transitionDuration = `${state.animationDuration * timeQ}ms`
+    spark.style.transitionDuration = `${state.animationDuration * timeQ * 2}ms`
   }
 
   for (let i = 0; i < countSuperSpark; i++) {
@@ -45,17 +45,18 @@ export const boom = (element) => {
     superSpark.style.left = `${coord.left}px`
     superSpark.style.top = `${coord.top}px`
     superSpark.style.transitionTimingFunction = `cubic-bezier(${getRandomPositive(0.3)}, ${getRandomPositive(0.5)}, ${getRandomPositive(0.7)}, ${getRandomPositive(1)})`
-    superSpark.style.transitionDuration = `${state.animationDuration * timeQ}ms`
+    superSpark.style.transitionDuration = `${state.animationDuration * timeQ * 3}ms`
   }
 
   const points = document.createElement('div')
   points.className = 'spark flex-center-center points'
   boomBox.append(points)
   points.innerText = value
+  points.setAttribute('value', value)
   points.style.left = `${coord.left}px`
   points.style.top = `${coord.top}px`
   points.style.transitionTimingFunction = `cubic-bezier(${getRandomPositive(0.3)}, ${getRandomPositive(0.5)}, ${getRandomPositive(0.7)}, ${getRandomPositive(1)})`
-  points.style.transitionDuration = `${state.animationDuration * 10}ms`
+  points.style.transitionDuration = `${state.animationDuration * 20}ms`
 
   boom.append(boomBox)
 
@@ -67,7 +68,7 @@ export const boom = (element) => {
       spark.classList.add('spark-blow')
       setTimeout(() => {
         boomBox.remove()
-      }, state.animationDuration * timeQ)
+      }, state.animationDuration * timeQ * 2)
     })
   }, 0)
 }

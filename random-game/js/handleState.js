@@ -35,7 +35,7 @@ export const handleState = {
         }, [])
         game.desk = matrix
         game.desk[0][0] = 2
-        // game.desk[0][1] = 4
+        // game.desk[0][1] = 1024
         // game.desk[0][2] = 8
         // game.desk[0][3] = 16
         // game.desk[1][0] = 32
@@ -59,6 +59,10 @@ export const handleState = {
       case 'nickname':
         renderScoreBoard()
         saveLocalStorage()
+        break
+
+      case 'hint':
+        renders.renderDesk(game)
         break
 
       default:

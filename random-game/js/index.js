@@ -4,6 +4,7 @@ import { showMessage } from './message.js'
 import { loadLocalStorage } from './handleState.js'
 
 const rangeLevel = document.getElementById('range-level')
+const hint = document.getElementById('hint')
 document.body.style.setProperty('--animation-duration', `${state.animationDuration}ms`)
 document.body.style.setProperty('--level', state.gameLevel)
 
@@ -25,3 +26,4 @@ const init = () => {
 
 window.onload = init()
 window.addEventListener('keydown', handleKey)
+hint.addEventListener('change', () => { state.hint = hint.checked })
