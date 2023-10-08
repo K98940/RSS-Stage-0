@@ -12,6 +12,34 @@ header {
 .hint-container {
   flex: 0 0 auto;
   gap: 0.5rem;
+  color: var(--color-text-hint);
+
+  & #hint {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+
+    &:checked+label {
+      filter: drop-shadow(0 0 0.5rem yellow);
+      background-image: url("../assets/icons/1-lamp-on.png");
+    }
+  }
+
+  & label {
+    width: 2rem;
+    height: 2rem;
+    padding: 1rem 1.5rem;
+    background-image: url("../assets/icons/1-lamp-off.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transition-duration: var(--animation-duration);
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
 }
 
 .range-container {

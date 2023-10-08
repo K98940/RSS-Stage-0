@@ -43,3 +43,24 @@
   top: 2px;
   transform: translateY(-2px);
 }
+
+.test_score {
+  animation-name: test_score;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes test_score {
+  0% {
+    filter: drop-shadow(0 0 0 red);
+  }
+
+  80% {
+    filter: drop-shadow(0 0 0 red);
+  }
+
+  100% {
+    filter: drop-shadow(0 0 0.8rem red);
+  }
+}

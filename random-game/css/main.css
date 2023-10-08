@@ -82,6 +82,8 @@ body {
   --color-bg: 194, 162, 123;
   --color-text: rgb(0, 0, 0);
   --color-text-hover: rgb(255, 253, 232);
+  --color-text-hint-checked: rgb(255, 255, 255);
+  --color-text-hint: rgb(200, 200, 200);
 
   --score-color-myscore: rgba(239, 219, 169, 0.25);
   --score-color-lastresult: rgba(220, 145, 52, 0.5);
@@ -277,5 +279,12 @@ th {
 @media (min-width: 1200px) {
   :root {
     --cell-size: 8rem;
+  }
+
+  .cell {
+    & .cell-core {
+      font-size: 1.3rem;
+      padding-right: 1rem;
+    }
   }
 }
