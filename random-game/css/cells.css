@@ -219,6 +219,12 @@
   animation-fill-mode: forwards;
 }
 
+.cell_exist {
+  width: var(--cell-size);
+  height: var(--cell-size);
+  transform: rotateY(0deg);
+}
+
 @keyframes revealNewCell {
   0% {
     width: 0;
@@ -228,7 +234,6 @@
   100% {
     width: var(--cell-size);
     height: var(--cell-size);
-
     transform: rotateY(0deg);
   }
 }

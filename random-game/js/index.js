@@ -3,6 +3,8 @@ import { handleKey } from './handleKey.js'
 import { showMessage } from './message.js'
 import { loadLocalStorage } from './handleState.js'
 
+const randomLevel = Math.floor(Math.random() * 1.9)
+state.level = randomLevel
 const rangeLevel = document.getElementById('range-level')
 const hint = document.getElementById('hint')
 document.body.style.setProperty('--animation-duration', `${state.animationDuration}ms`)
@@ -26,4 +28,7 @@ const init = () => {
 
 window.onload = init()
 window.addEventListener('keydown', handleKey)
-hint.addEventListener('change', () => { state.hint = hint.checked })
+hint.addEventListener('change', () => {
+  state.hint = hint.checked
+  document.querySelector('.desk-container').focus()
+})

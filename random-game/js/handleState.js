@@ -44,7 +44,7 @@ export const handleState = {
         // game.desk[1][3] = 256
         // game.desk[2][0] = 512
         // game.desk[2][1] = 1024
-        renders.renderDesk(game)
+        renders.renderDesk()
         state.score = 0
         saveLocalStorage()
         break;
@@ -62,7 +62,7 @@ export const handleState = {
         break
 
       case 'hint':
-        renders.renderDesk(game)
+        renders.renderDesk()
         break
 
       default:

@@ -68,7 +68,7 @@ export const boom = (element) => {
       spark.classList.add('spark-blow')
       setTimeout(() => {
         boomBox.remove()
-      }, state.animationDuration * timeQ * 2)
+      }, state.animationDuration * timeQ)
     })
   }, 0)
 }

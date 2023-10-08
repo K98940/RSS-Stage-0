@@ -193,6 +193,16 @@ body {
   border-right: var(--wide-borders) solid rgb(var(--color-borders-base));
   border-bottom: var(--wide-borders) solid rgb(var(--color-borders-base));
   border-left: var(--wide-borders) solid rgba(var(--color-borders-base), 0.3);
+
+  &:focus-visible,
+  :focus {
+    border-radius: 0.5rem;
+    border-top: var(--wide-borders) solid rgba(var(--color-borders-base), 0.3);
+    border-right: var(--wide-borders) solid rgb(var(--color-borders-base));
+    border-bottom: var(--wide-borders) solid rgb(var(--color-borders-base));
+    border-left: var(--wide-borders) solid rgba(var(--color-borders-base), 0.3);
+    outline: none;
+  }
 }
 
 #range-level {
