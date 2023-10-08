@@ -165,12 +165,12 @@ export const handleKey = ({ code }) => {
       break;
   }
 
+  if (isTurnComplete) addCell(getRandomIndex())
+
   state.score += stepScore
   if (state.score >= state.maxScore) {
     win()
   }
-
-  if (isTurnComplete) addCell(getRandomIndex())
 
   setTimeout(() => {
     window.addEventListener('keydown', handleKey)

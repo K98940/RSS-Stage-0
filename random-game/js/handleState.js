@@ -22,7 +22,7 @@ export const handleState = {
         const label = document.getElementById('range-level-label')
         const inputScore = document.getElementById('input-score')
         const levelTitles = ['игра', 'тест']
-        const levelScore = [2048, 64]
+        const levelScore = [2048, 16]
         state.maxScore = levelScore[value - 4]
         label.innerText = levelTitles[value - 4]
         inputScore.max = state.maxScore
@@ -51,7 +51,7 @@ export const handleState = {
 
       case 'score':
         const scoreLabel = document.querySelector('.score>label')
-        const scoreRange = document.querySelector('.score>input')
+        const scoreRange = document.getElementById('input-score')
         const scoreMax = document.getElementById('score-max')
         scoreLabel.innerText = value
         scoreRange.value = value

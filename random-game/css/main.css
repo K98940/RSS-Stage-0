@@ -85,9 +85,14 @@ body {
   --color-text-hint-checked: rgb(255, 255, 255);
   --color-text-hint: rgb(200, 200, 200);
 
+  --score-color-right: rgb(240, 220, 170);
+  --score-color-left-1: rgb(180, 160, 110);
+  --score-color-left-2: rgb(210, 190, 140);
+
   --score-color-myscore: rgba(239, 219, 169, 0.25);
   --score-color-lastresult: rgba(220, 145, 52, 0.5);
 
+  --thumb-logo: url("../assets/stones/1/4.png");
   --rss-logo: url("../assets/icons/rss-logo-1.png");
   --rss-logo-hover: url("../assets/icons/rss-logo-hover-1.png");
 
@@ -117,9 +122,14 @@ body {
     --color-text: rgb(255, 255, 255);
     --color-text-hover: rgb(255, 188, 199);
 
+    --score-color-right: rgb(160, 170, 200);
+    --score-color-left-1: rgb(100, 110, 140);
+    --score-color-left-2: rgb(130, 140, 170);
+
     --score-color-myscore: rgba(211, 191, 255, 0.25);
     --score-color-lastresult: rgba(211, 191, 255, 0.7);
 
+    --thumb-logo: url("../assets/stones/0/1024.png");
     --rss-logo: url("../assets/icons/rss-logo-0.png");
     --rss-logo-hover: url("../assets/icons/rss-logo-hover-0.png");
 

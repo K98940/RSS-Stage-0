@@ -48,7 +48,10 @@
 
     <div class="score border flex-center-center bg-white-blur">
       <label for="input-score">0</label>
-      <input type="range" id="input-score" value="0" min="0" max="100" disabled>
+      <div class="wrapper-score">
+        <input type="range" id="input-score" value="0" min="0" max="100" disabled>
+        <div class="fill"></div>
+      </div>
       <span id="score-max"></span>
     </div>
 

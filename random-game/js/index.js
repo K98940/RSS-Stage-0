@@ -32,3 +32,6 @@ hint.addEventListener('change', () => {
   state.hint = hint.checked
   document.querySelector('.desk-container').focus()
 })
+
+// ДОБАВИТЬ ОБРАБОТКУ ЗАВЕРШЕНИЯ ИГРЫ
+// ДОБАВИТЬ ПОДДЕРЖКУ ТАЧПАДА
