@@ -62,6 +62,7 @@ export const handleState = {
         break
 
       case 'hint':
+        saveLocalStorage()
         renders.renderDesk()
         break
 
@@ -139,6 +140,9 @@ export const loadLocalStorage = () => {
       state.nickname = ls.nickname
       state.gameLevel = ls.gameLevel
       rangeLevel.value = state.gameLevel
+      state.hint = ls.hint
+      const hint = document.getElementById('hint')
+      hint.checked = state.hint
       return true
     } catch (error) {
       console.log('error loadLocalStorage :>> ', error);
