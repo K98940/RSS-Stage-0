@@ -1,22 +1,14 @@
 import * as api from './api.js'
-import { renderScoreBoard } from './handleState.js'
-import { state } from './state.js'
-
-const resetGame = () => {
-  state.score = 0
-  state.gameLevel = state.gameLevel
-  renderScoreBoard()
-
-}
+import { showWinMessage } from './message.js'
 
 export const win = () => {
   api.saveResult()
-  alert('you win :(')
-  resetGame()
+  showWinMessage()
+  // setTimeout(() => { resetGame() }, 0)
 }
 
 export const loose = () => {
   api.saveResult()
-  alert('you loose :)')
-  resetGame()
+  showWinMessage()
+  // setTimeout(() => { resetGame() }, 0)
 }
