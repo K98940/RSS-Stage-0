@@ -13,6 +13,10 @@ document.body.style.setProperty('--level', state.gameLevel)
 rangeLevel.addEventListener('input', () => {
   state.cellSize = 12 / rangeLevel.valueAsNumber
   state.gameLevel = rangeLevel.valueAsNumber
+  document.querySelector('.desk-container').focus()
+})
+rangeLevel.addEventListener('change', () => {
+  document.querySelector('.desk-container').focus()
 })
 
 const init = () => {
@@ -33,5 +37,5 @@ hint.addEventListener('change', () => {
   document.querySelector('.desk-container').focus()
 })
 
-// ДОБАВИТЬ ОБРАБОТКУ ЗАВЕРШЕНИЯ ИГРЫ
+// РАЗМЕСТИТЬ ИГРУ ПО ЦЕНТРУ!
 // ДОБАВИТЬ ПОДДЕРЖКУ ТАЧПАДА

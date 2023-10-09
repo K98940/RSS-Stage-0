@@ -278,7 +278,7 @@ th {
 
   .desk-records-container {
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
   }
 
   .records {
