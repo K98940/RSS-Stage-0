@@ -147,6 +147,7 @@ export const loadLocalStorage = () => {
       state.gameLevel = ls.gameLevel
       rangeLevel.value = state.gameLevel
       state.hint = ls.hint
+      state.sound.volume = ls.sound.volume
       const hint = document.getElementById('hint')
       hint.checked = state.hint
       return true

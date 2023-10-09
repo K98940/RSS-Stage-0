@@ -1,6 +1,7 @@
 import { state, game } from './state.js'
 import { win, loose } from './gameover.js'
 import { boom } from './badaboom.js'
+import { playPointsUp } from './sound.js'
 
 export const handleKey = ({ code }) => {
 
@@ -16,6 +17,7 @@ export const handleKey = ({ code }) => {
             stepScore += row[col_i]
 
             boom(cellsMustDie)
+            playPointsUp(row[col_i])
             cellsMustDie.remove()
 
             row[col_i + 1] = row[col_i] * 2
@@ -49,6 +51,7 @@ export const handleKey = ({ code }) => {
             stepScore += row[col_i]
 
             boom(cellsMustDie)
+            playPointsUp(row[col_i])
             cellsMustDie.remove()
 
             row[col_i - 1] = row[col_i] * 2
@@ -84,6 +87,7 @@ export const handleKey = ({ code }) => {
             stepScore += desk[row][col]
 
             boom(cellsMustDie)
+            playPointsUp(desk[row][col])
             cellsMustDie.remove()
 
             desk[row + 1][col] = desk[row][col] * 2
@@ -118,6 +122,7 @@ export const handleKey = ({ code }) => {
             stepScore += desk[row][col]
 
             boom(cellsMustDie)
+            playPointsUp(desk[row][col])
             cellsMustDie.remove()
 
             desk[row - 1][col] = desk[row][col] * 2
@@ -165,7 +170,9 @@ export const handleKey = ({ code }) => {
       break;
   }
 
-  if (isTurnComplete) addCell(getRandomIndex())
+  if (isTurnComplete) {
+    addCell(getRandomIndex())
+  }
 
   state.score += stepScore
   if (state.score >= state.maxScore) {
