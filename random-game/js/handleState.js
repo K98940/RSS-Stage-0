@@ -72,6 +72,10 @@ export const handleState = {
         renders.renderDesk()
         break
 
+      case 'volume':
+        saveLocalStorage()
+        break
+
       default:
         break;
     }
@@ -141,10 +145,12 @@ export const loadLocalStorage = () => {
   if (ls) {
     try {
       const rangeLevel = document.getElementById('range-level')
+      const volume = document.getElementById('volume')
       ls = JSON.parse(ls)
       state.nickname = ls.nickname
       state.gameLevel = ls.gameLevel
       rangeLevel.value = state.gameLevel
+      volume.value = state.sound.volume
       state.hint = ls.hint
       state.sound.volume = ls.sound.volume
       const hint = document.getElementById('hint')

@@ -1,10 +1,10 @@
 import { state } from './state.js'
 
-const sound = new Audio()
-sound.volume = state.sound.volume
-
 export const playPointsUp = (points) => {
   if (state.sound.isReveal[points]) return
+
+  const sound = new Audio()
+  sound.volume = state.sound.volume
   state.sound.isReveal[points] = true
 
   const src = state.sound.src

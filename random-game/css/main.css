@@ -273,6 +273,10 @@ th {
   :root {
     --cell-size: 5rem;
   }
+
+  .volume-container {
+    display: inline-block;
+  }
 }
 
 @media (min-width: 930px) {

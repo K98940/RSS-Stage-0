@@ -9,6 +9,10 @@ header {
   border-bottom: var(--wide-borders) solid var(--cell-color-border);
 }
 
+.volume-container {
+  display: none;
+}
+
 .hint-container {
   flex: 0 0 auto;
   color: var(--color-text-hint);
