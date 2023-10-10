@@ -7,15 +7,18 @@ export const showMessage = (msg, form = false) => {
   dialog.close()
   const dialogContent = document.getElementById('dialog-content')
   const inputNickname = document.getElementById('input-nickname')
+  const dialogImg = document.querySelector('.dialog-img')
 
   if (form) {
     inputNickname.value = state.nickname === 'anonymous' ? '' : state.nickname
     inputNickname.style.display = 'inline-block'
+    dialogImg.style.display = 'block'
     inputNickname.focus()
     dialog.addEventListener('cancel', handleDialog)
     dialog.addEventListener('close', handleDialog)
   } else {
     inputNickname.style.display = 'none'
+    dialogImg.style.display = 'none'
   }
 
 
