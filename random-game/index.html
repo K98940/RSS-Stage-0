@@ -12,9 +12,13 @@
 <body>
   <dialog class="dialog" id="dialog">
     <div class="dialog-conteiner border">
+      <div class="dialog-img">
+        <img src="./assets/bg/dialog-name.jpg" alt="name">
+      </div>
       <p id="dialog-content"></p>
       <form method="dialog">
-        <input id="input-nickname" type="text" placeholder="enter your nick">
+        <input id="input-nickname" type="text" maxlength="32" placeholder="enter your nick"
+          title="укажите ваше имя (максимум 32 символа)">
         <button class="border">OK</button>
       </form>
     </div>

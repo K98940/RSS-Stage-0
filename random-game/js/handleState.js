@@ -22,7 +22,7 @@ export const handleState = {
         const label = document.getElementById('range-level-label')
         const inputScore = document.getElementById('input-score')
         const levelTitles = ['игра', 'тест']
-        const levelScore = [2048, 8]
+        const levelScore = [2048, 512]
         state.maxScore = levelScore[value - 4]
         label.innerText = levelTitles[value - 4]
         inputScore.max = state.maxScore
@@ -86,16 +86,14 @@ export const renderScoreBoard = async () => {
     return
   }
 
-
   const lastResult = scores.data.map(r => r.id).sort((a, b) => b - a)[0]
 
   const records = document.getElementById('records')
   const htmlHeader = `
     <table>
     <thead class="thead bg-white-blur">
-      <th width="80%" class="__align_left nickname">
-        <button id="btn-change-name"></button>
-        ${state.nickname}
+      <th width="100%" class="__align_left nickname">
+        <button id="btn-change-name" title="сменить имя">${state.nickname}</button>
       </th>
       <th width="20%" class="__align_right">Score</th>
     </thead>
@@ -110,10 +108,11 @@ export const renderScoreBoard = async () => {
     const isMyNick = row.nickname === state.nickname
     const style = isMyNick ? 'class="score-myscore"' : ''
     const attribLastResult = lastResult === row.id ? ' data-lastresult="yes"' : ''
+    const city = row.city ? ` (${row.city})` : ``
 
     return `${html}
-    <tr title="${row.date}" ${style} ${attribLastResult}>
-      <td class="__align_left">${i + 1}. ${row.nickname} (${row.city})</td>
+    <tr title="дата результата: ${row.date}" ${style} ${attribLastResult}>
+      <td class="__align_left">${i + 1}. ${row.nickname}${city}</td>
       <td class="__align_right">${row.score}</td>
     </tr>
 
@@ -123,7 +122,7 @@ export const renderScoreBoard = async () => {
   records.innerHTML = htmlHeader + htmlTable + htmlFooter
   const btnChangeName = document.getElementById('btn-change-name')
   btnChangeName.addEventListener('click', () => {
-    showMessage('Вы можете изменить своё имя. Выбирайте имя мудро!', true)
+    showMessage('Назовите своё имя. Длина имени ограничена 32 символами. Выбирайте имя мудро!', true)
   })
 
   const scrollToMyResult = records.querySelector('[data-lastresult]')

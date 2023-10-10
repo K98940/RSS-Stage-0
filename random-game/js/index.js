@@ -24,7 +24,7 @@ const init = () => {
     state.gameLevel = rangeLevel.valueAsNumber
     state.score = 0
     state.maxScore = 2048
-    showMessage('Для проверяющих наверху есть переключатель для упрощения тестирования. Он уменьшает количество очков необходимых для победы', true)
+    showMessage(state.intro, true)
   }
   const body = document.body
   body.setAttribute('level', state.level)
@@ -37,5 +37,7 @@ hint.addEventListener('change', () => {
   document.querySelector('.desk-container').focus()
 })
 
-// РАЗМЕСТИТЬ ИГРУ ПО ЦЕНТРУ!
+console.warn(state.intro)
+
+// ДОБАВИТЬ РЕГУЛЯТОР ГРОМКОСТИ
 // ДОБАВИТЬ ПОДДЕРЖКУ ТАЧПАДА

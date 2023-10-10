@@ -30,7 +30,7 @@
   justify-content: space-between;
   align-items: center;
 
-  width: clamp(200px, 80%, 400px);
+  width: clamp(200px, 80%, 600px);
   padding: 1rem;
   gap: 1rem;
 
@@ -90,5 +90,16 @@
   & img {
     width: 100%;
     object-fit: contain;
+  }
+}
+
+.dialog-img {
+  display: none;
+  width: 100%;
+  overflow: hidden;
+
+  & img {
+    width: 100%;
+    object-fit: cover;
   }
 }
