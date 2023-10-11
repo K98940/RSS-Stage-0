@@ -1,7 +1,7 @@
 import { state } from './state.js'
 import { showMessage } from './message.js'
 import { loadLocalStorage } from './handleState.js'
-import { handleKey } from './handleKey.js'
+import { handleKey, touchStart, touchEnd } from './handleKey.js'
 
 const randomLevel = Math.floor(Math.random() * 1.9)
 state.level = randomLevel
@@ -55,13 +55,13 @@ const init = () => {
   body.setAttribute('level', state.level)
 }
 
-window.onload = init()
-
 hint.addEventListener('change', () => {
   state.hint = hint.checked
   document.querySelector('.desk-container').focus()
 })
 
-console.warn(state.intro, 'color: black; font-size: larger', 'color: red; font-size: larger', 'color: black; font-size: larger')
+window.addEventListener('touchstart', touchStart)
+window.addEventListener('touchend', touchEnd)
 
-// ДОБАВИТЬ ПОДДЕРЖКУ ТАЧПАДА
+window.onload = init()
+console.warn(state.intro, 'color: black; font-size: larger', 'color: red; font-size: larger', 'color: black; font-size: larger')
