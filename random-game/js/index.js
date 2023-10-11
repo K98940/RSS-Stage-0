@@ -6,10 +6,22 @@ import { handleKey } from './handleKey.js'
 const randomLevel = Math.floor(Math.random() * 1.9)
 state.level = randomLevel
 const rangeLevel = document.getElementById('range-level')
+const iconGame = document.getElementById('icon-game')
+const iconTest = document.getElementById('icon-test')
 const hint = document.getElementById('hint')
 const volume = document.getElementById('volume')
 document.body.style.setProperty('--animation-duration', `${state.animationDuration}ms`)
 document.body.style.setProperty('--level', state.gameLevel)
+
+iconGame.addEventListener('click', () => {
+  state.gameLevel = 4
+  rangeLevel.value = 4
+})
+
+iconTest.addEventListener('click', () => {
+  state.gameLevel = 5
+  rangeLevel.value = 5
+})
 
 rangeLevel.addEventListener('input', () => {
   state.cellSize = 12 / rangeLevel.valueAsNumber
@@ -52,5 +64,4 @@ hint.addEventListener('change', () => {
 
 console.warn(state.intro, 'color: black; font-size: larger', 'color: red; font-size: larger', 'color: black; font-size: larger')
 
-// ДОБАВИТЬ РЕГУЛЯТОР ГРОМКОСТИ
 // ДОБАВИТЬ ПОДДЕРЖКУ ТАЧПАДА

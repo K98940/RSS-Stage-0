@@ -38,6 +38,18 @@ export const showWinMessage = (win = true) => {
   const resetGame = () => {
     state.score = 0
     state.gameLevel = state.gameLevel
+    state.sound.isReveal = {
+      2: false,
+      4: false,
+      8: false,
+      16: false,
+      32: false,
+      64: false,
+      128: false,
+      256: false,
+      512: false,
+      1024: false,
+    }
     renderScoreBoard()
   }
 
