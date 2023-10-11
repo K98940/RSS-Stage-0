@@ -1,6 +1,13 @@
 import { handleState } from './handleState.js'
 
 const stateObj = {
+  touch: {
+    startX: null,
+    startY: null,
+    endX: null,
+    endY: null,
+    code: null,
+  },
   nickname: 'anonymous',
   gameLevel: 4,
   level: 0,

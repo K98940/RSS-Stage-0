@@ -226,3 +226,35 @@ const addCell = (strIndex) => {
   }
   loose()
 }
+
+export const touchStart = (e) => {
+  state.touch.startX = e.changedTouches[0].pageX
+  state.touch.startY = e.changedTouches[0].pageY
+}
+
+export const touchEnd = (e) => {
+  const MIN_SWIPE = 20
+  state.touch.endX = e.changedTouches[0].pageX
+  state.touch.endY = e.changedTouches[0].pageY
+  const directionX = state.touch.startX - state.touch.endX
+  const directionY = state.touch.startY - state.touch.endY
+
+  if (Math.abs(directionX) < MIN_SWIPE && Math.abs(directionY) < MIN_SWIPE) return
+
+  if (Math.abs(directionX) < Math.abs(directionY)) {
+    if (state.touch.startY > state.touch.endY) {
+      state.touch.code = 'ArrowUp'
+    } else {
+      state.touch.code = 'ArrowDown'
+    }
+  } else {
+    if (state.touch.startX > state.touch.endX) {
+      state.touch.code = 'ArrowLeft'
+    } else {
+      state.touch.code = 'ArrowRight'
+    }
+  }
+
+  handleKey({ code: state.touch.code })
+
+}
