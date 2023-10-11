@@ -26,13 +26,23 @@
 
   <header>
     <div class="container">
+
+      <div class="slider volume-container">
+        <label for="volume"></label>
+        <div class="wrapper-score">
+          <input type="range" id="volume" min="0" max="1" step="0.05">
+          <div class="fill"></div>
+        </div>
+      </div>
+
+
       <div class="hint-container flex-center-center">
         <input type="checkbox" name="" id="hint">
         <label for="hint" title="Показывать подсказки с цифрами на игровых блоках"></label>
       </div>
       <div class="range-container flex-center-center"
         title="переключение в режим для тестирования уменьшает количество очков необходимых для завершения игры">
-        <div class="range-icon">
+        <div class="range-icon" id="icon-game">
           <img src="./assets/icons/game-controller.png" id="select-mode-game" alt="game-controller-icon">
         </div>
         <label for="range-level" id="range-level-label">4</label>
@@ -41,7 +51,7 @@
           <option value="5">
           <option value="4">
         </datalist>
-        <div class="range-icon">
+        <div class="range-icon" id="icon-test">
           <img src="./assets/icons/test.png" alt="test-icon">
         </div>
       </div>

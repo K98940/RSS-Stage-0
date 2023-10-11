@@ -156,7 +156,7 @@ body {
   align-items: center;
   gap: 1rem;
 
-
+  width: 100%;
   max-width: var(--max-width-container);
   margin: 0 auto;
   padding: 0.25rem 1rem 0.25rem;
@@ -233,6 +233,8 @@ body {
   width: 100%;
 }
 
+.slider {}
+
 .desk-records-container {
   display: flex;
   flex: 1 1 10rem;
@@ -272,6 +274,10 @@ th {
 @media (min-width: 769px) {
   :root {
     --cell-size: 5rem;
+  }
+
+  .volume-container {
+    display: flex;
   }
 }
 

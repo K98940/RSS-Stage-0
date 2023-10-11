@@ -1,7 +1,10 @@
 import { state } from './state.js'
 import { renderScoreBoard } from './handleState.js'
+import { handleKey } from './handleKey.js'
 
 export const showMessage = (msg, form = false) => {
+
+  window.removeEventListener('keydown', handleKey)
   const dialog = document.getElementById('dialog')
   dialog.classList.remove('dialog__open')
   dialog.close()
@@ -21,8 +24,8 @@ export const showMessage = (msg, form = false) => {
     dialogImg.style.display = 'none'
   }
 
-
-  dialogContent.innerText = msg
+  const filteredMsg = msg.replace(/%c/g, '')
+  dialogContent.innerText = filteredMsg
 
   dialog.classList.add('dialog__open')
   dialog.addEventListener('close', () => {
@@ -35,6 +38,18 @@ export const showWinMessage = (win = true) => {
   const resetGame = () => {
     state.score = 0
     state.gameLevel = state.gameLevel
+    state.sound.isReveal = {
+      2: false,
+      4: false,
+      8: false,
+      16: false,
+      32: false,
+      64: false,
+      128: false,
+      256: false,
+      512: false,
+      1024: false,
+    }
     renderScoreBoard()
   }
 
@@ -58,6 +73,9 @@ export const showWinMessage = (win = true) => {
   const msgHeader = state.score >= state.maxScore ? 'Вы победили!' : 'Вы... почти победили!'
   const dialog = document.getElementById('dialog')
   const inputNickname = document.getElementById('input-nickname')
+  const dialogImg = document.querySelector('.dialog-img')
+  dialogImg.style.display = 'none'
+  window.removeEventListener('keydown', handleKey)
   inputNickname.style.display = 'none'
   dialog.addEventListener('close', () => resetGame())
   dialog.classList.remove('dialog__open')
@@ -81,6 +99,7 @@ export const showWinMessage = (win = true) => {
   dialog.classList.add('dialog__open')
   dialog.addEventListener('close', () => {
     dialog.classList.remove('dialog__open')
+    window.addEventListener('keydown', handleKey)
   })
   dialog.showModal()
 }
@@ -89,4 +108,5 @@ const handleDialog = (e) => {
   const inputNickname = document.getElementById('input-nickname')
   const nick = inputNickname.value.trim()
   state.nickname = nick.length === 0 ? 'anonymous' : nick
+  window.addEventListener('keydown', handleKey)
 }

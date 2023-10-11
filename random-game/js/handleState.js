@@ -22,7 +22,7 @@ export const handleState = {
         const label = document.getElementById('range-level-label')
         const inputScore = document.getElementById('input-score')
         const levelTitles = ['игра', 'тест']
-        const levelScore = [2048, 512]
+        const levelScore = [2048, 256]
         state.maxScore = levelScore[value - 4]
         label.innerText = levelTitles[value - 4]
         inputScore.max = state.maxScore
@@ -72,6 +72,10 @@ export const handleState = {
         renders.renderDesk()
         break
 
+      case 'volume':
+        saveLocalStorage()
+        break
+
       default:
         break;
     }
@@ -106,13 +110,14 @@ export const renderScoreBoard = async () => {
 
   const htmlTable = scores.data.reduce((html, row, i) => {
     const isMyNick = row.nickname === state.nickname
+    const name = row.nickname === 'Reviewer1' ? `<span style="color: red">${row.nickname}</span>` : row.nickname
     const style = isMyNick ? 'class="score-myscore"' : ''
     const attribLastResult = lastResult === row.id ? ' data-lastresult="yes"' : ''
     const city = row.city ? ` (${row.city})` : ``
 
     return `${html}
     <tr title="дата результата: ${row.date}" ${style} ${attribLastResult}>
-      <td class="__align_left">${i + 1}. ${row.nickname}${city}</td>
+      <td class="__align_left">${i + 1}. ${name}${city}</td>
       <td class="__align_right">${row.score}</td>
     </tr>
 
@@ -141,10 +146,12 @@ export const loadLocalStorage = () => {
   if (ls) {
     try {
       const rangeLevel = document.getElementById('range-level')
+      const volume = document.getElementById('volume')
       ls = JSON.parse(ls)
       state.nickname = ls.nickname
       state.gameLevel = ls.gameLevel
       rangeLevel.value = state.gameLevel
+      volume.value = state.sound.volume
       state.hint = ls.hint
       state.sound.volume = ls.sound.volume
       const hint = document.getElementById('hint')
