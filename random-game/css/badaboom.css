@@ -1,0 +1,103 @@
+.boom-box {
+  --color-bg-points: rgb(255, 136, 0);
+  --spark-size: 8px;
+  --super-spark-size: 16px;
+
+  position: fixed;
+
+  width: var(--cell-size);
+  height: var(--cell-size);
+
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.spark {
+  display: inline-block;
+  position: fixed;
+
+  width: var(--spark-size);
+  height: var(--spark-size);
+
+  transition-duration: calc(var(--animation-duration) * 2);
+  transition-timing-function: cubic-bezier(0.25, 0.5, 0.7, 0.9);
+}
+
+.spark-blow {
+  width: 2px;
+  height: 2px;
+  opacity: 0.1;
+}
+
+.super-spark {
+  background: radial-gradient(ellipse at center,
+      rgb(255, 251, 0) 0%,
+      rgba(255, 0, 0) 20%,
+      rgba(255, 0, 0, 0.5) 30%,
+      rgba(255, 0, 0, 0) 100%);
+  background-repeat: no-repeat;
+  width: var(--super-spark-size);
+  height: var(--super-spark-size);
+  border-radius: 50%;
+}
+
+.points {
+  padding: 1.7rem;
+
+  font-size: 2rem;
+  font-weight: 700;
+  border-radius: 50%;
+  background-color: var(--color-bg-points);
+
+  z-index: 10;
+
+  &[value="2"] {
+    color: var(--spark-color-points-2);
+    background-color: var(--spark-bg-points-2);
+  }
+
+  &[value="4"] {
+    color: var(--spark-color-points-4);
+    background-color: var(--spark-bg-points-4);
+  }
+
+  &[value="8"] {
+    color: var(--spark-color-points-8);
+    background-color: var(--spark-bg-points-8);
+  }
+
+  &[value="16"] {
+    color: var(--spark-color-points-16);
+    background-color: var(--spark-bg-points-16);
+  }
+
+  &[value="32"] {
+    color: var(--spark-color-points-32);
+    background-color: var(--spark-bg-points-32);
+  }
+
+  &[value="64"] {
+    color: var(--spark-color-points-64);
+    background-color: var(--spark-bg-points-64);
+  }
+
+  &[value="128"] {
+    color: var(--spark-color-points-128);
+    background-color: var(--spark-bg-points-128);
+  }
+
+  &[value="256"] {
+    color: var(--spark-color-points-256);
+    background-color: var(--spark-bg-points-256);
+  }
+
+  &[value="512"] {
+    color: var(--spark-color-points-512);
+    background-color: var(--spark-bg-points-512);
+  }
+
+  &[value="1024"] {
+    color: var(--spark-color-points-1024);
+    background-color: var(--spark-bg-points-1024);
+  }
+}
