@@ -127,7 +127,7 @@ export const renderScoreBoard = async () => {
   records.innerHTML = htmlHeader + htmlTable + htmlFooter
   const btnChangeName = document.getElementById('btn-change-name')
   btnChangeName.addEventListener('click', () => {
-    showMessage('Назовите своё имя. Длина имени ограничена 32 символами. Выбирайте имя мудро!', true)
+    showMessage('Назовите своё имя.\nДлина имени ограничена 32 символами.\nВыбирайте имя мудро!', true)
   })
 
   const scrollToMyResult = records.querySelector('[data-lastresult]')

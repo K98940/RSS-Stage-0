@@ -4,6 +4,7 @@
 @import './footer.css';
 @import './score.css';
 @import './header.css';
+@import './fonts.css';
 
 :root {
   --level: 4;
@@ -41,6 +42,7 @@ html {
   width: 100vw;
   height: 100dvh;
   scroll-behavior: smooth;
+  font-family: 'Martian Mono', monospace;
 }
 
 body {
@@ -190,6 +192,7 @@ body {
 
     font-size: 1rem;
     font-weight: 700;
+    text-wrap: nowrap;
     color: var(--score-nickname-color);
 
     overflow: hidden;
@@ -263,6 +266,10 @@ body {
 td,
 th {
   padding: 0.3rem 0.5rem;
+  font-size: 0.7rem;
+  text-wrap: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 #test {
@@ -276,8 +283,18 @@ th {
     --cell-size: 5rem;
   }
 
+  .title-container {
+    display: block;
+  }
+
   .volume-container {
     display: flex;
+  }
+
+  .dialog-conteiner {
+    & p {
+      font-size: 0.9rem;
+    }
   }
 }
 
@@ -294,6 +311,10 @@ th {
     }
   }
 
+  .title-container {
+    font-size: 1.2rem;
+  }
+
   .desk-records-container {
     flex-direction: row;
     align-items: center;
@@ -301,6 +322,19 @@ th {
 
   .records {
     height: calc(4 * var(--cell-size) + calc(var(--cell-size) * 0.15));
+  }
+
+  .nickname {
+
+    & #btn-change-name {
+      font-size: 1.5rem;
+    }
+  }
+
+  .dialog-conteiner {
+    & p {
+      font-size: 1rem;
+    }
   }
 }
 
@@ -313,6 +347,12 @@ th {
     & .cell-core {
       font-size: 1.3rem;
       padding-right: 1rem;
+    }
+  }
+
+  .dialog-conteiner {
+    & p {
+      font-size: 0.9rem;
     }
   }
 }

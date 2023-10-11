@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/main.css">
-  <link rel="shortcut icon" href="./assets/icons/favicon.png" type="image/x-icon">
-  <title>random-game</title>
+  <link rel="shortcut icon" href="./assets/icons/favicon.ico" type="image/x-icon">
+  <title>Random Game</title>
 </head>
 
 <body>
@@ -17,7 +17,7 @@
       </div>
       <p id="dialog-content"></p>
       <form method="dialog">
-        <input id="input-nickname" type="text" maxlength="32" placeholder="enter your nick"
+        <input id="input-nickname" type="search" maxlength="32" placeholder="enter your nick"
           title="укажите ваше имя (максимум 32 символа)">
         <button class="border">OK</button>
       </form>
@@ -26,6 +26,9 @@
 
   <header>
     <div class="container">
+      <div class="title-container">
+        <span>RANDOM GAME</span>
+      </div>
 
       <div class="slider volume-container">
         <label for="volume"></label>
@@ -34,7 +37,6 @@
           <div class="fill"></div>
         </div>
       </div>
-
 
       <div class="hint-container flex-center-center">
         <input type="checkbox" name="" id="hint">

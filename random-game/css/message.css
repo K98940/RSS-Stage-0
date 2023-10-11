@@ -42,6 +42,8 @@
   overflow: hidden;
 
   & p {
+    align-self: flex-start;
+    font-size: 0.7rem;
     margin-bottom: 1rem;
   }
 
@@ -78,6 +80,7 @@
     min-width: 4rem;
 
     &::placeholder {
+
       opacity: 0.6;
     }
   }
