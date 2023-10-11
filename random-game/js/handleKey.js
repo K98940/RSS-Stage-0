@@ -233,13 +233,12 @@ export const touchStart = (e) => {
 }
 
 export const touchEnd = (e) => {
-  const MIN_SWIPE = 20
   state.touch.endX = e.changedTouches[0].pageX
   state.touch.endY = e.changedTouches[0].pageY
   const directionX = state.touch.startX - state.touch.endX
   const directionY = state.touch.startY - state.touch.endY
 
-  if (Math.abs(directionX) < MIN_SWIPE && Math.abs(directionY) < MIN_SWIPE) return
+  if (Math.abs(directionX) < state.touch.SENSETIVE && Math.abs(directionY) < state.touch.SENSETIVE) return
 
   if (Math.abs(directionX) < Math.abs(directionY)) {
     if (state.touch.startY > state.touch.endY) {

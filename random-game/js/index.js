@@ -46,7 +46,7 @@ const init = () => {
     state.gameLevel = rangeLevel.valueAsNumber
     state.score = 0
     state.maxScore = 2048
-    showMessage(state.intro, true)
+    showMessage(state.intro, true, true)
   } else {
     window.addEventListener('keydown', handleKey)
   }
@@ -65,3 +65,6 @@ window.addEventListener('touchend', touchEnd)
 
 window.onload = init()
 console.warn(state.intro, 'color: black; font-size: larger', 'color: red; font-size: larger', 'color: black; font-size: larger')
+
+// ПОМЕНЯТЬ ШРИФТЫ
+// ДОБАВИТЬ НАЗВАНИЕ ИГРЫ В ЗАГОЛОВОК, В НАЗВАНИИ СТРАНИЦЫ, И ПОМЕНЯТЬ FAVICON

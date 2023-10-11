@@ -2,7 +2,7 @@ import { state } from './state.js'
 import { renderScoreBoard } from './handleState.js'
 import { handleKey } from './handleKey.js'
 
-export const showMessage = (msg, form = false) => {
+export const showMessage = (msg, form = false, intro = false) => {
 
   window.removeEventListener('keydown', handleKey)
   const dialog = document.getElementById('dialog')
@@ -12,10 +12,13 @@ export const showMessage = (msg, form = false) => {
   const inputNickname = document.getElementById('input-nickname')
   const dialogImg = document.querySelector('.dialog-img')
 
+  if (!intro) {
+    dialogImg.style.display = 'block'
+  }
+
   if (form) {
     inputNickname.value = state.nickname === 'anonymous' ? '' : state.nickname
     inputNickname.style.display = 'inline-block'
-    dialogImg.style.display = 'block'
     inputNickname.focus()
     dialog.addEventListener('cancel', handleDialog)
     dialog.addEventListener('close', handleDialog)
