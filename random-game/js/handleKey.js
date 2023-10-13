@@ -143,6 +143,9 @@ export const handleKey = ({ code }) => {
     }
   }
 
+  const dialog = document.getElementById('dialog')
+  if (dialog.open) return
+
   window.removeEventListener('keydown', handleKey)
   const { desk } = game
   let isTurnComplete = false
