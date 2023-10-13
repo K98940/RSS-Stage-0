@@ -14,13 +14,13 @@ document.body.style.setProperty('--animation-duration', `${state.animationDurati
 document.body.style.setProperty('--level', state.gameLevel)
 
 iconGame.addEventListener('click', () => {
-  state.gameLevel = 4
-  rangeLevel.value = 4
+  state.gameLevel = state.gameLevel > 4 ? state.gameLevel - 1 : 4
+  rangeLevel.value = state.gameLevel
 })
 
 iconTest.addEventListener('click', () => {
-  state.gameLevel = 5
-  rangeLevel.value = 5
+  state.gameLevel = state.gameLevel < 6 ? state.gameLevel + 1 : 6
+  rangeLevel.value = state.gameLevel
 })
 
 rangeLevel.addEventListener('input', () => {
@@ -45,7 +45,7 @@ const init = () => {
   if (!loadLocalStorage()) {
     state.gameLevel = rangeLevel.valueAsNumber
     state.score = 0
-    state.maxScore = 2048
+    state.maxScore = 4096
     showMessage(state.intro, true, true)
   } else {
     window.addEventListener('keydown', handleKey)
