@@ -180,7 +180,9 @@ export const handleKey = ({ code }) => {
   }
 
   setTimeout(() => {
-    window.addEventListener('keydown', handleKey)
+    if (state.score < state.maxScore) {
+      window.addEventListener('keydown', handleKey)
+    }
   }, state.animationDuration)
 
 }

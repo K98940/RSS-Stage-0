@@ -56,6 +56,10 @@ export const saveResult = async () => {
       }
     }
 
+    // console.log('response :>> ', response);
+    // const data = await JSON.parse(response)
+    // console.log('data :>> ', data);
+
     return {
       error: null,
     }

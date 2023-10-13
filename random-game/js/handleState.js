@@ -18,14 +18,25 @@ export const handleState = {
     switch (prop) {
       case 'gameLevel':
         document.body.style.setProperty('--level', state.gameLevel)
-
         const label = document.getElementById('range-level-label')
         const inputScore = document.getElementById('input-score')
-        const levelTitles = ['игра', 'тест']
-        const levelScore = [2048, 256]
+        const levelTitles = ['hard', 'norm', 'test']
+        const levelScore = [4096, 2048, 1024]
         state.maxScore = levelScore[value - 4]
         label.innerText = levelTitles[value - 4]
         inputScore.max = state.maxScore
+        state.sound.isReveal = {
+          2: false,
+          4: false,
+          8: false,
+          16: false,
+          32: false,
+          64: false,
+          128: false,
+          256: false,
+          512: false,
+          1024: false,
+        }
 
         const line = Array(4)
         const matrix = line.fill(0).reduce(arr => {
@@ -99,7 +110,7 @@ export const renderScoreBoard = async () => {
       <th width="100%" class="__align_left nickname">
         <button id="btn-change-name" title="сменить имя">${state.nickname}</button>
       </th>
-      <th width="20%" class="__align_right">Score</th>
+      <th width="25%" class="__align_right">Score</th>
     </thead>
     <tbody>
   `
@@ -110,7 +121,8 @@ export const renderScoreBoard = async () => {
 
   const htmlTable = scores.data.reduce((html, row, i) => {
     const isMyNick = row.nickname === state.nickname
-    const name = row.nickname === 'Reviewer1' ? `<span style="color: red">${row.nickname}</span>` : row.nickname
+    let name = row.nickname === 'Reviewer1 (Hell)' ? `<span style="color: red">${row.nickname}</span>` : row.nickname
+    name = name.toLowerCase() === 'мудро' ? `<span style="color: blue">${name}</span>` : name
     const style = isMyNick ? 'class="score-myscore"' : ''
     const attribLastResult = lastResult === row.id ? ' data-lastresult="yes"' : ''
     const city = row.city ? ` (${row.city})` : ``
@@ -162,4 +174,10 @@ export const loadLocalStorage = () => {
     }
     return false
   }
+}
+
+export const resetGame = () => {
+  state.score = 0
+  state.gameLevel = state.gameLevel
+  renderScoreBoard()
 }

@@ -13,7 +13,7 @@ const stateObj = {
   gameLevel: 4,
   level: 0,
   score: 0,
-  maxScore: 2048,
+  maxScore: 4096,
   cellSize: '3',
   animationDuration: '300',
   hint: false,
