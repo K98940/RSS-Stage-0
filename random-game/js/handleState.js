@@ -55,6 +55,10 @@ export const handleState = {
         // game.desk[1][3] = 256
         // game.desk[2][0] = 512
         // game.desk[2][1] = 1024
+        // game.desk[3][0] = 8
+        // game.desk[3][1] = 16
+        // game.desk[3][2] = 32
+        // game.desk[3][3] = 64
         renders.renderDesk()
         state.score = 0
         saveLocalStorage()
