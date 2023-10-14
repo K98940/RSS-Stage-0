@@ -30,23 +30,22 @@
   justify-content: space-between;
   align-items: center;
 
-  /* width: clamp(200px, 80%, 600px); */
   width: fit-content;
   min-width: 200px;
   max-width: 600px;
   padding: 1rem;
   gap: 1rem;
 
+  font-size: 1rem;
   color: var(--color-dialog-text);
   background-color: color-mix(in srgb,
-      var(--color-text) 70%,
-      rgb(var(--color-bg)) 30%);
+      var(--color-text) 50%,
+      rgb(var(--color-bg)) 50%);
 
   overflow: hidden;
 
   & p {
     align-self: flex-start;
-    font-size: 0.7rem;
     margin-bottom: 1rem;
   }
 
@@ -82,9 +81,15 @@
     padding: 0.5rem 1rem;
     min-width: 4rem;
 
+    font-size: inherit;
+
     &::placeholder {
 
       opacity: 0.6;
+    }
+
+    &:focus {
+      filter: brightness(1.1);
     }
   }
 }
