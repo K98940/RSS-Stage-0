@@ -4,7 +4,6 @@ import { handleKey } from './handleKey.js'
 
 export const showMessage = (msg, form = false, intro = false) => {
 
-  // window.removeEventListener('keydown', handleKey)
   const dialog = document.getElementById('dialog')
   dialog.classList.remove('dialog__open')
   dialog.close()

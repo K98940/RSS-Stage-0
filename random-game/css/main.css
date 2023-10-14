@@ -290,13 +290,6 @@ th {
   .volume-container {
     display: flex;
   }
-
-  .dialog-conteiner {
-    & p {
-      font-size: 1rem;
-    }
-  }
-
 }
 
 @media (min-width: 930px) {
@@ -333,9 +326,7 @@ th {
   }
 
   .dialog-conteiner {
-    & p {
-      font-size: 1.2rem;
-    }
+    font-size: 1.2rem;
   }
 
   .game-container {
@@ -360,8 +351,6 @@ th {
   }
 
   .dialog-conteiner {
-    & p {
-      font-size: 1.4rem;
-    }
+    font-size: 1.4rem;
   }
 }
