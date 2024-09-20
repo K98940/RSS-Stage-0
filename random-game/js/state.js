@@ -1,4 +1,4 @@
-import { handleState } from './handleState.js'
+import { handleState } from './handleState.js';
 
 const stateObj = {
   touch: {
@@ -21,7 +21,7 @@ const stateObj = {
     volume: 0.2,
     isPlay: false,
     interval: 5000,
-    src: "./assets/sounds/",
+    src: './assets/sounds/',
     isReveal: {
       2: false,
       4: false,
@@ -35,23 +35,46 @@ const stateObj = {
       1024: false,
     },
   },
-  msg: ['Game Over, но можно попробовать еще раз!', 'Yeah, piece of cake!', 'The End?', 'Конец. Титров не будет.', 'The results table will be ready soon!'],
-  img: [
-    ['stones-0.jpg', 'stones-1.jpg', 'stones-2.jpg', 'stones-3.jpg', 'stones-4.jpg', 'stones-5.jpg', 'stones-6.jpg'],
-    ['cat-1.jpg', 'cat-2.jpg', 'cat-3.jpg', 'cat-4.jpg', 'cat-5.jpg', 'cat-6.jpg', 'cat-7.jpg', 'cat-8.jpg', 'cat-9.jpg', 'cat-10.jpg'],
+  msg: [
+    'Game Over, but you can try again!',
+    'Yeah, piece of cake!',
+    'The End',
+    'The End. There will be no credits.',
+    'The results table will be ready soon!',
   ],
-  intro: `%c1. Для проверяющих наверху есть переключатель для упрощения тестирования. Он уменьшает количество очков необходимых для победы.
+  img: [
+    [
+      'stones-0.webp',
+      'stones-1.webp',
+      'stones-2.webp',
+      'stones-3.webp',
+      'stones-4.webp',
+      'stones-5.webp',
+      'stones-6.webp',
+    ],
+    [
+      'cat-1.webp',
+      'cat-2.webp',
+      'cat-3.webp',
+      'cat-4.webp',
+      'cat-5.webp',
+      'cat-6.webp',
+      'cat-7.webp',
+      'cat-8.webp',
+      'cat-9.webp',
+      'cat-10.webp',
+    ],
+  ],
+  intro: `%c1. There is a switch at the top to simplify testing. It reduces the number of points needed to win.
 
-  2. Там же, наверху, можно включить отображение цифровых значений на игровых блоках - если захочется чуть упростить игру.
+  2. In the same place, at the top, you can turn on the display of digital values on the game blocks - if you want to simplify the game a little.
 
-  3. Крутые звуковые спецэффекты звучат только при первом появлении нового элемента - это не баг, это фича.
+  3. Cool sound effects sound only when a new element appears for the first time - this is not a bug, it's a feature.
 
-  4. Есть поддержка тачпада - можно поиграть на мобилке!
-
-  Сразитесь с %cReviewer1 %cи да пребудет с вами сила.`,
-}
+  4. There is touchpad support - you can play on a mobile phone!`,
+};
 
 export const game = {
-  desk: null
-}
-export const state = new Proxy(stateObj, handleState)
+  desk: null,
+};
+export const state = new Proxy(stateObj, handleState);
