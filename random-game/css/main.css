@@ -22,14 +22,13 @@
   --records-color-text-active: rgb(255, 255, 255);
   --records-color-text: rgb(0, 0, 0);
 
-  --gap: calc(var(--cell-size)/5);
+  --gap: calc(var(--cell-size) / 5);
   --max-width-container: clamp(300px, 90%, 1400px);
 
-  --mobile-bg-0: url("../assets/bg/0/mobile.jpg");
-  --desktop-bg-0: url("../assets/bg/0/desktop.jpg");
-  --mobile-bg-1: url("../assets/bg/1/mobile.jpg");
-  --desktop-bg-1: url("../assets/bg/1/desktop.jpg");
-
+  --mobile-bg-0: url('../assets/bg/0/mobile.webp');
+  --desktop-bg-0: url('../assets/bg/0/desktop.webp');
+  --mobile-bg-1: url('../assets/bg/1/mobile.webp');
+  --desktop-bg-1: url('../assets/bg/1/desktop.webp');
 }
 
 * {
@@ -95,11 +94,11 @@ body {
   --score-color-lastresult: rgba(220, 145, 52, 0.5);
   --score-nickname-color: rgb(193, 127, 43);
 
-  --thumb-logo: url("../assets/stones/1/4.png");
-  --rss-logo: url("../assets/icons/rss-logo-1.png");
-  --rss-logo-hover: url("../assets/icons/rss-logo-hover-1.png");
+  --thumb-logo: url('../assets/stones/1/4.webp');
+  --rss-logo: url('../assets/icons/rss-logo-1.webp');
+  --rss-logo-hover: url('../assets/icons/rss-logo-hover-1.webp');
 
-  &[level="0"] {
+  &[level='0'] {
     --spark-bg-points-2: rgba(0, 0, 0, 0.6);
     --spark-color-points-2: rgba(255, 255, 255);
     --spark-bg-points-4: rgba(200, 140, 220, 0.7);
@@ -133,9 +132,9 @@ body {
     --score-color-lastresult: rgba(211, 191, 255, 0.7);
     --score-nickname-color: rgb(68, 56, 102);
 
-    --thumb-logo: url("../assets/stones/0/1024.png");
-    --rss-logo: url("../assets/icons/rss-logo-0.png");
-    --rss-logo-hover: url("../assets/icons/rss-logo-hover-0.png");
+    --thumb-logo: url('../assets/stones/0/1024.webp');
+    --rss-logo: url('../assets/icons/rss-logo-0.webp');
+    --rss-logo-hover: url('../assets/icons/rss-logo-hover-0.webp');
 
     background-image: var(--mobile-bg-0);
   }
@@ -184,7 +183,7 @@ body {
 
     border: none;
     border-radius: 0.5rem;
-    background-image: url("../assets/icons/change-name.png");
+    background-image: url('../assets/icons/change-name.webp');
     background-position: 0.5rem center;
     background-repeat: no-repeat;
     background-size: 1.3rem;
@@ -235,8 +234,6 @@ body {
 #range-level {
   width: 100%;
 }
-
-.slider {}
 
 .desk-records-container {
   display: flex;
@@ -300,7 +297,7 @@ th {
   body {
     background-image: var(--desktop-bg-1);
 
-    &[level="0"] {
+    &[level='0'] {
       background-image: var(--desktop-bg-0);
     }
   }
@@ -319,7 +316,6 @@ th {
   }
 
   .nickname {
-
     & #btn-change-name {
       font-size: 1.5rem;
     }

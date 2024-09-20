@@ -38,14 +38,13 @@
 
   font-size: 1rem;
   color: var(--color-dialog-text);
-  background-color: color-mix(in srgb,
-      var(--color-text) 50%,
-      rgb(var(--color-bg)) 50%);
+  background-color: color-mix(in srgb, var(--color-text) 50%, rgb(var(--color-bg)) 50%);
 
   overflow: hidden;
 
   & p {
     align-self: flex-start;
+    font-size: 1.2rem;
     margin-bottom: 1rem;
   }
 
@@ -54,9 +53,7 @@
     padding: 0.5rem 1rem;
 
     color: var(--color-dialog-text);
-    background: linear-gradient(180deg,
-        var(--score-color-myscore),
-        rgba(var(--color-bg), 1));
+    background: linear-gradient(180deg, var(--score-color-myscore), rgba(var(--color-bg), 1));
 
     &:hover {
       cursor: pointer;
@@ -84,7 +81,6 @@
     font-size: inherit;
 
     &::placeholder {
-
       opacity: 0.6;
     }
 

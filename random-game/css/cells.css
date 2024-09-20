@@ -12,181 +12,201 @@
   transition-duration: var(--animation-duration);
   transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.2);
 
-  &[data-xy^="0"] {
+  &[data-xy^='0'] {
     top: 0;
   }
 
-  &[data-xy^="1"] {
+  &[data-xy^='1'] {
     top: var(--cell-size);
   }
 
-  &[data-xy^="2"] {
+  &[data-xy^='2'] {
     top: calc(var(--cell-size) * 2);
   }
 
-  &[data-xy^="3"] {
+  &[data-xy^='3'] {
     top: calc(var(--cell-size) * 3);
   }
 
-  &[data-xy^="4"] {
+  &[data-xy^='4'] {
     top: calc(var(--cell-size) * 4);
   }
 
-  &[data-xy^="5"] {
+  &[data-xy^='5'] {
     top: calc(var(--cell-size) * 5);
   }
 
-  &[data-xy^="6"] {
+  &[data-xy^='6'] {
     top: calc(var(--cell-size) * 6);
   }
 
-  &[data-xy$="0"] {
+  &[data-xy$='0'] {
     left: 0;
   }
 
-  &[data-xy$="1"] {
+  &[data-xy$='1'] {
     left: var(--cell-size);
   }
 
-  &[data-xy$="2"] {
+  &[data-xy$='2'] {
     left: calc(var(--cell-size) * 2);
   }
 
-  &[data-xy$="3"] {
+  &[data-xy$='3'] {
     left: calc(var(--cell-size) * 3);
   }
 
-  &[data-xy$="4"] {
+  &[data-xy$='4'] {
     left: calc(var(--cell-size) * 4);
   }
 
-  &[data-xy$="5"] {
+  &[data-xy$='5'] {
     left: calc(var(--cell-size) * 5);
   }
 
-  &[data-xy$="6"] {
+  &[data-xy$='6'] {
     left: calc(var(--cell-size) * 6);
   }
 
-  &[data-value="2"][data-level="0"] .cell-core {
-    background-image: url("../assets/stones/0/2.png");
-    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(0, 0, 0, var(--shadow-opacity)));
+  &[data-value='2'][data-level='0'] .cell-core {
+    background-image: url('../assets/stones/0/2.webp');
+    filter: drop-shadow(
+      var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(0, 0, 0, var(--shadow-opacity))
+    );
   }
 
-  &[data-value="2"][data-level="1"] .cell-core {
-    background-image: url("../assets/stones/1/2.png");
-    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(160, 170, 170, var(--shadow-opacity)));
+  &[data-value='2'][data-level='1'] .cell-core {
+    background-image: url('../assets/stones/1/2.webp');
+    filter: drop-shadow(
+      var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(160, 170, 170, var(--shadow-opacity))
+    );
   }
 
-
-
-  &[data-value="4"][data-level="0"] .cell-core {
-    background-image: url("../assets/stones/0/4.png");
-    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(200, 140, 220, var(--shadow-opacity)));
+  &[data-value='4'][data-level='0'] .cell-core {
+    background-image: url('../assets/stones/0/4.webp');
+    filter: drop-shadow(
+      var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(200, 140, 220, var(--shadow-opacity))
+    );
   }
 
-  &[data-value="4"][data-level="1"] .cell-core {
-    background-image: url("../assets/stones/1/4.png");
-    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(255, 200, 190, var(--shadow-opacity)));
+  &[data-value='4'][data-level='1'] .cell-core {
+    background-image: url('../assets/stones/1/4.webp');
+    filter: drop-shadow(
+      var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(255, 200, 190, var(--shadow-opacity))
+    );
   }
 
-
-
-  &[data-value="8"][data-level="0"] .cell-core {
-    background-image: url("../assets/stones/0/8.png");
-    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(190, 110, 20, var(--shadow-opacity)));
+  &[data-value='8'][data-level='0'] .cell-core {
+    background-image: url('../assets/stones/0/8.webp');
+    filter: drop-shadow(
+      var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(190, 110, 20, var(--shadow-opacity))
+    );
   }
 
-  &[data-value="8"][data-level="1"] .cell-core {
-    background-image: url("../assets/stones/1/8.png");
-    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(255, 130, 90, var(--shadow-opacity)));
+  &[data-value='8'][data-level='1'] .cell-core {
+    background-image: url('../assets/stones/1/8.webp');
+    filter: drop-shadow(
+      var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(255, 130, 90, var(--shadow-opacity))
+    );
   }
 
-
-
-  &[data-value="16"][data-level="0"] .cell-core {
-    background-image: url("../assets/stones/0/16.png");
-    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(100, 30, 0, var(--shadow-opacity)));
+  &[data-value='16'][data-level='0'] .cell-core {
+    background-image: url('../assets/stones/0/16.webp');
+    filter: drop-shadow(
+      var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(100, 30, 0, var(--shadow-opacity))
+    );
   }
 
-  &[data-value="16"][data-level="1"] .cell-core {
-    background-image: url("../assets/stones/1/16.png");
-    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(250, 210, 170, var(--shadow-opacity)));
+  &[data-value='16'][data-level='1'] .cell-core {
+    background-image: url('../assets/stones/1/16.webp');
+    filter: drop-shadow(
+      var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(250, 210, 170, var(--shadow-opacity))
+    );
   }
 
-
-
-  &[data-value="32"][data-level="0"] .cell-core {
-    background-image: url("../assets/stones/0/32.png");
-    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(0, 160, 200, var(--shadow-opacity)));
+  &[data-value='32'][data-level='0'] .cell-core {
+    background-image: url('../assets/stones/0/32.webp');
+    filter: drop-shadow(
+      var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(0, 160, 200, var(--shadow-opacity))
+    );
   }
 
-  &[data-value="32"][data-level="1"] .cell-core {
-    background-image: url("../assets/stones/1/32.png");
-    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(240, 190, 230, var(--shadow-opacity)));
+  &[data-value='32'][data-level='1'] .cell-core {
+    background-image: url('../assets/stones/1/32.webp');
+    filter: drop-shadow(
+      var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(240, 190, 230, var(--shadow-opacity))
+    );
   }
 
-
-
-  &[data-value="64"][data-level="0"] .cell-core {
-    background-image: url("../assets/stones/0/64.png");
-    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(160, 220, 30, var(--shadow-opacity)));
+  &[data-value='64'][data-level='0'] .cell-core {
+    background-image: url('../assets/stones/0/64.webp');
+    filter: drop-shadow(
+      var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(160, 220, 30, var(--shadow-opacity))
+    );
   }
 
-  &[data-value="64"][data-level="1"] .cell-core {
-    background-image: url("../assets/stones/1/64.png");
-    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(120, 120, 120, var(--shadow-opacity)));
+  &[data-value='64'][data-level='1'] .cell-core {
+    background-image: url('../assets/stones/1/64.webp');
+    filter: drop-shadow(
+      var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(120, 120, 120, var(--shadow-opacity))
+    );
   }
 
-
-
-  &[data-value="128"][data-level="0"] .cell-core {
-    background-image: url("../assets/stones/0/128.png");
-    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(240, 140, 210, var(--shadow-opacity)));
+  &[data-value='128'][data-level='0'] .cell-core {
+    background-image: url('../assets/stones/0/128.webp');
+    filter: drop-shadow(
+      var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(240, 140, 210, var(--shadow-opacity))
+    );
   }
 
-  &[data-value="128"][data-level="1"] .cell-core {
-    background-image: url("../assets/stones/1/128.png");
-    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(209, 100, 40, var(--shadow-opacity)));
+  &[data-value='128'][data-level='1'] .cell-core {
+    background-image: url('../assets/stones/1/128.webp');
+    filter: drop-shadow(
+      var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(209, 100, 40, var(--shadow-opacity))
+    );
   }
 
-
-
-  &[data-value="256"][data-level="0"] .cell-core {
-    background-image: url("../assets/stones/0/256.png");
-    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(250, 190, 40, var(--shadow-opacity)));
+  &[data-value='256'][data-level='0'] .cell-core {
+    background-image: url('../assets/stones/0/256.webp');
+    filter: drop-shadow(
+      var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(250, 190, 40, var(--shadow-opacity))
+    );
   }
 
-  &[data-value="256"][data-level="1"] .cell-core {
-    background-image: url("../assets/stones/1/256.png");
-    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(60, 60, 100, var(--shadow-opacity)));
+  &[data-value='256'][data-level='1'] .cell-core {
+    background-image: url('../assets/stones/1/256.webp');
+    filter: drop-shadow(
+      var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(60, 60, 100, var(--shadow-opacity))
+    );
   }
 
-
-
-  &[data-value="512"][data-level="0"] .cell-core {
-    background-image: url("../assets/stones/0/512.png");
-    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(200, 50, 80, var(--shadow-opacity)));
+  &[data-value='512'][data-level='0'] .cell-core {
+    background-image: url('../assets/stones/0/512.webp');
+    filter: drop-shadow(
+      var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(200, 50, 80, var(--shadow-opacity))
+    );
   }
 
-  &[data-value="512"][data-level="1"] .cell-core {
-    background-image: url("../assets/stones/1/512.png");
-    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(110, 75, 50, var(--shadow-opacity)));
+  &[data-value='512'][data-level='1'] .cell-core {
+    background-image: url('../assets/stones/1/512.webp');
+    filter: drop-shadow(
+      var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(110, 75, 50, var(--shadow-opacity))
+    );
   }
 
-
-
-  &[data-value="1024"][data-level="0"] .cell-core {
-    background-image: url("../assets/stones/0/1024.png");
-    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(90, 220, 230, var(--shadow-opacity)));
+  &[data-value='1024'][data-level='0'] .cell-core {
+    background-image: url('../assets/stones/0/1024.webp');
+    filter: drop-shadow(
+      var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(90, 220, 230, var(--shadow-opacity))
+    );
   }
 
-  &[data-value="1024"][data-level="1"] .cell-core {
-    background-image: url("../assets/stones/1/1024.png");
-    filter: drop-shadow(var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(255, 160, 60, var(--shadow-opacity)));
+  &[data-value='1024'][data-level='1'] .cell-core {
+    background-image: url('../assets/stones/1/1024.webp');
+    filter: drop-shadow(
+      var(--shadow-size-X) var(--shadow-size-Y) var(--shadow-size-blur) rgba(255, 160, 60, var(--shadow-opacity))
+    );
   }
-
-
 
   & .cell-core {
     display: flex;
