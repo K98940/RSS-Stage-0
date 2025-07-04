@@ -1,7 +1,5 @@
 import { stateHandler } from './stateHandler.js'
-
-const URL_PREFFIX = './assets/audio/'
-const COVER_PREFFIX = '../assets/img/covers/'
+import { URL_PREFFIX, COVER_PREFFIX } from './constants.js'
 
 export const playList =
   [
