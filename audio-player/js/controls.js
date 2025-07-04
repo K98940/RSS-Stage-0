@@ -105,11 +105,14 @@ export const controlsInit = () => {
 }
 
 export const setStyles = (track) => {
+  const BASE_URL = '../assets/img/covers/'
+  const index = getRandomIndex()
+
   const root = document.querySelector(':root')
-  const urlBg = `url("${track.cover}/bg/${track.id}.jpg")`
-  const urlCoverBig = `url("${track.cover}/big/${track.id}.jpg")`
-  const urlCoverMedium = `url("${track.cover}/medium/${track.id}.jpg")`
-  const urlCoverSmall = `url("${track.cover}/small/${track.id}.jpg")`
+  const urlBg = `url("${BASE_URL}${index}/bg/${index}.jpg")`
+  const urlCoverBig = `url("${BASE_URL}${index}/big/${index}.jpg")`
+  const urlCoverMedium = `url("${BASE_URL}${index}/medium/${index}.jpg")`
+  const urlCoverSmall = `url("${BASE_URL}${index}/small/${index}.jpg")`
   const urlBtn = `url(${track.button.url})`
 
   root.style.setProperty('--cover-bg', urlBg)
@@ -127,4 +130,11 @@ export const setStyles = (track) => {
 
   root.style.setProperty('--color-text-controls', colorTextControls)
   root.style.setProperty('--color-base-color', track.colorBaseColor)
+}
+
+/**
+ * @returns {number} Случайное число от 0 до 5
+ */
+function getRandomIndex() {
+  return Math.floor(Math.random() * 6);
 }
