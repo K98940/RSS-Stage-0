@@ -11,12 +11,14 @@ export const convertSecondsToTime = (sec) => {
 }
 
 const setTrack = (toward) => {
+  if (!state.audio.currentTrack || playList.length === 0) return
+  
   if (state.audio.isPlay) audio.pause()
   const tracksContainer = document.getElementById('tracks')
   let trackID = state.audio.currentTrack.id
 
   let row = tracksContainer.querySelector(`input[id="track-${trackID}"]`)
-  row.checked = false
+  if (row) row.checked = false
 
   if (toward) {
     trackID += 1
@@ -31,7 +33,8 @@ const setTrack = (toward) => {
   }
 
   row = tracksContainer.querySelector(`input[id="track-${trackID}"]`)
-  row.checked = true
+  if (row) row.checked = true
+  
   state.audio.currentTrack = playList[trackID]
   audio.src = state.audio.currentTrack.url
   setStyles(playList[trackID])
@@ -48,7 +51,11 @@ export const controlsInit = () => {
   const audio = document.getElementById('audio')
   const timeDuration = document.getElementById('timeDuration')
   const timeCurrent = document.getElementById('timeCurrent')
-  audio.src = state.audio.currentTrack.url
+  
+  // Убираем автоматическую установку src - это будет сделано позже
+  // if (state.audio.currentTrack) {
+  //   audio.src = state.audio.currentTrack.url
+  // }
 
   const timeupdateHandler = () => {
     seeker.value = audio.currentTime
@@ -106,6 +113,8 @@ export const controlsInit = () => {
 }
 
 export const setStyles = (track) => {
+  if (!track) return
+  
   const BASE_URL = '../assets/img/covers/'
   const COVERS_COUNT = 5
   const index = getRandomIndex(COVERS_COUNT)
