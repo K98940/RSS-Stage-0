@@ -67,11 +67,11 @@ function logToFile($data, $label = '', $logFile = 'log.txt') {
 }
 
 // Константы
-const URL_PREFFIX = '/assets/audio/';
-const COVER_PREFFIX = '/assets/img/covers/';
+const URL_PREFFIX = '/player/assets/audio/';
+const COVER_PREFFIX = '/player/assets/img/covers/';
 const COLOR_BASE_COLOR = '180, 26%, 55%';
 const BUTTON = [
-    'url' => '/assets/icons/btn-play-dimash.png',
+    'url' => '/player/assets/icons/btn-play-dimash.png',
     'hue' => '240deg',
 ];
 
@@ -130,7 +130,7 @@ if ($scannedFiles === false) {
 $files = array_values(array_filter($scannedFiles, function($file) use ($audioDir) {
     return is_file($audioDir . $file) && preg_match('/\.mp3$/i', $file);
 }));
-$files = array_slice($files, 0, 5);
+// $files = array_slice($files, 0, 5);
 
 // Логируем найденные файлы
 logToFile($files, 'Найденные MP3 файлы');
