@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест производительности загрузки</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .success {
+            color: green;
+            background: #e6ffe6;
+            padding: 10px;
+            border-radius: 3px;
+        }
+        .info {
+            background: #e6f3ff;
+            padding: 10px;
+            border-radius: 3px;
+        }
+        pre {
+            background: #f5f5f5;
+            padding: 10px;
+            border-radius: 3px;
+            overflow-x: auto;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        #network-log {
+            max-height: 300px;
+            overflow-y: auto;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 10px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Тест производительности загрузки аудио файлов</h1>
+    
+    <div class="info">
+        <strong>Цель:</strong> Проверить, что аудио файлы загружаются только при необходимости, а не все сразу.
+    </div>
+    
+    <div class="test-section">
+        <h2>Инструкции</h2>
+        <ol>
+            <li>Откройте Developer Tools (F12)</li>
+            <li>Перейдите на вкладку Network</li>
+            <li>Очистите сетевые запросы (кнопка 🚫)</li>
+            <li>Нажмите "Загрузить приложение"</li>
+            <li>Наблюдайте за загрузкой файлов в Network</li>
+        </ol>
+    </div>
+    
+    <div class="test-section">
+        <h2>Тесты</h2>
+        <button onclick="testInitialLoad()">Загрузить приложение</button>
+        <button onclick="testHoverLoad()">Тест загрузки при наведении</button>
+        <button onclick="clearLog()">Очистить лог</button>
+    </div>
+    
+    <div class="test-section">
+        <h2>Лог сетевых запросов</h2>
+        <div id="network-log"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Результаты</h2>
+        <div id="results"></div>
+    </div>
+
+    <script>
+        let networkRequests = [];
+        
+        function log(message, type = 'info') {
+            const logDiv = document.getElementById('network-log');
+            const timestamp = new Date().toLocaleTimeString();
+            const color = type === 'error' ? 'red' : type === 'success' ? 'green' : 'black';
+            logDiv.innerHTML += `<div style="color: ${color}">[${timestamp}] ${message}</div>`;
+            logDiv.scrollTop = logDiv.scrollHeight;
+        }
+        
+        function clearLog() {
+            document.getElementById('network-log').innerHTML = '';
+            networkRequests = [];
+        }
+        
+        // Перехватываем fetch запросы
+        const originalFetch = window.fetch;
+        window.fetch = function(...args) {
+            const url = args[0];
+            if (typeof url === 'string' && url.includes('.mp3')) {
+                log(`🎵 Загружается аудио файл: ${url}`, 'success');
+                networkRequests.push({
+                    url: url,
+                    timestamp: new Date(),
+                    type: 'audio'
+                });
+            }
+            return originalFetch.apply(this, args);
+        };
+        
+        // Перехватываем создание Audio элементов
+        const originalAudio = window.Audio;
+        window.Audio = function(...args) {
+            const audio = new originalAudio(...args);
+            if (args.length > 0 && args[0]) {
+                log(`🎵 Создан Audio элемент с src: ${args[0]}`, 'info');
+                networkRequests.push({
+                    url: args[0],
+                    timestamp: new Date(),
+                    type: 'audio-element'
+                });
+            }
+            return audio;
+        };
+        
+        async function testInitialLoad() {
+            log('🚀 Начинаю тест начальной загрузки...', 'info');
+            networkRequests = [];
+            
+            try {
+                // Имитируем загрузку приложения
+                const response = await fetch('./getPlayList.php');
+                const data = await response.json();
+                
+                log(`✅ Плейлист загружен: ${data.playlist.length} треков`, 'success');
+                
+                // Анализируем результаты
+                const audioRequests = networkRequests.filter(req => req.type === 'audio');
+                log(`📊 Найдено ${audioRequests.length} запросов аудио файлов`, 'info');
+                
+                if (audioRequests.length === 0) {
+                    log('✅ ОТЛИЧНО! Аудио файлы не загружаются при инициализации', 'success');
+                } else {
+                    log(`⚠️ ВНИМАНИЕ! Загружено ${audioRequests.length} аудио файлов при инициализации`, 'error');
+                }
+                
+            } catch (error) {
+                log(`❌ Ошибка: ${error.message}`, 'error');
+            }
+        }
+        
+        async function testHoverLoad() {
+            log('🖱️ Тестирую загрузку при наведении...', 'info');
+            
+            // Создаем тестовый элемент для наведения
+            const testElement = document.createElement('div');
+            testElement.innerHTML = `
+                <div class="track">
+                    <label for="test-track" title="Test Track">
+                        <span>Test Track</span><span id="track-duration-test">--:--</span>
+                    </label>
+                </div>
+            `;
+            document.body.appendChild(testElement);
+            
+            // Имитируем наведение
+            const label = testElement.querySelector('label');
+            label.dispatchEvent(new Event('mouseenter'));
+            
+            setTimeout(() => {
+                log('✅ Тест наведения завершен', 'success');
+                document.body.removeChild(testElement);
+            }, 1000);
+        }
+        
+        // Автоматический запуск при загрузке страницы
+        window.onload = function() {
+            log('📋 Страница загружена. Готов к тестированию производительности.', 'info');
+            log('💡 Откройте Developer Tools (F12) → Network для мониторинга запросов', 'info');
+        };
+    </script>
+</body>
+</html> 

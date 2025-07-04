@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест плейлиста</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .error {
+            color: red;
+            background: #ffe6e6;
+            padding: 10px;
+            border-radius: 3px;
+        }
+        .success {
+            color: green;
+            background: #e6ffe6;
+            padding: 10px;
+            border-radius: 3px;
+        }
+        pre {
+            background: #f5f5f5;
+            padding: 10px;
+            border-radius: 3px;
+            overflow-x: auto;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Тест загрузки плейлиста с сервера</h1>
+    
+    <div class="test-section">
+        <h2>Тест 1: Проверка доступности сервера</h2>
+        <button onclick="testServerAvailability()">Проверить сервер</button>
+        <div id="server-test-result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Тест 2: Загрузка плейлиста</h2>
+        <button onclick="testPlaylistLoad()">Загрузить плейлист</button>
+        <div id="playlist-test-result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Тест 3: Проверка структуры данных</h2>
+        <button onclick="testDataStructure()">Проверить структуру</button>
+        <div id="structure-test-result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Лог событий</h2>
+        <div id="log"></div>
+    </div>
+
+    <script>
+        function log(message, type = 'info') {
+            const logDiv = document.getElementById('log');
+            const timestamp = new Date().toLocaleTimeString();
+            const color = type === 'error' ? 'red' : type === 'success' ? 'green' : 'black';
+            logDiv.innerHTML += `<div style="color: ${color}">[${timestamp}] ${message}</div>`;
+        }
+
+        async function testServerAvailability() {
+            const resultDiv = document.getElementById('server-test-result');
+            resultDiv.innerHTML = '<div>Проверка...</div>';
+            
+            try {
+                const response = await fetch('./getPlayList.php');
+                const status = response.status;
+                const ok = response.ok;
+                
+                if (ok) {
+                    resultDiv.innerHTML = '<div class="success">✅ Сервер доступен (статус: ' + status + ')</div>';
+                    log('Сервер доступен', 'success');
+                } else {
+                    resultDiv.innerHTML = '<div class="error">❌ Сервер недоступен (статус: ' + status + ')</div>';
+                    log('Сервер недоступен', 'error');
+                }
+            } catch (error) {
+                resultDiv.innerHTML = '<div class="error">❌ Ошибка подключения: ' + error.message + '</div>';
+                log('Ошибка подключения: ' + error.message, 'error');
+            }
+        }
+
+        async function testPlaylistLoad() {
+            const resultDiv = document.getElementById('playlist-test-result');
+            resultDiv.innerHTML = '<div>Загрузка...</div>';
+            
+            try {
+                const response = await fetch('./getPlayList.php');
+                const data = await response.json();
+                
+                if (data.error) {
+                    resultDiv.innerHTML = '<div class="error">❌ Ошибка сервера: ' + data.error + '</div>';
+                    log('Ошибка сервера: ' + data.error, 'error');
+                } else {
+                    const playlist = data.playlist || data;
+                    resultDiv.innerHTML = '<div class="success">✅ Плейлист загружен (' + playlist.length + ' треков)</div>';
+                    log('Плейлист загружен: ' + playlist.length + ' треков', 'success');
+                    
+                    // Показываем первые 3 трека
+                    const preview = playlist.slice(0, 3).map(track => 
+                        `- ${track.name} (${track.url})`
+                    ).join('\n');
+                    
+                    resultDiv.innerHTML += '<pre>' + preview + '</pre>';
+                }
+            } catch (error) {
+                resultDiv.innerHTML = '<div class="error">❌ Ошибка загрузки: ' + error.message + '</div>';
+                log('Ошибка загрузки: ' + error.message, 'error');
+            }
+        }
+
+        async function testDataStructure() {
+            const resultDiv = document.getElementById('structure-test-result');
+            resultDiv.innerHTML = '<div>Проверка структуры...</div>';
+            
+            try {
+                const response = await fetch('./getPlayList.php');
+                const data = await response.json();
+                const playlist = data.playlist || data;
+                
+                if (playlist.length === 0) {
+                    resultDiv.innerHTML = '<div class="error">❌ Плейлист пустой</div>';
+                    log('Плейлист пустой', 'error');
+                    return;
+                }
+                
+                const firstTrack = playlist[0];
+                const requiredFields = ['id', 'url', 'name', 'cover', 'colorBaseColor', 'button'];
+                const missingFields = requiredFields.filter(field => !(field in firstTrack));
+                
+                if (missingFields.length > 0) {
+                    resultDiv.innerHTML = '<div class="error">❌ Отсутствуют поля: ' + missingFields.join(', ') + '</div>';
+                    log('Отсутствуют поля: ' + missingFields.join(', '), 'error');
+                } else {
+                    resultDiv.innerHTML = '<div class="success">✅ Структура данных корректна</div>';
+                    log('Структура данных корректна', 'success');
+                    
+                    // Показываем структуру первого трека
+                    resultDiv.innerHTML += '<pre>' + JSON.stringify(firstTrack, null, 2) + '</pre>';
+                }
+            } catch (error) {
+                resultDiv.innerHTML = '<div class="error">❌ Ошибка проверки структуры: ' + error.message + '</div>';
+                log('Ошибка проверки структуры: ' + error.message, 'error');
+            }
+        }
+
+        // Автоматический запуск тестов при загрузке страницы
+        window.onload = function() {
+            log('Страница загружена, готов к тестированию');
+        };
+    </script>
+</body>
+</html> 
