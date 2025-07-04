@@ -15,13 +15,19 @@ export const stateHandler = {
     switch (prop) {
       case 'isPlay':
         if (value) {
-          audio.play()
+          if (audio && audio.src) {
+            audio.play().catch(error => {
+              console.error('Ошибка при воспроизведении:', error)
+            })
+          }
           state.classList.remove('animation__pause')
           btnPlay.classList.add('btn-play__played')
           state.classList.add('animation__play')
         }
         else {
-          audio.pause()
+          if (audio) {
+            audio.pause()
+          }
           btnPlay.classList.remove('btn-play__played')
           state.classList.remove('animation__play')
           state.classList.add('animation__pause')
