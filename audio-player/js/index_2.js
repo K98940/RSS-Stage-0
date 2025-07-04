@@ -1,5 +1,5 @@
-import { state, playList } from './state.js'
-import { controlsInit, convertSecondsToTime, setStyles } from './controls.js'
+import { state, playList } from './state_2.js'
+import { controlsInit, convertSecondsToTime, setStyles } from './controls_2.js'
 
 const tracksContainer = document.getElementById('tracks')
 const [audio] = controlsInit()
