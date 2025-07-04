@@ -22,8 +22,8 @@
   --color-bg-ranger-r: color-mix(in hsl shorter hue, hsl(var(--color-base-color)) 80%, hsl(0, 100%, 100%));
 
 
-  --slider-height: 2rem;
-  --slider-width: 2rem;
+  --slider-height: 1rem;
+  --slider-width: 1rem;
 }
 
 * {

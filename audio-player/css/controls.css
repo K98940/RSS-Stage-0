@@ -125,8 +125,8 @@
 }
 
 .btn-play {
-  width: 4rem;
-  height: 4rem;
+  width: 3rem;
+  height: 3rem;
 
   background-image: var(--btn-url);
   background-color: transparent;
@@ -137,16 +137,16 @@
 }
 
 .btn-backward {
-  width: 3rem;
-  height: 3rem;
+  width: 2rem;
+  height: 2rem;
 
   background: url("../assets/icons/backward.png") center, linear-gradient(135deg, hsl(var(--color-base-color)), var(--color-bg-playlist-active));
   background-size: contain;
 }
 
 .btn-forward {
-  width: 3rem;
-  height: 3rem;
+  width: 2rem;
+  height: 2rem;
 
   background: url("../assets/icons/forward.png") center, linear-gradient(135deg, hsl(var(--color-base-color)), var(--color-bg-playlist-active));
   background-size: contain;
