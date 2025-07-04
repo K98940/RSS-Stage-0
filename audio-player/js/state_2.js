@@ -30,7 +30,6 @@ export let playList = [];
 // Функция для инициализации плейлиста
 export async function initializePlayList() {
   playList = await fetchPlayList();
-  console.log('playList', playList);
 
   // Если плейлист пустой, используем резервный
   if (playList.length === 0) {
@@ -51,8 +50,7 @@ export async function initializePlayList() {
   }
 
   // Случайная сортировка перед выводом
-  const shuffledPlayList = shufflePlayList(playList);
-
+  playList = shufflePlayList(playList);
   return playList;
 }
 
@@ -68,7 +66,28 @@ const stateObj = {
 
 export const state = new Proxy(stateObj, stateHandler);
 
-// Функция для случайной сортировки массива
+/**
+ * Функция для случайной сортировки массива (алгоритм Fisher-Yates)
+ * @param {Array} list - массив для перемешивания
+ * @returns {Array} - перемешанный массив
+ * 
+ * Алгоритм Fisher-Yates обеспечивает:
+ * - Равномерное распределение всех перестановок
+ * - Сложность O(n) вместо O(n log n)
+ * - Стабильные и непредсказуемые результаты
+ */
 function shufflePlayList(list) {
-  return list.slice().sort(() => Math.random() - 0.5);
+  // Создаем копию массива, чтобы не изменять оригинал
+  const shuffled = list.slice();
+  
+  // Алгоритм Fisher-Yates (в обратном порядке)
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    // Генерируем случайный индекс от 0 до i включительно
+    const j = Math.floor(Math.random() * (i + 1));
+    
+    // Меняем местами элементы
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  
+  return shuffled;
 }
