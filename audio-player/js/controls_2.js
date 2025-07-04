@@ -1,4 +1,5 @@
-import { state, playList } from './state.js'
+import { state, playList } from './state_2.js'
+import { getRandomIndex } from './utils.js'
 
 export const convertSecondsToTime = (sec) => {
   const min = Math.floor(sec / 60)
@@ -106,7 +107,8 @@ export const controlsInit = () => {
 
 export const setStyles = (track) => {
   const BASE_URL = '../assets/img/covers/'
-  const index = getRandomIndex()
+  const COVERS_COUNT = 5
+  const index = getRandomIndex(COVERS_COUNT)
 
   const root = document.querySelector(':root')
   const urlBg = `url("${BASE_URL}${index}/bg/${index}.jpg")`
@@ -130,11 +132,4 @@ export const setStyles = (track) => {
 
   root.style.setProperty('--color-text-controls', colorTextControls)
   root.style.setProperty('--color-base-color', track.colorBaseColor)
-}
-
-/**
- * @returns {number} Случайное число от 0 до 5
- */
-function getRandomIndex() {
-  return Math.floor(Math.random() * 6);
 }
