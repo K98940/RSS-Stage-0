@@ -102,10 +102,8 @@ async function initializeApp() {
     }
     
     renderPlayList(tracksContainer, playList)
-    
-    console.log('Приложение успешно инициализировано с плейлистом с сервера')
   } catch (error) {
-    console.error('Ошибка при инициализации приложения:', error)
+    console.error('❌ Ошибка при инициализации приложения:', error)
   }
 }
 
