@@ -1,0 +1,12 @@
+export const playListPart8 = [
+  { id: 70, url: './assets/audio/Archive - Meon.mp3', name: 'Archive - Meon.mp3', cover: '', colorBaseColor: '220, 18%, 39%', button: { url: '../assets/icons/btn-play-ghost.png', hue: '120deg' } },
+  { id: 71, url: './assets/audio/Leonard Cohen - A Thousand Kisses Deep.mp3', name: 'Leonard Cohen - A Thousand Kisses Deep.mp3', cover: '', colorBaseColor: '200, 20%, 43%', button: { url: '../assets/icons/btn-play-ghost.png', hue: '120deg' } },
+  { id: 72, url: './assets/audio/Frank Duval - And At The End Of Every Street.mp3', name: 'Frank Duval - And At The End Of Every Street.mp3', cover: '', colorBaseColor: '180, 13%, 47%', button: { url: '../assets/icons/btn-play-ghost.png', hue: '120deg' } },
+  { id: 73, url: './assets/audio/Фролова, Галеева,Зиганшина - Эльмира Галеева, Юлия Зиганшина _ Колыбельная Музык.mp3', name: 'Фролова, Галеева,Зиганшина - Эльмира Галеева, Юлия Зиганшина _ Колыбельная Музык.mp3', cover: '', colorBaseColor: '160, 15%, 44%', button: { url: '../assets/icons/btn-play-ghost.png', hue: '120deg' } },
+  { id: 74, url: './assets/audio/Ernesto Cortazar - Beethoven\'s Silence (Concerto).mp3', name: 'Ernesto Cortazar - Beethoven\'s Silence (Concerto).mp3', cover: '', colorBaseColor: '140, 18%, 39%', button: { url: '../assets/icons/btn-play-ghost.png', hue: '120deg' } },
+  { id: 75, url: './assets/audio/Evgeny Grinko - Вальс .mp3', name: 'Evgeny Grinko - Вальс .mp3', cover: '', colorBaseColor: '120, 20%, 43%', button: { url: '../assets/icons/btn-play-ghost.png', hue: '120deg' } },
+  { id: 76, url: './assets/audio/Иоган Себастьян Бах - Хоральная прелюдия фа - минор_ Ich ruf zu dir Herr Jesu Ch.mp3', name: 'Иоган Себастьян Бах - Хоральная прелюдия фа - минор_ Ich ruf zu dir Herr Jesu Ch.mp3', cover: '', colorBaseColor: '100, 13%, 47%', button: { url: '../assets/icons/btn-play-ghost.png', hue: '120deg' } },
+  { id: 77, url: './assets/audio/Moby - Porcelian.mp3', name: 'Moby - Porcelian.mp3', cover: '', colorBaseColor: '80, 15%, 42%', button: { url: '../assets/icons/btn-play-ghost.png', hue: '120deg' } },
+  { id: 78, url: './assets/audio/Pierre Van Dormael - Mr. Nobody (OST Господин Никто).mp3', name: 'Pierre Van Dormael - Mr. Nobody (OST Господин Никто).mp3', cover: '', colorBaseColor: '60, 18%, 38%', button: { url: '../assets/icons/btn-play-ghost.png', hue: '120deg' } },
+  { id: 79, url: './assets/audio/Air - Playground Love.mp3', name: 'Air - Playground Love.mp3', cover: '', colorBaseColor: '40, 20%, 41%', button: { url: '../assets/icons/btn-play-ghost.png', hue: '120deg' } },
+] 

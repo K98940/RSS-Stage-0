@@ -1,0 +1,12 @@
+export const playListPart2 = [
+  { id: 10, url: './assets/audio/DJ Lava - Nostalgia of the Past Years - Original Mix.mp3', name: 'DJ Lava - Nostalgia of the Past Years - Original Mix.mp3', cover: '', colorBaseColor: '210, 18%, 40%', button: { url: '../assets/icons/btn-play-ghost.png', hue: '120deg' } },
+  { id: 11, url: './assets/audio/Yakuro - Return to Beginnings.mp3', name: 'Yakuro - Return to Beginnings.mp3', cover: '', colorBaseColor: '170, 22%, 37%', button: { url: '../assets/icons/btn-play-ghost.png', hue: '120deg' } },
+  { id: 12, url: './assets/audio/The Sound Of Love - Love Lovers.mp3', name: 'The Sound Of Love - Love Lovers.mp3', cover: '', colorBaseColor: '140, 15%, 45%', button: { url: '../assets/icons/btn-play-ghost.png', hue: '120deg' } },
+  { id: 13, url: './assets/audio/Azimov & Charos Qayumova - Voyage.mp3', name: 'Azimov & Charos Qayumova - Voyage.mp3', cover: '', colorBaseColor: '100, 20%, 38%', button: { url: '../assets/icons/btn-play-ghost.png', hue: '120deg' } },
+  { id: 14, url: './assets/audio/DJ Lava - Don\'t Say Goodbye - Original Mix.mp3', name: 'DJ Lava - Don\'t Say Goodbye - Original Mix.mp3', cover: '', colorBaseColor: '80, 18%, 42%', button: { url: '../assets/icons/btn-play-ghost.png', hue: '120deg' } },
+  { id: 15, url: './assets/audio/The Sound Of Love - Flowers for your smile.mp3', name: 'The Sound Of Love - Flowers for your smile.mp3', cover: '', colorBaseColor: '60, 12%, 48%', button: { url: '../assets/icons/btn-play-ghost.png', hue: '120deg' } },
+  { id: 16, url: './assets/audio/Mystic Crock - Introverted.mp3', name: 'Mystic Crock - Introverted.mp3', cover: '', colorBaseColor: '30, 15%, 40%', button: { url: '../assets/icons/btn-play-ghost.png', hue: '120deg' } },
+  { id: 17, url: './assets/audio/DJ Lava - The Disappearing Mirage.mp3', name: 'DJ Lava - The Disappearing Mirage.mp3', cover: '', colorBaseColor: '10, 18%, 35%', button: { url: '../assets/icons/btn-play-ghost.png', hue: '120deg' } },
+  { id: 18, url: './assets/audio/DJ Lava - Stay Alive.mp3', name: 'DJ Lava - Stay Alive.mp3', cover: '', colorBaseColor: '340, 20%, 38%', button: { url: '../assets/icons/btn-play-ghost.png', hue: '120deg' } },
+  { id: 19, url: './assets/audio/DJ Lava - On the Edge of the Unknown.mp3', name: 'DJ Lava - On the Edge of the Unknown.mp3', cover: '', colorBaseColor: '300, 15%, 45%', button: { url: '../assets/icons/btn-play-ghost.png', hue: '120deg' } },
+] 
