@@ -1,7 +1,7 @@
-@import url("./cover.css");
-@import url("./tracks.css");
-@import url("./controls.css");
-@import url("./footer.css");
+@import url("./cover_2.css");
+@import url("./tracks_2.css");
+@import url("./controls_2.css");
+@import url("./footer_2.css");
 
 :root {
   --cover-bg: url("../assets/img/covers/medium/0.jpg");
