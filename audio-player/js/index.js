@@ -4,6 +4,11 @@ import { controlsInit, convertSecondsToTime, setStyles } from './controls.js'
 const tracksContainer = document.getElementById('tracks')
 const [audio] = controlsInit()
 
+// Функция для случайной сортировки массива
+function shufflePlayList(list) {
+  return list.slice().sort(() => Math.random() - 0.5)
+}
+
 const renderPlayList = (container, playList) => {
   const renderTracksDuration = async () => {
     playList.forEach(track => {
@@ -15,7 +20,9 @@ const renderPlayList = (container, playList) => {
       })
     });
   }
-  const html = playList.map((track, i) => `
+  // Случайная сортировка перед выводом
+  const shuffledPlayList = shufflePlayList(playList)
+  const html = shuffledPlayList.map((track, i) => `
       <div class="track">
         <input id="track-${i}" type="radio" ${i === state.audio.currentTrack.id ? 'checked' : ''} name="track" value="${i}">
         <label for="track-${i}" title="${track.name}">
