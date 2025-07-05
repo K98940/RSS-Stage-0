@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Простой тест shufflePlayList</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .success {
+            color: green;
+            background: #e6ffe6;
+            padding: 10px;
+            border-radius: 3px;
+        }
+        .info {
+            background: #e6f3ff;
+            padding: 10px;
+            border-radius: 3px;
+        }
+        pre {
+            background: #f5f5f5;
+            padding: 10px;
+            border-radius: 3px;
+            overflow-x: auto;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Тест исправленной функции shufflePlayList</h1>
+    
+    <div class="test-section">
+        <h2>Исправленная реализация</h2>
+        <div class="success">
+            <strong>Новая функция:</strong> Алгоритм Fisher-Yates
+            <br>✅ Равномерное распределение
+            <br>✅ Стабильные результаты
+            <br>✅ Эффективный алгоритм O(n)
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Тесты</h2>
+        <button onclick="testShuffle()">Тест перемешивания</button>
+        <button onclick="testPlaylist()">Тест с плейлистом</button>
+        <button onclick="clearResults()">Очистить результаты</button>
+    </div>
+    
+    <div class="test-section">
+        <h2>Результаты</h2>
+        <div id="results"></div>
+    </div>
+
+    <script>
+        // Исправленная функция shufflePlayList (алгоритм Fisher-Yates)
+        function shufflePlayList(list) {
+            // Создаем копию массива, чтобы не изменять оригинал
+            const shuffled = list.slice();
+            
+            // Алгоритм Fisher-Yates (в обратном порядке)
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                // Генерируем случайный индекс от 0 до i включительно
+                const j = Math.floor(Math.random() * (i + 1));
+                
+                // Меняем местами элементы
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+            
+            return shuffled;
+        }
+        
+        function log(message, type = 'info') {
+            const resultsDiv = document.getElementById('results');
+            const timestamp = new Date().toLocaleTimeString();
+            const color = type === 'error' ? 'red' : type === 'success' ? 'green' : 'black';
+            resultsDiv.innerHTML += `<div style="color: ${color}">[${timestamp}] ${message}</div>`;
+            resultsDiv.scrollTop = resultsDiv.scrollHeight;
+        }
+        
+        function clearResults() {
+            document.getElementById('results').innerHTML = '';
+        }
+        
+        function testShuffle() {
+            log('🧪 Тестирую исправленную функцию перемешивания...', 'info');
+            
+            const original = [1, 2, 3, 4, 5];
+            log(`Оригинальный массив: [${original.join(', ')}]`);
+            
+            const results = [];
+            
+            for (let i = 0; i < 10; i++) {
+                const shuffled = shufflePlayList(original);
+                results.push(shuffled);
+                log(`Попытка ${i + 1}: [${shuffled.join(', ')}]`);
+            }
+            
+            // Проверяем, что оригинальный массив не изменился
+            if (JSON.stringify(original) === JSON.stringify([1, 2, 3, 4, 5])) {
+                log('✅ Оригинальный массив не изменен', 'success');
+            } else {
+                log('❌ Оригинальный массив был изменен!', 'error');
+            }
+            
+            // Проверяем уникальность результатов
+            const uniqueResults = new Set(results.map(r => r.join(',')));
+            if (uniqueResults.size === results.length) {
+                log('✅ Все результаты уникальны', 'success');
+            } else {
+                log('⚠️ Найдены повторяющиеся результаты', 'error');
+            }
+            
+            // Проверяем, что все элементы присутствуют
+            const allValid = results.every(result => {
+                const sorted = [...result].sort();
+                return JSON.stringify(sorted) === JSON.stringify([1, 2, 3, 4, 5]);
+            });
+            
+            if (allValid) {
+                log('✅ Все результаты содержат правильные элементы', 'success');
+            } else {
+                log('❌ Некоторые результаты содержат неправильные элементы!', 'error');
+            }
+        }
+        
+        function testPlaylist() {
+            log('🎵 Тестирую с плейлистом...', 'info');
+            
+            const playlist = [
+                { id: 0, name: 'Track 1', url: 'track1.mp3' },
+                { id: 1, name: 'Track 2', url: 'track2.mp3' },
+                { id: 2, name: 'Track 3', url: 'track3.mp3' },
+                { id: 3, name: 'Track 4', url: 'track4.mp3' },
+                { id: 4, name: 'Track 5', url: 'track5.mp3' }
+            ];
+            
+            log('Оригинальный плейлист:');
+            playlist.forEach((track, i) => {
+                log(`  ${i}: ${track.name} (ID: ${track.id})`);
+            });
+            
+            const shuffled = shufflePlayList(playlist);
+            
+            log('Перемешанный плейлист:');
+            shuffled.forEach((track, i) => {
+                log(`  ${i}: ${track.name} (ID: ${track.id})`);
+            });
+            
+            // Проверяем, что ID остались правильными
+            const originalIds = playlist.map(t => t.id);
+            const shuffledIds = shuffled.map(t => t.id);
+            const sortedOriginalIds = [...originalIds].sort();
+            const sortedShuffledIds = [...shuffledIds].sort();
+            
+            if (JSON.stringify(sortedOriginalIds) === JSON.stringify(sortedShuffledIds)) {
+                log('✅ ID треков сохранены правильно', 'success');
+            } else {
+                log('❌ ID треков изменены!', 'error');
+            }
+        }
+        
+        // Автоматический запуск при загрузке страницы
+        window.onload = function() {
+            log('📋 Страница загружена. Готов к тестированию исправленной функции.', 'info');
+        };
+    </script>
+</body>
+</html> 

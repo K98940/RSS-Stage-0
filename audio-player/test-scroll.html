@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест автоматического скролла</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .success {
+            color: green;
+            background: #e6ffe6;
+            padding: 10px;
+            border-radius: 3px;
+        }
+        .info {
+            background: #e6f3ff;
+            padding: 10px;
+            border-radius: 3px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .container-tracks {
+            width: 100%;
+            height: 200px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 20px 0;
+        }
+        .track {
+            padding: 10px;
+            margin: 5px 0;
+            background: #f8f9fa;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .track:hover {
+            background: #e9ecef;
+        }
+        .track.active {
+            background: #007bff;
+            color: white;
+        }
+        .scroll-info {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Тест автоматического скролла к треку</h1>
+    
+    <div class="test-section">
+        <h2>Инструкции</h2>
+        <div class="info">
+            <ol>
+                <li>Прокрутите список треков вниз</li>
+                <li>Нажмите кнопку "Переключить на трек"</li>
+                <li>Наблюдайте автоматический скролл к выбранному треку</li>
+                <li>Попробуйте разные треки</li>
+            </ol>
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Управление</h2>
+        <button onclick="switchToTrack(0)">Переключить на трек 1</button>
+        <button onclick="switchToTrack(5)">Переключить на трек 6</button>
+        <button onclick="switchToTrack(10)">Переключить на трек 11</button>
+        <button onclick="switchToTrack(15)">Переключить на трек 16</button>
+        <button onclick="switchToTrack(19)">Переключить на трек 20</button>
+        <button onclick="scrollToTop()">Скролл в начало</button>
+        <button onclick="scrollToBottom()">Скролл в конец</button>
+    </div>
+    
+    <div class="scroll-info">
+        <strong>Информация о скролле:</strong>
+        <div id="scroll-info">Готов к тестированию</div>
+    </div>
+    
+    <div class="container-tracks" id="tracks">
+        <!-- Треки будут добавлены динамически -->
+    </div>
+    
+    <div class="test-section">
+        <h2>Результаты тестов</h2>
+        <div id="results"></div>
+    </div>
+
+    <script>
+        let currentTrack = 0;
+        const totalTracks = 25;
+        
+        function log(message, type = 'info') {
+            const resultsDiv = document.getElementById('results');
+            const timestamp = new Date().toLocaleTimeString();
+            const color = type === 'error' ? 'red' : type === 'success' ? 'green' : 'black';
+            resultsDiv.innerHTML += `<div style="color: ${color}">[${timestamp}] ${message}</div>`;
+            resultsDiv.scrollTop = resultsDiv.scrollHeight;
+        }
+        
+        function updateScrollInfo() {
+            const container = document.getElementById('tracks');
+            const info = document.getElementById('scroll-info');
+            const scrollTop = container.scrollTop;
+            const scrollHeight = container.scrollHeight;
+            const clientHeight = container.clientHeight;
+            const scrollPercentage = Math.round((scrollTop / (scrollHeight - clientHeight)) * 100);
+            
+            info.innerHTML = `
+                Позиция скролла: ${scrollTop}px / ${scrollHeight - clientHeight}px (${scrollPercentage}%)<br>
+                Текущий трек: ${currentTrack + 1}<br>
+                Видимые треки: ${Math.ceil(clientHeight / 50)} из ${totalTracks}
+            `;
+        }
+        
+        function createTracks() {
+            const container = document.getElementById('tracks');
+            let html = '';
+            
+            for (let i = 0; i < totalTracks; i++) {
+                html += `
+                    <div class="track" id="track-${i}" onclick="selectTrack(${i})">
+                        <strong>Трек ${i + 1}</strong><br>
+                        <small>Длительность: ${Math.floor(Math.random() * 5) + 1}:${String(Math.floor(Math.random() * 60)).padStart(2, '0')}</small>
+                    </div>
+                `;
+            }
+            
+            container.innerHTML = html;
+        }
+        
+        function selectTrack(trackId) {
+            // Убираем активный класс со всех треков
+            document.querySelectorAll('.track').forEach(track => {
+                track.classList.remove('active');
+            });
+            
+            // Добавляем активный класс к выбранному треку
+            const selectedTrack = document.getElementById(`track-${trackId}`);
+            if (selectedTrack) {
+                selectedTrack.classList.add('active');
+            }
+            
+            currentTrack = trackId;
+            updateScrollInfo();
+            
+            log(`Выбран трек ${trackId + 1}`, 'success');
+        }
+        
+        function switchToTrack(trackId) {
+            currentTrack = trackId;
+            selectTrack(trackId);
+            scrollToTrack(trackId);
+            log(`Переключение на трек ${trackId + 1}`, 'info');
+        }
+        
+        function scrollToTop() {
+            const container = document.getElementById('tracks');
+            container.scrollTo({ top: 0, behavior: 'smooth' });
+            log('Скролл в начало', 'info');
+        }
+        
+        function scrollToBottom() {
+            const container = document.getElementById('tracks');
+            container.scrollTo({ 
+                top: container.scrollHeight, 
+                behavior: 'smooth' 
+            });
+            log('Скролл в конец', 'info');
+        }
+        
+        /**
+         * Функция для автоматического скролла к текущему треку
+         * @param {number} trackID - ID текущего трека
+         */
+        function scrollToTrack(trackID) {
+            const tracksContainer = document.getElementById('tracks');
+            const currentTrackElement = tracksContainer.querySelector(`#track-${trackID}`)
+            
+            if (!currentTrackElement) {
+                log(`❌ Трек ${trackID + 1} не найден`, 'error');
+                return;
+            }
+            
+            // Вычисляем позицию для скролла
+            const containerRect = tracksContainer.getBoundingClientRect();
+            const trackRect = currentTrackElement.getBoundingClientRect();
+            
+            // Проверяем, видим ли трек в контейнере
+            const isVisible = (
+                trackRect.top >= containerRect.top &&
+                trackRect.bottom <= containerRect.bottom
+            );
+            
+            log(`Трек ${trackID + 1} видим: ${isVisible}`, 'info');
+            
+            // Если трек не видим, скроллим к нему
+            if (!isVisible) {
+                // Вычисляем позицию скролла
+                const scrollTop = currentTrackElement.offsetTop - tracksContainer.offsetTop - (containerRect.height / 2) + (trackRect.height / 2);
+                
+                // Плавный скролл к треку
+                tracksContainer.scrollTo({
+                    top: Math.max(0, scrollTop),
+                    behavior: 'smooth'
+                });
+                
+                log(`✅ Скролл к треку ${trackID + 1}`, 'success');
+            } else {
+                log(`ℹ️ Трек ${trackID + 1} уже видим`, 'info');
+            }
+        }
+        
+        // Инициализация при загрузке страницы
+        window.onload = function() {
+            createTracks();
+            selectTrack(0);
+            
+            // Обновляем информацию о скролле при прокрутке
+            document.getElementById('tracks').addEventListener('scroll', updateScrollInfo);
+            
+            log('📋 Страница загружена. Готов к тестированию скролла.', 'info');
+        };
+    </script>
+</body>
+</html> 
