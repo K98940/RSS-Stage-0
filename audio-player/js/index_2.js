@@ -9,11 +9,11 @@ const renderPlayList = (container, playList) => {
   // Убираем автоматическую загрузку всех файлов для получения длительности
   // Длительность будет загружаться по требованию или при первом воспроизведении
   
-  const html = playList.map((track, i) => `
+  const html = playList.map((track) => `
       <div class="track">
-        <input id="track-${i}" type="radio" ${i === state.audio.currentTrack?.id ? 'checked' : ''} name="track" value="${i}">
-        <label for="track-${i}" title="${track.name}">
-          <span title="${track.name}">${track.name}</span><span id="track-duration-${i}">--:--</span>
+        <input id="track-${track.id}" type="radio" ${track.id === state.audio.currentTrack?.id ? 'checked' : ''} name="track" value="${track.id}">
+        <label for="track-${track.id}" title="${track.name}">
+          <span title="${track.name}">${track.name}</span><span id="track-duration-${track.id}">--:--</span>
         </label>
       </div>`)
   container.innerHTML = html.join('')
@@ -109,7 +109,7 @@ async function initializeApp() {
     
     // Скролл к первому треку при инициализации
     if (playList.length > 0) {
-      scrollToTrack(0)
+      scrollToTrack(state.audio.currentTrack)
     }
   } catch (error) {
     console.error('❌ Ошибка при инициализации приложения:', error)
