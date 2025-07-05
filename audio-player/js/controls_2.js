@@ -1,5 +1,5 @@
 import { state, playList } from './state_2.js'
-import { getRandomIndex } from './utils.js'
+import { getRandomIndex, scrollToTrack } from './utils.js'
 
 export const convertSecondsToTime = (sec) => {
   const min = Math.floor(sec / 60)
@@ -38,6 +38,10 @@ const setTrack = (toward) => {
   state.audio.currentTrack = playList[trackID]
   audio.src = state.audio.currentTrack.url
   setStyles(playList[trackID])
+  
+  // Автоматический скролл к текущему треку
+  scrollToTrack(trackID)
+  
   if (state.audio.isPlay) audio.play()
 }
 

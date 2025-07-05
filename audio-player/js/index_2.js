@@ -1,5 +1,6 @@
 import { state, playList, initializePlayList } from './state_2.js'
 import { controlsInit, convertSecondsToTime, setStyles } from './controls_2.js'
+import { scrollToTrack } from './utils.js'
 
 const tracksContainer = document.getElementById('tracks')
 const [audio] = controlsInit()
@@ -82,6 +83,9 @@ tracksContainer.addEventListener('click', (e) => {
   const track = e.target.value
   state.audio.currentTrack = playList[track]
   setCurrentTrack()
+  
+  // Автоматический скролл к выбранному треку
+  scrollToTrack(track)
 })
 
 // Функция инициализации приложения
@@ -102,6 +106,11 @@ async function initializeApp() {
     }
     
     renderPlayList(tracksContainer, playList)
+    
+    // Скролл к первому треку при инициализации
+    if (playList.length > 0) {
+      scrollToTrack(0)
+    }
   } catch (error) {
     console.error('❌ Ошибка при инициализации приложения:', error)
   }
