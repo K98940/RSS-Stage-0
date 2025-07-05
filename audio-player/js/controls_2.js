@@ -16,28 +16,26 @@ const setTrack = (toward) => {
   if (state.audio.isPlay) audio.pause()
   const tracksContainer = document.getElementById('tracks')
   let trackID = state.audio.currentTrack.id
+  let nextIndex = null
 
   let row = tracksContainer.querySelector(`input[id="track-${trackID}"]`)
+  const trackIndex = playList.findIndex((t) => t?.id == trackID) || 0
   if (row) row.checked = false
 
   if (toward) {
-    trackID += 1
-    if (trackID >= playList.length) {
-      trackID = 0
-    }
+    nextIndex = trackIndex < playList.length - 1 ? trackIndex + 1 : 0
   } else {
-    trackID -= 1
-    if (trackID < 0) {
-      trackID = playList.length - 1
-    }
+    nextIndex = trackIndex == 0 ? playList.length - 1 : trackIndex - 1
   }
+
+  trackID = playList[nextIndex]?.id || 0
 
   row = tracksContainer.querySelector(`input[id="track-${trackID}"]`)
   if (row) row.checked = true
   
-  state.audio.currentTrack = playList[trackID]
+  state.audio.currentTrack = playList[nextIndex]
   audio.src = state.audio.currentTrack.url
-  setStyles(playList[trackID])
+  setStyles(playList[nextIndex])
   
   // Автоматический скролл к текущему треку
   scrollToTrack(trackID)
